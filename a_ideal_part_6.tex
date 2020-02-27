@@ -260,19 +260,15 @@ O pewnym twierdzeniu na temat Bardzo Waznego Problemu
 
 \section{Preliminaries}
 The definition of condition $(a)$ was first introduced by Marcin Grande in 2001 in the paper
-\cite{MarcinGrande}. He used it to 
-Namely, he characterized the set of discontinuity points of some approximately contionuous function f with property
+\cite{MarcinGrande}. Namely, he characterized the set of discontinuity points of some approximately contionuous function f with property
 (s1) (see \cite{MarcinGrande}) in terms of so called $(a)$ condition:
-for each nonempty set U 2 ?d contained in the closure cl(A) of the set A the
-set U \ A is nowhere dense in U.
+For each set $U\in\tau_d\lbrace\emptyset\rbrace$ contained in the closure $\cl(A)$ of the set $A$ the
+set $U \cap A$ is nowhere dense in $U$.
 In 2003 Zbigniew Grande and Ewa Stronska proved that the family of all sets satisfying
-the condition (a) is an ideal of sets, which is G??- but not F?-generated (see
-[GS]). They also observed that every set satisfying condition (a) is nowhere dense
+the condition (a) is an ideal of sets, which is G_{\delta\sigma}-generated, but not F_{\sigma}-generated 
+(see [GS]). They also observed that every set satisfying condition (a) is nowhere dense
 and of Lebeque measure zero. Answering the question of Grande and Stronska,
-in 2011 Frankowska and Nowik proved that ideal (a) is not G?-generated ([FN2]).
-They first proved this in the case of the ideal (a) defined on the Cantor set 2N
-([FN1]). In fact, they proved that the ideals (a) are not F??-generated; it was not
-stated there explicitly but it can be easily extracted from the proofs.
+in 2011 Frankowska and Nowik proved that ideal (a) is not G_{\delta}-generated ([FN2]).
 
 \section{Definitions and Notation}
 
@@ -302,8 +298,9 @@ exists $W \in \tau\lbrace\emptyset\rbrace$ such that
 $W \subseteq V$ and $W \cap A = \emptyset$.  
 
 \end{proof}
-Moreover , let us notice that the collection 
-
+Moreover , let us notice that the collection of sets $A$ such that 
+$\exists_{V\in\tau\setminus\lbrace\emptyset\rbrace}  \int (A \bigtriangleup V) = \emptyset$.
+is the same collection of sets $A$ such that $\int\cl(A) \not\emptyset$. Indeed, (...)%%%TODO: completa este! 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                         %
 %                      Main part                                          %
