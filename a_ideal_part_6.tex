@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                       %
-%                          Szablon                                      %
+%                  praca o ideale (a)                                   %
 %                                                                       %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\documentclass[12pt]{article}
@@ -276,17 +276,22 @@ $(A)(\tau_1, \tau_2) = \{ Z \subseteq X \colon
 \section{Results}
 
 \begin{theorem}
-Assume that $\cK$ is a collection of subsets of $\real$ such
-that each element $\cK$ has an empty interior:
-$\forall_{K\in\cK} \int(K) = \emtpyset$.
+%%%%Assume that $\cK$ is a collection of subsets of $\real$ such that each element $\cK$ has an empty interior: $\forall_{K\in\cK} \int(K) = \emtpyset$.
 Suppose that $\tau_2$ is a topology on $\real$ stronger than $\tau$ 
 such that 
-$\forall_{U \in \tau_2\setminus\lbrace \emtpyset \rbrace} \exists_{V\in\tau} \exists_{K_1, K_2 \in \cK} U = V \setminus K_1 \cup K_2 $.
+$\forall_{U \in \tau_2\setminus\lbrace \emtpyset \rbrace} \exists_{V\in\tau\setminus\lbrace\emptyset\rbrace}  \int (U \bigtriangleup V) = \emptyset$.
 Then $(A)(\tau, \tau_2) = ND(\tau)$.
 \end{theorem}
 									
-\begin{proof}
+\begin{proof}   
+Suppose $A \in \ND(\real)$ and let $U \in \tau_2\setminus\lbrace \emtpyset \rbrace$.
+Then there exists $V\in\tau\setminus\lbrace\emptyset\rbrace}$ such that
+$\int (U \bigtriangleup V) = \emptyset$. Since $A$ is nowhere dense, there
+exists $W \in \tau\lbrace\emptyset\rbrace$ such that
+$W \subseteq V$ and $W \cap A = \emptyset$.  
+
 \end{proof}
+Moreover , let us notice that the collection 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                         %
