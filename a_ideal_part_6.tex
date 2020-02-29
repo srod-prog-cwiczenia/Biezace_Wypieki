@@ -178,7 +178,8 @@
 \newcommand{\ee}{\varepsilon}
 \newcommand{\kk}{\kappa}
 %%%\newcommand{\th}{\theta}
-
+%%%% makra specyficzne dla tej pracy:
+\newcommand{\aideal}{\mathit{(a)}}
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
@@ -231,15 +232,6 @@ Wita Stwosza 57,
 80--952 Gda\'nsk, Poland \\
 }
 \email[A.~Nowik]{andrzej.nowik@ug.edu.pl}
-\author{Drugi Autor}
-\address[]{
-Drugi Autor\\
-University of Gda\'nsk \\
-Institute of Mathematics \\
-Wita Stwosza 57,
-80--952 Gda\'nsk, Poland \\
-}
-\email[D.~Autor]{drugi.autor@ug.edu.pl}
 
 \begin{document}
 \title[
@@ -253,8 +245,7 @@ O pewnym twierdzeniu na temat Bardzo Waznego Problemu
 \subjclass[2010]{03E05, 54D05, 54H05, 54A05, 11A41, 11B05, 11B25}
 
 \begin{abstract}
-\lipsum[1]
-%%%\dummy
+\dummy
 \end{abstract}
 
 \maketitle
@@ -274,9 +265,30 @@ in 2011 Frankowska and Nowik proved that ideal $(a)$ is not $G_{\delta}$-generat
 Various further properties of the ideal $(a)$ were investigated in \cite{N}
 %%%, see also [3].
 where there was also defined a general version of the ideal for another
-topologies. Namely, (...)
+topologies. Namely, assume
+that $(X, \tau_1,\tau_2)$ is a bitopological space 
+(i.e. $\tau_1$ and $\tau_2$ are topologies on $X$, 
+see \cite{D} or )
+such that $\tau_1$ is coarser than $\tau_2$:
+$\tau_1 \subseteq \tau_2$. Then 
+define $\aideal(\tau_1, \tau_2) = \{ A \subseteq X \colon
+\forall_{U \in \tau_2 \setminus \{ \emptyset\}}
+\exists_{W \in \tau_1} U \cap W \not= \emptyset \wedge
+U \cap W \cap A = \emptyset\}$.
+
+(...)
 
 \section{Definitions and Notation}
+
+It is well known that the field defined via
+Marczewski-Burstin representation:
+$\lbrace A \subseteq \real\colon 
+\forall_{U \in \tau_e \setminus \lbrace \emptyset \rbrace}
+\exists_{V \in \tau_e \setminus \lbrace \emptyset \rbrace \atop V \subseteq U}
+V \subseteq A \vee V \cap A = \emptyset\rbrace$
+is the field of sets of form $U \bigtriangleup E$
+where $U$ is open and $E$ is nowhere dense.
+This leads to the following definition:
 
 Let us define 
 \begin{definition}
@@ -289,18 +301,20 @@ $(A)(\tau_1, \tau_2) = \{ Z \subseteq X \colon
 \section{Results}
 
 \begin{theorem}
-%%%%Assume that $\cK$ is a collection of subsets of $\real$ such that each element $\cK$ has an empty interior: $\forall_{K\in\cK} \int(K) = \emptyset$.
+Denote by $\cK$ a collection of subsets of the real line:
+$\lbrace A \subseteq \real \colon 
+\exists_{V\in\tau\setminus\lbrace\emptyset\rbrace}  
+\mathint (A \bigtriangleup V) = \emptyset\rbrace$.
+
 Suppose that $\tau_2$ is a topology on $\real$ stronger than $\tau$ 
 such that 
-$\forall_{U \in \tau_2\setminus\lbrace \emptyset \rbrace} 
-\exists_{V\in\tau\setminus\lbrace\emptyset\rbrace}  
-\mathint (U \bigtriangleup V) = \emptyset$.
-Then $(A)(\tau, \tau_2) = ND(\tau)$.
+$\tau_2\setminus\lbrace \emptyset \rbrace \subseteq \cK$.
+Then $\aideal(\tau, \tau_2) = ND(\tau)$.
 \end{theorem}
 									
 \begin{proof}  
 Let us notice that the condition $\mathint (U \bigtriangleup V) = \emptyset$
-is equivalent to the condition that $U = V \setminus B_1 \cup B_2$,
+is equivalent to the condition that $U = (V \setminus B_1) \cup B_2$,
 where $\mathint(B_1) = \mathint(B_2) = \emptyset$ (notice that the 
 collection of sets with an empty interior is not an ideal).
 This follows easily since $V$ is an open set.
@@ -314,7 +328,12 @@ $W \subseteq V$ and $W \cap A = \emptyset$.
 \end{proof}
 Moreover , let us notice that the collection of sets $A$ such that 
 $\exists_{V\in\tau\setminus\lbrace\emptyset\rbrace}  \mathint (A \bigtriangleup V) = \emptyset$.
-is the same collection of sets $A$ such that $\mathint\cl(A) \not\emptyset$. Indeed, (...)%%%TODO: completa este! 
+is the same collection of sets $A$ such that $\mathint\cl(A) \not\emptyset$. 
+Indeed, we have that $\mathint(A \setminus \mathint\cl(A)) = \emptyset$
+and 
+$\mathint(\mathint\cl(A) \setminus A) = \emptyset$, so 
+if $\mathint\cl(A) \not\emptyset$ then $A\in \cK$ 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                         %
 %                      Main part                                          %
@@ -324,6 +343,11 @@ is the same collection of sets $A$ such that $\mathint\cl(A) \not\emptyset$. Ind
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{10}
+\bibitem[D]{D}
+  B. P. Dvalishvili, \emph{Bitopological Spaces: Theory, 
+Relations with Generalized Algebraic Structures, and Applications}.
+North-Holland Mathematics Studies, \textbf{199}. 
+Elsevier Science B.V., Amsterdam, 2005.
 \bibitem{MarcinGrande} M.~Grande, \emph{On the sets of discontinuity points of functions satisfying some approximate
 quasi- continuity conditions}, Real Anal. Exchange \textbf{27(2)} (2001-2002), 773--781.
 \bibitem[G]{G}
@@ -333,17 +357,20 @@ some approximate quasicontinuity conditions},
 \bibitem[Gl]{Gl}
 S.G\l{}\c{a}b
 {\em Descriptive properties related to porosity and density for compact sets on the real line,}
-Acta Math. Hungar., 116 (1-2) (2007), 61-71.
+Acta Math. Hungar., 116 (1-2) (2007), 61--71.
 \bibitem[GS]{GS}
-  Z.Grande, E.Stro\'nska, {\em On an ideal of linear sets},
+  Z.Grande, E.Stro\'nska, \emph{On an ideal of linear sets},
 Demonstratio Mathematica, Vol. 36, No 2, (2003), 
 307 -- 311.
+\bibitem[Kelly]{Kelly}
+J.C.Kelly, \emph{Bitopological spaces.} Proc. Lond. Math. Soc. 
+\textbf{(3) 13} (1963), 71--89.
 \bibitem[Ke]{Ke}
 {A. S. Kechris}, {\em Classical Descriptive Set Theory}, Springer, Berlin,
 1995. 
 \bibitem[N]{N}
   A. Nowik, {\em Notes on the ideal $(a)$},
-{Tatra Mountains Mathematical Publications,} 46 (2010), 41 - 45.
+{Tatra Mountains Mathematical Publications,} 46 (2010), 41--45.
 \bibitem[T]{T}
  F.D.Tall, {\em The density topology,}
 {Pacific J. Math.,} Vol 62, Number 1 (1976), 275 - 284
