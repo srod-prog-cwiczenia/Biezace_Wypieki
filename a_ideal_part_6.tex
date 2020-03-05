@@ -180,6 +180,8 @@
 %%%\newcommand{\th}{\theta}
 %%%% makra specyficzne dla tej pracy:
 \newcommand{\aideal}{\mathit{(a)}}
+\newcommand{\topWithoutEmptyset}[1]{#1\setminus\lbrace\emptyset\rbrace}
+\newcommand{\ND}{\mathsf{ND}}
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
@@ -272,7 +274,7 @@ see \cite{D} or )
 such that $\tau_1$ is coarser than $\tau_2$:
 $\tau_1 \subseteq \tau_2$. Then 
 define $\aideal(\tau_1, \tau_2) = \{ A \subseteq X \colon
-\forall_{U \in \tau_2 \setminus \{ \emptyset\}}
+\forall_{U \in \topWithoutEmptyset{\tau_2}}
 \exists_{W \in \tau_1} U \cap W \not= \emptyset \wedge
 U \cap W \cap A = \emptyset\}$.
 
@@ -313,26 +315,40 @@ Then $\aideal(\tau, \tau_2) = ND(\tau)$.
 \end{theorem}
 									
 \begin{proof}  
-Let us notice that the condition $\mathint (U \bigtriangleup V) = \emptyset$
-is equivalent to the condition that $U = (V \setminus B_1) \cup B_2$,
-where $\mathint(B_1) = \mathint(B_2) = \emptyset$ (notice that the 
-collection of sets with an empty interior is not an ideal).
-This follows easily since $V$ is an open set.
+Notice that the collection of sets with an empty interior is not an ideal, but
+still we have that $\cK = \lbrace (V \setminus B_1) \cup B_2\colon
+\mathint(B_1) = \mathint(B_2) = \emptyset, 
+V\in\topWithoutEmptyset{\tau}\rbrace$.
 %%%TODO: czy jednak nie przydaloby sie tutaj jakies uzasadnienie?
-Suppose $A \in \mathsf{ND}(\real)$ and let $U \in \tau_2\setminus\lbrace \emptyset \rbrace$.
-Then there exists $V\in\tau\setminus\lbrace\emptyset\rbrace$ such that
-$\mathint (U \bigtriangleup V) = \emptyset$. Since $A$ is nowhere dense, there
-exists $W \in \tau\lbrace\emptyset\rbrace$ such that
-$W \subseteq V$ and $W \cap A = \emptyset$.  
-
+Suppose $A \in \mathsf{ND}(\real)$ and let $W \in \tau_2\setminus\lbrace \emptyset \rbrace$.
+Then there exists $V\in\topWithoutEmptyset{\tau}$ such that
+$\mathint (W \bigtriangleup V) = \emptyset$. Since $A$ is nowhere dense, there
+exists $U \in \topWithoutEmptyset{\tau}$ such that
+$U \subseteq V$ and $U \cap A = \emptyset$. Then
+$\mathint(U \setminus W) \subseteq \mathint(V \setminus W) = \emptyset$,
+hence $U \cap W \not= \emptyset$. Thus $A \in \aideal(\tau, \tau_2)$.
+On the other hand, we always have $\aideal(\tau, \tau_2) \subseteq ND(\tau)$,
+which finishes the proof.
 \end{proof}
-Moreover , let us notice that the collection of sets $A$ such that 
-$\exists_{V\in\tau\setminus\lbrace\emptyset\rbrace}  \mathint (A \bigtriangleup V) = \emptyset$.
-is the same collection of sets $A$ such that $\mathint\cl(A) \not\emptyset$. 
-Indeed, we have that $\mathint(A \setminus \mathint\cl(A)) = \emptyset$
+
+Moreover, let us notice that the collection $\cK$ 
+is the collection of sets $A$ such that $\mathint(\cl(A)) \not=\emptyset$. 
+Indeed, we have that $\mathint(A \setminus \mathint(\cl(A))) = \emptyset$
 and 
-$\mathint(\mathint\cl(A) \setminus A) = \emptyset$, so 
-if $\mathint\cl(A) \not\emptyset$ then $A\in \cK$ 
+$\mathint(\mathint(\cl(A)) \setminus A) = \emptyset$, so 
+if $\mathint(\cl(A)) \not= \emptyset$ then $A\in \cK$.
+
+On the other hand, suppose that $A \in \cK$, so
+there exists $B_1, B_2 \subseteq \real$ and 
+$V\in\topWithoutEmptyset{\tau}\rbrace$
+such that 
+$\mathint(B_1) = \mathint(B_2) = \emptyset$
+and  
+$A = (V \setminus B_1) \cup B_2$. 
+Then 
+$\mathint(\cl(A)) \supseteq 
+\mathint(\cl(V \setminus B_1)) = \mathint(\cl(V)) \supseteq V \not= \emptyset$.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                         %
