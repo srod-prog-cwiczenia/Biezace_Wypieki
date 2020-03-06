@@ -18,9 +18,9 @@
 \usepackage{eqlist}
 \usepackage{amsthm}
 %%%%%%%%%%%%%%% Polish letter packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage[polish]{babel}
-%\usepackage[utf8]{inputenc}
-%\usepackage{t1enc}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{t1enc}
 %%% pakiet do generowania belkotu (wypelniacza):
 \usepackage{lipsum}
 %---------------------------------------------------------------------
@@ -182,6 +182,7 @@
 \newcommand{\aideal}{\mathit{(a)}}
 \newcommand{\topWithoutEmptyset}[1]{#1\setminus\lbrace\emptyset\rbrace}
 \newcommand{\ND}{\mathsf{ND}}
+\newcommand{\biMB}{bi-Marczewski-Burstin}
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
@@ -362,25 +363,43 @@ Assume that $\cF_1$ and $\cF_2$ are MB - families of nonempty
 subsets of $\real$ such that:
 \begin{enumerate}	
 \item
+\label{mb-condition-subset}
   $\cF_1 \subseteq \cF_2$
 \item 
+\label{mb-condition-f1}
   $\forall_{E,F \in \cF_1} E \cap F \not= \emptyset \implies E \cap F \in \cF_1$
 \item
-  $\forall_{E \in cF_1} \forall_{W \in \cF_2} E \cap W \not= \emptyset \implies E \cap W \in \cF2$  
+\label{mb-condition-f1f2}
+  $\forall_{E \in cF_1} \forall_{W \in \cF_2} E \cap W \not= \emptyset \implies E \cap W \in \cF_2$  
 \end{enumerate}	
 
-Analogicznie do przestrzeni bitopologicznych, strukturê
-$\langle \cF_1, \cF_2 \rangle$ nazywamy {\it bisystemem MB}.
-
-
+Analogicznie do przestrzeni bitopologicznych, strukturÄ™
+$\langle \cF_1, \cF_2 \rangle$ we call a {\it\biMB} system.
 
 \begin{theorem}
-Niech $\langle \cF_1, \cF_2 \rangle$ bêdzie bisystemem MB.
-Wówczas rodzina 
-$\aideal(\cF_1, \cF_2) = (...)$ 
-\end{theorem}																								  
+Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB system.
+Then the collection
+$\aideal(\cF_1, \cF_2) = \lbrace A \subseteq \real\colon 
+\forall_{W\in \cF_2} \exists_{U \in \cF_1}
+W \cap U \not= \emptyset \wedge W \cap U \cap A = \emptyset
+\rbrace$ 
+is an ideal. 
+\end{theorem}
+\begin{proof}
+It suffices only to check that if $A, B \in \aideal(\cF_1, \cF_2)$ then
+$A\cup B \in \aideal(\cF_1, \cF_2)$.
+So suppose that $W \in \cF_2$, then there exists $U\in\cF_1$
+such that 
+$W \cap U \not= \emptyset$ and $W \cap U \cap A = \emptyset$.
+By condition \ref{mb-condition-f1f2} 
+we know that $W \cap U \in \cF_2$ so
+we conclude that
+there exists a set $V \in \cF_1$ such that
+$W \cap U \cap V \not= \emptyset$ and $W \cap U \cap V \cap A = \emptyset$.
+Since by condition \ref{mb-condition-f1} we know that 
+$U \cap V \in \cF_1$, this ends the proof.
 
-
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
