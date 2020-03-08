@@ -1,0 +1,481 @@
+
+
+\documentclass[12pt]{article}
+
+%---------------------------------------------------------------------
+% AMS packages 
+%---------------------------------------------------------------------
+ 
+% Packiet loaded automatically by amsart:
+%  1. amsmath, 2. amsthm, 3. amsfonts.
+ 
+\usepackage{amssymb}
+\usepackage{amsmath}
+ 
+% *** 'amsfonts': 
+% boldface of the symbol of the real line: 'R'
+\usepackage{amsfonts}
+ 
+% *** 'amsthm': 
+% 1. makes easy to modify the macro: \newtheorem{}{} since contains
+% \theoremstyle{}
+% 2. contains macro: \begin{proof} ... \end{proof}
+\usepackage{amsthm} 
+
+
+%%%%%%%%%%%%%%% Polish letter packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{t1enc}
+ 
+%---------------------------------------------------------------------
+% Theorems 
+%---------------------------------------------------------------------
+ 
+% Theorem style 'plain' are for: Theorem, Lemma, Corollary, 
+% Proposition, Conjecture, Criterion, Algorithm  
+\theoremstyle{plain} 
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{corollary}[theorem]{Corollary} 
+\newtheorem{conclusion}[theorem]{Corollary} 
+\newtheorem{claim}[theorem]{Claim} 
+\newtheorem{fact}[theorem]{Fact} 
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{axiom}{Axiom} 
+ 
+% Theorem style 'definition' are for: Definition, Condition, Problem, 
+% Example 
+ 
+\theoremstyle{definition} 
+\newtheorem{definition}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example} 
+\newtheorem{exercise}{Exercise} 
+\newtheorem*{solution}{Solution} 
+ 
+% Theorem style 'remark' are for: Remark, Note, Notation, Claim, 
+% Summary, Acknowledgement, Case, Conclusion 
+ 
+\theoremstyle{remark} 
+\newtheorem*{remark}{Remark} 
+\newtheorem*{notation}{Notation} 
+\newtheorem*{acknowledgement}{Acknowledgement} 
+
+%%%%%%%%%%%%%%%%%  The previous one %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{observation}[theorem]{Observation}
+%\newtheorem{conclusion}[theorem]{Conclusion}
+%\newtheorem{question}[theorem]{Question}
+%\newtheorem{problem}[theorem]{Problem}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{definition}[theorem]{Definiton}
+%\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{fact}[theorem]{Fact}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{remark}[theorem]{Remark}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%A
+\newcommand{\afc}{AFC}
+\newcommand{\afcbar}{\overline{AFC}}
+\newcommand{\arr}{\rightarrow}
+\newcommand{\Arr}{\Rightarrow}
+
+%B
+\newcommand{\baire}{\omega^{\omega}}
+\newcommand{\Bor}{\mbox{${\cal B}or$}}
+%Previous seems to be much finer than next.
+%\newcommand{\Bor}{{\it Bor}}
+\newcommand{\borelucrz}{Borel-UCR_0}
+
+%C
+\newcommand{\ca}{2^{\omega}}
+\newcommand{\cantor}{\ca}
+\newcommand{\Card}[1]{\Vert #1 \Vert}
+
+%D
+\newcommand{\dom}{{\rm dom}}
+\newcommand{\dummy}{{\tt Blah blah blah}}
+
+%E
+\newcommand{\Even}{\hbox{\rm \tiny Even}}
+
+%F
+\newcommand{\finsub}{[\omega]^{<\omega}}
+\newcommand{\forces}{\mathrel{\|}\joinrel\mathrel{-}}
+
+%G
+\newcommand{\Graph}{\hbox{\it Graph}}
+
+%H
+\newcommand{\homeomorphic}{\approx}
+
+%I
+\newcommand{\incr}{\omega^{\uparrow \omega }}
+\newcommand{\infsub}{[\omega]^{\omega}}
+
+%L
+\newcommand{\la}{\langle}
+
+%M
+\newcommand{\meager}{{\cal MGR}}
+\newcommand{\minideal}{${\cal F}_{\hbox{\rm \scriptsize min}}(\neg
+  D)\;$}
+
+%N
+\newcommand{\neglig}{{\cal N}}
+\newcommand{\nnatural}{\mathbb{N}}
+
+%O
+\newcommand{\Odd}{\hbox{\rm \tiny Odd}}
+
+%P
+\newcommand{\Proof}[1]{\bigbreak\noindent{\bf Proof #1}\enspace}
+
+%Q
+%%%\newcommand{\qed}{{\hfill\vrule height6pt width6pt depth1pt\medskip}}
+%\newcommand{\qed}{\sharp}
+\newcommand{\QED}{\hspace{0.1in} \Box \vspace{0.1in}}
+
+%R
+\newcommand{\ra}{\rangle}
+\newcommand{\ran}{{\rm ran}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\real}{\mathbb{R}}
+
+%S
+\newcommand{\seq}{\subseteq}
+%%%\newcommand{\square}{\hbox{\ \ \ \ \ \vrule\vbox{\hrule\phantom{o}\hrule}\vrule}}
+% a small restriction:
+\newcommand{\srestriction}{{\hbox{${\scriptstyle\,|\grave{}\,}$}}}
+
+%U
+\newcommand{\up}{\uparrow}
+\newcommand{\ucrz}{UCR_0}
+
+%%%%%%%%%%%%%%%%%%%%%% Calligraphic font commands %%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cA}{{\cal A}}
+\newcommand{\cB}{{\cal B}}
+\newcommand{\cC}{{\cal C}}
+\newcommand{\cD}{{\cal D}}
+\newcommand{\cE}{{\cal E}}
+\newcommand{\cF}{{\cal F}}
+\newcommand{\cG}{{\cal G}}
+\newcommand{\cH}{{\cal H}}
+\newcommand{\cI}{{\cal I}}
+\newcommand{\cJ}{{\cal J}}
+\newcommand{\cK}{{\cal K}}
+\newcommand{\cL}{{\cal L}}
+\newcommand{\cM}{{\cal M}}
+\newcommand{\cN}{{\cal N}}
+\newcommand{\cO}{{\cal O}}
+\newcommand{\cP}{{\cal P}}
+\newcommand{\cQ}{{\cal Q}}
+\newcommand{\cR}{{\cal R}}
+\newcommand{\cS}{{\cal S}}
+\newcommand{\cT}{{\cal T}}
+\newcommand{\cU}{{\cal U}}
+\newcommand{\cV}{{\cal V}}
+\newcommand{\cW}{{\cal W}}
+\newcommand{\cX}{{\cal X}}
+\newcommand{\cY}{{\cal Y}}
+\newcommand{\cZ}{{\cal Z}}
+
+%%%%%%%%%%%%%%%%%%%%%% Some Greek fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\oo}{\omega}
+\newcommand{\bb}{\beta}
+\newcommand{\dd}{\delta}
+\newcommand{\ee}{\varepsilon}
+\newcommand{\kk}{\kappa}
+\newcommand{\todo}[1]{{\tt #1}}
+%%%\newcommand{\th}{\theta}
+\newcommand{\Part}{(\omega)^{\leq\omega}}
+\newcommand{\FinPart}{(\omega)^{<\omega}}
+\newcommand{\InfPart}{(\omega)^{\omega}}
+
+\pagestyle{myheadings}
+% To see corrections comment next line and uncomment the second one
+
+\begin{document}
+Oznaczenia:
+  $\cI_{(a_n)} = \{ A \subseteq \nnatural\colon \sum_{n\in A} a_n < \infty\}$.
+Dla ideałów $\cI, \cJ$ przez $\cI \oplus \cJ$ oznaczamy ideał
+postaci $\{A \cup B\colon A \in \cI \wedge B \in \cJ\}$ (o ile jest
+to ideał właściwy).
+
+\begin{theorem}
+Niech $\sum_n \alpha_n = \infty$, $\sum_n \beta_n = \infty$,
+$\alpha_n, \beta_n \geq 0$. N.w.s.r:
+\begin{enumerate}
+\item
+  $\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} \not = P(\nnatural)$;
+\item
+  $\sum_n \min\{\alpha_n,\beta_n\} = \infty$
+\end{enumerate}
+Ponadto jeśli zachodzi warunek z podanej powyżej serii równoważnych warunków
+to $\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} = \cI_{(\gamma_n)}$,
+gdzie $\gamma_n = \min\{\alpha_n,\beta_n\}$.
+\end{theorem}
+\begin{proof}
+Załóżmy że $\sum_n \gamma_n = \infty$, gdyby 
+$\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} = P(\nnatural)$ to wtedy
+istniałaby partycja $\nnatural$ na zbiory $A \cup B$ taka, że 
+$\sum_n \alpha_n < \infty$ oraz $\sum_n \beta_n < \infty$.
+Wówczas $\sum_n \gamma_n \leq \sum_n \alpha_n + \sum_n \beta_n < \infty$,
+czyli sprzeczność z założeniem. 
+Na odwrót, załóżmy że $\sum_n \min\{\alpha_n,\beta\} < \infty$,
+definiujemy wówczas $A = \{n \in \nnatural \colon \alpha_n \leq \beta_n\}$
+i $B = \nnatural \setminus A$. Wówczas 
+$A \in \cI_{(\alpha_n)}$ oraz $B \in \cI_{(\beta_n)}$, czyli 
+$\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} = P(\nnatural)$.
+  
+Załóżmy że zachodza warunki 1. oraz 2. z pierwszej części 
+sformułowania tego twierdzenia. Niech 
+$X \in \cI_{(\alpha_n)} \oplus \cI_{(\beta_n)}$, zatem
+$X = A \cup B$, gdzie $A \in \cI_{(\alpha_n)}$,
+$B \in \cI_{(\beta_n)}$. Stąd $\sum_{n\in A} \alpha_n < \infty$, 
+$\sum_{n\in B} \beta_n < \infty$, więc 
+$\sum_{n\in X} \gamma_n \leq \sum_{n\in A} \alpha_n + \sum_{n\in B} \beta_n < \infty$.
+Na odwrót, jeśli $\sum_{n\in X} \gamma_n < \infty$, to 
+definiujemy $A = \{n\in X\colon \alpha \leq \beta \}$,
+$B = X \setminus A$. Wówczas $A \in \cI_{(\alpha_n)}$ i
+$B \in \cI_{(\beta_n)}$, więc 
+$X\in\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)}$.
+\end{proof}
+
+Uwaga: Analogicznie można sformułować wersję tego dla większej
+niż dwa (ale skończonej) liczby ideałów, np. 
+$\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} \oplus \cI_{(\gamma_n)} = \cI_{(\delta_n)}$,
+gdzie $\delta_n = \min\{\alpha_n,\beta_n, \gamma_n\}$, etc.
+
+Niech $(\alpha_n^{(k)})$ będzie podwójnym ciągiem nieujemnych liczb
+rzeczywistych. Zakładamy że zachodzi warunek
+iż dla każdego $K \in \nnatural$, 
+$\sum_n \min \{\alpha_n^{(1)}, \ldots, \alpha_n^{(K)}\} = \infty$.
+Wówczas dla każdego $K \in \nnatural$ mamy
+$\cI_{(\alpha_n^{(1)})} \oplus,\ldots,\oplus \cI_{(\alpha_n^{(K)})} \not= P(\nnatural)$.
+Możemy w takim przypadku zdefiniować ,,nieskończony zlepek'' ideałów 
+$\cI_{(\alpha_n^{(k)})}$, przepisem:			 
+	
+$\bigoplus_{i}\cI_{(\alpha_n^{(i)})} = \bigcup_{K} \cI_{(\alpha_n^{(1)})} \oplus,\ldots,\oplus \cI_{(\alpha_n^{(K)})}$.
+Tak zdefiniowany ideał jest właściwy bo jest sumą wstępującego ciągu ideałów właściwych.
+\todo{Czy to jest oczywiste? Czy to jest w ogóle prawda?}
+
+Wybieramy rosnący ciąg liczb naturalnych $(N_i)_{i\in\nnatural}$ według następującego przepisu: kładziemy $N_0 = 0$. Mając już wybrane $(N_j)_{j \leq i}$
+wybieramy $N_{i + 1} > N_{i}$ tak aby $\sum_{n = N_{i} + 1}^{N_{i+1}} \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)} \} \geq 1$.
+Definiujemy szereg: $\eta_n = \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)}\}$, gdzie $i$ jest
+takie że $n \in [N_i, N_{i+1})$. Sprawdzimy że dla każdego $i$ mamy 
+$\cI_{(\alpha_n^{(i)})} \subseteq \cI_{(\eta_n)}$.				
+Niech więc $X \subseteq \nnatural$ będzie zbiorem takim że 
+$\sum_{n\in X} \alpha_n^{(i)} < \infty$. Wówczas dla $n\in X, n > N_i$ mamy
+$\alpha_n^{(i)} \geq \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)}\} = \eta_n$.
+Stąd $\sum_{n\in X}\eta_n < \infty$.
+
+Przykład że $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ nie musi być
+równe ideałowi $\cI_{(\eta_n)}$: 
+Odpowiedni przykład podamy używając zapisu macierzowego
+(przy czym macierz interpretujemy jako zapis ciągu szeregów).
+	
+%% tutaj przydałby się jakiś formalny opis jak definujemy narysowaną poniżej macierz szeregów
+
+\[
+  \begin{bmatrix}
+         1      &           0 & 0 & 0 & 0 & 0\\
+    \frac{1}{2} &  \mathbf{0} & 0 & 0 & 0 & 0\\
+    \frac{1}{2} & \frac{1}{2} & 0 & 0 & 0 & 0\\
+    \frac{1}{2} & \frac{1}{2} & 0 & 0 & 0 & 0\\
+    \frac{1}{3} & \frac{1}{3} & \mathbf{0} & 0 & 0 & 0\\
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0\\
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0\\
+    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0\\
+    \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \mathbf{0} & 0 & 0\\
+  \end{bmatrix}
+\]
+Wówczas $N_i = \{0, 3, 7, 12, \ldots \}$ \todo{Czy to tak faktycznie jest?}.
+Niech $X = \{0, 3, 7, 12, \ldots\} = \{ \frac{4 \cdot n^2 + 5 \cdot n}{3} \colon n \in\nnatural \}$.
+Wówczas $X \in \cI_{(\eta_n)}$, zaś $X\not\in\cI_{(\alpha_n^{(i)})}$
+
+Przykład na to że $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ nie musi być
+ideałem sumowalnym:
+	
+Niech $\{A_i\colon i\in\nnatural\}$ będzie partycją $\nnatural$
+na zbiory mocy $\aleph_0$. Dla każdego $i\in\nnatural$ niech
+$(a_n^{(i)})_{n\in\nnatural}$ będzie rosnącą numeracją
+elementów zbioru $A_i$.
+Dla każdego $i\in\nnatural$
+definiujemy szereg $\sum_n \alpha_n^{(i)}$ według przepisu:
+$\alpha_n^{(i)} = 
+\left\{
+\begin{array}{cc}
+1 & \hbox{\ gdy\ } x \not\in A_i\\
+\frac{1}{n} & \hbox{\ gdy\ } x \in A_i \hbox{{\ a\ }} n 
+\hbox{{\ to\ (jedyne)\ takie\ że\ }} a_n^{(i)} = x.
+\end{array}
+\right.$
+
+Wówczas dla każdego $K \in \nnatural$ mamy: 
+$\sum_n \min \{\alpha_n^{(1)}, \ldots, \alpha_n^{(K)}\} = \infty$.
+Ponadto 
+$\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ to ideał zbiorów
+$X \subseteq \omega$ dla którego istnieje $K$
+takie że 
+$X \subseteq \bigcup_{i < K} A_i$.
+oraz gdy $i < K$ to 
+$\sum \{\frac{1}{n} \colon a_n^{(i)} \in X\} < \infty$
+
+
+Sprawdzimy że opisany powyżej ideał nie jest ideałem 
+sumowalnym. Oznaczmy go przez $\cJ$. Niech więc
+$\sum \beta_n = \infty$ będzie takim rozbieżnym szeregiem
+liczb nieujemnych, że $\cJ = \cI_{(\beta_n)}$.
+Dla każdego $i \in \omega$ zauważmy że ideał 
+$\cJ \restriction A_i$ (czyli ideał ,,obcięty'' do zbioru $A_i$)
+jest ideałem ''tall'' (bo ciąg odwrotności kolejnych numerów
+elementów zbioru $A_i$ zbiega do zera). 
+Zatem odpowiedni szereg $\sum_{m\in A_i} \beta_m $
+składa się z elementów dążących do zera 
+(korzystamy tu ze znanego faktu iż ideał
+$\cI_{(\alpha_n)}$ jest ''tall'' wtedy i tylko wtedy
+gdy $\lim_{n\to\infty} \alpha_n = 0$).
+Skoro tak to dla każdego $i$ możemy wybrać element
+zbiór $b_i \in A_i$ taki, że 
+$\beta_{b_i} \geq \frac{1}{m^2}$.
+Definiujemy $B = \lbrace {b_i\colon i\in\omega} \rbrace$. Wówczas
+$\sum_{m\in B} \beta_m < \infty$, zatem $B \in \cJ$.
+Tymczasem $\forall_{i} |A_i \cap B| = \infty$,
+więc jest to sprzeczne z definicją ideału $\cJ$.
+
+
+Możemy zdefiniować relację równoważności oraz relację porządku w rodzinie
+rozbieżnych szeregów według przepisu:
+$\sum_{(\alpha_n)} \simeq \sum_{(\beta_n)}$ wtedy i tylko wtedy gdy
+$\cI_{(\alpha_n)} = \cI_{(\beta_n)}$, oraz
+$\sum_{(\alpha_n)} \lhd \sum_{(\beta_n)}$ wtedy i tylko wtedy gdy
+$\cI_{(\alpha_n)} \subseteq \cI_{(\beta_n)}$.
+
+
+\section{Ideały na partycjach}
+
+Niech $\Part$ oznacza rodzinę wszystkich partycji zbioru liczb naturalnych.
+Przez $\FinPart$ oznaczamy rodzinę wszystkich partycji
+zbioru liczb naturalnych na skończoną liczbę części.
+Rodzina $\Part$ posiada naturalne działania oraz relacje
+zdefiniowane następująco:
+
+Jeśli $P,Q \in Part$ to definiujemy:
+$P\sqcup Q = \{A \cap B \colon A \in P, B\in Q \wedge 
+A \cap B \not= \emptyset$
+oraz $Q \sqsubseteq P$ gdy $\forall_{A\in P} \exists_{B\in Q} A\subseteq B$.
+
+Przez ${\bf 1}$ oznaczamy partycję zbioru liczb naturalnych 
+na singletony. Analogicznie, przez ${\bf 0}$ oznaczamy
+partycję zbioru liczb naturalnych na jeden element.
+
+\begin{definition}
+{\bf Ideałem} w zbiorze partycji nazywamy niepustą rodzinę
+partycji $\cP \subseteq \Part$ taką że
+\begin{enumerate}
+\item ${\bf 1} \not\in\cP$
+\item jeśli $A,B\in \cP$ to $A\sqcup B\in \cP$
+\item jeśli $A \sqsubseteq B$ i $B\in \cP$ to $A\in B$.
+\end{enumerate}
+\end{definition}
+
+Przykłady:
+
+Rodzina $\FinPart$ jest ideałem partycyjnym (analog ideału $Fin$).
+
+Jeśli $\cI\subseteq P(\omega)$ jest (klasycznym) ideałem 
+podzbiorów liczb naturalnych to ideał zdefiniowany 
+według przepisu: 
+Jeśli $A\subseteq\omega$ jest dowolnym podzbiorem
+zbioru liczb naturalnych
+to definiujemy $\Psi(A) = 
+\{[a_k, a_{k+1}) \colon k\in\omega\}$, gdzie
+$(a_k)_{k=0}^{\infty}$ jest rosnącą numeracją
+elementów zbioru $A$.
+
+Dla dowolnego ideału $\cI \subseteq P(\omega)$
+definiujemy ideał partycyjny 
+$\Psi(\cI)$ jako $\Psi(A)\colon A\in\cI$.
+
+Co więcej, widać że jeśli $A,B\in\cI$ to
+$\Psi(A)\sqcup \Psi(B) = \Psi(A \cup B)$
+oraz że $A \subseteq B \iff \Psi(A) \sqsubseteq \Psi(B)$.
+
+Uwaga: ideał partycyjny $\FinPart$ nie jest postaci
+$\Psi(\cI)$.
+
+Zbiór partycji można traktować jako podzbiór przestrzeni
+topologicznej $2^{\omega\times\omega}$, mianowicie
+utożsamiając daną partycję z jej relacją równoważności,
+czyli formalnie mamy następujące zanurzenie:
+$r\colon\Part\to 2^{\omega\times\omega}$
+zdefiniowane według przepisu:
+
+$r(A)(\langle m,n\rangle) = 1 \iff \exists_{X\in A} x, y \in X$.
+
+Mamy:
+\begin{fact}
+Zbiór $\{r(A)\colon A\in\Part\}$ jest domkniętymy podzbiorem 
+przestrzeni $2^{\omega\times\omega}$.
+\end{fact}
+\proof
+Warunki na bycie relacją równoważności wyrażają się
+jako zbiory domknięte, np:
+zwrotność jako $\{x\in 2^{\omega\times\omega} \forall_{n} x(\langle n, n
+\rangle = 1\}$, symetria jako 
+$\bigcap_{n,m\in\omega} \big(\{x\in 2^{\omega\times\omega}\colon 
+x(m,n) = 0 \} \cup \{x\in 2^{\omega\times\omega} 
+\colon x(n,m) = 1\}\big)$, więc zbiór domknięty, tak
+samo w przypadku przechodniości relacji.
+
+Mamy:
+\begin{fact}
+Ideał partycyjny $\FinPart$ jest podzbiorem
+typu $F_{\sigma}$ w zbiorze $\Part$.
+\end{fact}
+\proof
+Wystarczy zapisać:
+\[\FinPart = \{
+x\in 2^{\omega\times\omega}
+\exists_{n_1,\ldots,n_k\in\omega}\colon
+\forall_{n\in\omega} \exists_{i=1,\ldots,k}
+x(n_i,n) = 1
+\}\]
+
+Jeśli $x \in \omega^\omega$ to wówczas definiujemy
+partycję postaci 
+$\{ x^{-1}(k)\colon k\in\omega \} \setminus \{\emptyset\}$.
+i oznaczamy ją przez $\rho(x)$.
+
+Poniżej przykład w miarę naturalnego ideału na 
+partycjach który nie jest postaci $\Psi(\cI)$.
+
+Dla zbioru $A \subseteq \omega$ i dla dowolnej
+partycji $P\in\Part$ definiujemy
+partycję zbioru $A$ według przepisu:
+$P\restriction A = \{A \cap Z\colon
+Z \in P \wedge Z\cap A \not=\emptyset\}$.
+Definiujemy teraz następujący ideał
+partycyjny:
+
+$\cI\cP = \{P \in \Part\colon \lim \frac{\ln |P \restriction n|}{\ln n} = 0\}$.
+Fakt że ta rodzina jest ideałem wynika z nierówności
+$|(P \sqcup Q) \restriction A| \leq |P \restriction A| \cdot |Q \restriction A|$.
+Mamy wówczas 
+$\frac{\ln |(P \sqcup Q) \restriction n|}{\ln n} \leq $
+$\frac{\ln |P \restriction n|}{\ln n} + \frac{\ln |Q \restriction n|}{\ln n}$,
+więc gdy $P,Q\in\cI\cP$ to wtedy i $P \sqcup Q\in\cI\cP$.
+Użycie w definicji ideału $\cI\cP$ logarytmu 
+w mianowniku zapewnia że partycja ${\bf 1}$ nie
+należy do $\cI\cP$.
+Łatwo zauważyć że $\FinPart\subseteq \cI\cP$. 
+
+\end{document}  
+
+
