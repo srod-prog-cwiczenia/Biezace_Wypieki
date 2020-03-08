@@ -201,11 +201,20 @@
 % To see corrections comment next line and uncomment the second one
 
 \begin{document}
-Oznaczenia:
+Let us denote
   $\cI_{(a_n)} = \{ A \subseteq \nnatural\colon \sum_{n\in A} a_n < \infty\}$.
-Dla ideałów $\cI, \cJ$ przez $\cI \oplus \cJ$ oznaczamy ideał
-postaci $\{A \cup B\colon A \in \cI \wedge B \in \cJ\}$ (o ile jest
-to ideał właściwy).
+For any ideals $\cI, \cJ$ by $\cI \oplus \cJ$ we denote
+an ideal $\{A \cup B\colon A \in \cI \wedge B \in \cJ\}$ 
+(assuming that this ideal is proper).
+
+At first, let us formulate a simly remark/observation:
+\begin{remark}
+Suppose that $\cI$ and $\cJ$ are summable ideals, where
+$\cI = \cI_{(a_n)}$ and $\cJ = \cI_{(b_n)}$ for some
+series $\sum_{n\in\omega} a_n = \sum_{n\in\omega} b_n = \infty$.
+Then $\cI \cap \cJ$ is also a summable ideal and
+$\cI \cap \cJ = \sum_n \max\{\alpha_n,\beta_n\}$.
+\end{remark}
 
 \begin{theorem}
 Niech $\sum_n \alpha_n = \infty$, $\sum_n \beta_n = \infty$,
