@@ -272,7 +272,20 @@ $\cI_{(\alpha_n^{(k)})}$, przepisem:
 	
 $\bigoplus_{i}\cI_{(\alpha_n^{(i)})} = \bigcup_{K} \cI_{(\alpha_n^{(1)})} \oplus,\ldots,\oplus \cI_{(\alpha_n^{(K)})}$.
 Tak zdefiniowany ideał jest właściwy bo jest sumą wstępującego ciągu ideałów właściwych.
-\todo{Czy to jest oczywiste? Czy to jest w ogóle prawda?}
+
+Możliwa jest bardziej ogólna 
+definicja (konstrukcja): 
+Załóżmy że 
+$\langle \cI_{(\alpha_n^{(t)})}
+\colon t \in T
+$ dla pewnego zbioru indeksów
+$T$, gdzie 
+$\sum_{n\in\omega}\alpha_n^{(t)}) = \infty$ dla każdego $t\in T$.
+Zakładamy ponadto że 
+dla każdego skończonego podzbioru
+$S \subseteq T$ mamy
+$\sum_n \min_{s\in S}
+\{\alpha_n^{(s)}\} = \infty$.
 
 Wybieramy rosnący ciąg liczb naturalnych $(N_i)_{i\in\nnatural}$ według następującego przepisu: kładziemy $N_0 = 0$. Mając już wybrane $(N_j)_{j \leq i}$
 wybieramy $N_{i + 1} > N_{i}$ tak aby $\sum_{n = N_{i} + 1}^{N_{i+1}} \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)} \} \geq 1$.
