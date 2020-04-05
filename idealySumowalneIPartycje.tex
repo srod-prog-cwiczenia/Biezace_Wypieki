@@ -24,9 +24,9 @@
 
 
 %%%%%%%%%%%%%%% Polish letter packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[polish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{t1enc}
+%\usepackage[polish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage{t1enc}
  
 %---------------------------------------------------------------------
 % Theorems 
@@ -207,7 +207,7 @@
 \end{center}
 \smallskip
 \begin{center}
-	By
+	by
 \end{center}
 \smallskip
 \begin{center} Pawe\l{} Klinga, Marta Kwela and Andrzej Nowik
@@ -221,7 +221,10 @@
 \end{abstract}
 
 Let us denote
-  $\cI_{(a_n)} = \{ A \subseteq \nnatural\colon \sum_{n\in A} a_n < \infty\}$.
+  $\cI_{(a_n)} = \{ A \subseteq \omega\colon \sum_{n\in A} a_n < \infty\}$.
+	
+%%% , and call it a \textit{summable ideal}.    Chyba że planowałeś w jakimś jeszcze wprowadzeniu to napisać :)
+	
 For any ideals $\cI, \cJ$ by $\cI \oplus \cJ$ we denote
 an ideal $\{A \cup B\colon A \in \cI \wedge B \in \cJ\}$ 
 (assuming that this ideal is proper).
@@ -232,7 +235,7 @@ Suppose that $\cI$ and $\cJ$ are summable ideals, where
 $\cI = \cI_{(a_n)}$ and $\cJ = \cI_{(b_n)}$ for some
 series $\sum_{n\in\omega} a_n = \sum_{n\in\omega} b_n = \infty$.
 Then $\cI \cap \cJ$ is also a summable ideal and
-$\cI \cap \cJ = \sum_n \max\{\alpha_n,\beta_n\}$.
+$\cI \cap \cJ = \cI_{(c_n)}$, where $c_n= \max\{a_n, b_n\}$.
 \end{remark}
 
 \begin{theorem}
@@ -240,133 +243,156 @@ Let $\sum_n \alpha_n = \infty$, $\sum_n \beta_n = \infty$,
 $\alpha_n, \beta_n \geq 0$. The following are equivalent:
 \begin{enumerate}
 \item
-  $\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} \not = P(\nnatural)$;
+  $\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} \not = P(\omega)$,
 \item
-  $\sum_n \min\{\alpha_n,\beta_n\} = \infty$
+  $\sum_n \min\{\alpha_n,\beta_n\} = \infty$.
 \end{enumerate}
 Also, if those conditions hold, then $\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} = \cI_{(\gamma_n)}$,
 where $\gamma_n = \min\{\alpha_n,\beta_n\}$.
 \end{theorem}
 \begin{proof}
-Let us assume that $\sum_n \gamma_n = \infty$, if 
-$\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} = P(\nnatural)$ then there would exist a partition of $\nnatural$ onto $A \cup B$ such that 
+Let us assume that $\sum_n \min\{\alpha_n,\beta_n\} = \infty$. If 
+$\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} = P(\omega)$, then there would exist a partition of $\omega$ onto $A \cup B$, such that 
 $\sum_n \alpha_n < \infty$ and $\sum_n \beta_n < \infty$.
-Then $\sum_n \gamma_n \leq \sum_n \alpha_n + \sum_n \beta_n < \infty$,
+Then $\sum_n \min\{\alpha_n,\beta_n\} \leq \sum_n \alpha_n + \sum_n \beta_n < \infty$,
 which contradicts our assumption.
-On the other hand, assume that $\sum_n \min\{\alpha_n,\beta\} < \infty$. In this case we define $A = \{n \in \nnatural \colon \alpha_n \leq \beta_n\}$
-i $B = \nnatural \setminus A$. Then 
+On the other hand, assume that $\sum_n \min\{\alpha_n,\beta_n\} < \infty$. In this case we define $A = \{n \in \omega \colon \alpha_n \leq \beta_n\}$
+and $B = \omega \setminus A$. Then 
 $A \in \cI_{(\alpha_n)}$ and $B \in \cI_{(\beta_n)}$, hence 
-$\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} = P(\nnatural)$.
+$\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} = P(\omega)$.
   
 Now let us assume that the conditions 1. and 2. hold. Let $X \in \cI_{(\alpha_n)} \oplus \cI_{(\beta_n)}$, then
 $X = A \cup B$, where $A \in \cI_{(\alpha_n)}$,
-$B \in \cI_{(\beta_n)}$. Therefore $\sum_{n\in A} \alpha_n < \infty$, 
+$B \in \cI_{(\beta_n)}$. Therefore, $\sum_{n\in A} \alpha_n < \infty$, 
 $\sum_{n\in B} \beta_n < \infty$, so 
 $\sum_{n\in X} \gamma_n \leq \sum_{n\in A} \alpha_n + \sum_{n\in B} \beta_n < \infty$.
-On the other hand, if $\sum_{n\in X} \gamma_n < \infty$, then we define $A = \{n\in X\colon \alpha \leq \beta \}$,
+On the other hand, if $\sum_{n\in X} \gamma_n < \infty$, then we define $A = \{n\in X\colon \alpha_n \leq \beta_n \}$ and 
 $B = X \setminus A$. In this case $A \in \cI_{(\alpha_n)}$ and
 $B \in \cI_{(\beta_n)}$, hence
 $X\in\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)}$.
 \end{proof}
 
-Remark: An analogous version can be formulated for a larger than two (but finite) number of ideals, for instance $\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} \oplus \cI_{(\gamma_n)} = \cI_{(\delta_n)}$, where $\delta_n = \min\{\alpha_n,\beta_n, \gamma_n\}$, etc.
+\begin{remark}
+An analogous version can be formulated for a larger than two (but finite) number of ideals -- for instance, $\cI_{(\alpha_n)} \oplus \cI_{(\beta_n)} \oplus \cI_{(\gamma_n)} = \cI_{(\delta_n)}$, where $\delta_n = \min\{\alpha_n,\beta_n, \gamma_n\}$, etc.
+\end{remark}
 
-Let $(\alpha_n^{(k)})$ be a sequence of sequences of nonnegative real numbers. We assume that for every $K \in \nnatural$ it is true that $\sum_n \min \{\alpha_n^{(1)}, \ldots, \alpha_n^{(K)}\} = \infty$. Then for every $K \in \nnatural$ we have
-$\cI_{(\alpha_n^{(1)})} \oplus,\ldots,\oplus \cI_{(\alpha_n^{(K)})} \not= P(\nnatural)$.
-In this case we can define an infinite ``amalgam'' of ideals $\cI_{(\alpha_n^{(k)})}$, in the following way:			 
-$$\bigoplus_{i}\cI_{(\alpha_n^{(i)})} = \bigcup_{K} \cI_{(\alpha_n^{(1)})} \oplus,\ldots,\oplus \cI_{(\alpha_n^{(K)})}.$$
-An ideal defined this way is proper, as it is the sum of an increasing sequence of proper ideals.
+Let $(\alpha_n^{(i)})$ be a sequence of sequences of nonnegative real numbers. We assume that for every $K \in \omega$ it is true that $\sum_n \min \{\alpha_n^{(1)}, \ldots, \alpha_n^{(K)}\} = \infty$. Then for every $K \in \omega$ we have
+$\cI_{(\alpha_n^{(1)})} \oplus\ldots\oplus \cI_{(\alpha_n^{(K)})} \not= P(\omega)$.
+In this case we can define an infinite ``amalgam'' of ideals $\cI_{(\alpha_n^{(i)})}$, in the following way:			 
+$$\bigoplus_{i}\cI_{(\alpha_n^{(i)})} = \bigcup_{K} \cI_{(\alpha_n^{(1)})} \oplus\ldots\oplus \cI_{(\alpha_n^{(K)})}.$$
+The ideal defined in this way is proper, as it is the union of an increasing sequence of proper ideals.\\
+
 
 It is possible to execute a more general construction. Let us assume that $\langle \cI_{(\alpha_n^{(t)})} \colon t \in T$ for a certain set of indices $T$, where $\sum_{n\in\omega}\alpha_n^{(t)}) = \infty$ for every $t\in T$. We also assume that for every finite subset $S \subseteq T$ we have $\sum_n \min_{s\in S} \{\alpha_n^{(s)}\} = \infty$.
+%%% Nie rozumiem trochę tego akapitu... Potem i tak indeksujemy "i" naturalnymi... Poza tym nawiasy się nie zgadzają.
 
-We choose an increasing sequence of naturals $(N_i)_{i\in\nnatural}$ according to the following method. We put $N_0 = 0$. Having $(N_j)_{j \leq i}$ chosen, we choose $N_{i + 1} > N_{i}$ so that $\sum_{n = N_{i} + 1}^{N_{i+1}} \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)} \} \geq 1$. We define the series: $\eta_n = \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)}\}$, where $i$ is such that $n \in [N_i, N_{i+1})$. We will check that for every $i$ we have $\cI_{(\alpha_n^{(i)})} \subseteq \cI_{(\eta_n)}$. Let $X \subseteq \nnatural$ be a set such that $\sum_{n\in X} \alpha_n^{(i)} < \infty$. Then for $n\in X, n > N_i$ we have $\alpha_n^{(i)} \geq \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)}\} = \eta_n$. Hence $\sum_{n\in X}\eta_n < \infty$.
+We choose an increasing sequence of naturals $(N_i)_{i\in\omega}$ according to the following method. We put $N_0 = 0$. Having $(N_j)_{j \leq i}$ chosen, we choose $N_{i + 1} > N_{i}$ so that $\sum_{n = N_{i} + 1}^{N_{i+1}} \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)} \} \geq 1$. We define the series $\sum_n \eta_n$ with: $\eta_n = \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)}\}$, where $i$ is such that $n \in [N_i, N_{i+1})$. We will check that for every $i$ we have $\cI_{(\alpha_n^{(i)})} \subseteq \cI_{(\eta_n)}$. Let $X \subseteq \omega$ be a set such that $\sum_{n\in X} \alpha_n^{(i)} < \infty$. Then for $n\in X, n > N_i$, we have $\alpha_n^{(i)} \geq \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)}\} = \eta_n$. Hence, $\sum_{n\in X}\eta_n < \infty$.\\
+
 
 Now we give an example to show that $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ does not need to be equal to the ideal $\cI_{(\eta_n)}$. We will do this using a matrix notation (where we interpret the matrix as the notation for a sequence of sequences).
 
 \[
   \begin{bmatrix}
-         1      &           0 & 0 & 0 & 0 & 0\\
-    \frac{1}{2} &  \mathbf{0} & 0 & 0 & 0 & 0\\
-    \frac{1}{2} & \frac{1}{2} & 0 & 0 & 0 & 0\\
-    \frac{1}{2} & \frac{1}{2} & 0 & 0 & 0 & 0\\
-    \frac{1}{3} & \frac{1}{3} & \mathbf{0} & 0 & 0 & 0\\
-    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0\\
-    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0\\
-    \frac{1}{3} & \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0\\
-    \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \mathbf{0} & 0 & 0\\
+     \mathbf{0}  &           0 & 0 & 0 & 0 & 0 & 0 & \ldots\\
+    \frac{1}{2} &  0 & 0 & 0 & 0 & 0 & 0 & \ldots\\
+    \frac{1}{2} & 0 & 0 & 0 & 0 & 0 & 0 & \ldots\\
+    \frac{1}{3} & \mathbf{0} & 0 & 0 & 0 & 0 & 0 & \ldots\\
+    \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 & 0 & 0 & \ldots\\
+    \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 & 0 & 0 & \ldots\\
+    \frac{1}{3} & \frac{1}{3} & 0 & 0 & 0 & 0 & 0 & \ldots\\
+    \frac{1}{4} & \frac{1}{4} & \mathbf{0} & 0 & 0 & 0 & 0 & \ldots\\
+    \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & 0 & 0 & 0 & 0 & \ldots\\
+		 \vdots     &      \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots\\
   \end{bmatrix}
 \]
-Then $N_i = \{0, 3, 7, 12, \ldots \}$ \todo{Czy to tak faktycznie jest?}.
-Let $X = \{0, 3, 7, 12, \ldots\} = \{ \frac{4 \cdot n^2 + 5 \cdot n}{3} \colon n \in\nnatural \}$.
-Therefore $X \in \cI_{(\eta_n)}$, but $X\not\in\cI_{(\alpha_n^{(i)})}$.
+
+Then $(N_i)_{i\in\omega} = (0, 3, 7, 12, \ldots )$, i.e., $N_i = \frac{i^2 + 5i}{2}$ for every $i\in\omega$.
+Let $X= \{N_i \colon i\in\omega\}$. Note that $X \in \cI_{(\eta_n)}$ since $\sum_{n\in X} \eta_n = 0 < \infty$. 
+It remains to show that $X\not\in\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$. Observe that all $\cI_{(\alpha_n^{(i)})}$ are equal since the sequences $(\alpha_n^{(i)})$ differ only on finitely many initial terms. Therefore, $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}= \cI_{(\alpha_n^{(0)})}$. However, $X\not\in\cI_{(\alpha_n^{(0)})}$ as $\sum_{n\in X} \alpha_n^{(0)} = 0 +\frac{1}{3} + \frac{1}{4} +\frac{1}{5} +\ldots = \infty$.\\
+
 
 Now we will give an example to show that $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ does not need to be a summable ideal.
 	
-Let $\{A_i\colon i\in\nnatural\}$ be a partition of $\nnatural$ onto sets of cardinality $\aleph_0$. For every $i\in\nnatural$ let $(a_n^{(i)})_{n\in\nnatural}$ be an increasing numbering of elements of the set $A_i$. For every $i\in\nnatural$ we define the series $\sum_n \alpha_n^{(i)}$ according to the method:
-$\alpha_n^{(i)} = 
+Let $\{A_i\colon i\in\omega\}$ be a partition of $\omega$ onto sets of cardinality $\aleph_0$. For every $i\in\omega$ let $(a_n^{(i)})_{n\in\omega}$ be an increasing numbering 
+%%% chyba częściej używa się w tym kontekście "enumeration"?
+of elements of the set $A_i$. For every $i\in\omega$ we define the series $\sum_n \alpha_n^{(i)}$ according to the method:
+$$\alpha_n^{(i)} = 
 \left\{
-\begin{array}{cc}
-1 & \hbox{\ gdy\ } x \not\in A_i\\
-\frac{1}{n} & \hbox{\ gdy\ } x \in A_i \hbox{{\ a\ }} n 
-\hbox{{\ to\ (jedyne)\ takie\ że\ }} a_n^{(i)} = x.
+\begin{array}{ll}
+1 & \hbox{\ if\ } x \not\in A_i,\\
+\frac{1}{n} & \hbox{\ if\ } x \in A_i \hbox{{\ and\ }} n 
+\hbox{{\ is\ (unique)\ such\ that\ }} a_n^{(i)} = x.
 \end{array}
-\right.$
-Then for every $K \in \nnatural$ we have: 
+\right.$$
+%%% Tu też czegoś nie rozumiem - co tu zależy od x?...
+Then for every $K \in \omega$ we have: 
 $\sum_n \min \{\alpha_n^{(1)}, \ldots, \alpha_n^{(K)}\} = \infty$.
-Also $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ is the ideals of sets $X \subseteq \omega$ for which there exists $K$ such that $X \subseteq \bigcup_{i < K} A_i$.
-If $i < K$ then $\sum \{\frac{1}{n} \colon a_n^{(i)} \in X\} < \infty$.
+Also, $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ is the ideal of sets $X \subseteq \omega$ for which there exists $K$ such that $X \subseteq \bigcup_{i < K} A_i$.
+If $i < K$, then $\sum \{\frac{1}{n} \colon a_n^{(i)} \in X\} < \infty$.
 
-We will show that the ideal described above is not summable. Let us denote it by $\cJ$. Let $\sum \beta_n = \infty$ be such divergent series of nonnegative reals that $\cJ = \cI_{(\beta_n)}$. For every $i \in \omega$ let us notice that the ideal $\cJ \restriction A_i$ (which is the ideal ``restricted'' to the set $A_i$) is a tall ideal (since the sequence of inverses of respective indices of elements of $A_i$ converges to zero). Therefore a series $\sum_{m\in A_i} \beta_m $ consists of elements converging to zero (we use a well-known fact that an ideal $\cI_{(\alpha_n)}$ is tall if and only if $\lim_{n\to\infty} \alpha_n = 0$). If so, then for every $i$ we can pick an element $b_i \in A_i$ such that $\beta_{b_i} \geq \frac{1}{m^2}$. We define $B = \lbrace {b_i\colon i\in\omega} \rbrace$. Then $\sum_{m\in B} \beta_m < \infty$, so $B \in \cJ$. Meanwhile, $\forall_{i} |A_i \cap B| = \infty$, which contradicts the definition of the ideal $\cJ$.
+We will show that the ideal described above is not summable. Let us denote it by $\cJ$. Let $\sum_n \beta_n = \infty$ be such divergent series of nonnegative reals that $\cJ = \cI_{(\beta_n)}$. For every $i \in \omega$ let us notice that the ideal $\cJ \restriction A_i$ (which is the ideal ``restricted'' to the set $A_i$) is a tall ideal (since the sequence of inverses of respective indices of elements of $A_i$ converges to zero). Therefore, a series $\sum_{m\in A_i} \beta_m $ consists of elements converging to zero (we use a well-known fact that an ideal $\cI_{(\alpha_n)}$ is tall if and only if $\lim_{n\to\infty} \alpha_n = 0$).
+%%% Czy to zdanie w nawiasie nie dotyczy przypadkiem jeszcze poprzedniego nawiasu? 
+If so, then for every $i$ we can pick an element $b_i \in A_i$ such that $\beta_{b_i} \geq \frac{1}{m^2}$. 
+%%% \leq?
+We define $B = \lbrace {b_i\colon i\in\omega} \rbrace$. Then $\sum_{m\in B} \beta_m < \infty$, so $B \in \cJ$. Meanwhile, $\forall_{i} |A_i \cap B| = \infty$, which contradicts the definition of the ideal $\cJ$.\\
+
 
 We can define an equivalence relation as well as an ordering in the family of divergent series according to the following method.
-$\sum_{(\alpha_n)} \simeq \sum_{(\beta_n)}$ if and only if $\cI_{(\alpha_n)} = \cI_{(\beta_n)}$ and 
-$\sum_{(\alpha_n)} \lhd \sum_{(\beta_n)}$ if and only if
+\begin{itemize}
+	\item $\sum {(\alpha_n)} \simeq \sum {(\beta_n)}$ if and only if $\cI_{(\alpha_n)} = \cI_{(\beta_n)}$,
+	\item $\sum {(\alpha_n)} \lhd \sum {(\beta_n)}$ if and only if
 $\cI_{(\alpha_n)} \subseteq \cI_{(\beta_n)}$.
+\end{itemize}
+
+
 
 
 \section{Ideals on partitions}
 
 Let $\Part$ denote the family of all partitions of the set of natural numbers. By $\FinPart$ we denote the family of partitions of the naturals into a finite number of pieces. The family $\Part$ has natural operations and relations defined in the following way.
 
-For $P,Q \in Part$ we define:
-$P\sqcup Q = \{A \cap B \colon A \in P, B\in Q \wedge 
-A \cap B \not= \emptyset$
-and $Q \sqsubseteq P$ when $\forall_{A\in P} \exists_{B\in Q} A\subseteq B$.
+For $P,Q \in \Part$ we define:
+$P\sqcup Q = \{A \cap B \colon A \in P,\ B\in Q,\ A \cap B \not= \emptyset\}$
+and $Q \sqsubseteq P$ when $\forall_{A\in P}\ \exists_{B\in Q}\ A\subseteq B$.
 
 By ${\bf 1}$ we denote the partition of the naturals into singletons. Analogously, by ${\bf 0}$ we denote the partition of the naturals into one element.
 
 \begin{definition}
-An ideal in the set of partitions is a non-empty family of partitions $\cP \subseteq \Part$ such that
+An ideal in the set of partitions is a non-empty family of partitions $\cP \subseteq \Part$ such that:
 \begin{enumerate}
-\item ${\bf 1} \not\in\cP$
-\item if $A,B\in \cP$ then $A\sqcup B\in \cP$
-\item if $A \sqsubseteq B$ and $B\in \cP$ then $A\in B$.
+\item ${\bf 1} \not\in\cP$,
+\item if $A,B\in \cP$, then $A\sqcup B\in \cP$,
+\item if $A \sqsubseteq B$ and $B\in \cP$, then $A\in B$.
 \end{enumerate}
 \end{definition}
  
 Let us mention a number of examples.
 
-The family $\FinPart$ is an ideal (it is the partition counterpart of the classic ideal $Fin$ on $\mathcal{P}(\omega)$).
+The family $\FinPart$ is an ideal (it is a partition counterpart of the classic ideal $Fin$ on $P(\omega)$).
+%%% Może dopisać tutaj jakieś takie zdanie:
+That is why we should analogously require that every partition ideal contains $\FinPart$.
 
 If $\cI\subseteq P(\omega)$ is a (classic) ideal of subsets of the naturals, then it is possible to use it to construct a partition ideal. If $A\subseteq\omega$ is an arbitrary subset of the naturals, then put $\Psi(A) = 
 \{[a_k, a_{k+1}) \colon k\in\omega\}$, where
-$(a_k)_{k=0}^{\infty}$ is an increasing numbering of elements of $A$. For any ideal $\cI \subseteq P(\omega)$ define the partition ideal $\Psi(\cI)$ as $\Psi(A)\colon A\in\cI$.
+$(a_k)_{k=0}^{\infty}$ is an increasing numbering of elements of $A$. For any ideal $\cI \subseteq P(\omega)$ define the partition ideal $\Psi(\cI)$ as $\{\Psi(A)\colon A\in\cI\}$.
+%%% wyżej: "enumeration"?
 
-Furthermore, it is clear that if $A,B\in\cI$ then
+Furthermore, it is clear that if $A,B\in\cI$, then
 $\Psi(A)\sqcup \Psi(B) = \Psi(A \cup B)$
 and $A \subseteq B \iff \Psi(A) \sqsubseteq \Psi(B)$.
 
-Keep in mind that the partition ideal $\FinPart$ is \textit{not} of the form $\Psi(\cI)$.
+Keep in mind that the partition ideal $\FinPart$ is \textit{not} of the form $\Psi(\cI)$.\\
 
-A collection of partitions can be treated as a subset of a topological space $2^{\omega\times\omega}$ -- namely, by identifying a given partition with its equivalence relation. Formally, we consider the embedding $r\colon\Part\to 2^{\omega\times\omega}$ defined in the following way
-$$r(A)(\langle m,n\rangle) = 1 \iff \exists_{X\in A} x, y \in X.$$
+
+A collection of partitions can be treated as a subset of a topological space $2^{\omega\times\omega}$ -- namely, by identifying a given partition with its equivalence relation. Formally, we consider the embedding $r\colon\Part\to 2^{\omega\times\omega}$ defined in the following way:
+$$r(A)(\langle m,n\rangle) = 1 \iff \exists_{X\in A}\ x, y \in X.$$
 
 \begin{fact}
 The set $\{r(A)\colon A\in\Part\}$ is a closed subset of the space $2^{\omega\times\omega}$.
 \end{fact}
 
 \begin{proof}
-The conditions in the definition of the equivalence relation are formed as closed sets, for instance reflexivity as $\{x\in 2^{\omega\times\omega} \colon \forall_{n} x(n, n) = 1\}$, symmetry as 
+The conditions in the definition of the equivalence relation are formed as closed sets, for instance, reflexivity as $\{x\in 2^{\omega\times\omega} \colon \forall_{n}\ x(n, n) = 1\}$, symmetry as 
 $\bigcap_{n,m\in\omega} \big(\{x\in 2^{\omega\times\omega}\colon 
 x(m,n) = 0 \} \cup \{x\in 2^{\omega\times\omega} 
 \colon x(n,m) = 1\}\big)$, which are closed sets, just as in the case of transitivity.
@@ -378,27 +404,28 @@ The partition ideal $\FinPart$ is an $F_{\sigma}$ subset of $\Part$.
 \proof
 It is sufficient to write
 \[\FinPart = \{
-x\in 2^{\omega\times\omega}
-\exists_{n_1,\ldots,n_k\in\omega}\colon
-\forall_{n\in\omega} \exists_{i=1,\ldots,k}
+x\in 2^{\omega\times\omega} \colon
+\exists_{n_1,\ldots,n_k\in\omega}\ 
+\forall_{n\in\omega}\ \exists_{i=1,\ldots,k}\ 
 x(n_i,n) = 1
-\}\]
+\}.\]
 
-If $x \in \omega^\omega$ then we define the partition as
-$\{ x^{-1}(k)\colon k\in\omega \} \setminus \{\emptyset\}$ and denote it by $\rho(x)$.
+If $x \in \omega^\omega$, then we define the partition as
+$\{ x^{-1}(k)\colon k\in\omega \} \setminus \{\emptyset\}$ and denote it by $\rho(x)$.\\
+%%% Gdzie koniec dowodu? I tego zdania też za bardzo nie rozumiem - po co to oznaczenie "ro"?
 
-Below we show the example of a fairly natural ideal on partitions which is not of the form $\Psi(\cI)$.
+Below we show the example of a fairly natural ideal on partitions, which is not of the form $\Psi(\cI)$.
 
-For the set $A \subseteq \omega$ and an arbitrary partition $P\in\Part$ we define a new partition of the set $A$ in the following way.
-$P\restriction A = \{A \cap Z\colon
-Z \in P \wedge Z\cap A \not=\emptyset\}$.
+For the set $A \subseteq \omega$ and an arbitrary partition $P\in\Part$ we define a new partition of the set $A$ in the following way:
+$$P\restriction A = \{A \cap Z\colon
+Z \in P \wedge Z\cap A \not=\emptyset\}.$$
 This allows us to define the following partition ideal.
-$$\cI\cP = \{P \in \Part\colon \lim \frac{\ln |P \restriction n|}{\ln n} = 0\}.$$
+$$\cI\cP = \{P \in \Part\colon \lim_{n\to\infty} \frac{\ln |P \restriction n|}{\ln n} = 0\}.$$
 The fact that this family forms an ideal follows from the inequality
 $$|(P \sqcup Q) \restriction A| \leq |P \restriction A| \cdot |Q \restriction A|.$$
 Then we have 
 $$\frac{\ln |(P \sqcup Q) \restriction n|}{\ln n} \leq \frac{\ln |P \restriction n|}{\ln n} + \frac{\ln |Q \restriction n|}{\ln n},$$
-so if $P,Q\in\cI\cP$ then also $P \sqcup Q\in\cI\cP$.
+so if $P,Q\in\cI\cP$, then also $P \sqcup Q\in\cI\cP$.
 Using the logarithm in the denominator of the definition of $\cI\cP$ assures us that the partition ${\bf 1}$ does not belong to $\cI\cP$.
 It is easy to see that $\FinPart\subseteq \cI\cP$. 
 
