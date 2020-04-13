@@ -214,22 +214,33 @@
 \end{center}
 
 \begin{abstract}
-	We consider ...
-	\let\thefootnote\relax\footnote{2010 Mathematics Subject Classification:  Primary: ... Secondary: ..., ....
+	In this paper we prove a selection of theorems on summable ideals as well as ideals on partitions of sets.
+	\let\thefootnote\relax\footnote{2010 Mathematics Subject Classification:  Primary: 03E75 Secondary: 03E02.
 	}
-	\let\thefootnote\relax\footnote{Key words and phrases: ..., ...}
+	\let\thefootnote\relax\footnote{Key words and phrases: ideals, summable ideals, partitions}
 \end{abstract}
 
-Let us denote
-  $\cI_{(a_n)} = \{ A \subseteq \omega\colon \sum_{n\in A} a_n < \infty\}$.
-	
-%%% , and call it a \textit{summable ideal}.    Chyba że planowałeś w jakimś jeszcze wprowadzeniu to napisać :)
+\section{Summable ideals}
+
+Let us start by introducing necessary definitions and notation. By $\omega$ we will denote the set of natural numbers starting from $0$. An ideal of subsets of $\omega$ is such a family $\cI \subseteq \cP(\omega)$ that
+\begin{enumerate}
+	\item $\emptyset \in \cI$
+	\item $A\in \cI, \: B \in \cI \implies A\cup B \in \cI$
+	\item $A\in \cI, \: B\subseteq A \implies B\in \cI$. 
+\end{enumerate}
+An ideal $\cI$ is proper if $\omega \notin \cI$, i.e. $\cI \neq \cP(\omega)$. Unless stated otherwise, all considered ideals will be proper. From the definition it follows that proper ideals collect \textit{small} subsets of a space, in some sense.
+
+Summable ideals are strictly connected to series of numbers. Namely, for $\sum_{n\in\omega} a_n = \infty, \: a_n>0 \: (n\in\omega)$, let us denote
+$$\cI_{(a_n)} = \{ A \subseteq \omega\colon \sum_{n\in A} a_n < \infty\}$$
+and call it a summable ideal. A typical example is $\cI_{(\frac{1}{n})}$.
+
+An ideal is tall if for every infinite $A\subseteq\omega$ there is an infinite set $B\subseteq A$ such that $B \in \cI$. It is a well known fact that a summable ideal is tall if and only if its corresponding sequence converges to $0$.
 	
 For any ideals $\cI, \cJ$ by $\cI \oplus \cJ$ we denote
-an ideal $\{A \cup B\colon A \in \cI \wedge B \in \cJ\}$ 
+an ideal consisting of sets $\{A \cup B\colon A \in \cI \wedge B \in \cJ\}$ 
 (assuming that this ideal is proper).
 
-At first, let us formulate a simple remark:
+First, let us state a simple remark.
 \begin{remark}
 Suppose that $\cI$ and $\cJ$ are summable ideals, where
 $\cI = \cI_{(a_n)}$ and $\cJ = \cI_{(b_n)}$ for some
@@ -283,8 +294,7 @@ $$\bigoplus_{i}\cI_{(\alpha_n^{(i)})} = \bigcup_{K} \cI_{(\alpha_n^{(1)})} \oplu
 The ideal defined in this way is proper, as it is the union of an increasing sequence of proper ideals.\\
 
 
-It is possible to execute a more general construction. Let us assume that $\langle \cI_{(\alpha_n^{(t)})} \colon t \in T$ for a certain set of indices $T$, where $\sum_{n\in\omega}\alpha_n^{(t)}) = \infty$ for every $t\in T$. We also assume that for every finite subset $S \subseteq T$ we have $\sum_n \min_{s\in S} \{\alpha_n^{(s)}\} = \infty$.
-%%% Nie rozumiem trochę tego akapitu... Potem i tak indeksujemy "i" naturalnymi... Poza tym nawiasy się nie zgadzają.
+It is possible to execute a more general construction. Let us consider a collection $\left\{ \cI_{(\alpha_n^{(t)})} \colon t \in T \right\} $ for a certain set of indices $T$, where $\sum_{n\in\omega}\alpha_n^{(t)} = \infty$ for every $t\in T$. We also assume that for every finite subset $S \subseteq T$ we have $\sum_n \min_{s\in S} \{\alpha_n^{(s)}\} = \infty$.
 
 We choose an increasing sequence of naturals $(N_i)_{i\in\omega}$ according to the following method. We put $N_0 = 0$. Having $(N_j)_{j \leq i}$ chosen, we choose $N_{i + 1} > N_{i}$ so that $\sum_{n = N_{i} + 1}^{N_{i+1}} \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)} \} \geq 1$. We define the series $\sum_n \eta_n$ with: $\eta_n = \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)}\}$, where $i$ is such that $n \in [N_i, N_{i+1})$. We will check that for every $i$ we have $\cI_{(\alpha_n^{(i)})} \subseteq \cI_{(\eta_n)}$. Let $X \subseteq \omega$ be a set such that $\sum_{n\in X} \alpha_n^{(i)} < \infty$. Then for $n\in X, n > N_i$, we have $\alpha_n^{(i)} \geq \min\{\alpha_n^{(0)} , \ldots, \alpha_n^{(i)}\} = \eta_n$. Hence, $\sum_{n\in X}\eta_n < \infty$.\\
 
@@ -313,9 +323,7 @@ It remains to show that $X\not\in\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$. Observe t
 
 Now we will give an example to show that $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ does not need to be a summable ideal.
 	
-Let $\{A_i\colon i\in\omega\}$ be a partition of $\omega$ onto sets of cardinality $\aleph_0$. For every $i\in\omega$ let $(a_n^{(i)})_{n\in\omega}$ be an increasing numbering 
-%%% chyba częściej używa się w tym kontekście "enumeration"?
-of elements of the set $A_i$. For every $i\in\omega$ we define the series $\sum_n \alpha_n^{(i)}$ according to the method:
+Let $\{A_i\colon i\in\omega\}$ be a partition of $\omega$ onto sets of cardinality $\aleph_0$. For every $i\in\omega$ let $(a_n^{(i)})_{n\in\omega}$ be an increasing enumaration of elements of the set $A_i$. For every $i\in\omega$ we define the series $\sum_n \alpha_n^{(i)}$ according to the method:
 $$\alpha_n^{(i)} = 
 \left\{
 \begin{array}{ll}
@@ -324,27 +332,15 @@ $$\alpha_n^{(i)} =
 \hbox{{\ is\ (unique)\ such\ that\ }} a_n^{(i)} = x.
 \end{array}
 \right.$$
-%%% Tu też czegoś nie rozumiem - co tu zależy od x?...
 Then for every $K \in \omega$ we have: 
 $\sum_n \min \{\alpha_n^{(1)}, \ldots, \alpha_n^{(K)}\} = \infty$.
 Also, $\bigoplus_{i}\cI_{(\alpha_n^{(i)})}$ is the ideal of sets $X \subseteq \omega$ for which there exists $K$ such that $X \subseteq \bigcup_{i < K} A_i$.
 If $i < K$, then $\sum \{\frac{1}{n} \colon a_n^{(i)} \in X\} < \infty$.
 
 We will show that the ideal described above is not summable. Let us denote it by $\cJ$. Let $\sum_n \beta_n = \infty$ be such divergent series of nonnegative reals that $\cJ = \cI_{(\beta_n)}$. For every $i \in \omega$ let us notice that the ideal $\cJ \restriction A_i$ (which is the ideal ``restricted'' to the set $A_i$) is a tall ideal (since the sequence of inverses of respective indices of elements of $A_i$ converges to zero). Therefore, a series $\sum_{m\in A_i} \beta_m $ consists of elements converging to zero (we use a well-known fact that an ideal $\cI_{(\alpha_n)}$ is tall if and only if $\lim_{n\to\infty} \alpha_n = 0$).
-%%% Czy to zdanie w nawiasie nie dotyczy przypadkiem jeszcze poprzedniego nawiasu? 
-If so, then for every $i$ we can pick an element $b_i \in A_i$ such that $\beta_{b_i} \geq \frac{1}{m^2}$. 
-%%% \leq?
+If so, then for every $i$ we can pick an element $b_i \in A_i$ such that $\beta_{b_i} \leq \frac{1}{m^2}$. 
+
 We define $B = \lbrace {b_i\colon i\in\omega} \rbrace$. Then $\sum_{m\in B} \beta_m < \infty$, so $B \in \cJ$. Meanwhile, $\forall_{i} |A_i \cap B| = \infty$, which contradicts the definition of the ideal $\cJ$.\\
-
-
-We can define an equivalence relation as well as an ordering in the family of divergent series according to the following method.
-\begin{itemize}
-	\item $\sum {(\alpha_n)} \simeq \sum {(\beta_n)}$ if and only if $\cI_{(\alpha_n)} = \cI_{(\beta_n)}$,
-	\item $\sum {(\alpha_n)} \lhd \sum {(\beta_n)}$ if and only if
-$\cI_{(\alpha_n)} \subseteq \cI_{(\beta_n)}$.
-\end{itemize}
-
-
 
 
 \section{Ideals on partitions}
@@ -369,13 +365,11 @@ An ideal in the set of partitions is a non-empty family of partitions $\cP \subs
 Let us mention a number of examples.
 
 The family $\FinPart$ is an ideal (it is a partition counterpart of the classic ideal $Fin$ on $P(\omega)$).
-%%% Może dopisać tutaj jakieś takie zdanie:
 That is why we should analogously require that every partition ideal contains $\FinPart$.
 
 If $\cI\subseteq P(\omega)$ is a (classic) ideal of subsets of the naturals, then it is possible to use it to construct a partition ideal. If $A\subseteq\omega$ is an arbitrary subset of the naturals, then put $\Psi(A) = 
 \{[a_k, a_{k+1}) \colon k\in\omega\}$, where
-$(a_k)_{k=0}^{\infty}$ is an increasing numbering of elements of $A$. For any ideal $\cI \subseteq P(\omega)$ define the partition ideal $\Psi(\cI)$ as $\{\Psi(A)\colon A\in\cI\}$.
-%%% wyżej: "enumeration"?
+$(a_k)_{k=0}^{\infty}$ is an increasing enumeration of elements of $A$. For any ideal $\cI \subseteq P(\omega)$ define the partition ideal $\Psi(\cI)$ as $\{\Psi(A)\colon A\in\cI\}$.
 
 Furthermore, it is clear that if $A,B\in\cI$, then
 $\Psi(A)\sqcup \Psi(B) = \Psi(A \cup B)$
@@ -401,7 +395,7 @@ x(m,n) = 0 \} \cup \{x\in 2^{\omega\times\omega}
 \begin{fact}
 The partition ideal $\FinPart$ is an $F_{\sigma}$ subset of $\Part$.
 \end{fact}
-\proof
+\begin{proof}
 It is sufficient to write
 \[\FinPart = \{
 x\in 2^{\omega\times\omega} \colon
@@ -411,8 +405,8 @@ x(n_i,n) = 1
 \}.\]
 
 If $x \in \omega^\omega$, then we define the partition as
-$\{ x^{-1}(k)\colon k\in\omega \} \setminus \{\emptyset\}$ and denote it by $\rho(x)$.\\
-%%% Gdzie koniec dowodu? I tego zdania też za bardzo nie rozumiem - po co to oznaczenie "ro"?
+$\{ x^{-1}(k)\colon k\in\omega \} \setminus \{\emptyset\}$.
+\end{proof}
 
 Below we show the example of a fairly natural ideal on partitions, which is not of the form $\Psi(\cI)$.
 
@@ -428,6 +422,57 @@ $$\frac{\ln |(P \sqcup Q) \restriction n|}{\ln n} \leq \frac{\ln |P \restriction
 so if $P,Q\in\cI\cP$, then also $P \sqcup Q\in\cI\cP$.
 Using the logarithm in the denominator of the definition of $\cI\cP$ assures us that the partition ${\bf 1}$ does not belong to $\cI\cP$.
 It is easy to see that $\FinPart\subseteq \cI\cP$. 
+
+\newcommand{\nosort}[1]{}
+\begin{thebibliography}{1}
+	\bibitem{BNFP}
+	P. Borodulin-Nadzieja, B. Farkas, G. Plebanek, \newblock Representations of ideals in Polish groups and in Banach spaces, \newblock {\em Journal of Symbolic Logic} {\bf 80}: 1268–1289, 2014.
+	
+	\bibitem{KK}
+	M.I. Kadets, V.M. Kadets, \newblock Series in Banach Spaces: Conditional and Unconditional Convergence, Operator Theory: Advances and Applications. Birkhäuser, Basel, 1997.
+	
+	\bibitem{KN}
+	P. Klinga, A. Nowik,
+	\newblock Extendability to summable ideals,
+	\newblock {\em Acta Mathematica Hungarica}, {\bf 152}: 150-160, 2017. $\,$
+	
+
+\end{thebibliography}
+
+
+\begin{center}
+	\flushleft{{\sl Addresses:}} \\
+	Pawe\l{} Klinga \\
+	Institute of Mathematics \\
+	University of Gda\'nsk \\
+	Wita Stwosza 57 \\
+	80 -- 952 Gda\'nsk \\
+	Poland\\
+	e-mail: pawel.klinga@ug.edu.pl
+\end{center}
+
+\begin{center}
+	\flushleft{{\sl Address:}} \\
+	Marta Kwela \\
+	Institute of Mathematics \\
+	University of Gda\'nsk \\
+	Wita Stwosza 57 \\
+	80 -- 952 Gda\'nsk \\
+	Poland\\
+	e-mail: marta.kwela@ug.edu.pl
+\end{center}
+
+\begin{center}
+	\flushleft{{\sl Address:}} \\
+	Andrzej Nowik \\
+	Institute of Mathematics \\
+	University of Gda\'nsk \\
+	Wita Stwosza 57 \\
+	80 -- 952 Gda\'nsk \\
+	Poland\\
+	e-mail: andrzej.nowik@ug.edu.pl
+\end{center}
+
 
 \end{document}  
 
