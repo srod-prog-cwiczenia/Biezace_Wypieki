@@ -63,7 +63,8 @@
 
 %B
 \newcommand{\baire}{\omega^{\omega}}
-\newcommand{\Bor}{\mbox{${\cal B}or$}}
+\newcommand{\Baire}{\mathfrak{Baire}}
+\newcommand{\Bor}{\mbox{${\mathcal B}or$}}
 %Previous seems to be much finer than next.
 %\newcommand{\Bor}{{\it Bor}}
 \newcommand{\borelucrz}{Borel-UCR_0}
@@ -304,31 +305,33 @@ $(A)(\tau_1, \tau_2) = \{ Z \subseteq X \colon
 \section{Results}
 
 \begin{theorem}
-Denote by $\cK$ a collection of subsets of the real line:
+\label{collapse-theorem}
+Denote by $\cK$ the following collection of subsets of the real line:
 $\lbrace A \subseteq \real \colon 
-\exists_{V\in\tau\setminus\lbrace\emptyset\rbrace}  
+\exists_{V\in\tau_e\setminus\lbrace\emptyset\rbrace}  
 \mathint (A \bigtriangleup V) = \emptyset\rbrace$.
 
-Suppose that $\tau_2$ is a topology on $\real$ stronger than $\tau$ 
+Suppose that $\tau_2$ is a topology on $\real$ stronger than $\tau_e$ 
 such that 
 $\tau_2\setminus\lbrace \emptyset \rbrace \subseteq \cK$.
-Then $\aideal(\tau, \tau_2) = ND(\tau)$.
+Then $\aideal(\tau_e, \tau_2) = \mathsf{ND}(\real)$.
 \end{theorem}
 									
 \begin{proof}  
-Notice that the collection of sets with an empty interior is not an ideal, but
-still we have that $\cK = \lbrace (V \setminus B_1) \cup B_2\colon
+Notice that although the collection of sets with an empty interior is not an ideal,
+we have that $\cK = \lbrace (V \setminus B_1) \cup B_2\colon
 \mathint(B_1) = \mathint(B_2) = \emptyset, 
-V\in\topWithoutEmptyset{\tau}\rbrace$.
+V\in\topWithoutEmptyset{\tau_e}\rbrace$.
 %%%TODO: czy jednak nie przydaloby sie tutaj jakies uzasadnienie?
 Suppose $A \in \mathsf{ND}(\real)$ and let $W \in \tau_2\setminus\lbrace \emptyset \rbrace$.
-Then there exists $V\in\topWithoutEmptyset{\tau}$ such that
+Then there exists $V\in\topWithoutEmptyset{\tau_e}$ such that
 $\mathint (W \bigtriangleup V) = \emptyset$. Since $A$ is nowhere dense, there
-exists $U \in \topWithoutEmptyset{\tau}$ such that
+exists $U \in \topWithoutEmptyset{\tau_e}$ such that
 $U \subseteq V$ and $U \cap A = \emptyset$. Then
 $\mathint(U \setminus W) \subseteq \mathint(V \setminus W) = \emptyset$,
-hence $U \cap W \not= \emptyset$. Thus $A \in \aideal(\tau, \tau_2)$.
-On the other hand, we always have $\aideal(\tau, \tau_2) \subseteq ND(\tau)$,
+hence $U \cap W \not= \emptyset$. Thus $A \in \aideal(\tau_e, \tau_2)$.
+On the other hand, we always have 
+$\aideal(\tau_e, \tau_2) \subseteq \mathsf{ND}(\tau_e) = \mathsf{ND}(\real)$,
 which finishes the proof.
 \end{proof}
 
@@ -341,7 +344,7 @@ if $\mathint(\cl(A)) \not= \emptyset$ then $A\in \cK$.
 
 On the other hand, suppose that $A \in \cK$, so
 there exists $B_1, B_2 \subseteq \real$ and 
-$V\in\topWithoutEmptyset{\tau}\rbrace$
+$V\in\topWithoutEmptyset{\tau}$
 such that 
 $\mathint(B_1) = \mathint(B_2) = \emptyset$
 and  
@@ -349,6 +352,18 @@ $A = (V \setminus B_1) \cup B_2$.
 Then 
 $\mathint(\cl(A)) \supseteq 
 \mathint(\cl(V \setminus B_1)) = \mathint(\cl(V)) \supseteq V \not= \emptyset$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{corollary}
+If $\cF_I$ is the category analogue of the density topology (see \cite{PWBW}) 
+then 
+$(a)(\tau_e, \cF_I) = \mathsf{ND}(\real)$.
+\end{corollary}
+
+\begin{proof}
+This follows from the fact that $\cF \subseteq \Baire$ (see \cite{PWBW}, Remark 2) and
+from Theorem \ref{collapse-theorem}
+\end{proof}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -430,11 +445,15 @@ J.C.Kelly, \emph{Bitopological spaces.} Proc. Lond. Math. Soc.
 {A. S. Kechris}, {\em Classical Descriptive Set Theory}, Springer, Berlin,
 1995. 
 \bibitem[N]{N}
-  A. Nowik, {\em Notes on the ideal $(a)$},
+  A. Nowik, \emph{Notes on the ideal $(a)$},
 {Tatra Mountains Mathematical Publications,} 46 (2010), 41--45.
+\bibitem[PWBW]{PWBW}
+W. Poreda, E. Wagner-Bojakowska, W\l{}adys\l{}aw Wilczy\'{n}ski
+{\em A category analogue of the density topology}
+Fundamenta Mathematicae 125 (1985), 167--173.
 \bibitem[T]{T}
  F.D.Tall, {\em The density topology,}
-{Pacific J. Math.,} Vol 62, Number 1 (1976), 275 - 284
+{Pacific J. Math.,} Vol 62, Number 1 (1976), 275--284
 \end{thebibliography}
 
 \begin{center}
