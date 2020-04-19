@@ -306,52 +306,75 @@ $(A)(\tau_1, \tau_2) = \{ Z \subseteq X \colon
 
 \begin{theorem}
 \label{collapse-theorem}
-Denote by $\cK$ the following collection of subsets of the real line:
-$\lbrace A \subseteq \real \colon 
-\exists_{V\in\tau_e\setminus\lbrace\emptyset\rbrace}  
-\mathint (A \bigtriangleup V) = \emptyset\rbrace$.
+%Denote by $\cK$ the following collection of subsets of the real line:
+%$\lbrace A \subseteq \real \colon 
+%\exists_{V\in\tau_e\setminus\lbrace\emptyset\rbrace}  
+%\mathint (A \bigtriangleup V) = \emptyset\rbrace$.
 
-Suppose that $\tau_2$ is a topology on $\real$ stronger than $\tau_e$ 
-such that 
-$\tau_2\setminus\lbrace \emptyset \rbrace \subseteq \cK$.
-Then $\aideal(\tau_e, \tau_2) = \mathsf{ND}(\real)$.
+Suppose that $\tau_1$ and $\tau_2$ are topologies on $\real$ such
+that $\tau_1 \subseteq \tau_2$.
+The following conditions are equivalent:
+\begin{enumerate}
+\item $\tau_2 \cap \mathsf{ND}(\tau_1) = \lbrace \emptyset \rbrace$;
+\item $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_1)$.
+\end{enumerate}
 \end{theorem}
 									
 \begin{proof}  
-Notice that although the collection of sets with an empty interior is not an ideal,
-we have that $\cK = \lbrace (V \setminus B_1) \cup B_2\colon
-\mathint(B_1) = \mathint(B_2) = \emptyset, 
-V\in\topWithoutEmptyset{\tau_e}\rbrace$.
+%Notice that although the collection of sets with an empty interior is not an ideal,
+%we have that $\cK = \lbrace (V \setminus B_1) \cup B_2\colon
+%\mathint(B_1) = \mathint(B_2) = \emptyset, 
+%V\in\topWithoutEmptyset{\tau_e}\rbrace$.
 %%%TODO: czy jednak nie przydaloby sie tutaj jakies uzasadnienie?
-Suppose $A \in \mathsf{ND}(\real)$ and let $W \in \tau_2\setminus\lbrace \emptyset \rbrace$.
-Then there exists $V\in\topWithoutEmptyset{\tau_e}$ such that
-$\mathint (W \bigtriangleup V) = \emptyset$. Since $A$ is nowhere dense, there
-exists $U \in \topWithoutEmptyset{\tau_e}$ such that
-$U \subseteq V$ and $U \cap A = \emptyset$. Then
-$\mathint(U \setminus W) \subseteq \mathint(V \setminus W) = \emptyset$,
-hence $U \cap W \not= \emptyset$. Thus $A \in \aideal(\tau_e, \tau_2)$.
-On the other hand, we always have 
-$\aideal(\tau_e, \tau_2) \subseteq \mathsf{ND}(\tau_e) = \mathsf{ND}(\real)$,
+$(1) \implies (2)$
+
+It suffices to show the inclusion $\subseteq$, since
+$\aideal(\tau_1, \tau_2) \subseteq \mathsf{ND}(\tau_1)$.
+Suppose $A\in \mathsf{ND}(\tau_1)$ and choose
+$W \in \tau_2\setminus\lbrace \emptyset \rbrace$.
+By the assumption $(1)$ we have $W \not\in \mathsf{ND}(\tau_1)$, 
+hence $\mathint_{\tau_1} \cl_{\tau_1} (W) \not= \emptyset$.
+Since $A \in \mathsf{ND}(\tau_1)$ there exists 
+$V\in \tau_1\setminus\lbrace\emptyset\rbrace$ such 
+that $V \subseteq \mathint_{\tau_1} \cl_{\tau_1} (W) \setminus A$. 
+Since $\emptyset \not= V \subseteq \cl_{\tau_1} (W)$, 
+we have $W \cap V \not= \emptyset$. Moreover,
+$W \cap V \cap A = \emptyset$. Therefore 
+$A \in \aideal(\tau_1, \tau_2)$.
+
+%Suppose $A \in \mathsf{ND}(\real)$ and let $W \in \tau_2\setminus\lbrace \emptyset \rbrace$.
+%Then there exists $V\in\topWithoutEmptyset{\tau_e}$ such that
+%$\mathint (W \bigtriangleup V) = \emptyset$. Since $A$ is nowhere dense, there
+%exists $U \in \topWithoutEmptyset{\tau_e}$ such that
+%$U \subseteq V$ and $U \cap A = \emptyset$. Then
+%$\mathint(U \setminus W) \subseteq \mathint(V \setminus W) = \emptyset$,
+%hence $U \cap W \not= \emptyset$. Thus $A \in \aideal(\tau_e, \tau_2)$.
+%On the other hand, we always have 
+%$\aideal(\tau_e, \tau_2) \subseteq \mathsf{ND}(\tau_e) = \mathsf{ND}(\real)$,
+$\neg(1)\implies \neg(2)$.
+Suppose that $W\in\tau_2\cap\mathsf{ND}(\tau_1) \setminus \lbrace\emptyset\rbrace$.
+Obviously $W\not\in\mathsf{ND}(\tau_2)$ thus
+$W\not\in \aideal(\tau_1, \tau_2)$, hence
+$W \in \mathsf{ND}(\tau_1) \setminus \aideal(\tau_1, \tau_2)$,
 which finishes the proof.
 \end{proof}
 
-Moreover, let us notice that the collection $\cK$ 
-is the collection of sets $A$ such that $\mathint(\cl(A)) \not=\emptyset$. 
-Indeed, we have that $\mathint(A \setminus \mathint(\cl(A))) = \emptyset$
-and 
-$\mathint(\mathint(\cl(A)) \setminus A) = \emptyset$, so 
-if $\mathint(\cl(A)) \not= \emptyset$ then $A\in \cK$.
-
-On the other hand, suppose that $A \in \cK$, so
-there exists $B_1, B_2 \subseteq \real$ and 
-$V\in\topWithoutEmptyset{\tau}$
-such that 
-$\mathint(B_1) = \mathint(B_2) = \emptyset$
-and  
-$A = (V \setminus B_1) \cup B_2$. 
-Then 
-$\mathint(\cl(A)) \supseteq 
-\mathint(\cl(V \setminus B_1)) = \mathint(\cl(V)) \supseteq V \not= \emptyset$.
+%Moreover, let us notice that the collection $\cK$ 
+%is the collection of sets $A$ such that $\mathint(\cl(A)) \not=\emptyset$. 
+%Indeed, we have that $\mathint(A \setminus \mathint(\cl(A))) = \emptyset$
+%and 
+%$\mathint(\mathint(\cl(A)) \setminus A) = \emptyset$, so 
+%if $\mathint(\cl(A)) \not= \emptyset$ then $A\in \cK$.
+%On the other hand, suppose that $A \in \cK$, so
+%there exists $B_1, B_2 \subseteq \real$ and 
+%$V\in\topWithoutEmptyset{\tau}$
+%such that 
+%$\mathint(B_1) = \mathint(B_2) = \emptyset$
+%and  
+%$A = (V \setminus B_1) \cup B_2$. 
+%Then 
+%$\mathint(\cl(A)) \supseteq 
+%\mathint(\cl(V \setminus B_1)) = \mathint(\cl(V)) \supseteq V \not= \emptyset$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{corollary}
 If $\cF_I$ is the category analogue of the density topology (see \cite{PWBW}) 
