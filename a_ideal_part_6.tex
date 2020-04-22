@@ -316,7 +316,8 @@ that $\tau_1 \subseteq \tau_2$.
 The following conditions are equivalent:
 \begin{enumerate}
 \item $\tau_2 \cap \mathsf{ND}(\tau_1) = \lbrace \emptyset \rbrace$;
-\item $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_1)$.
+\item $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_1)$;
+\item $\mathsf{ND}(\tau_1) \subseteq \mathsf{ND}(\tau_2)$.
 \end{enumerate}
 \end{theorem}
 									
@@ -351,11 +352,14 @@ $A \in \aideal(\tau_1, \tau_2)$.
 %hence $U \cap W \not= \emptyset$. Thus $A \in \aideal(\tau_e, \tau_2)$.
 %On the other hand, we always have 
 %$\aideal(\tau_e, \tau_2) \subseteq \mathsf{ND}(\tau_e) = \mathsf{ND}(\real)$,
-$\neg(1)\implies \neg(2)$.
+$(2) \implies (3)$.
+It follows easily, since 
+$\aideal(\tau_1, \tau_2) \subseteq \mathsf{ND}(\tau_2)$.
+
+$\neg(1)\implies \neg(3)$.
 Suppose that $W\in\tau_2\cap\mathsf{ND}(\tau_1) \setminus \lbrace\emptyset\rbrace$.
 Obviously $W\not\in\mathsf{ND}(\tau_2)$ thus
-$W\not\in \aideal(\tau_1, \tau_2)$, hence
-$W \in \mathsf{ND}(\tau_1) \setminus \aideal(\tau_1, \tau_2)$,
+$W \in \mathsf{ND}(\tau_1) \setminus \mathsf{ND}(\tau_2)$,
 which finishes the proof.
 \end{proof}
 
