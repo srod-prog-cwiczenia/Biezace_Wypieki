@@ -181,6 +181,7 @@
 %%%\newcommand{\th}{\theta}
 %%%% makra specyficzne dla tej pracy:
 \newcommand{\aideal}{\mathit{(a)}}
+\newcommand{\Afield}{\mathit{(A)}}
 \newcommand{\topWithoutEmptyset}[1]{#1\setminus\lbrace\emptyset\rbrace}
 \newcommand{\ND}{\mathsf{ND}}
 \newcommand{\biMB}{bi-Marczewski-Burstin}
@@ -279,7 +280,13 @@ define $\aideal(\tau_1, \tau_2) = \{ A \subseteq X \colon
 \forall_{U \in \topWithoutEmptyset{\tau_2}}
 \exists_{W \in \tau_1} U \cap W \not= \emptyset \wedge
 U \cap W \cap A = \emptyset\}$.
-It turned out that $\aideal(\tau_e, \tau_d)$ is the ideal $(a)$.
+It turned out that $\aideal(\tau_e, \tau_d)$ is exactly the ideal $(a)$
+, where $\tau_e$ is the standard Euclidean topology and 
+$\tau_d$ is the standard density topology (see \cite{N} Theorem 2.4).
+In said article it was proven that the ideal $\aideal(\tau_1, \tau_2)$
+is the collection 
+$\bigcap_{\tau_1 \subseteq \tau \subseteq \tau_2 \atop \tau \hbox{\tiny \it
+topology}} \mathsf{ND}(\tau)$ (see Theorem 2.6, \cite{N}).
 
 (...)
 
@@ -297,11 +304,13 @@ This leads to the following definition:
 
 Let us define 
 \begin{definition}
-$(A)(\tau_1, \tau_2) = \{ Z \subseteq X \colon
+$\Afield(\tau_1, \tau_2) = \{ Z \subseteq X \colon
 \forall_{U \in \tau_2 \setminus \{ \emptyset\}}
 \exists_{W \in \tau_1} U \cap W \not= \emptyset \wedge
 (U \cap W \cap Z = \emptyset \vee U \cap W \subseteq Z)\}$.
 \end{definition}
+
+Notice that $\Afield(\tau_1, \tau_2)$ is a field of sets.
 
 \section{Results}
 
@@ -449,6 +458,9 @@ $U \cap V \in \cF_1$, this ends the proof.
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{10}
+\bibitem[BT]{BT}
+  M.K. Bose, R. Tiwari, \emph{On increasing sequences of topologies
+on a set}, Riv. Mat. Univ. Parma, \textbf{7} (7), (2007), 173--183.
 \bibitem[D]{D}
   B. P. Dvalishvili, \emph{Bitopological Spaces: Theory, 
 Relations with Generalized Algebraic Structures, and Applications}.
