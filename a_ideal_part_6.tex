@@ -257,9 +257,9 @@ On ideal $(a)$, revisited.
 
 \section{Preliminaries}
 The definition of condition $(a)$ was first introduced by Marcin Grande in 2001 in the paper
-\cite{MarcinGrande}. Namely, he characterized the set of discontinuity points of some approximately contionuous function f with property
+\cite{MarcinGrande}. Namely, he characterized the set of discontinuity points of some approximately continuous function f with property
 $(s_1)$ (see \cite{MarcinGrande}) in terms of so called $(a)$ condition:
-For each set $U\in\tau_d\lbrace\emptyset\rbrace$ contained in the closure $\cl(A)$ of the set $A$ the
+For each set $U\in\tau_d\setminus\lbrace\emptyset\rbrace$ contained in the closure $\cl(A)$ of the set $A$ the
 set $U \cap A$ is nowhere dense in $U$.
 In 2003 Zbigniew Grande and Ewa Stronska proved that the family of all sets satisfying
 the condition $(a)$ is an ideal of sets, which is $G_{\delta\sigma}$-generated, but not 
@@ -284,7 +284,7 @@ It turned out that $\aideal(\tau_e, \tau_d)$ is exactly the ideal $(a)$
 , where $\tau_e$ is the standard Euclidean topology and 
 $\tau_d$ is the standard density topology (see \cite{N} Theorem 2.4).
 In said article it was proven that the ideal $\aideal(\tau_1, \tau_2)$
-is the collection 
+is equivalent to the collection 
 $\bigcap_{\tau_1 \subseteq \tau \subseteq \tau_2 \atop \tau \hbox{\tiny \it
 topology}} \mathsf{ND}(\tau)$ (see Theorem 2.6, \cite{N}).
 
@@ -299,7 +299,9 @@ $\lbrace A \subseteq \real\colon
 \exists_{V \in \tau_e \setminus \lbrace \emptyset \rbrace \atop V \subseteq U}
 V \subseteq A \vee V \cap A = \emptyset\rbrace$
 is the field of sets of form $U \bigtriangleup E$
-where $U$ is open and $E$ is nowhere dense.
+where $U$ is open and $E$ is nowhere dense
+which is equivalent to the field of sets $A$ such that
+$\mathrm{Fr}(A)$ is nowhere dense.
 This leads to the following definition:
 
 Let us define 
@@ -321,7 +323,7 @@ Notice that $\Afield(\tau_1, \tau_2)$ is a field of sets.
 %\exists_{V\in\tau_e\setminus\lbrace\emptyset\rbrace}  
 %\mathint (A \bigtriangleup V) = \emptyset\rbrace$.
 
-Suppose that $\tau_1$ and $\tau_2$ are topologies on $\real$ such
+Suppose that $\tau_1$ and $\tau_2$ are topologies on a set $X$ such
 that $\tau_1 \subseteq \tau_2$.
 The following conditions are equivalent:
 \begin{enumerate}
@@ -403,13 +405,33 @@ $\cF_{\meager} \setminus\lbrace\emptyset\rbrace\subseteq \Baire\setminus\meager$
 from Theorem \ref{collapse-theorem}
 \end{proof}
 
+Let us formulate a ''dual'' theorem:
 
+\begin{theorem}
+Suppose that $\tau_1$ and $\tau_2$ are topologies on a set $X$ such
+that $\tau_1 \subseteq \tau_2$.
+Then we have implications $(1) \implies (2) \implies (3)$
+where:
+\begin{enumerate}
+\item $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_2)$;
+\item $\mathsf{ND}(\tau_2) \subseteq \mathsf{ND}(\tau_1)$.
+\item $\tau_1 \cap \mathsf{ND}(\tau_2) = \lbrace \emptyset \rbrace$;
+\end{enumerate}
+\end{theorem}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                         %
-%                      Main part                                          %
-%                                                                         %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{proof}
+$(1)\implies (2)$ is obvious, since
+$\aideal(\tau_1, \tau_2) \subseteq \mathsf{ND}(\tau_1)$.
+
+$\neg(3)\implies \neg(2)$.
+Suppose that $W\in\tau_1\cap\mathsf{ND}(\tau_2) \setminus \lbrace\emptyset\rbrace$.
+Obviously $W\not\in\mathsf{ND}(\tau_1)$ thus
+$W \in \mathsf{ND}(\tau_2) \setminus \mathsf{ND}(\tau_1)$,
+which finishes the proof.
+\end{proof}
+
+It is easy to see that in the definition (...)
+
 
 \subsection{$\aideal$ zdefiniowany via Marczewski - Burstin}
 
@@ -427,8 +449,8 @@ subsets of $\real$ such that:
   $\forall_{E \in cF_1} \forall_{W \in \cF_2} E \cap W \not= \emptyset \implies E \cap W \in \cF_2$  
 \end{enumerate}	
 
-Analogicznie do przestrzeni bitopologicznych, strukturę
-$\langle \cF_1, \cF_2 \rangle$ we call a {\it\biMB} system.
+Analogously to the notion of bitopological spaces we call a structure
+$\langle \cF_1, \cF_2 \rangle$ a {\it\biMB} system.
 
 \begin{theorem}
 Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB system.
