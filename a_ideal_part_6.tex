@@ -181,6 +181,7 @@
 %%%\newcommand{\th}{\theta}
 %%%% makra specyficzne dla tej pracy:
 \newcommand{\aideal}{\mathit{(a)}}
+\newcommand{\aidealprime}{\mathit{(a^\prime)}}
 \newcommand{\Afield}{\mathit{(A)}}
 \newcommand{\topWithoutEmptyset}[1]{#1\setminus\lbrace\emptyset\rbrace}
 \newcommand{\ND}{\mathsf{ND}}
@@ -256,6 +257,7 @@ On ideal $(a)$, revisited.
 \maketitle
 
 \section{Preliminaries}
+\label{section:preliminaries}
 The definition of condition $(a)$ was first introduced by Marcin Grande in 2001 in the paper
 \cite{MarcinGrande}. Namely, he characterized the set of discontinuity points of some approximately continuous function f with property
 $(s_1)$ (see \cite{MarcinGrande}) in terms of so called $(a)$ condition:
@@ -293,9 +295,18 @@ Further investigations of the properties of the ideal $(a)$ can be find in the p
 Notice also that we can consider the ideal $(a)$ defined on the Cantor
 space $2^{\omega}$ instead the real line. 
 Frankowska and Nowik in \cite{FN1} proved that also in that case
-the ideal $(a)$ on the Cantor space is 
+the ideal $\aideal$ on the Cantor space is 
 not $G_{\delta}$-generated (in fact, they proved implicite that the ideal $(a)$ is not
 $F_{\sigma\delta}$ generated).
+  We try to sketch the history of the next class of sets. Namely, in \cite{GS}
+the authors showed that for any closet set $E\subseteq \real$ we have
+$E\setminus \Phi(E) \in (a)$, where $\Phi(E)$ denote a set of
+density points of $E$. Since for every closed set $E$ we have
+$\mathint_{\tau_d}(E) = \Phi(E)$ it is natural to consider for the
+general case the family 
+$\aidealprime = \lbrace A \subseteq X\colon \exists_{E \subseteq X} 
+X\setminus E \in \tau_1 \wedge A \subseteq E \setminus  \mathint_{\tau_2}(E) \rbrace$
+which is contained in $\aideal$ (see \cite{GS} and \cite{N}).
 
 \section{Definitions and Notation}
 
@@ -400,6 +411,7 @@ which finishes the proof.
 %\mathint(\cl(V \setminus B_1)) = \mathint(\cl(V)) \supseteq V \not= \emptyset$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{corollary}
+\label{corollary:category-density-topology}
 If $\cF_{\meager}$ is the category analogue of the density topology (see \cite{PWBW}) 
 then 
 $(a)(\tau_e, \cF_{\meager}) = \mathsf{ND}(\real)$.
@@ -437,8 +449,30 @@ $W \in \mathsf{ND}(\tau_2) \setminus \mathsf{ND}(\tau_1)$,
 which finishes the proof.
 \end{proof}
 
-It is easy to see that in the definition (...)
+It is easy to see that in the definition of $\aideal(\tau_1, \tau_2)$
+(see Section \ref{section:preliminaries})
+we may assume that instead of taking $W \in \tau_1$
+we can take $W$ from any fixed base $\cB$ of the topology
+$\tau_1$. However, we cannot assume that (analogously)
+the set $U$ can be taken only from (any fixed) base of
+the topology $\tau_2$. The counterexample is based 
+on Example \ref{example:ellentuck}
 
+\subsection{Examples}
+\begin{example}
+$X = \real$,
+$\tau_1 = \tau_e$ and
+$\tau_2 = \cF_{\meager}$
+where $\cF_{\meager}$ is the category analogue of the density topology (see \cite{PWBW}).
+We argued (see Corollary \ref{corollary:category-density-topology}) that we have 
+$(a)(\tau_e, \cF_{\meager}) = \mathsf{ND}(\real)$.
+\end{example}
+\begin{example}
+\label{example:ellentuck}
+$X = [\omega]^\omega$,
+$\tau_1$ is a standard topology (on the Baire space of infinite natural sequences) and
+$\tau_2 = \tau_{El}$, where $\tau_{El}$ is the Ellentuck topology.
+\end{example}
 
 \subsection{$\aideal$ zdefiniowany via Marczewski - Burstin}
 
