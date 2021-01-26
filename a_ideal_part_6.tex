@@ -186,6 +186,7 @@
 \newcommand{\topWithoutEmptyset}[1]{#1\setminus\lbrace\emptyset\rbrace}
 \newcommand{\ND}{\mathsf{ND}}
 \newcommand{\biMB}{bi-Marczewski-Burstin}
+\newcommand{\tauEllentuck}{\tau_{\mathrm{EL}}}
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
@@ -309,6 +310,20 @@ X\setminus E \in \tau_1 \wedge A \subseteq E \setminus  \mathint_{\tau_2}(E) \rb
 which is contained in $\aideal$ (see \cite{GS} and \cite{N}).
 
 \section{Definitions and Notation}
+
+For explain some topological notions we refer for example \cite{En}.
+If $s \in \finsub$, $U \in \infsub$ and $\max (s) < \min(U)$,
+then by $[s, U]$ we denote $\{ A \in \infsub: s \seq A \seq s \cup U\}$.
+We call such a set an {\it Ellentuck set}. The collection of all
+Ellentuck sets establish a base of a topology, called 
+{\it Ellentuck topology}. We denote this topology 
+by $\tauEllentuck$. This topology was 
+(...)
+%%%  We say that a set $X \seq \infsub$ is Ramsey null
+%%%(or shortly, X is $CR_0$) iff for every $[s, U]$, there exists $[s, V] \seq [s, U]$ such that
+%%%$[s, V] \cap X = \emptyset$.  If $X \seq \ca$, then we will call it a Ramsey null
+%%%set iff for every $[s, U]$, there is $[s, V] \seq [s, U]$,
+%%%so that  $\{ \chi(x): x \in [s, V]\} \cap X = \emptyset$, where for $x \in \infsub$, $\chi(x)$ denotes its characteristic function.
 
 It is well known that the field defined via
 Marczewski-Burstin representation:
@@ -449,6 +464,15 @@ $W \in \mathsf{ND}(\tau_2) \setminus \mathsf{ND}(\tau_1)$,
 which finishes the proof.
 \end{proof}
 
+Notice that in the previous theorem we don't need to have
+the implication $(3) \implies (1)$. The counterexample 
+is the density topology ideal $\aideal$, for $\tau_1 = \tau_e$
+and $\tau_2 = \tau_d$. Indeed, we have 
+that $\mathsf{ND}(\tau_2)$ is a collection of Lebesgue null sets, 
+so $\tau_1 \cap \mathsf{ND}(\tau_2) = \lbrace \emptyset \rbrace$,
+but of course neither $\mathsf{ND}(\tau_2) \subseteq \mathsf{ND}(\tau_1)$ 
+nor $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_2)$.
+
 It is easy to see that in the definition of $\aideal(\tau_1, \tau_2)$
 (see Section \ref{section:preliminaries})
 we may assume that instead of taking $W \in \tau_1$
@@ -471,7 +495,7 @@ $(a)(\tau_e, \cF_{\meager}) = \mathsf{ND}(\real)$.
 \label{example:ellentuck}
 $X = [\omega]^\omega$,
 $\tau_1$ is a standard topology (on the Baire space of infinite natural sequences) and
-$\tau_2 = \tau_{El}$, where $\tau_{El}$ is the Ellentuck topology.
+$\tau_2 = \tauEllentuck$, where $\tauEllentuck$ is the Ellentuck topology.
 \end{example}
 
 \subsection{$\aideal$ zdefiniowany via Marczewski - Burstin}
@@ -536,6 +560,9 @@ Elsevier Science B.V., Amsterdam, 2005.
 \bibitem{MarcinGrande} M.~Grande, \emph{On the sets of discontinuity points of functions satisfying some approximate
 quasi- continuity conditions}, Real Anal. Exchange \textbf{27(2)} (2001-2002), 773--781.
 
+\bibitem[En]{En}
+R.Engelking \emph{General Topology}, Heldermann Verlag, Berlin, 1989.
+
 \bibitem[FG]{FG}
 M. Frankowska, S.G\l{}\c{a}b, 
 \emph{On some $\sigma$-ideal without ccc}, Colloquium Mathematicum \textbf{158 (1)} (2019), 127--140.
@@ -572,6 +599,9 @@ J.C.Kelly, \emph{Bitopological spaces.} Proc. Lond. Math. Soc.
 \bibitem[N]{N}
   A. Nowik, \emph{Notes on the ideal $(a)$},
 {Tatra Mountains Mathematical Publications,} 46 (2010), 41--45.
+
+\bibitem[Pl]{Pl} S.Plewik, \emph{On completely Ramsey sets}, 
+Fund. Math. \textbf{127} (1986), 127-132.
 
 \bibitem[PWBW]{PWBW}
 W. Poreda, E. Wagner-Bojakowska, W\l{}adys\l{}aw Wilczy\'{n}ski
