@@ -317,8 +317,17 @@ then by $[s, U]$ we denote $\{ A \in \infsub: s \seq A \seq s \cup U\}$.
 We call such a set an {\it Ellentuck set}. The collection of all
 Ellentuck sets establish a base of a topology, called 
 {\it Ellentuck topology}. We denote this topology 
-by $\tauEllentuck$. This topology was 
-(...)
+by $\tauEllentuck$. This topology was well investigated.
+It is well known that the collection of nowhere dense sets in the Ellentuck 
+topology is equal to the  collection of first category sets in this topology.
+%%%TODO: nie wiem czy mozna zastosowac taka ,,wyrzutnie'': "in the one" ??
+%%% - a jednak zmienilem na "in this topology"
+We call the nowhere dense sets in the Ellentuck topology 
+{\it Ramsey null sets} and we have the following characterizations of
+these sets: $X \subseteq \infsub$ is Ramsey null iff for every $[s, U]$ there exists $V \in [U]^\omega$
+such that $X \cap [s, V] = \emptyset$ and the second characterization:
+$X \subseteq \infsub$ is Ramsey null iff for every $[s, U]$ there exists $[t, V] \subseteq [s, U]$
+such that $X \cap [s, V] = \emptyset$.
 %%%  We say that a set $X \seq \infsub$ is Ramsey null
 %%%(or shortly, X is $CR_0$) iff for every $[s, U]$, there exists $[s, V] \seq [s, U]$ such that
 %%%$[s, V] \cap X = \emptyset$.  If $X \seq \ca$, then we will call it a Ramsey null
@@ -516,10 +525,10 @@ subsets of $\real$ such that:
 
 %%%TODO: a moze lepiej by brzmialo: analogously like...?
 Analogously to the notion of bitopological spaces we call a structure
-$\langle \cF_1, \cF_2 \rangle$ a {\it\biMB} system.
+$\langle \cF_1, \cF_2 \rangle$ a {\it\biMB{}} system.
 
 \begin{theorem}
-Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB system.
+Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB{} system.
 Then the collection
 $\aideal(\cF_1, \cF_2) = \lbrace A \subseteq \real\colon 
 \forall_{W\in \cF_2} \exists_{U \in \cF_1}
