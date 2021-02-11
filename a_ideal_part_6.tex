@@ -359,7 +359,7 @@ Notice that $\Afield(\tau_1, \tau_2)$ is a field of sets.
 \section{Results}
 
 \begin{theorem}
-\label{collapse-theorem}
+\label{theorem:collapse-theorem}
 %Denote by $\cK$ the following collection of subsets of the real line:
 %$\lbrace A \subseteq \real \colon 
 %\exists_{V\in\tau_e\setminus\lbrace\emptyset\rbrace}  
@@ -446,6 +446,30 @@ This follows from the fact that
 $\cF_{\meager} \setminus\lbrace\emptyset\rbrace\subseteq \Baire\setminus\meager$
 (see \cite{PWBW}, Remark 2) and
 from Theorem \ref{collapse-theorem}
+\end{proof}
+
+\begin{corollary}
+If we assume moreover that $\tau_1$ is a Hausdorff topology without isolated points
+then the conditions from Theorem \ref{theorem:collapse-theorem} are equivalent to
+the condition: $\Afield(\tau_1, \tau_2) = \cS(\tau_1 \setminus \lbrace \emptyset \rbrace)$.
+\end{corollary}
+
+\begin{proof}
+Assume that $\tau_2 \cap \mathsf{ND}(\tau_1) = \lbrace \emptyset \rbrace$.
+It is evident that $\Afield(\tau_1, \tau_2) \subseteq \cS(\tau_1 \setminus \lbrace \emptyset \rbrace)$.
+The argument that $\cS(\tau_1 \setminus \lbrace \emptyset \rbrace)\subseteq \Afield(\tau_1, \tau_2)$
+''mimic'' the proof of implication $(1) \implies (2)$, but instead of the inclusion
+$V \subseteq \mathint_{\tau_1} \cl_{\tau_1} (W) \setminus A$ we have the alternative
+$V \subseteq \mathint_{\tau_1} \cl_{\tau_1} (W) \setminus A \vee V \subseteq \mathint_{\tau_1} \cl_{\tau_1} (W) \cap A$ 
+and  we obtain $W \cap V \cap A = \emptyset \vee W \cap V \subseteq A$, so finally we
+obtain $A \in \Afield(\tau_1, \tau_2)$.
+On the other hand, assume that 
+$\Afield(\tau_1, \tau_2) = \cS(\tau_1 \setminus \lbrace \emptyset \rbrace)$. 
+Then by taking from both sides of this equation the operation $\mathit{Hereditary}$
+we obtain that 
+$\mathit{Hereditary}(\Afield(\tau_1, \tau_2)) = \mathit{Hereditary}(\cS(\tau_1 \setminus \lbrace \emptyset \rbrace))$
+therefore by (...) we obtain
+$\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_1)$.
 \end{proof}
 
 Let us formulate a ''dual'' theorem:
