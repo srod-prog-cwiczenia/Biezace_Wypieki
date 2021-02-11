@@ -13,6 +13,7 @@
 \usepackage{latexsym}
 \usepackage{amsfonts}
 \usepackage{enumerate}
+\usepackage{mathtools}
 %\usepackage[mathscr]{eucal}
 \usepackage[mathscr]{euscript}
 \usepackage{eqlist}
@@ -310,7 +311,7 @@ X\setminus E \in \tau_1 \wedge A \subseteq E \setminus  \mathint_{\tau_2}(E) \rb
 which is contained in $\aideal$ (see \cite{GS} and \cite{N}).
 
 \section{Definitions and Notation}
-
+\subsection{Ellentuck topology}
 For explain some topological notions we refer for example \cite{En}.
 If $s \in \finsub$, $U \in \infsub$ and $\max (s) < \min(U)$,
 then by $[s, U]$ we denote $\{ A \in \infsub: s \seq A \seq s \cup U\}$.
@@ -333,9 +334,30 @@ such that $X \cap [s, V] = \emptyset$.
 %%%$[s, V] \cap X = \emptyset$.  If $X \seq \ca$, then we will call it a Ramsey null
 %%%set iff for every $[s, U]$, there is $[s, V] \seq [s, U]$,
 %%%so that  $\{ \chi(x): x \in [s, V]\} \cap X = \emptyset$, where for $x \in \infsub$, $\chi(x)$ denotes its characteristic function.
+\subsection{The density topology}
+If $E \subseteq \real$ is a Lebesgue measurable set then by $\Phi(E)$ we denote the set of all denstiy
+points of set $E$. It is well known that the collection of all Lebesgue measurable subsets of $\real$
+such that $E \subseteq \Phi(E)$ is a topology called the \underline{density topology}, we denote
+this topology by $\tau_d$.
+\subsection{The category density topology}
+Following \cite{PWBW} let us formulate a sequence
+of definitions:
+Assume that $\cF$ is a $\sigma$-field of subsets of $\real$
+and $\cI \subseteq \cF$ is a proper $\sigma$-ideal of sets.
+Suppose that $f$ is a $\cF$ measurable real function.
+We say that a sequence $(f_n)_{n\in\omega}$
+of $\cF$ measurable real functions \underline{converges
+with respect to $\cI$ to the function $f$} iff
+for every subsequence $(n_m)_{m\in\omega}$
+there exists a subsequence $(n_{m_k})_{k\in\omega}$
+such that 
+$\real\setminus \lbrace x\in\real\colon \lim_{k\to\infty}
+f_{n_{m_k}}(x) = f(x)\rbrace \in \cI$. We denote this fact
+by $f_n \xrightarrow[n\to\infty]{\cI} f$.  
 
-It is well known that the field defined via
-Marczewski-Burstin representation:
+\subsection{Marczewski - Burstin representation}
+\flushleft{It is well known that the field defined via
+Marczewski-Burstin representation:}\linebreak
 $\lbrace A \subseteq \real\colon 
 \forall_{U \in \tau_e \setminus \lbrace \emptyset \rbrace}
 \exists_{V \in \tau_e \setminus \lbrace \emptyset \rbrace \atop V \subseteq U}
