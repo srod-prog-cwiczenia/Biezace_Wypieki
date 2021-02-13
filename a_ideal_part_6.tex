@@ -373,12 +373,50 @@ the \underline{category density topology}
 and we denote this topology by $\cF_{\meager}$.
 
 \subsection{Marczewski - Burstin representation}
-\flushleft{It is well known that the field defined via
-Marczewski-Burstin representation:}\linebreak
-$\lbrace A \subseteq \real\colon 
-\forall_{U \in \tau_e \setminus \lbrace \emptyset \rbrace}
-\exists_{V \in \tau_e \setminus \lbrace \emptyset \rbrace \atop V \subseteq U}
-V \subseteq A \vee V \cap A = \emptyset\rbrace$
+
+\begin{definition}
+For any nonempty family $\cF \subseteq P(X) \setminus \{\emptyset\}$
+let us define
+$S(\cF) = \{A\subseteq X\colon \forall_{P\in\cF} \exists_{Q\in \cF}
+Q \subseteq P\cap A \vee Q \subseteq P\setminus A\}$
+and 
+$S^0(\cF) = \{A\subseteq X\colon \forall_{P\in\cF} \exists_{Q\in \cF}
+Q \subseteq P\setminus A\}$. 
+\end{definition}
+It is well known that the collection $S^0(\cF)$ and $S(\cF)$
+is a field and respectively, an ideal of subsets of $X$.
+%%%@@ nie mam pojecia czy to pojecie bedzie wykorzystywane dalej. W razie 
+%%% czego mozna bedzie odkomentowac co nastepuje:
+%We say that the family $\cF$ is an {\it inner}
+%MB-representation (see \cite{BBRW},
+%\cite{BBC1}, \cite{BBC2} or \cite{BBK})
+%iff $\cF \subseteq S(\cF)$.
+
+It is worth to note that the families $S(\Perf(X))$
+and $S^0(\Perf(X))$ are the classical Marczewski sets
+$s$ and $s_0$, respectively (introduced in 1935 in \cite{SM}).
+
+%%%%%@@ to tez ewentualnie mozna pozniej odkomentowac:
+%A classical standard examples of MB reprezentations are:
+%\begin{example}
+%\label{example-measure-category}
+%$S(\Perf^+) = \Lebesgue(\real)$, 
+%$S^0(\Perf^+) = \negligible(\real)$ (Burstin, \cite{Bu}) and
+%$S(\cM^+) = \Baire(\real)$,
+%$S^0(\cM^+) = \meager(\real)$ (Brown and Elalaoui-Talibi, \cite{BET}),
+%where $\Perf^+ = \Perf(\real)\setminus\negligible$ and
+%$\cM^+$ is the family of subsets of the real line of the form $U\setminus F$, where
+%$U$ is a nonempty open set and $F$ is an $F_{\sigma}$ meager set.
+%\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Notice that the field $S(\tau_e\setminus \lbrace \emptyset \rbrace)$
+%%%defined via the Marczewski-Burstin representation:}\linebreak
+%$\lbrace A \subseteq \real\colon 
+%\forall_{U \in \tau_e \setminus \lbrace \emptyset \rbrace}
+%\exists_{V \in \tau_e \setminus \lbrace \emptyset \rbrace \atop V \subseteq U}
+%V \subseteq A \vee V \cap A = \emptyset\rbrace$
+%%%%%%%%%%%%%%%%%%%%
 is the field of sets of form $U \bigtriangleup E$
 where $U$ is open and $E$ is nowhere dense
 which is the same as the collection of sets $A$ such that
@@ -473,6 +511,11 @@ which finishes the proof.
 %$\mathint(\cl(A)) \supseteq 
 %\mathint(\cl(V \setminus B_1)) = \mathint(\cl(V)) \supseteq V \not= \emptyset$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+An immediate consequence of the previous theorem is the answer to the following
+problem: at first, let us recall that in the definition of the standard ideal $\aideal$
+we use the (measure) density topology. It is a natural question what kind of an ideal
+we obtain if in the definition of the ideal $\aideal$ we would use the category density topology
+instead of the measure one? It turned out that we get no new ideal, namely:
 \begin{corollary}
 \label{corollary:category-density-topology}
 If $\cF_{\meager}$ is the category analogue of the density topology (see \cite{PWBW}) 
@@ -570,7 +613,35 @@ $\tau_1$ is a standard topology (on the Baire space of infinite natural sequence
 $\tau_2 = \tauEllentuck$, where $\tauEllentuck$ is the Ellentuck topology.
 \end{example}
 
-\subsection{$\aideal$ zdefiniowany via Marczewski - Burstin}
+\subsection{$\aideal$ via Marczewski - Burstin schema}
+
+We may consider the definition of the ideals $\aideal$
+as a special kind of general schema via Marczewski - Burstin.
+Analogously to the notion of bitopological spaces we call define
+a {\it\biMB{}} system:
+
+\begin{definition}
+Suppose that $\cF_1$ and $\cF_2$ are collections of nonempty
+subset of a set $X$. 
+We call a structure $\langle \cF_1, \cF_2 \rangle$ a {\it\biMB{}} system.
+Notice that we don't require inclusion $\cF_1 \subseteq \cF_2$.
+\end{definition}
+
+\begin{definition}
+If $\langle \cF_1, \cF_2 \rangle$ is a {\it\biMB{}} system,
+then define 
+$\aideal(\cF_1, \cF_2) = \lbrace A \subseteq \real\colon 
+\forall_{W\in \cF_2} \exists_{U \in \cF_1}
+W \cap U \not= \emptyset \wedge W \cap U \cap A = \emptyset
+\rbrace$ 
+\end{definition}
+
+However, such defined collection $\aideal(\cF_1, \cF_2)$
+in general case need not be ever an ideal.
+%%%@@ podac tu jakis ciekawy - naturalny - kontrprzyklad.
+
+Nevertheless, let us notice that the collection
+$\aideal(\tau_e, \Perf)$
 
 Assume that $\cF_1$ and $\cF_2$ are MB - families of nonempty 
 subsets of $\real$ such that:
@@ -679,6 +750,10 @@ Fund. Math. \textbf{127} (1986), 127-132.
 W. Poreda, E. Wagner-Bojakowska, W\l{}adys\l{}aw Wilczy\'{n}ski
 {\em A category analogue of the density topology}
 Fundamenta Mathematicae 125 (1985), 167--173.
+
+\bibitem[SM]{SM}{E.Szpilrajn-Marczewski}, \emph{Sur un classe de
+fonctions de M. Sierpi\'nski et la class correspondante d\'{}ensembles},
+Fund. Math. 24 (1935), 17--34.
 
 \bibitem[T]{T}
  F.D.Tall, {\em The density topology,}
