@@ -661,8 +661,13 @@ $W_B \cap P_1 \not= \emptyset \wedge W_B \cap P_1 \cap B = \emptyset$.
 Define $W = W_A \cap W_B$. Then we have:
 $W \cap P = W_B \cap W_A \cap P$, 
 but since $W_B \cap \cl_{\tau_e}(P \cap W_A)$
-(...)
-
+we have $W_B \cap P \cap W_A \not= \emptyset$,
+hence $W \cap P \not= \emptyset$.
+Moreover, we have
+$W \cap P \cap (A \cup B) = (W \cap P \cap A) \cup (W \cap P \cap B) \subseteq$
+$(W_A \cap P \cap A) \cup (W_B \cap W_A \cap P \cap B) =$
+$W_B \cap W_A \cap P \cap B \subseteq W_B \cap \cl_{\tau_e} (P \cap W_A) \cap B =$
+$W_B \cap P_1 \cap B = \emptyset$.
 \end{proof}
 
 Assume that $\cF_1$ and $\cF_2$ are MB - families of nonempty 
