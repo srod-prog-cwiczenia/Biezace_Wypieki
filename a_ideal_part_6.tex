@@ -188,6 +188,8 @@
 \newcommand{\ND}{\mathsf{ND}}
 \newcommand{\biMB}{bi-Marczewski-Burstin}
 \newcommand{\tauEllentuck}{\tau_{\mathrm{EL}}}
+\newcommand{\baseEllentuck}{\cB_{\mathrm{EL}}}
+\newcommand{\ninomega}{n\in\omega}
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
@@ -312,15 +314,29 @@ which is contained in $\aideal$ (see \cite{GS} and \cite{N}).
 
 \section{Definitions and Notation}
 \subsection{General notation}
+If $A$ is any set then
+$[A]^\omega$ denotes the
+family of all infinite countable
+subsets of the set $A$.
+%%%@@TODO: tutaj opisac definicje kwantyfikatorow ,,infty''
 If $X$ is a Polish space then $\Perf(X)$ 
 stands for the family of all perfect subsets of $X$.
 
+\subsection{The Cantor space}
+The Cantor space $2^\omega$ is the set of all infinite binary sequences with the metric, which 
+defined as follows: 
+$\rho((x_n), (y_n)) = \begin{cases}
+     2^{-\min\lbrace i \in \omega\colon x_i \not= y_i\rbrace} & \text{if }(x_n) \not= (y_n)\\
+     0      & \text{if }(x_n) = (y_n)
+\end{cases}$.
+The base of the topology of the Cantor space $2^\omega$ consists of sets 
+$\langle s \rangle = \lbrace x \in 2^\omega\colon x \restriction |s| = s\rbrace$ for any $s\in 2^{<\omega}$ (the set of all finite binary sequences).
 \subsection{Ellentuck topology}
 For explain some topological notions we refer for example \cite{En}.
 If $s \in \finsub$, $U \in \infsub$ and $\max (s) < \min(U)$,
 then by $[s, U]$ we denote $\{ A \in \infsub: s \seq A \seq s \cup U\}$.
-We call such a set an {\it Ellentuck set}. The collection of all
-Ellentuck sets establish a base of a topology, called 
+We call such a set an {\it Ellentuck set}. We denote the collection of all
+Ellentuck sets by $\baseEllentuck$ and this collection establish a base of a topology, called 
 {\it Ellentuck topology}. We denote this topology 
 by $\tauEllentuck$. This topology was well investigated.
 It is well known that the collection of nowhere dense sets in the Ellentuck 
@@ -389,7 +405,7 @@ Q \subseteq P\setminus A\}$.
 \end{definition}
 It is well known that the collection $S^0(\cF)$ and $S(\cF)$
 is a field and respectively, an ideal of subsets of $X$.
-%%%@@ nie mam pojecia czy to pojecie bedzie wykorzystywane dalej. W razie 
+%%%@@TODO: nie mam pojecia czy to pojecie bedzie wykorzystywane dalej. W razie 
 %%% czego mozna bedzie odkomentowac co nastepuje:
 %We say that the family $\cF$ is an {\it inner}
 %MB-representation (see \cite{BBRW},
@@ -400,7 +416,7 @@ It is worth to note that the families $S(\Perf(X))$
 and $S^0(\Perf(X))$ are the classical Marczewski sets
 $s$ and $s_0$, respectively (introduced in 1935 in \cite{SM}).
 
-%%%%%@@ to tez ewentualnie mozna pozniej odkomentowac:
+%%%%%@@TODO: to tez ewentualnie mozna pozniej odkomentowac:
 %A classical standard examples of MB reprezentations are:
 %\begin{example}
 %\label{example-measure-category}
@@ -601,6 +617,57 @@ the set $U$ can be taken only from (any fixed) base of
 the topology $\tau_2$. The counterexample is based 
 on Example \ref{example:ellentuck}
 
+%%%% rozbudowany przyklad:
+\begin{example}
+There exists a Borel (in fact,
+(...)%%%@@TODO: wyznaczyc klase borelowska!
+) set $Z \subseteq \infsub$ such that 
+$Z \in \aideal(\tau_e, \baseEllentuck)$, but
+$Z \not\in \aideal(\tau_e, \tauEllentuck)$.
+\end{example}
+
+\begin{proof}
+Let $(A_n)_{n\in\omega}$ be a fixed partition of $\omega$ into infinite sets. 
+Let us define $Z$ by:
+for any $A\in\infsub$ 
+we have $A\in Z \iff \forall_{n\in\omega} |A_n \cap A| = 1$.
+Let us check that $Z\in\aideal(\tau_e, \baseEllentuck)$.
+Suppose that $[s, A]$ is an Ellentuck set, i.e. $s\in\finsub$, $A\in\infsub$, $\max s < min A$. 
+If $[s, A] \cap Z = \emptyset$ then
+the proof is complete. On the other hand suppose that there exists $B \in [s, A] \cap Z$. Then $s \subseteq B \in Z$, so $\forall_{
+\ninomega} |A_n \cap s| \leq 1$.
+Suppose that $\exists_{n_0\in\omega} |A_{n_0} \cap A| \geq 2$. Let us choose $k_0 < k_1$, $k_0, k_1 \in A_{n_0} \cap A$, observe that $\max s < k_0 < k_1$ and define:
+$t \in 2^{<\omega}$, 
+$\dom(t) = \lbrace 0, \ldots, k_1\rbrace$, by  
+$t(i) = \begin{cases}
+     1 & \text{ if } i \in s \cup \lbrace k_0, k_1 \rbrace \\
+     0 & \text{ in the other case }
+\end{cases}$.
+We have $\langle t \rangle \cap [s, A] \not= \emptyset$. Indeed, let us define $D = s \cup \lbrace k_0, k_1 \rbrace \cup (A \setminus \lbrace 0, \ldots, k_1\rbrace)$.
+Then $D \in \infsub$, $D \in [s, A]$ (since $s \subseteq D \subseteq s \cup A$). Moreover, $D \in \langle t \rangle$. Since $t(k_0) = t(k_1) = 1$ we have $Z \cap \langle t \rangle = \emptyset$.
+On the other hand, suppose that $\forall_{\ninomega} |A \cap A_n| \leq 1$. Then $\exists^\infty_n A \cap A_n \not= \emptyset$.
+Let us define 
+$n_0 = \min\lbrace \ninomega \colon A \cap A_n \not= \emptyset \wedge A_n \cap s = \emptyset \rbrace$.
+Let $\lbrace k_0 \rbrace = A \cap A_{n_0}$. Observe that $\max s < k_0$. Let us define $t \in 2^{<\omega}$ by $\dom(t) = \lbrace 0, \ldots, k_0\rbrace$, 
+$t(i) = \begin{cases}
+     1 & \text{ if } i \in s \cup A \setminus \lbrace k_0 \rbrace \\
+     0 & \text{ in the other case }
+\end{cases}$.
+Define $D = s \cup (A \setminus \lbrace k_0 \rbrace)$. Then $D \in \infsub$, $D \in [s, A]$ (since $s \subseteq D \subseteq s \cup A$) and since $D \cap \lbrace 0, \ldots, k_0 \rbrace = s \cup (A \cap \lbrace 0, \ldots, k_0 - 1 \rbrace$, hence $D \in \langle t \rangle$. So $\langle t \rangle \cap [s, A] \not= \emptyset$. Suppose that $Z \cap \langle t \rangle \cap [s, A] \not= \emptyset$. Let $B \in Z \cap \langle t \rangle \cap [s, A]$. Since $B \in Z$ we have $|B \cap A_{n_0}| = 1$. From the definiton of $n_0$ we know that $A_{n_0} \cap s = \emptyset$. Since $B \in [s, A]$ we have $B \subseteq s \cup A$. Hence $B \cap A_{n_0} \subseteq (s \cap A_{n_0}) \cup (A_{n_0} \cap A) = A_{n_0} \cap A = \lbrace k_0 \rbrace$. Therefore $B \cap A_{n_0} = \lbrace k_0 \rbrace$. But $t(k_0) = 0$, which is a contradiction with $B \in \langle t \rangle$.
+This proves that 
+$Z \in \aideal(\tau_e, \baseEllentuck)$.
+
+Let us check now that 
+$Z \not\in \aideal(\tau_e, \tauEllentuck)$.
+Let us define:
+\[
+W = \bigcup_{B \in Z} [B]^\omega
+\]
+%%%@@@
+\end{proof}
+
+%%%% koniec rozbudowanego przykladu
+
 \subsection{Examples}
 \begin{example}
 $X = \real$,
@@ -642,7 +709,7 @@ W \cap U \not= \emptyset \wedge W \cap U \cap A = \emptyset
 
 However, such defined collection $\aideal(\cF_1, \cF_2)$
 in general case need not be ever an ideal.
-%%%@@ podac tu jakis ciekawy - naturalny - kontrprzyklad.
+%%%@@TODO: podac tu jakis ciekawy - naturalny - kontrprzyklad.
 
 Nevertheless, let us notice that the collection
 $\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal:
