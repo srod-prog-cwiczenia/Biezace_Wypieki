@@ -661,8 +661,29 @@ Let us check now that
 $Z \not\in \aideal(\tau_e, \tauEllentuck)$.
 Let us define:
 \[
-W = \bigcup_{B \in Z} [B]^\omega
+W = \bigcup_{B \in Z} [B]^\omega = \lbrace B\in\infsub\colon \forall_{\ninomega} 
+|A_n \cap B| \leq 1\rbrace.
 \]
+Suppose that $t\in 2^{<\omega}$ is such that
+$\langle t \rangle \cap W \not= \emptyset$.
+Let $k_0$ be such that $\dom(t) = \lbrace 0, \ldots, k_0\rbrace$ and 
+define: $a = \lbrace i \in \dom(t) \colon t(i) = 0 \rbrace$ 
+and 
+$b = \lbrace i \in \dom(t) \colon t(i) = 1 \rbrace$. Since 
+$\langle t \rangle \cap W \not= \emptyset$ let us choose
+any $E \in \langle t \rangle \cap W$. Thus 
+$\forall_{\ninomega} |E \cap A_n| \leq 1$. But $b \subseteq E$,
+hence $\forall_{\ninomega} |b \cap A_n| \leq 1$.
+Let us denote $F = \lbrace \ninomega\colon b\cap A_n \not= \emptyset\rbrace$.
+For each $n\'in F$ choose $m_n\in\omega$ by the following way:
+\[m_n = \begin{cases}
+     1 & \text{ if } i \in s \cup A \setminus \lbrace k_0 \rbrace \\
+     0 & \text{ in the other case }
+\end{cases}.\]
+
+
+
+
 %%%@@@
 \end{proof}
 
