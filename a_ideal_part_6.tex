@@ -675,12 +675,23 @@ any $E \in \langle t \rangle \cap W$. Thus
 $\forall_{\ninomega} |E \cap A_n| \leq 1$. But $b \subseteq E$,
 hence $\forall_{\ninomega} |b \cap A_n| \leq 1$.
 Let us denote $F = \lbrace \ninomega\colon b\cap A_n \not= \emptyset\rbrace$.
-For each $n\'in F$ choose $m_n\in\omega$ by the following way:
+For each $n\in \omega$ choose $m_n\in\omega$ by the following way:
 \[m_n = \begin{cases}
-     1 & \text{ if } i \in s \cup A \setminus \lbrace k_0 \rbrace \\
-     0 & \text{ in the other case }
+  \text{the unique element of } b \cap A_n   & \text{ if }
+  n\in E\\
+  \min A_n \setminus \lbrace 0, \ldots, k_0\rbrace & \text{ if }
+  n\not\in E \\
 \end{cases}.\]
-
+Define $D = \lbrace m_n \colon n \in \omega\rbrace$.
+Then $D \in Z$, hence $D \in W$.
+We have $b\subseteq D$. Indeed, if $k\in b$ then
+there exists $n(k)$ such that $k \in A_{n(k)}$.
+Therefore $b \cap A_{n(k)} \not= \emptyset$, hence
+$\lbrace m_{n(k)} \lbrace = $b \cap A_{n(k)}$.
+But $m_{n(k)} \in D$ and moreover $k = m_{n(k)}$
+(since $k\in b \cap A_{n(k)}$), therefore
+$k\in D$.
+Let us check that $a \cap D = \emptyset$.
 
 
 
