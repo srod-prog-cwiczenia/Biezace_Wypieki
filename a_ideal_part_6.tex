@@ -535,7 +535,7 @@ An immediate consequence of the previous theorem is the answer to the following
 problem: at first, let us recall that in the definition of the standard ideal $\aideal$
 we use the (measure) density topology. It is a natural question what kind of an ideal
 we obtain if in the definition of the ideal $\aideal$ we would use the category density topology
-instead of the measure one? It turned out that we get no new ideal, namely:
+instead of the measure one? Suprisingly it turned out that we get no new ideal, namely:
 \begin{corollary}
 \label{corollary:category-density-topology}
 If $\cF_{\meager}$ is the category analogue of the density topology (see \cite{PWBW}) 
@@ -547,7 +547,7 @@ $(a)(\tau_e, \cF_{\meager}) = \mathsf{ND}(\real)$.
 This follows from the fact that 
 $\cF_{\meager} \setminus\lbrace\emptyset\rbrace\subseteq \Baire\setminus\meager$
 (see \cite{PWBW}, Remark 2) and
-from Theorem \ref{collapse-theorem}
+from Theorem \ref{theorem:collapse-theorem}
 \end{proof}
 
 \begin{corollary}
@@ -687,15 +687,21 @@ Then $D \in Z$, hence $D \in W$.
 We have $b\subseteq D$. Indeed, if $k\in b$ then
 there exists $n(k)$ such that $k \in A_{n(k)}$.
 Therefore $b \cap A_{n(k)} \not= \emptyset$, hence
-$\lbrace m_{n(k)} \lbrace = $b \cap A_{n(k)}$.
+$\lbrace m_{n(k)} \rbrace = b \cap A_{n(k)}$.
 But $m_{n(k)} \in D$ and moreover $k = m_{n(k)}$
 (since $k\in b \cap A_{n(k)}$), therefore
 $k\in D$.
 Let us check that $a \cap D = \emptyset$.
-
-
-
-%%%@@@
+By way of contradiction, suppose that $m_n \in a$
+for some $n\in\natural$. Since $a\cap b = \emptyset$
+and for $n\in E$ we have that $m_n \in b$
+hence $n \not\in E$. We know that 
+$m_n \in A_n \setminus \lbrace 0, \ldots, k_0\rbrace$.
+But $a \subseteq \lbrace 0, \ldots, k_0\rbrace$,
+which is a contradiction.
+Finally $D\in \langle t \rangle$, what
+proves that $W \cap \langle t \rangle \cap Z \not= \emptyset$.
+So indeed $A \not\in \aideal (\tau_e, \tauEllentuck)$.
 \end{proof}
 
 %%%% koniec rozbudowanego przykladu
@@ -744,29 +750,26 @@ in general case need not be ever an ideal.
 %%%@@TODO: podac tu jakis ciekawy - naturalny - kontrprzyklad.
 
 Nevertheless, let us notice that the collection
-$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal:
+$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal. Namely we have:
+
 \begin{theorem}
-$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal.
+\label{theorem:a_tau_e_perf_i}
+Suppose that $\cI \subseteq P(\real)$ is a family of sets such that 
+if $C\subseteq \real$ is a countable set and $F\in\cI$ then $F \cup C \in \cI$. 
+Then $\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI) = \lbrace A \subseteq \real \colon \cl(A) \in \cI \rbrace$.
 \end{theorem}
+
 \begin{proof}
-Let $A, B \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$,
-and let $P$ be a perfect set. 
-There exist $W_A \in \tau_e$ such that 
-$W_A \cap P \not= \emptyset \wedge W_A \cap P \cap A = \emptyset$.
-Let $P_1 = \cl_{\tau_e}(P \cap W_1)$. It is well know that such defined
-$P_1$ is also a perfect set. So let $W_B \in \tau_e$ 
-be such that 
-$W_B \cap P_1 \not= \emptyset \wedge W_B \cap P_1 \cap B = \emptyset$.
-Define $W = W_A \cap W_B$. Then we have:
-$W \cap P = W_B \cap W_A \cap P$, 
-but since $W_B \cap \cl_{\tau_e}(P \cap W_A)$
-we have $W_B \cap P \cap W_A \not= \emptyset$,
-hence $W \cap P \not= \emptyset$.
-Moreover, we have
-$W \cap P \cap (A \cup B) = (W \cap P \cap A) \cup (W \cap P \cap B) \subseteq$
-$(W_A \cap P \cap A) \cup (W_B \cap W_A \cap P \cap B) =$
-$W_B \cap W_A \cap P \cap B \subseteq W_B \cap \cl_{\tau_e} (P \cap W_A) \cap B =$
-$W_B \cap P_1 \cap B = \emptyset$.
+$\Rightarrow$ Suppose that $A\subseteq \real$ is such that $\cl(A) \not\in\cI$. Then $\cl(A) = P \cup C$, where $P$ is a perfect set and $C$ is a countable set. By the assumption on the family $\cI$ we concluse that $P\not\in\cI$. So we have $\forall_{W \in \tau_e} W \cap P \not= \emptyset \implies W \cap P \cap A \not= \emptyset$, therefore $A \not\in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI)$.
+$\Leftarrow$ Assume that $\cl(A)\in\cI$. Then $P \setminus \cl(A) \not=\emptyset$, so if we define $W = \real\setminus\cl(A)$ then we have $W \cap P \not= \emptyset$ and $W \cap P \cap A = \emptyset$, therefore  
+$A \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI)$.
+\end{proof}
+
+\begin{corollary}
+$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal.
+\end{corollary}
+\begin{proof}
+It suffices to put $\cI =$ countable subsets of $\real$ in Theorem \ref{theorem:a_tau_e_perf_i}.
 \end{proof}
 
 Assume that $\cF_1$ and $\cF_2$ are MB - families of nonempty 
@@ -891,3 +894,25 @@ Fund. Math. 24 (1935), 17--34.
 \end{center}
 
 \end{document}
+
+%%%%@@ to jest zbedne z uwagi na twierdzenie \ref{theorem:a_tau_e_perf_i}:
+Let $A, B \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$,
+and let $P$ be a perfect set. 
+There exist $W_A \in \tau_e$ such that 
+$W_A \cap P \not= \emptyset \wedge W_A \cap P \cap A = \emptyset$.
+Let $P_1 = \cl_{\tau_e}(P \cap W_1)$. It is well know that such defined
+$P_1$ is also a perfect set. So let $W_B \in \tau_e$ 
+be such that 
+$W_B \cap P_1 \not= \emptyset \wedge W_B \cap P_1 \cap B = \emptyset$.
+Define $W = W_A \cap W_B$. Then we have:
+$W \cap P = W_B \cap W_A \cap P$, 
+but since $W_B \cap \cl_{\tau_e}(P \cap W_A)$
+we have $W_B \cap P \cap W_A \not= \emptyset$,
+hence $W \cap P \not= \emptyset$.
+Moreover, we have
+$W \cap P \cap (A \cup B) = (W \cap P \cap A) \cup (W \cap P \cap B) \subseteq$
+$(W_A \cap P \cap A) \cup (W_B \cap W_A \cap P \cap B) =$
+$W_B \cap W_A \cap P \cap B \subseteq W_B \cap \cl_{\tau_e} (P \cap W_A) \cap B =$
+$W_B \cap P_1 \cap B = \emptyset$.
+\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
