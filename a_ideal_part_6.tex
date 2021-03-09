@@ -190,6 +190,7 @@
 \newcommand{\tauEllentuck}{\tau_{\mathrm{EL}}}
 \newcommand{\baseEllentuck}{\cB_{\mathrm{EL}}}
 \newcommand{\ninomega}{n\in\omega}
+\newcommand{\Hereditary}{\mathrm{Her}}
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
@@ -323,7 +324,8 @@ If $X$ is a Polish space then $\Perf(X)$
 stands for the family of all perfect subsets of $X$.
 
 \subsection{The Cantor space}
-The Cantor space $2^\omega$ is the set of all infinite binary sequences with the metric, which 
+The Cantor space $2^\omega$ is the set of all infinite binary sequences with the metric 
+%%%,which - to chyba moze byc zbedne
 defined as follows: 
 $\rho((x_n), (y_n)) = \begin{cases}
      2^{-\min\lbrace i \in \omega\colon x_i \not= y_i\rbrace} & \text{if }(x_n) \not= (y_n)\\
@@ -429,6 +431,8 @@ $s$ and $s_0$, respectively (introduced in 1935 in \cite{SM}).
 %$U$ is a nonempty open set and $F$ is an $F_{\sigma}$ meager set.
 %\end{example}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+If $\cF$ is a field of subsets of $X$ then define $\Hereditary(\cF) = \lbrace A \subseteq X \colon P(A) \subseteq \cF \rbrace$.
 
 Notice that the field $S(\tau_e\setminus \lbrace \emptyset \rbrace)$
 %%%defined via the Marczewski-Burstin representation:}\linebreak
@@ -567,9 +571,9 @@ and  we obtain $W \cap V \cap A = \emptyset \vee W \cap V \subseteq A$, so final
 obtain $A \in \Afield(\tau_1, \tau_2)$.
 On the other hand, assume that 
 $\Afield(\tau_1, \tau_2) = \cS(\tau_1 \setminus \lbrace \emptyset \rbrace)$. 
-Then by taking from both sides of this equation the operation $\mathit{Hereditary}$
+Then by taking from both sides of this equation the operation $\Hereditary$
 we obtain that 
-$\mathit{Hereditary}(\Afield(\tau_1, \tau_2)) = \mathit{Hereditary}(\cS(\tau_1 \setminus \lbrace \emptyset \rbrace))$
+$\Hereditary(\Afield(\tau_1, \tau_2)) = \Hereditary(\cS(\tau_1 \setminus \lbrace \emptyset \rbrace))$
 therefore by (...) we obtain
 $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_1)$.
 \end{proof}
@@ -829,7 +833,7 @@ Relations with Generalized Algebraic Structures, and Applications}.
 North-Holland Mathematics Studies, \textbf{199}. 
 Elsevier Science B.V., Amsterdam, 2005.
 
-\bibitem{MarcinGrande} M.~Grande, \emph{On the sets of discontinuity points of functions satisfying some approximate
+\bibitem[MG]{MarcinGrande} M.~Grande, \emph{On the sets of discontinuity points of functions satisfying some approximate
 quasi- continuity conditions}, Real Anal. Exchange \textbf{27(2)} (2001-2002), 773--781.
 
 \bibitem[En]{En}
