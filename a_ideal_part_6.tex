@@ -293,7 +293,7 @@ $\tau_d$ is the standard density topology (see \cite{N} Theorem 2.4).
 In said article it was proven that the ideal $\aideal(\tau_1, \tau_2)$
 is equivalent to the collection 
 $\bigcap_{\tau_1 \subseteq \tau \subseteq \tau_2 \atop \tau \hbox{\tiny \it
-topology}} \mathsf{ND}(\tau)$ (see Theorem 2.6, \cite{N}).
+topology}} \ND(\tau)$ (see Theorem 2.6, \cite{N}).
 %%% TODO: czy tu nie powinno aby byc "The further(...)"
 Further investigations of the properties of the ideal $(a)$ can be find in the paper  
 \cite{FG}.
@@ -320,6 +320,9 @@ $[A]^\omega$ denotes the
 family of all infinite countable
 subsets of the set $A$.
 %%%@@TODO: tutaj opisac definicje kwantyfikatorow ,,infty''
+Quantifiers $\forall^\infty_{\ninomega}$ and $\exists^\infty_{\ninomega}$ denote 
+$\exists_{m\in\omega} \forall_{n > m}$ and $\forall_{m\in\omega} \exists_{n > m}$,
+respectively.
 If $X$ is a Polish space then $\Perf(X)$ 
 stands for the family of all perfect subsets of $X$.
 
@@ -444,11 +447,21 @@ Notice that the field $S(\tau_e\setminus \lbrace \emptyset \rbrace)$
 is the field of sets of form $U \bigtriangleup E$
 where $U$ is open and $E$ is nowhere dense
 which is the same as the collection of sets $A$ such that
-$\mathrm{Fr}(A)$ is nowhere dense.
-This leads to the following definition:
+$\mathrm{Fr}(A)$ is nowhere dense. Notice also 
+that if $\tau_1$ is a Hausdorff topology without isolated points
+having a countable base, then 
+\begin{equation}\label{equation:hereditary_s_tau}
+\Hereditary(S(\tau_1\setminus \lbrace \emptyset \rbrace)) = \ND(\tau_1).
+\end{equation}
 
-Let us define 
+The proof is rather folklore and uses an induction over elements
+of the base $(V_n)_{n=0}^\infty$ of the topology $\tau_1$.
+
+\section{Main part}
+Let us start with the following definition of a field of subsets:
+
 \begin{definition}
+\label{definition:field_A}
 $\Afield(\tau_1, \tau_2) = \{ Z \subseteq X \colon
 \forall_{U \in \tau_2 \setminus \{ \emptyset\}}
 \exists_{W \in \tau_1} U \cap W \not= \emptyset \wedge
@@ -457,7 +470,14 @@ $\Afield(\tau_1, \tau_2) = \{ Z \subseteq X \colon
 
 Notice that $\Afield(\tau_1, \tau_2)$ is a field of sets.
 
-\section{Results}
+Notice also that in the same way like (folklor) proof of 
+the equality (\ref{equation:hereditary_s_tau}) we can proof that 
+\begin{fact}
+\label{fact:hereditary_A}
+Assume that $\tau_1$ is a Hausdorff topology without isolated points
+having a countable base, then
+$\Hereditary(\Afield(\tau_1, \tau_2)) = \aideal(\tau_1, \tau_2))$
+\end{fact}
 
 \begin{theorem}
 \label{theorem:collapse-theorem}
@@ -470,9 +490,9 @@ Suppose that $\tau_1$ and $\tau_2$ are topologies on a set $X$ such
 that $\tau_1 \subseteq \tau_2$.
 The following conditions are equivalent:
 \begin{enumerate}
-\item $\tau_2 \cap \mathsf{ND}(\tau_1) = \lbrace \emptyset \rbrace$;
-\item $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_1)$;
-\item $\mathsf{ND}(\tau_1) \subseteq \mathsf{ND}(\tau_2)$.
+\item $\tau_2 \cap \ND(\tau_1) = \lbrace \emptyset \rbrace$;
+\item $\aideal(\tau_1, \tau_2) = \ND(\tau_1)$;
+\item $\ND(\tau_1) \subseteq \ND(\tau_2)$.
 \end{enumerate}
 \end{theorem}
 									
@@ -485,12 +505,12 @@ The following conditions are equivalent:
 $(1) \implies (2)$
 
 It suffices to show the inclusion $\subseteq$, since
-$\aideal(\tau_1, \tau_2) \subseteq \mathsf{ND}(\tau_1)$.
-Suppose $A\in \mathsf{ND}(\tau_1)$ and choose
+$\aideal(\tau_1, \tau_2) \subseteq \ND(\tau_1)$.
+Suppose $A\in \ND(\tau_1)$ and choose
 $W \in \tau_2\setminus\lbrace \emptyset \rbrace$.
-By the assumption $(1)$ we have $W \not\in \mathsf{ND}(\tau_1)$, 
+By the assumption $(1)$ we have $W \not\in \ND(\tau_1)$, 
 hence $\mathint_{\tau_1} \cl_{\tau_1} (W) \not= \emptyset$.
-Since $A \in \mathsf{ND}(\tau_1)$ there exists 
+Since $A \in \ND(\tau_1)$ there exists 
 $V\in \tau_1\setminus\lbrace\emptyset\rbrace$ such 
 that $V \subseteq \mathint_{\tau_1} \cl_{\tau_1} (W) \setminus A$. 
 Since $\emptyset \not= V \subseteq \cl_{\tau_1} (W)$, 
@@ -513,8 +533,8 @@ $\aideal(\tau_1, \tau_2) \subseteq \mathsf{ND}(\tau_2)$.
 
 $\neg(1)\implies \neg(3)$.
 Suppose that $W\in\tau_2\cap\mathsf{ND}(\tau_1) \setminus \lbrace\emptyset\rbrace$.
-Obviously $W\not\in\mathsf{ND}(\tau_2)$ thus
-$W \in \mathsf{ND}(\tau_1) \setminus \mathsf{ND}(\tau_2)$,
+Obviously $W\not\in\ND(\tau_2)$ thus
+$W \in \ND(\tau_1) \setminus \ND(\tau_2)$,
 which finishes the proof.
 \end{proof}
 
@@ -556,7 +576,7 @@ from Theorem \ref{theorem:collapse-theorem}
 
 \begin{corollary}
 If we assume moreover that $\tau_1$ is a Hausdorff topology without isolated points
-then the conditions from Theorem \ref{theorem:collapse-theorem} are equivalent to
+having a countable base then the conditions from Theorem \ref{theorem:collapse-theorem} are equivalent to
 the condition: $\Afield(\tau_1, \tau_2) = \cS(\tau_1 \setminus \lbrace \emptyset \rbrace)$.
 \end{corollary}
 
@@ -632,9 +652,8 @@ $Z \not\in \aideal(\tau_e, \tauEllentuck)$.
 
 \begin{proof}
 Let $(A_n)_{n\in\omega}$ be a fixed partition of $\omega$ into infinite sets. 
-Let us define $Z$ by:
-for any $A\in\infsub$ 
-we have $A\in Z \iff \forall_{n\in\omega} |A_n \cap A| = 1$.
+Let us define a set $Z$:
+$Z = \lbrace A\in\infsub \colon \forall_{n\in\omega} |A_n \cap A| = 1\rbrace$.
 Let us check that $Z\in\aideal(\tau_e, \baseEllentuck)$.
 Suppose that $[s, A]$ is an Ellentuck set, i.e. $s\in\finsub$, $A\in\infsub$, $\max s < min A$. 
 If $[s, A] \cap Z = \emptyset$ then
