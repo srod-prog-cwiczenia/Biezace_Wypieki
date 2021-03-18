@@ -19,9 +19,9 @@
 \usepackage{eqlist}
 \usepackage{amsthm}
 %%%%%%%%%%%%%%% Polish letter packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[polish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{t1enc}
+%\usepackage[polish]{babel}
+%\usepackage[utf8]{inputenc}
+%\usepackage{t1enc}
 %%% pakiet do generowania belkotu (wypelniacza):
 \usepackage{lipsum}
 %---------------------------------------------------------------------
@@ -190,7 +190,7 @@
 \newcommand{\tauEllentuck}{\tau_{\mathrm{EL}}}
 \newcommand{\baseEllentuck}{\cB_{\mathrm{EL}}}
 \newcommand{\ninomega}{n\in\omega}
-\newcommand{\Hereditary}{\mathrm{Her}}
+\newcommand{\Hereditary}{\mathcal{H}}
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
@@ -319,7 +319,6 @@ If $A$ is any set then
 $[A]^\omega$ denotes the
 family of all infinite countable
 subsets of the set $A$.
-%%%@@TODO: tutaj opisac definicje kwantyfikatorow ,,infty''
 Quantifiers $\forall^\infty_{\ninomega}$ and $\exists^\infty_{\ninomega}$ denote 
 $\exists_{m\in\omega} \forall_{n > m}$ and $\forall_{m\in\omega} \exists_{n > m}$,
 respectively.
@@ -458,7 +457,8 @@ The proof is rather folklore and uses an induction over elements
 of the base $(V_n)_{n=0}^\infty$ of the topology $\tau_1$.
 
 \section{Main part}
-Let us start with the following definition of a field of subsets:
+Analogously to the definition of the ideal $\aideal(\tau_1, \tau_2)$ 
+we introduce the following definition of a field of subsets:
 
 \begin{definition}
 \label{definition:field_A}
@@ -471,7 +471,7 @@ $\Afield(\tau_1, \tau_2) = \{ Z \subseteq X \colon
 Notice that $\Afield(\tau_1, \tau_2)$ is a field of sets.
 
 Notice also that in the same way like (folklor) proof of 
-the equality (\ref{equation:hereditary_s_tau}) we can proof that 
+the Equality (\ref{equation:hereditary_s_tau}) we can proof that 
 \begin{fact}
 \label{fact:hereditary_A}
 Assume that $\tau_1$ is a Hausdorff topology without isolated points
@@ -594,7 +594,8 @@ $\Afield(\tau_1, \tau_2) = \cS(\tau_1 \setminus \lbrace \emptyset \rbrace)$.
 Then by taking from both sides of this equation the operation $\Hereditary$
 we obtain that 
 $\Hereditary(\Afield(\tau_1, \tau_2)) = \Hereditary(\cS(\tau_1 \setminus \lbrace \emptyset \rbrace))$
-therefore by (...) we obtain
+therefore by Equality (\ref{equation:hereditary_s_tau}) 
+and by Fact \ref{fact:hereditary_A} we obtain
 $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_1)$.
 \end{proof}
 
@@ -644,8 +645,8 @@ on Example \ref{example:ellentuck}
 %%%% rozbudowany przyklad:
 \begin{example}
 There exists a Borel (in fact,
-(...)%%%@@TODO: wyznaczyc klase borelowska!
-) set $Z \subseteq \infsub$ such that 
+a $G_{\delta}$) %%%@@TODO: upewnic sie ze ta klasa borelowska faktycznie to gdelta!
+set $Z \subseteq \infsub$ such that 
 $Z \in \aideal(\tau_e, \baseEllentuck)$, but
 $Z \not\in \aideal(\tau_e, \tauEllentuck)$.
 \end{example}
@@ -755,7 +756,9 @@ a {\it\biMB{}} system:
 \begin{definition}
 Suppose that $\cF_1$ and $\cF_2$ are collections of nonempty
 subset of a set $X$. 
-We call a structure $\langle \cF_1, \cF_2 \rangle$ a {\it\biMB{}} system.
+%%%@@TODO: a moze lepiej by brzmialo: analogously like...?
+Analogously to the notion of bitopological spaces we call a structure
+$\langle \cF_1, \cF_2 \rangle$ a {\it\biMB{}} system.
 Notice that we don't require inclusion $\cF_1 \subseteq \cF_2$.
 \end{definition}
 
@@ -784,6 +787,7 @@ Then $\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI) = \lbra
 
 \begin{proof}
 $\Rightarrow$ Suppose that $A\subseteq \real$ is such that $\cl(A) \not\in\cI$. Then $\cl(A) = P \cup C$, where $P$ is a perfect set and $C$ is a countable set. By the assumption on the family $\cI$ we concluse that $P\not\in\cI$. So we have $\forall_{W \in \tau_e} W \cap P \not= \emptyset \implies W \cap P \cap A \not= \emptyset$, therefore $A \not\in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI)$.
+
 $\Leftarrow$ Assume that $\cl(A)\in\cI$. Then $P \setminus \cl(A) \not=\emptyset$, so if we define $W = \real\setminus\cl(A)$ then we have $W \cap P \not= \emptyset$ and $W \cap P \cap A = \emptyset$, therefore  
 $A \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI)$.
 \end{proof}
@@ -795,8 +799,11 @@ $\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal.
 It suffices to put $\cI =$ countable subsets of $\real$ in Theorem \ref{theorem:a_tau_e_perf_i}.
 \end{proof}
 
-Assume that $\cF_1$ and $\cF_2$ are MB - families of nonempty 
-subsets of $\real$ such that:
+Let us formulate a general theorem:
+
+\begin{theorem}
+Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB{} system.
+Assume that 
 \begin{enumerate}	
 \item
 \label{mb-condition-subset}
@@ -804,17 +811,14 @@ subsets of $\real$ such that:
 \item 
 \label{mb-condition-f1}
   $\forall_{E,F \in \cF_1} E \cap F \not= \emptyset \implies E \cap F \in \cF_1$
+%%%@@TODO: tu chyba wystarczy (ale trzeba to przerachowac)
+% aby byl spelniony slabszy warunek, mianowicie:
+% \forall_{E,F \in \cF_1} E \cap F \not= \emptyset \implies E \cap F 
+% = \bigcup \cG$, where $\emptyset \not= \cG \subseteq \cF_1$.  
 \item
 \label{mb-condition-f1f2}
   $\forall_{E \in cF_1} \forall_{W \in \cF_2} E \cap W \not= \emptyset \implies E \cap W \in \cF_2$  
 \end{enumerate}	
-
-%%%TODO: a moze lepiej by brzmialo: analogously like...?
-Analogously to the notion of bitopological spaces we call a structure
-$\langle \cF_1, \cF_2 \rangle$ a {\it\biMB{}} system.
-
-\begin{theorem}
-Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB{} system.
 Then the collection
 $\aideal(\cF_1, \cF_2) = \lbrace A \subseteq \real\colon 
 \forall_{W\in \cF_2} \exists_{U \in \cF_1}
@@ -837,6 +841,10 @@ Since by condition \ref{mb-condition-f1} we know that
 $U \cap V \in \cF_1$, this ends the proof.
 \end{proof}
 
+\begin{corollary}
+Both collections: $\aideal(\tau_e, \baseEllentuck)$ and
+$\aideal(\tau_e, \tauEllentuck)$ are ideals.
+\end{corollary} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        The Bibliography                                   %
