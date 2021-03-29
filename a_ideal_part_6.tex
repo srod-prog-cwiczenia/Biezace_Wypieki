@@ -333,12 +333,13 @@ stands for the family of all perfect subsets of $X$.
 The Cantor space $2^\omega$ is the set of all infinite binary sequences with the metric 
 %%%,which - to chyba moze byc zbedne
 defined as follows: 
-$\rho((x_n), (y_n)) = \begin{cases}
+\[\rho((x_n), (y_n)) = \begin{cases}
      2^{-\min\lbrace i \in \omega\colon x_i \not= y_i\rbrace} & \text{if }(x_n) \not= (y_n)\\
      0      & \text{if }(x_n) = (y_n)
-\end{cases}$.
+\end{cases}.\]
 The base of the topology of the Cantor space $2^\omega$ consists of sets 
-$\langle s \rangle = \lbrace x \in 2^\omega\colon x \restriction |s| = s\rbrace$ for any $s\in 2^{<\omega}$ (the set of all finite binary sequences).
+$\langle s \rangle = \lbrace x \in 2^\omega\colon x \restriction |s| = s\rbrace$ for any $s\in 2^{<\omega}$ (the set of all finite binary sequences) where $|s|$ denotes
+the length of the binary sequence $s$.
 \subsection{Ellentuck topology}
 For explain some topological notions we refer for example \cite{En}.
 If $s \in \finsub$, $U \in \infsub$ and $\max (s) < \min(U)$,
@@ -659,13 +660,41 @@ which finishes the proof.
 \end{proof}
 
 Notice that in the previous theorem we don't need to have
-the implication $(3) \implies (1)$. The counterexample 
+the implication $(3) \implies (2)$. The counterexample 
 is the density topology ideal $\aideal$, for $\tau_1 = \tau_e$
 and $\tau_2 = \tau_d$. Indeed, we have 
 that $\mathsf{ND}(\tau_2)$ is a collection of Lebesgue null sets, 
 so $\tau_1 \cap \mathsf{ND}(\tau_2) = \lbrace \emptyset \rbrace$,
 but of course neither $\mathsf{ND}(\tau_2) \subseteq \mathsf{ND}(\tau_1)$ 
 nor $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_2)$.
+
+%%%@@TODO: tutaj twierdzenie o przekroju topologii, niewykluczone 
+%%% ze powinno sie je przeniesc gdzie indziej, aha i dopisac ,,proze'':
+
+\begin{theorem}
+In said article it was proven that the ideal $\aideal(\tau_1, \tau_2)$
+is equal to the intersection of all collections of nowhere dense sets
+for all topologies between $\tau_1$ and $\tau_2$:
+There are no topologies $\lbrace \tau_i \colon i = 1,\ldots, n\rbrace$
+such that $\forall_{i = 1,\ldots, n} \tau_e \subseteq \tau_i \subseteq \tau_d$
+and 
+$\aideal = \bigcap_{i=1,\ldots,n} \ND(\tau_i)$.
+\end{theorem}
+
+\begin{proof}
+By way on contradiction suppose that 
+$\aideal = \bigcap_{i=1,\ldots,n} \ND(\tau_i)$ for some topologies 
+ $\tau_i$ such that $\tau_e \subseteq \tau_i \subseteq \tau_d$.
+Consider the partially ordered set 
+$\mathbb{P} = \langle \tau_e\setminus\lbrace\emptyset\rbrace, \subseteq\rangle$
+and define:
+$\mathfrak{D}_i = \lbrace W \in \tau_d\setminus\lbrace\emptyset\rbrace \colon
+\mathit{int}_{\tau_i}(W) = \emptyset \vee \forall_{V \in \tau_d\setminus\lbrace\emptyset\rbrace \atop V \subseteq W} \mathit{int}_{\tau_i} V \not= \emptyset\rbrace$.
+It is easy to see that $\mathfrak{D}_i$ is a dense subset of 
+the set $\mathbb{P}$, i.e. for each $W \in \mathbb{P}$ we can find
+$V \in \mathbb{P}$, $V \subseteq W$ and such that $V \in \mathfrak{D}_i$
+(...)
+\end{proof}
 
 It is easy to see that in the definition of $\aideal(\tau_1, \tau_2)$
 (see Section \ref{section:preliminaries})
@@ -697,12 +726,13 @@ the proof is complete. On the other hand suppose that there exists $B \in [s, A]
 Suppose that $\exists_{n_0\in\omega} |A_{n_0} \cap A| \geq 2$. Let us choose $k_0 < k_1$, $k_0, k_1 \in A_{n_0} \cap A$, observe that $\max s < k_0 < k_1$ and define:
 $t \in 2^{<\omega}$, 
 $\dom(t) = \lbrace 0, \ldots, k_1\rbrace$, by  
-$t(i) = \begin{cases}
+\[t(i) = \begin{cases}
      1 & \text{ if } i \in s \cup \lbrace k_0, k_1 \rbrace \\
      0 & \text{ in the other case }
-\end{cases}$.
-We have $\langle t \rangle \cap [s, A] \not= \emptyset$. Indeed, let us define $D = s \cup \lbrace k_0, k_1 \rbrace \cup (A \setminus \lbrace 0, \ldots, k_1\rbrace)$.
-Then $D \in \infsub$, $D \in [s, A]$ (since $s \subseteq D \subseteq s \cup A$). Moreover, $D \in \langle t \rangle$. Since $t(k_0) = t(k_1) = 1$ we have $Z \cap \langle t \rangle = \emptyset$.
+\end{cases}.\]
+We have $\langle t \rangle \cap [s, A] \not= \emptyset$. Indeed, let us define $D = s \cup \lbrace k_0, k_1 \rbrace \cup (A \setminus \lbrace 0, \ldots, k_1\rbrace) = 
+s \cup \lbrace k_0 \rbrace \cup (A \setminus \lbrace 0, \ldots, k_1 - 1\rbrace)$.
+Then $D \in \infsub$, $D \in [s, A]$ (since $s \subseteq D \subseteq s \cup A$) and $D \in \langle t \rangle$. Since $t(k_0) = t(k_1) = 1$ we have $Z \cap \langle t \rangle = \emptyset$.
 On the other hand, suppose that $\forall_{\ninomega} |A \cap A_n| \leq 1$. Then $\exists^\infty_n A \cap A_n \not= \emptyset$.
 Let us define 
 $n_0 = \min\lbrace \ninomega \colon A \cap A_n \not= \emptyset \wedge A_n \cap s = \emptyset \rbrace$.
@@ -711,7 +741,7 @@ $t(i) = \begin{cases}
      1 & \text{ if } i \in s \cup A \setminus \lbrace k_0 \rbrace \\
      0 & \text{ in the other case }
 \end{cases}$.
-Define $D = s \cup (A \setminus \lbrace k_0 \rbrace)$. Then $D \in \infsub$, $D \in [s, A]$ (since $s \subseteq D \subseteq s \cup A$) and since $D \cap \lbrace 0, \ldots, k_0 \rbrace = s \cup (A \cap \lbrace 0, \ldots, k_0 - 1 \rbrace$, hence $D \in \langle t \rangle$. So $\langle t \rangle \cap [s, A] \not= \emptyset$. Suppose that $Z \cap \langle t \rangle \cap [s, A] \not= \emptyset$. Let $B \in Z \cap \langle t \rangle \cap [s, A]$. Since $B \in Z$ we have $|B \cap A_{n_0}| = 1$. From the definiton of $n_0$ we know that $A_{n_0} \cap s = \emptyset$. Since $B \in [s, A]$ we have $B \subseteq s \cup A$. Hence $B \cap A_{n_0} \subseteq (s \cap A_{n_0}) \cup (A_{n_0} \cap A) = A_{n_0} \cap A = \lbrace k_0 \rbrace$. Therefore $B \cap A_{n_0} = \lbrace k_0 \rbrace$. But $t(k_0) = 0$, which is a contradiction with $B \in \langle t \rangle$.
+Define $D = s \cup (A \setminus \lbrace k_0 \rbrace)$. Then $D \in \infsub$, $D \in [s, A]$ (since $s \subseteq D \subseteq s \cup A$) and since $D \cap \lbrace 0, \ldots, k_0 \rbrace = s \cup (A \cap \lbrace 0, \ldots, k_0 - 1 \rbrace$ we have $D \in \langle t \rangle$. So $\langle t \rangle \cap [s, A] \not= \emptyset$. Suppose that $Z \cap \langle t \rangle \cap [s, A] \not= \emptyset$ and choose $B \in Z \cap \langle t \rangle \cap [s, A]$. Since $B \in Z$ we have $|B \cap A_{n_0}| = 1$. From the definiton of $n_0$ we know that $A_{n_0} \cap s = \emptyset$. Since $B \in [s, A]$ we have $B \subseteq s \cup A$. Hence $B \cap A_{n_0} \subseteq (s \cap A_{n_0}) \cup (A_{n_0} \cap A) = A_{n_0} \cap A = \lbrace k_0 \rbrace$. Therefore $B \cap A_{n_0} = \lbrace k_0 \rbrace$. But $t(k_0) = 0$, which is a contradiction with $B \in \langle t \rangle$.
 This proves that 
 $Z \in \aideal(\tau_e, \baseEllentuck)$.
 
@@ -794,6 +824,7 @@ subset of a set $X$.
 Analogously to the notion of bitopological spaces we call a structure
 $\langle \cF_1, \cF_2 \rangle$ a {\it\biMB{}} system.
 Notice that we don't require inclusion $\cF_1 \subseteq \cF_2$.
+To avoid trivial cases assume that $\bigcup \cF_1 = X$.
 \end{definition}
 
 \begin{definition}
