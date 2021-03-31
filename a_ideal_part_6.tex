@@ -692,8 +692,15 @@ $\mathfrak{D}_i = \lbrace W \in \tau_d\setminus\lbrace\emptyset\rbrace \colon
 \mathit{int}_{\tau_i}(W) = \emptyset \vee \forall_{V \in \tau_d\setminus\lbrace\emptyset\rbrace \atop V \subseteq W} \mathit{int}_{\tau_i} V \not= \emptyset\rbrace$.
 It is easy to see that $\mathfrak{D}_i$ is a dense subset of 
 the set $\mathbb{P}$, i.e. for each $W \in \mathbb{P}$ we can find
-$V \in \mathbb{P}$, $V \subseteq W$ and such that $V \in \mathfrak{D}_i$
-(...)
+$V \in \mathbb{P}$, $V \subseteq W$ and such that $V \in \mathfrak{D}_i$. It is also
+easy to see that the set 
+$\mathfrak{D}_i$ is ,,down open'' which means that if
+$W \in \mathfrak{D}_i$ and 
+$V \subseteq W$, $V\in\tau_d\setminus\lbrace\emptyset\rbrace$, then $V \in \mathfrak{D}_i$. From this we conclude that there exist $W \in \bigcup_{i=1}^n \mathfrak{D}_i$. Let
+$V \in \tau_d\setminus\lbrace\emptyset\rbrace$ be a set such that 
+$\cl(V) \subseteq W$ and let $C \subseteq V$ be a countable set
+such that $\cl(C) = \cl(V)$. Let us check that for each $j = 1,\ldots,n$
+we have $C \in \ND(\tau_j)$.  
 \end{proof}
 
 It is easy to see that in the definition of $\aideal(\tau_1, \tau_2)$
