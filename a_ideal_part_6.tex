@@ -696,11 +696,21 @@ $V \in \mathbb{P}$, $V \subseteq W$ and such that $V \in \mathfrak{D}_i$. It is 
 easy to see that the set 
 $\mathfrak{D}_i$ is ,,down open'' which means that if
 $W \in \mathfrak{D}_i$ and 
-$V \subseteq W$, $V\in\tau_d\setminus\lbrace\emptyset\rbrace$, then $V \in \mathfrak{D}_i$. From this we conclude that there exist $W \in \bigcup_{i=1}^n \mathfrak{D}_i$. Let
+$V \subseteq W$, $V\in\tau_d\setminus\lbrace\emptyset\rbrace$, then $V \in \mathfrak{D}_i$. From this we conclude that there exist $W \in \bigcap_{j=1}^n \mathfrak{D}_j$. Let
 $V \in \tau_d\setminus\lbrace\emptyset\rbrace$ be a set such that 
 $\cl(V) \subseteq W$ and let $C \subseteq V$ be a countable set
 such that $\cl(C) = \cl(V)$. Let us check that for each $j = 1,\ldots,n$
-we have $C \in \ND(\tau_j)$.  
+we have $C \in \ND(\tau_j)$. 
+Since $W \in \mathfrak{D}_j$, consider two cases:
+
+{\bf Case 1:} $\mathit{int}_{\tau_i}(W) = \emptyset$.
+We have $\cl_{\tau_j}(C) \subseteq \cl_(C) = \cl(V) \subseteq W$, hence
+$\mathit{int}_{\tau_i}(\cl_{\tau_j}(C)) \subseteq \mathit{int}_{\tau_i}(W) = \emptyset$.
+Therefore $C \in \ND(\tau_j)$.
+
+{\bf Case 2:}
+%%%@@TODO: dokonczyc ten dowod!
+
 \end{proof}
 
 It is easy to see that in the definition of $\aideal(\tau_1, \tau_2)$
@@ -831,7 +841,7 @@ subset of a set $X$.
 Analogously to the notion of bitopological spaces we call a structure
 $\langle \cF_1, \cF_2 \rangle$ a {\it\biMB{}} system.
 Notice that we don't require inclusion $\cF_1 \subseteq \cF_2$.
-To avoid trivial cases assume that $\bigcup \cF_1 = X$.
+To avoid trivial cases assume that $\bigcup \cF_1 = \bigcup \cF_2 = X$.
 \end{definition}
 
 \begin{definition}
@@ -917,6 +927,24 @@ $U \cap V \in \cF_1$, this ends the proof.
 Both collections: $\aideal(\tau_e, \baseEllentuck)$ and
 $\aideal(\tau_e, \tauEllentuck)$ are ideals.
 \end{corollary} 
+
+\subsection{General $\aidealprime$ collection}
+
+Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB{} system.
+Let us define a general $\aidealprime$ collection:
+
+\begin{definition}
+A set $A \in \aidealprime(\cF_1, \cF_2)$ iff there exists
+a subfamily $\cF^\prime \subseteq \cF_1$ such 
+that $A \subseteq X \setminus \big( \bigcup \cF^\prime \cup 
+\bigcup \lbrace E \in \cF_2 \colon E \cap \bigcup \cF^\prime = \emptyset \rbrace\big)$.
+\end{definition}
+
+  It is easy to see that this definition is indeed a generalization
+of the collection $\aidealprime(\tau_1, \tau_2)$ defined in 
+Definition \ref{definition:a_prime}.
+
+%%%@@TODO: tutaj ewentualny przyklad z tau_e , perf:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        The Bibliography                                   %
