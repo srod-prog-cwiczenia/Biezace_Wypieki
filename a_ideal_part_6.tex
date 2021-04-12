@@ -704,11 +704,12 @@ we have $C \in \ND(\tau_j)$.
 Since $W \in \mathfrak{D}_j$, consider two cases:
 
 {\bf Case 1:} $\mathit{int}_{\tau_i}(W) = \emptyset$.
-We have $\cl_{\tau_j}(C) \subseteq \cl_(C) = \cl(V) \subseteq W$, hence
-$\mathit{int}_{\tau_i}(\cl_{\tau_j}(C)) \subseteq \mathit{int}_{\tau_i}(W) = \emptyset$.
+We have $\cl_{\tau_j}(C) \subseteq \cl(C) = \cl(V) \subseteq W$, hence
+$\mathit{int}_{\tau_j}(\cl_{\tau_j}(C)) \subseteq \mathit{int}_{\tau_j}(W) = \emptyset$.
 Therefore $C \in \ND(\tau_j)$.
 
 {\bf Case 2:}
+Suppose that $U\in \tau_j\setminus\lbrace\emptyset\rbrace$
 %%%@@TODO: dokonczyc ten dowod!
 
 \end{proof}
@@ -861,24 +862,28 @@ Nevertheless, let us notice that the collection
 $\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal. Namely we have:
 
 \begin{theorem}
-\label{theorem:a_tau_e_perf_i}
-Suppose that $\cI \subseteq P(\real)$ is a family of sets such that 
-if $C\subseteq \real$ is a countable set and $F\in\cI$ then $F \cup C \in \cI$. 
-Then $\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI) = \lbrace A \subseteq \real \colon \cl(A) \in \cI \rbrace$.
+$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal.
 \end{theorem}
 
 \begin{proof}
-$\Rightarrow$ Suppose that $A\subseteq \real$ is such that $\cl(A) \not\in\cI$. Then $\cl(A) = P \cup C$, where $P$ is a perfect set and $C$ is a countable set. By the assumption on the family $\cI$ we concluse that $P\not\in\cI$. So we have $\forall_{W \in \tau_e} W \cap P \not= \emptyset \implies W \cap P \cap A \not= \emptyset$, therefore $A \not\in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI)$.
-
-$\Leftarrow$ Assume that $\cl(A)\in\cI$. Then $P \setminus \cl(A) \not=\emptyset$, so if we define $W = \real\setminus\cl(A)$ then we have $W \cap P \not= \emptyset$ and $W \cap P \cap A = \emptyset$, therefore  
-$A \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI)$.
-\end{proof}
-
-\begin{corollary}
-$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal.
-\end{corollary}
-\begin{proof}
-It suffices to put $\cI =$ countable subsets of $\real$ in Theorem \ref{theorem:a_tau_e_perf_i}.
+Let $A, B \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$,
+and let $P$ be a perfect set. 
+There exist $W_A \in \tau_e$ such that 
+$W_A \cap P \not= \emptyset \wedge W_A \cap P \cap A = \emptyset$.
+Let $P_1 = \cl_{\tau_e}(P \cap W_1)$. It is well know that such defined
+$P_1$ is also a perfect set. So let $W_B \in \tau_e$ 
+be such that 
+$W_B \cap P_1 \not= \emptyset \wedge W_B \cap P_1 \cap B = \emptyset$.
+Define $W = W_A \cap W_B$. Then we have:
+$W \cap P = W_B \cap W_A \cap P$, 
+but since $W_B \cap \cl_{\tau_e}(P \cap W_A) \not= \emptyset$
+we have $W_B \cap P \cap W_A \not= \emptyset$,
+hence $W \cap P \not= \emptyset$.
+Moreover, we have
+$W \cap P \cap (A \cup B) = (W \cap P \cap A) \cup (W \cap P \cap B) \subseteq$
+$(W_A \cap P \cap A) \cup (W_B \cap W_A \cap P \cap B) =$
+$W_B \cap W_A \cap P \cap B \subseteq W_B \cap \cl_{\tau_e} (P \cap W_A) \cap B =$
+$W_B \cap P_1 \cap B = \emptyset$.
 \end{proof}
 
 Let us formulate a general theorem:
@@ -889,14 +894,13 @@ Assume that
 \begin{enumerate}	
 \item
 \label{mb-condition-subset}
-  $\cF_1 \subseteq \cF_2$
+  $\cF_1 \subseteq \cF_2$;
 \item 
 \label{mb-condition-f1}
-  $\forall_{E,F \in \cF_1} E \cap F \not= \emptyset \implies E \cap F \in \cF_1$
-%%%@@TODO: tu chyba wystarczy (ale trzeba to przerachowac)
-% aby byl spelniony slabszy warunek, mianowicie:
-% \forall_{E,F \in \cF_1} E \cap F \not= \emptyset \implies E \cap F 
-% = \bigcup \cG$, where $\emptyset \not= \cG \subseteq \cF_1$.  
+ $\forall_{E,F \in \cF_1} \exists{\cG \subseteq \cF_1} E \cap F 
+ = \bigcup \cG$
+ (in particular, 
+ this condition holds if $\forall_{E,F \in \cF_1} E \cap F \not= \emptyset \implies E \cap F \in \cF_1$);  
 \item
 \label{mb-condition-f1f2}
   $\forall_{E \in cF_1} \forall_{W \in \cF_2} E \cap W \not= \emptyset \implies E \cap W \in \cF_2$  
@@ -918,9 +922,13 @@ By condition \ref{mb-condition-f1f2}
 we know that $W \cap U \in \cF_2$ so
 we conclude that
 there exists a set $V \in \cF_1$ such that
-$W \cap U \cap V \not= \emptyset$ and $W \cap U \cap V \cap A = \emptyset$.
-Since by condition \ref{mb-condition-f1} we know that 
-$U \cap V \in \cF_1$, this ends the proof.
+$W \cap U \cap V \not= \emptyset$ and $W \cap U \cap V \cap B = \emptyset$.
+By condition \ref{mb-condition-f1} we know that 
+there exists $V^* \in \cF_1$, $V^* \subseteq U \cap V$ such that 
+$W \cap V^* \not= \emptyset$ and $W \cap V^* \cap B = \emptyset$.
+Since $W \cap V^* \cap A = \emptyset$ we have that 
+$W \cap V^* \cap (A \cup B) = \emptyset$
+and this ends the proof.
 \end{proof}
 
 \begin{corollary}
@@ -1025,25 +1033,26 @@ Fund. Math. 24 (1935), 17--34.
 \end{center}
 
 \end{document}
+%%%%@@@TODO: to jednak nie jest prawda, implikacja jest tylko
+%%% w jedna strone - mianowicie jesli cl(A) \in I etc.
+\begin{theorem}
+\label{theorem:a_tau_e_perf_i}
+Suppose that $\cI \subseteq P(\real)$ is a family of sets such that 
+if $C\subseteq \real$ is a countable set and $F\in\cI$ then $F \cup C \in \cI$. 
+Then $\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI) = \lbrace A \subseteq \real \colon \cl(A) \in \cI \rbrace$.
+\end{theorem}
 
-%%%%@@ to jest zbedne z uwagi na twierdzenie \ref{theorem:a_tau_e_perf_i}:
-Let $A, B \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$,
-and let $P$ be a perfect set. 
-There exist $W_A \in \tau_e$ such that 
-$W_A \cap P \not= \emptyset \wedge W_A \cap P \cap A = \emptyset$.
-Let $P_1 = \cl_{\tau_e}(P \cap W_1)$. It is well know that such defined
-$P_1$ is also a perfect set. So let $W_B \in \tau_e$ 
-be such that 
-$W_B \cap P_1 \not= \emptyset \wedge W_B \cap P_1 \cap B = \emptyset$.
-Define $W = W_A \cap W_B$. Then we have:
-$W \cap P = W_B \cap W_A \cap P$, 
-but since $W_B \cap \cl_{\tau_e}(P \cap W_A)$
-we have $W_B \cap P \cap W_A \not= \emptyset$,
-hence $W \cap P \not= \emptyset$.
-Moreover, we have
-$W \cap P \cap (A \cup B) = (W \cap P \cap A) \cup (W \cap P \cap B) \subseteq$
-$(W_A \cap P \cap A) \cup (W_B \cap W_A \cap P \cap B) =$
-$W_B \cap W_A \cap P \cap B \subseteq W_B \cap \cl_{\tau_e} (P \cap W_A) \cap B =$
-$W_B \cap P_1 \cap B = \emptyset$.
+\begin{proof}
+$\Rightarrow$ Suppose that $A\subseteq \real$ is such that $\cl(A) \not\in\cI$. Then $\cl(A) = P \cup C$, where $P$ is a perfect set and $C$ is a countable set. By the assumption on the family $\cI$ we concluse that $P\not\in\cI$. So we have $\forall_{W \in \tau_e} W \cap P \not= \emptyset \implies W \cap P \cap A \not= \emptyset$, therefore $A \not\in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI)$.
+
+$\Leftarrow$ Assume that $\cl(A)\in\cI$. Then $P \setminus \cl(A) \not=\emptyset$, so if we define $W = \real\setminus\cl(A)$ then we have $W \cap P \not= \emptyset$ and $W \cap P \cap A = \emptyset$, therefore  
+$A \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf\setminus\cI)$.
+\end{proof}
+
+\begin{corollary}
+$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal.
+\end{corollary}
+\begin{proof}
+It suffices to put $\cI =$ countable subsets of $\real$ in Theorem \ref{theorem:a_tau_e_perf_i}.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
