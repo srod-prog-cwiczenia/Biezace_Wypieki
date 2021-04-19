@@ -191,6 +191,7 @@
 \newcommand{\baseEllentuck}{\cB_{\mathrm{EL}}}
 \newcommand{\ninomega}{n\in\omega}
 \newcommand{\Hereditary}{\mathcal{H}}
+\newcommand{\FatPerf}{\mathit{FatPerf}}
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
@@ -328,6 +329,14 @@ $\exists_{m\in\omega} \forall_{n > m}$ and $\forall_{m\in\omega} \exists_{n > m}
 respectively.
 If $X$ is a Polish space then $\Perf(X)$ 
 stands for the family of all perfect subsets of $X$.
+Suppose that $\cI \subseteq P(X)$ is an $\sigma$ - ideal.
+%%%@@ TODO: sprawdziæ czy w zastosowaniu tej definicji wystarczy
+%%% aby zak³adaæ ¿e $\cI$ jest tylko idea³em?
+Following \cite{Bu} (where this notion was defined only for the
+$\sigma$-ideal of Lebesgue null sets) we call a perfect set 
+$P \subseteq X$ a $\cI$-{\it fat} perfect set (abbreviation: $\cI-\FatPerf$)
+iff for every open $W \subseteq X$,
+if $W \cap P \not= \emptyset$ then $W \cap P \not\in \cI$.
 
 \subsection{The Cantor space}
 The Cantor space $2^\omega$ is the set of all infinite binary sequences with the metric 
@@ -703,15 +712,25 @@ such that $\cl(C) = \cl(V)$. Let us check that for each $j = 1,\ldots,n$
 we have $C \in \ND(\tau_j)$. 
 Since $W \in \mathfrak{D}_j$, consider two cases:
 
-{\bf Case 1:} $\mathit{int}_{\tau_i}(W) = \emptyset$.
+{\bf Case 1:} $\mathit{int}_{\tau_j}(W) = \emptyset$.
 We have $\cl_{\tau_j}(C) \subseteq \cl(C) = \cl(V) \subseteq W$, hence
 $\mathit{int}_{\tau_j}(\cl_{\tau_j}(C)) \subseteq \mathit{int}_{\tau_j}(W) = \emptyset$.
 Therefore $C \in \ND(\tau_j)$.
 
 {\bf Case 2:}
-Suppose that $U\in \tau_j\setminus\lbrace\emptyset\rbrace$
-%%%@@TODO: dokonczyc ten dowod!
-
+$\forall_{V^* \in \tau_d\setminus\lbrace\emptyset\rbrace \atop V^* \subseteq W} \mathit{int}_{\tau_j} V^* \not= \emptyset$
+Suppose that $U\in \tau_j\setminus\lbrace\emptyset\rbrace$.
+If $U \cap \cl(V) = \emptyset$ then $U \cap C = \emptyset$.
+On the other hand, if $U \cap \cl(V) \not= \emptyset$
+then $U \cap V \not= \emptyset$. 
+Since $U \cap V \in \tau_d\setminus\lbrace\emptyset\rbrace$ 
+and $U \cap V \subseteq W$ we obtain that also
+$U \cap V \setminus C \in \tau_d\setminus\lbrace\emptyset\rbrace$  
+and $U \cap V \setminus C \subseteq W$.
+By our assumption we conclude that there 
+exists $V^\prime \in \tau_j\setminus\lbrace\emptyset\rbrace$
+such that $V^\prime \subseteq U \cap V \setminus C$.
+Again this shows that $C \in \ND(\tau_j)$.
 \end{proof}
 
 It is easy to see that in the definition of $\aideal(\tau_1, \tau_2)$
@@ -961,6 +980,11 @@ Definition \ref{definition:a_prime}.
 \bibitem[BT]{BT}
   M.K. Bose, R. Tiwari, \emph{On increasing sequences of topologies
 on a set}, Riv. Mat. Univ. Parma, \textbf{7} (7), (2007), 173--183.
+
+\bibitem[Bu]{Bu}
+Z. Buczolich, {\em
+Category of density points of fat Cantor sets.}
+Real Anal. Exchange Volume 29, No 1 (2003), 497-502.
 
 \bibitem[D]{D}
   B. P. Dvalishvili, \emph{Bitopological Spaces: Theory, 
