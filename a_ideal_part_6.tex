@@ -548,7 +548,7 @@ The following conditions are equivalent:
 %%%TODO: czy jednak nie przydaloby sie tutaj jakies uzasadnienie?
 $(1) \implies (2)$
 
-It suffices to show the inclusion $\subseteq$, since
+It suffices to show the inclusion $\supseteq$, since
 $\aideal(\tau_1, \tau_2) \subseteq \ND(\tau_1)$.
 Suppose $A\in \ND(\tau_1)$ and choose
 $W \in \tau_2\setminus\lbrace \emptyset \rbrace$.
@@ -599,25 +599,6 @@ which finishes the proof.
 %$\mathint(\cl(A)) \supseteq 
 %\mathint(\cl(V \setminus B_1)) = \mathint(\cl(V)) \supseteq V \not= \emptyset$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-An immediate consequence of the previous theorem is the answer to the following
-problem: at first, let us recall that in the definition of the standard ideal $\aideal$
-we use the (measure) density topology. It is a natural question what kind of an ideal
-we obtain if in the definition of the ideal $\aideal$ we would use the category density topology
-instead of the measure one? Suprisingly it turned out that we get no new ideal, namely:
-\begin{corollary}
-\label{corollary:category-density-topology}
-If $\cF_{\meager}$ is the category analogue of the density topology (see \cite{PWBW}) 
-then 
-$(a)(\tau_e, \cF_{\meager}) = \mathsf{ND}(\real)$.
-\end{corollary}
-
-\begin{proof}
-This follows from the fact that 
-$\cF_{\meager} \setminus\lbrace\emptyset\rbrace\subseteq \Baire\setminus\meager$
-(see \cite{PWBW}, Remark 2) and
-from Theorem \ref{theorem:collapse-theorem}
-\end{proof}
-
 \begin{corollary}
 If we assume moreover that $\tau_1$ is a Hausdorff topology without isolated points
 having a countable base then the conditions from Theorem \ref{theorem:collapse-theorem} are equivalent to
@@ -680,14 +661,21 @@ nor $\aideal(\tau_1, \tau_2) = \mathsf{ND}(\tau_2)$.
 %%%@@TODO: tutaj twierdzenie o przekroju topologii, niewykluczone 
 %%% ze powinno sie je przeniesc gdzie indziej, aha i dopisac ,,proze'':
 
-\begin{theorem}
-In said article it was proven that the ideal $\aideal(\tau_1, \tau_2)$
+In the article \cite{N} (Theorem 2.6) 
+it was proven that the ideal $\aideal(\tau_1, \tau_2)$
 is equal to the intersection of all collections of nowhere dense sets
 for all topologies between $\tau_1$ and $\tau_2$:
+$\aideal(\tau_1, \tau_2) = \bigcap_{\tau_1 \subseteq \tau \subseteq \tau_2 \atop \tau \hbox{\tiny \it
+topology}} \ND(\tau)$. It is natural to ask if we can
+find such a representation using finite set of topologies 
+only. It turned out that this is not possible, namely:
+
+\begin{theorem}
+
 There are no topologies $\lbrace \tau_i \colon i = 1,\ldots, n\rbrace$
 such that $\forall_{i = 1,\ldots, n} \tau_e \subseteq \tau_i \subseteq \tau_d$
-and 
-$\aideal = \bigcap_{i=1,\ldots,n} \ND(\tau_i)$.
+and $\aideal = \bigcap_{i=1,\ldots,n} \ND(\tau_i)$.
+
 \end{theorem}
 
 \begin{proof}
@@ -731,6 +719,8 @@ By our assumption we conclude that there
 exists $V^\prime \in \tau_j\setminus\lbrace\emptyset\rbrace$
 such that $V^\prime \subseteq U \cap V \setminus C$.
 Again this shows that $C \in \ND(\tau_j)$.
+Hence, $C\in\aideal$, but this is impossible since
+$C \subseteq V \subseteq \cl(C)$.
 \end{proof}
 
 It is easy to see that in the definition of $\aideal(\tau_1, \tau_2)$
@@ -832,14 +822,31 @@ So indeed $A \not\in \aideal (\tau_e, \tauEllentuck)$.
 %%%% koniec rozbudowanego przykladu
 
 \subsection{Examples}
+The motivation for the first example is to solve the following
+problem: at first, let us recall that in the definition of the standard ideal $\aideal$
+we use the (measure) density topology. It is a natural question what kind of an ideal
+we obtain if in the definition of the ideal $\aideal$ we would use the category density topology instead of the measure one? 
+Suprisingly it turned out that we get no new ideal, so let us formulate:
+
 \begin{example}
 $X = \real$,
 $\tau_1 = \tau_e$ and
 $\tau_2 = \cF_{\meager}$
 where $\cF_{\meager}$ is the category analogue of the density topology (see \cite{PWBW}).
-We argued (see Corollary \ref{corollary:category-density-topology}) that we have 
-$(a)(\tau_e, \cF_{\meager}) = \mathsf{ND}(\real)$.
 \end{example}
+
+\begin{corollary}
+\label{corollary:category-density-topology}
+$(a)(\tau_e, \cF_{\meager}) = \mathsf{ND}(\real)$.
+\end{corollary}
+
+\begin{proof}
+This follows from the fact that 
+$\cF_{\meager} \setminus\lbrace\emptyset\rbrace\subseteq \Baire\setminus\meager$
+(see \cite{PWBW}, Remark 2) and
+from Theorem \ref{theorem:collapse-theorem}
+\end{proof}
+
 \begin{example}
 \label{example:ellentuck}
 $X = [\omega]^\omega$,
@@ -1079,4 +1086,7 @@ $\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal.
 \begin{proof}
 It suffices to put $\cI =$ countable subsets of $\real$ in Theorem \ref{theorem:a_tau_e_perf_i}.
 \end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% zupelnie zbedne, na wszelki wypadek zostawiam na boku:
+We argued (see Corollary \ref{corollary:category-density-topology}) that we have 
+$(a)(\tau_e, \cF_{\meager}) = \mathsf{ND}(\real)$.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
