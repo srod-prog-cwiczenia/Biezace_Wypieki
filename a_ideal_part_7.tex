@@ -24,6 +24,8 @@
 \usepackage{t1enc}
 %%% pakiet do generowania belkotu (wypelniacza):
 \usepackage{lipsum}
+%%% pakiet do dodawania fikusnych notek `a la ``todo''
+\usepackage{todonotes}
 %---------------------------------------------------------------------
 % Theorems 
 %---------------------------------------------------------------------
@@ -209,7 +211,7 @@
 \makeatother
 
 \pagestyle{myheadings}
-\markboth{{\bf Andrzej Nowik}}{\bf \today}
+\markboth{{\bf \dummy}}{\bf \today}
 
 % Types message, asks the user to type in a command, then
 % defines \answer to be the input instead of executing it.
@@ -241,7 +243,7 @@
 }
 
 \begin{document}
-\title{\dummy}
+\title{Ideał generowany przez $\aidealprime$ nie jest równy ideałowi $\aideal$}
 
 \begin{abstract}
 \dummy
@@ -249,6 +251,12 @@
 
 \maketitle
 
+\section{Oznaczenia}
+$\Phi(E)$ oznacza zbiór punktów gęstości zbioru $E$.
+Jeśli $f \colon X \to Y$ jest funkcją to przez
+$f[A]$ oznaczamy obraz zbioru $A\subseteq X$.
+
+\section{Zasadnicza konstrukcja}
 
 Niech $P \subseteq [0,1]$ będzie zbiorem takim, że:
 \begin{itemize}
@@ -256,7 +264,51 @@ Niech $P \subseteq [0,1]$ będzie zbiorem takim, że:
   $P$ jest zbiorem doskonałym
 \item
   $P$ jest zbiorem nigdziegęstym
+\item
+  $0, 1 \in P$
+\item
+  miara Lebesgue'a zbioru $P$ jest dodatnia.
 \end{itemize}
+
+Ponadto wybierzmy jeden dowolny (ale ustalony) punkt $p^* \in \Phi(P)$
+Niech $[0, 1] \setminus P = \bigcup_{n=1}^\infty (a_n, b_n)$ będzie
+przedstawieniem zbioru otwartego będącego dopełnieniem zbioru $P$
+jako sumę parami rozłącznych przedziałów otwartych.
+Definiujemy zbiór
+\[ A_0 = \lbrace \frac{a_n + b_n}{2} \colon n = 1,2,\ldots\rbrace \cup \lbrace p^* \rbrace.
+\]
+
+
+Uwaga: Metoda konstrukcji zbioru $A$ jest technicznie kopią metody
+użytej w pracy Głąb-Frankowska.
+
+\flushleft{\it Fakt:} $A \in \aideal \setminus \aidealprime$.
+\flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż} 
+
+Konstruujemy teraz zbiór $A_1$.
+Wykorzystywać będziemy zbiór doskonały $P$
+użyty uprzednio w konstrukcji zbioru $A_0$.
+Dla $n = 1,2,\ldots$ definiujemy odwzorowanie liniowe:
+$l_n\colon \real\to\real$ wzorem
+\[l_n(x) = \frac{b_n - a_n}{3} \cdot x + \frac{2}{3} a_n + \frac{1}{3} b_n.\]
+Widać że odwzorowanie to przeprowadza przedział $[0,1]$ na
+środkowy przedział powstały z podziału przedziału $[a_n, b_n]$ na trzy
+równe części.
+
+\smallskip
+
+Definiujemy:
+
+\[ A_1 = \lbrace l_n[A_0] \colon n = 1,2,\ldots\rbrace \cup \lbrace p^* \rbrace.
+\]
+
+
+\flushleft{\it Fakt 1:} $A \in \aideal$.
+\flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż (podobny zapewne będzie jak w przypadku
+zbioru $A_0$} 
+
+\flushleft{\it Fakt 2:} $A$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
+\flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
 
 
 \end{document}
