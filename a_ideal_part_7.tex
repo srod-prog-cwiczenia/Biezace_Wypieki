@@ -255,6 +255,7 @@
 $\Phi(E)$ oznacza zbiór punktów gęstości zbioru $E$.
 Jeśli $f \colon X \to Y$ jest funkcją to przez
 $f[A]$ oznaczamy obraz zbioru $A\subseteq X$.
+$\tau_d$ oznacza topologię gęstości (czyli rodzinę zbiorów otwartych w tej topologii).
 
 \section{Zasadnicza konstrukcja}
 
@@ -283,7 +284,30 @@ Uwaga: Metoda konstrukcji zbioru $A_1$ jest technicznie kopią metody
 użytej w pracy Głąb-Frankowska.
 
 \flushleft{\it Fakt:} $A_1 \in \aideal \setminus \aidealprime$.
-\flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż} 
+\flushleft{\sc DOWÓD:} 
+Wybierzmy $W \in \tau_d \setminus \lbrace emptyset \rbrace$.
+Bez zmniejszenia ogólności możemy zakładać że 
+$W \subseteq (0, 1)$. Gdyby dla pewnego 
+$n = 1,2,\ldots$ mielibyśmy $(a_n, b_n) \cap W \not= \emptyset$
+to wtedy $(a_n, b_n) \setminus \lbrace \frac{a_n + b_n}{2}) \rbrace \cap W \not= \emptyset$
+i $(a_n, b_n) \setminus \lbrace \frac{a_n + b_n}{2}) \rbrace \cap W \cap A_1 = \emptyset$.
+
+Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
+Wówczas $(0,1) \setminus \lbrace p^* \rbrace \cap W \not= \emptyset$
+natomiast  $(0,1) \setminus \lbrace p^* \rbrace \cap W \cap A_1 = \emptyset$.
+W obu tych przypadkach znaleźliśmy zbiór otwarty $U$ taki że
+$U \cap W \not=\emptyset$ i $U \cap W \cap A_1 = \emptyset$
+co dowodzi że $A_1 \in \aideal$.
+
+\smallskip
+
+Przypuśćmy że istnieje zbiór domknięty $E$ taki że
+$A_1 \subseteq E \setminus \Phi(E)$.
+Wówczas $P \subseteq E$ (gdyż $\forall_{n=1,2\ldots} E \cap (a_n, b_n) \not= \emptyset$).
+Więc $p^* \in \Phi(P) \subseteq \Phi(E)$ czyli $A_1 \cap \Phi(E) \not= \emptyset$
+co daje sprzeczność.
+
+\medskip 
 
 Konstruujemy teraz zbiór $A_2$.
 Wykorzystywać będziemy zbiór doskonały $P$
