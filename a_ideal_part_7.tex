@@ -275,19 +275,19 @@ Niech $[0, 1] \setminus P = \bigcup_{n=1}^\infty (a_n, b_n)$ będzie
 przedstawieniem zbioru otwartego będącego dopełnieniem zbioru $P$
 jako sumę parami rozłącznych przedziałów otwartych.
 Definiujemy zbiór
-\[ A_0 = \lbrace \frac{a_n + b_n}{2} \colon n = 1,2,\ldots\rbrace \cup \lbrace p^* \rbrace.
+\[ A_1 = \lbrace \frac{a_n + b_n}{2} \colon n = 1,2,\ldots\rbrace \cup \lbrace p^* \rbrace.
 \]
 
 
-Uwaga: Metoda konstrukcji zbioru $A$ jest technicznie kopią metody
+Uwaga: Metoda konstrukcji zbioru $A_1$ jest technicznie kopią metody
 użytej w pracy Głąb-Frankowska.
 
-\flushleft{\it Fakt:} $A \in \aideal \setminus \aidealprime$.
+\flushleft{\it Fakt:} $A_1 \in \aideal \setminus \aidealprime$.
 \flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż} 
 
-Konstruujemy teraz zbiór $A_1$.
+Konstruujemy teraz zbiór $A_2$.
 Wykorzystywać będziemy zbiór doskonały $P$
-użyty uprzednio w konstrukcji zbioru $A_0$.
+użyty uprzednio w konstrukcji zbioru $A_1$.
 Dla $n = 1,2,\ldots$ definiujemy odwzorowanie liniowe:
 $l_n\colon \real\to\real$ wzorem
 \[l_n(x) = \frac{b_n - a_n}{3} \cdot x + \frac{2}{3} a_n + \frac{1}{3} b_n.\]
@@ -299,16 +299,26 @@ równe części.
 
 Definiujemy:
 
-\[ A_1 = \lbrace l_n[A_0] \colon n = 1,2,\ldots\rbrace \cup \lbrace p^* \rbrace.
+\[ A_2 = \bigcup_{m=1}^{\infty} l_m[A_1] \cup \lbrace p^* \rbrace.
 \]
 
 
-\flushleft{\it Fakt 1:} $A \in \aideal$.
+\flushleft{\it Fakt 1:} $A_2 \in \aideal$.
 \flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż (podobny zapewne będzie jak w przypadku
-zbioru $A_0$} 
+zbioru $A_1$} 
 
-\flushleft{\it Fakt 2:} $A$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
+\flushleft{\it Fakt 2:} $A_2$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
 \flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
 
+Definiujemy teraz indukcyjne, mając już skonstruowane $A_n$:
+
+\[ A_{n + 1} = \bigcup_{m=1}^{\infty} l_m[A_n] \cup \lbrace p^* \rbrace.
+\]
+
+\flushleft{\it Fakt 1:} $A_{n+1} \in \aideal$.
+\flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż} 
+
+\flushleft{\it Fakt 2:} $A_{n+1}$ nie jest sumą $n + 1$ zbiorów z rodziny $\aidealprime$.
+\flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
 
 \end{document}
