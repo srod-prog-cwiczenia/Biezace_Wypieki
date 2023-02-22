@@ -254,7 +254,8 @@
 \section{Oznaczenia}
 $\Phi(E)$ oznacza zbiór punktów gęstości zbioru $E$.
 Jeśli $f \colon X \to Y$ jest funkcją to przez
-$f[A]$ oznaczamy obraz zbioru $A\subseteq X$.
+$f[A]$ oznaczamy obraz zbioru $A\subseteq X$, 
+zaś $f^{-1}[B]$ przeciwobraz zbioru $B \subseteq Y$.
 $\tau_d$ oznacza topologię gęstości (czyli rodzinę zbiorów otwartych w tej topologii).
 
 \section{Zasadnicza konstrukcja}
@@ -285,7 +286,7 @@ użytej w pracy Głąb-Frankowska.
 
 \flushleft{\it Fakt:} $A_1 \in \aideal \setminus \aidealprime$.
 \flushleft{\sc DOWÓD:} 
-Wybierzmy $W \in \tau_d \setminus \lbrace emptyset \rbrace$.
+Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
 Bez zmniejszenia ogólności możemy zakładać że 
 $W \subseteq (0, 1)$. Gdyby dla pewnego 
 $n = 1,2,\ldots$ mielibyśmy $(a_n, b_n) \cap W \not= \emptyset$
@@ -333,6 +334,25 @@ zbioru $A_1$}
 
 \flushleft{\it Fakt 2:} $A_2$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
 \flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
+Przypuśćmy że $A_2 \subseteq (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
+dla pewnych dwóch zbiorów domkniętych $E_1, E_2$.  Przypuśćmy że dla pewnego 
+$m = 1,2,\ldots$ mielibyśmy że $l_m[A_1] \cap E_2 = \emptyset$.
+Wówczas $l_m[A_1] \subseteq E_1 \setminus \Phi(E_1)$, czyli 
+$A_1 \subseteq l_m^{-1}[E_1] \setminus \Phi(l_m^{-1}[E_1])$, gdyż
+odwzorowanie liniowe $l_m$ zachowuje punkty gęstości (i tak samo odwzorowanie odwrotne). Ponieważ 
+przeprowadza ono też zbiory domknięte na zbiory domknięte (i tak samo odwzorowanie odwrotne)
+więc daje to sprzeczość z tym że $A_1 \not\in \aidealprime$.
+Zatem $l_m[A_1] \cap E_2 \not= \emptyset$.
+Identyczne rozumowanie (ze względu na symetrię założeń o $E_1$ i $E_2$)
+pokazuje że także i $l_m[A_1] \cap E_1 \not= \emptyset$.
+Ponieważ $l_m[A_1] \subseteq (a_m, b_m)$
+więc $P \subseteq E_1$ i $P \subseteq E_2$. 
+Mamy zatem $p^* \in \Phi(P) \subseteq \Phi(E_1)$
+i $p^* \in \Phi(P) \subseteq \Phi(E_2)$
+czyli $p^* \not\in (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
+co jest niemożliwe bo $p^* \in A_2$.
+
+\smallskip
 
 Definiujemy teraz indukcyjne, mając już skonstruowane $A_n$:
 
