@@ -331,6 +331,26 @@ Definiujemy:
 \flushleft{\it Fakt 1:} $A_2 \in \aideal$.
 \flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż (podobny zapewne będzie jak w przypadku
 zbioru $A_1$} 
+Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
+Bez zmniejszenia ogólności możemy zakładać że 
+$W \subseteq (0, 1)$. Gdyby dla pewnego 
+$m = 1,2,\ldots$ mielibyśmy $(a_m, b_m) \cap W \not= \emptyset$
+to wtedy $(a_m, b_m) \cap W \in \tau_d \setminus \lbrace \emptyset \rbrace$,
+więc skoro $l_m[A_1] \in \aideal$ (zarówno odwzorowanie liniowe $l_m$
+jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości),
+zatem istnieje zbiór otwarty $U$ taki, że $W \cap (a_m, b_m) \cap U \not=\emptyset$
+i $l_m[A_1] \cap W \cap (a_m, b_m) \cap U = \emptyset$. To oznacza że
+zbiór $U_1 = U \cap (a_m, b_m)$ jest taki, że $U_1 \cap W \not=\emptyset$
+oraz $U_1 \cap A_2 \cap W = \emptyset$.
+
+Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
+Wówczas $(0,1) \setminus \lbrace p^* \rbrace \cap W \not= \emptyset$
+natomiast  $(0,1) \setminus \lbrace p^* \rbrace \cap W \cap A_2 = \emptyset$.
+W obu tych przypadkach znaleźliśmy zbiór otwarty $U_1$ taki że
+$U_1 \cap W \not=\emptyset$ i $U_1 \cap W \cap A_2 = \emptyset$
+co dowodzi że $A_2 \in \aideal$.
+
+
 
 \flushleft{\it Fakt 2:} $A_2$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
 \flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
