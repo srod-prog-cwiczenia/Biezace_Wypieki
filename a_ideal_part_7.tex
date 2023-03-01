@@ -281,8 +281,10 @@ Definiujemy zbiór
 \]
 
 
-Uwaga: Metoda konstrukcji zbioru $A_1$ jest technicznie kopią metody
-użytej w pracy Głąb-Frankowska.
+Ważna Uwaga!!: Metoda konstrukcji zbioru $A_1$ jak i dowód 
+jego własności jest technicznie kopią metody
+użytej w pracy ''On some ideal without ccc'', Głąb, Frankowska (wprowadzono tylko drobne uproszczenie, bo w
+cytowanej pracy Autorzy używali dwóch ciągów: $(x_n^k)$ oraz $(y_n^k)$).
 
 \flushleft{\it Fakt:} $A_1 \in \aideal \setminus \aidealprime$.
 \flushleft{\sc DOWÓD:} 
@@ -329,8 +331,7 @@ Definiujemy:
 
 
 \flushleft{\it Fakt 1:} $A_2 \in \aideal$.
-\flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż (podobny zapewne będzie jak w przypadku
-zbioru $A_1$} 
+\flushleft{\sc DOWÓD:} 
 Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
 Bez zmniejszenia ogólności możemy zakładać że 
 $W \subseteq (0, 1)$. Gdyby dla pewnego 
@@ -353,7 +354,6 @@ co dowodzi że $A_2 \in \aideal$.
 
 
 \flushleft{\it Fakt 2:} $A_2$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
-\flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
 Przypuśćmy że $A_2 \subseteq (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
 dla pewnych dwóch zbiorów domkniętych $E_1, E_2$.  Przypuśćmy że dla pewnego 
 $m = 1,2,\ldots$ mielibyśmy że $l_m[A_1] \cap E_2 = \emptyset$.
@@ -381,8 +381,65 @@ Definiujemy teraz indukcyjne, mając już skonstruowane $A_n$:
 
 \flushleft{\it Fakt 1:} $A_{n+1} \in \aideal$.
 \flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż} 
+Dowód przeprowadzamy przez indukcję. Pierwszy krok indukcyjny 
+(że $A_1 \in \aideal$) jak i zresztą przypadek że
+$A_2 \in \aideal$ zostały już wykazane wcześnej. 
+Zakładamy zatem że $A_n \in \aideal$.
+Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
+Bez zmniejszenia ogólności możemy zakładać że 
+$W \subseteq (0, 1)$. Gdyby dla pewnego 
+$m = 1,2,\ldots$ mielibyśmy $(a_m, b_m) \cap W \not= \emptyset$
+to wtedy $(a_m, b_m) \cap W \in \tau_d \setminus \lbrace \emptyset \rbrace$,
+więc skoro $l_m[A_n] \in \aideal$ (zarówno odwzorowanie liniowe $l_m$
+jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości),
+zatem istnieje zbiór otwarty $U$ taki, że $W \cap (a_m, b_m) \cap U \not=\emptyset$
+i $l_m[A_n] \cap W \cap (a_m, b_m) \cap U = \emptyset$. To oznacza że
+zbiór $U_1 = U \cap (a_m, b_m)$ jest taki, że $U_1 \cap W \not=\emptyset$
+oraz $U_1 \cap A_{n+1} \cap W = \emptyset$.
+
+Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
+Wówczas $(0,1) \setminus \lbrace p^* \rbrace \cap W \not= \emptyset$
+natomiast  $(0,1) \setminus \lbrace p^* \rbrace \cap W \cap A_{n+1} = \emptyset$.
+W obu tych przypadkach znaleźliśmy zbiór otwarty $U_1$ taki że
+$U_1 \cap W \not=\emptyset$ i $U_1 \cap W \cap A_{n+1} = \emptyset$
+co dowodzi że $A_{n+1} \in \aideal$.
+
+
 
 \flushleft{\it Fakt 2:} $A_{n+1}$ nie jest sumą $n + 1$ zbiorów z rodziny $\aidealprime$.
 \flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
+
+
+Na koniec definiujemy 
+\[ A^* = \bigcup_{m=1}^{\infty} l_m[A_m] \cup \lbrace p^* \rbrace.
+\]
+
+\flushleft{\it Fakt 1:} $A^* \in \aideal$.
+Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
+Bez zmniejszenia ogólności możemy zakładać że 
+$W \subseteq (0, 1)$. Gdyby dla pewnego 
+$m = 1,2,\ldots$ mielibyśmy $(a_m, b_m) \cap W \not= \emptyset$
+to wtedy $(a_m, b_m) \cap W \in \tau_d \setminus \lbrace \emptyset \rbrace$,
+więc skoro $l_m[A_m] \in \aideal$ (zarówno odwzorowanie liniowe $l_m$
+jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości),
+zatem istnieje zbiór otwarty $U$ taki, że $W \cap (a_m, b_m) \cap U \not=\emptyset$
+i $l_m[A_m] \cap W \cap (a_m, b_m) \cap U = \emptyset$. To oznacza że
+zbiór $U_1 = U \cap (a_m, b_m)$ jest taki, że $U_1 \cap W \not=\emptyset$
+oraz $U_1 \cap A^* \cap W = \emptyset$.
+
+Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
+Wówczas $W \cap A^* \not= \emptyset$ i jako $U_1$ można wziąć
+na przykład $(0,1)$.
+W obu tych przypadkach znaleźliśmy zbiór otwarty $U_1$ taki że
+$U_1 \cap W \not=\emptyset$ i $U_1 \cap W \cap A^* = \emptyset$
+co dowodzi że $A^* \in \aideal$.
+
+\missingfigure{
+Zebrać parę identycznych dowodów we wspólnym lemacie:
+mniej więcej takim:
+Załóżmy że dla każdego $m = 1,2,\ldots$ mamy ustalony zbiór
+$B_m \subseteq (a_m, b_m)$ taki że $B_m \in \aideal$.
+Wówczas zbiór $\bigcup_{m=1}^{\infty} B_m \in \aideal$.
+}
 
 \end{document}
