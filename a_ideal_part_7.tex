@@ -34,7 +34,7 @@
 % Proposition, Conjecture, Criterion, Algorithm
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{lemma}[theorem]{Lemat}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conclusion}[theorem]{Corollary}
 \newtheorem{claim}[theorem]{Claim}
@@ -258,7 +258,8 @@ $f[A]$ oznaczamy obraz zbioru $A\subseteq X$,
 zaś $f^{-1}[B]$ przeciwobraz zbioru $B \subseteq Y$.
 $\tau_d$ oznacza topologię gęstości (czyli rodzinę zbiorów otwartych w tej topologii).
 
-\section{Zasadnicza konstrukcja}
+
+\section{Narzedziowe zbiory używane w konstrukcji}
 
 Niech $P \subseteq [0,1]$ będzie zbiorem takim, że:
 \begin{itemize}
@@ -276,10 +277,41 @@ Ponadto wybierzmy jeden dowolny (ale ustalony) punkt $p^* \in \Phi(P)$
 Niech $[0, 1] \setminus P = \bigcup_{n=1}^\infty (a_n, b_n)$ będzie
 przedstawieniem zbioru otwartego będącego dopełnieniem zbioru $P$
 jako sumę parami rozłącznych przedziałów otwartych.
+
+\section{Pomocnicze lematy}
+
+\begin{lemma}
+\label{lemat-o-sumie}
+Załóżmy że dla każdego $m = 1,2,\ldots$ mamy ustalony zbiór
+$B_m \subseteq (a_m, b_m)$ taki że $B_m \in \aideal$.
+Wówczas zbiór $B = \bigcup_{m=1}^{\infty} B_m \in \aideal$.
+\end{lemma}
+
+\begin{proof}
+Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
+Bez zmniejszenia ogólności możemy zakładać że 
+$W \subseteq (0, 1)$. Załóżmy najpierw że dla pewnego 
+$m = 1,2,\ldots$ mamy $(a_m, b_m) \cap W \not= \emptyset$.
+Wtedy $(a_m, b_m) \cap W \in \tau_d \setminus \lbrace \emptyset \rbrace$,
+więc skoro $B_m \in \aideal$, zatem istnieje zbiór otwarty $U$ 
+taki, że $W \cap (a_m, b_m) \cap U \not=\emptyset$
+i $B_m \cap W \cap (a_m, b_m) \cap U = \emptyset$. To oznacza że
+otwarty zbiór $U_1 = U \cap (a_m, b_m)$ jest taki, że $U_1 \cap W \not=\emptyset$
+oraz $U_1 \cap B \cap W = \emptyset$.
+
+Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
+Wówczas $(0,1) \cap W \not= \emptyset$
+natomiast  $(0,1) \cap W \cap B = \emptyset$.
+W obu tych przypadkach znaleźliśmy zbiór otwarty $U_1$ taki że
+$U_1 \cap W \not=\emptyset$ i $U_1 \cap W \cap B = \emptyset$
+co dowodzi że $B \in \aideal$.
+\end{proof}
+
+\section{Zasadnicza konstrukcja}
+
 Definiujemy zbiór
 \[ A_1 = \lbrace \frac{a_n + b_n}{2} \colon n = 1,2,\ldots\rbrace \cup \lbrace p^* \rbrace.
 \]
-
 
 Ważna Uwaga!!: Metoda konstrukcji zbioru $A_1$ jak i dowód 
 jego własności jest technicznie kopią metody
@@ -287,20 +319,11 @@ użytej w pracy ''On some ideal without ccc'', Głąb, Frankowska (wprowadzono t
 cytowanej pracy Autorzy używali dwóch ciągów: $(x_n^k)$ oraz $(y_n^k)$).
 
 \flushleft{\it Fakt:} $A_1 \in \aideal \setminus \aidealprime$.
-\flushleft{\sc DOWÓD:} 
-Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
-Bez zmniejszenia ogólności możemy zakładać że 
-$W \subseteq (0, 1)$. Gdyby dla pewnego 
-$n = 1,2,\ldots$ mielibyśmy $(a_n, b_n) \cap W \not= \emptyset$
-to wtedy $(a_n, b_n) \setminus \lbrace \frac{a_n + b_n}{2}) \rbrace \cap W \not= \emptyset$
-i $(a_n, b_n) \setminus \lbrace \frac{a_n + b_n}{2}) \rbrace \cap W \cap A_1 = \emptyset$.
-
-Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
-Wówczas $(0,1) \setminus \lbrace p^* \rbrace \cap W \not= \emptyset$
-natomiast  $(0,1) \setminus \lbrace p^* \rbrace \cap W \cap A_1 = \emptyset$.
-W obu tych przypadkach znaleźliśmy zbiór otwarty $U$ taki że
-$U \cap W \not=\emptyset$ i $U \cap W \cap A_1 = \emptyset$
-co dowodzi że $A_1 \in \aideal$.
+\begin{proof}
+Wstawiając w Lemacie \ref{lemat-o-sumie} 
+$B_m = \lbrace \frac{a_n + b_n}{2} \rbrace$
+i biorąc pod uwagę że singletony należą do $\aideal$ jak i to że
+$\aideal$ jest ideałem otrzymujemy natychmiast że $A_1 \in \aideal$.
 
 \smallskip
 
@@ -309,8 +332,7 @@ $A_1 \subseteq E \setminus \Phi(E)$.
 Wówczas $P \subseteq E$ (gdyż $\forall_{n=1,2\ldots} E \cap (a_n, b_n) \not= \emptyset$).
 Więc $p^* \in \Phi(P) \subseteq \Phi(E)$ czyli $A_1 \cap \Phi(E) \not= \emptyset$
 co daje sprzeczność.
-
-\medskip 
+\end{proof}
 
 Konstruujemy teraz zbiór $A_2$.
 Wykorzystywać będziemy zbiór doskonały $P$
@@ -331,27 +353,13 @@ Definiujemy:
 
 
 \flushleft{\it Fakt 1:} $A_2 \in \aideal$.
-\flushleft{\sc DOWÓD:} 
-Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
-Bez zmniejszenia ogólności możemy zakładać że 
-$W \subseteq (0, 1)$. Gdyby dla pewnego 
-$m = 1,2,\ldots$ mielibyśmy $(a_m, b_m) \cap W \not= \emptyset$
-to wtedy $(a_m, b_m) \cap W \in \tau_d \setminus \lbrace \emptyset \rbrace$,
-więc skoro $l_m[A_1] \in \aideal$ (zarówno odwzorowanie liniowe $l_m$
-jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości),
-zatem istnieje zbiór otwarty $U$ taki, że $W \cap (a_m, b_m) \cap U \not=\emptyset$
-i $l_m[A_1] \cap W \cap (a_m, b_m) \cap U = \emptyset$. To oznacza że
-zbiór $U_1 = U \cap (a_m, b_m)$ jest taki, że $U_1 \cap W \not=\emptyset$
-oraz $U_1 \cap A_2 \cap W = \emptyset$.
-
-Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
-Wówczas $(0,1) \setminus \lbrace p^* \rbrace \cap W \not= \emptyset$
-natomiast  $(0,1) \setminus \lbrace p^* \rbrace \cap W \cap A_2 = \emptyset$.
-W obu tych przypadkach znaleźliśmy zbiór otwarty $U_1$ taki że
-$U_1 \cap W \not=\emptyset$ i $U_1 \cap W \cap A_2 = \emptyset$
-co dowodzi że $A_2 \in \aideal$.
-
-
+\begin{proof}
+Wiemy że $l_m[A_1] \in \aideal$, bo zarówno odwzorowanie liniowe $l_m$
+jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości.
+Połóżmy zatem w Lemacie \ref{lemat-o-sumie} 
+$B_m = l_m[A_1]$ i z faktu iż $\aideal$ jest ideałem
+zawierającym singletony dostajemy natychmiast wniosek
+że $A_2 \in \aideal$.
 
 \flushleft{\it Fakt 2:} $A_2$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
 Przypuśćmy że $A_2 \subseteq (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
@@ -371,8 +379,7 @@ Mamy zatem $p^* \in \Phi(P) \subseteq \Phi(E_1)$
 i $p^* \in \Phi(P) \subseteq \Phi(E_2)$
 czyli $p^* \not\in (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
 co jest niemożliwe bo $p^* \in A_2$.
-
-\smallskip
+\end{proof}
 
 Definiujemy teraz indukcyjne, mając już skonstruowane $A_n$:
 
@@ -380,31 +387,19 @@ Definiujemy teraz indukcyjne, mając już skonstruowane $A_n$:
 \]
 
 \flushleft{\it Fakt 1:} $A_{n+1} \in \aideal$.
-\flushleft{\sc DOWÓD:} \todo{Spisać zwięzły dowod tegoż} 
+\begin{proof}
 Dowód przeprowadzamy przez indukcję. Pierwszy krok indukcyjny 
 (że $A_1 \in \aideal$) jak i zresztą przypadek że
 $A_2 \in \aideal$ zostały już wykazane wcześnej. 
 Zakładamy zatem że $A_n \in \aideal$.
-Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
-Bez zmniejszenia ogólności możemy zakładać że 
-$W \subseteq (0, 1)$. Gdyby dla pewnego 
-$m = 1,2,\ldots$ mielibyśmy $(a_m, b_m) \cap W \not= \emptyset$
-to wtedy $(a_m, b_m) \cap W \in \tau_d \setminus \lbrace \emptyset \rbrace$,
-więc skoro $l_m[A_n] \in \aideal$ (zarówno odwzorowanie liniowe $l_m$
-jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości),
-zatem istnieje zbiór otwarty $U$ taki, że $W \cap (a_m, b_m) \cap U \not=\emptyset$
-i $l_m[A_n] \cap W \cap (a_m, b_m) \cap U = \emptyset$. To oznacza że
-zbiór $U_1 = U \cap (a_m, b_m)$ jest taki, że $U_1 \cap W \not=\emptyset$
-oraz $U_1 \cap A_{n+1} \cap W = \emptyset$.
 
-Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
-Wówczas $(0,1) \setminus \lbrace p^* \rbrace \cap W \not= \emptyset$
-natomiast  $(0,1) \setminus \lbrace p^* \rbrace \cap W \cap A_{n+1} = \emptyset$.
-W obu tych przypadkach znaleźliśmy zbiór otwarty $U_1$ taki że
-$U_1 \cap W \not=\emptyset$ i $U_1 \cap W \cap A_{n+1} = \emptyset$
-co dowodzi że $A_{n+1} \in \aideal$.
-
-
+Wiemy że $l_m[A_n] \in \aideal$, bo zarówno odwzorowanie liniowe $l_m$
+jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości.
+Połóżmy zatem w Lemacie \ref{lemat-o-sumie} 
+$B_m = l_m[A_n]$ i z faktu iż $\aideal$ jest ideałem
+zawierającym singletony dostajemy natychmiast wniosek
+że $A_{n+1} \in \aideal$.
+\end{proof}
 
 \flushleft{\it Fakt 2:} $A_{n+1}$ nie jest sumą $n + 1$ zbiorów z rodziny $\aidealprime$.
 \flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
@@ -415,31 +410,16 @@ Na koniec definiujemy
 \]
 
 \flushleft{\it Fakt 1:} $A^* \in \aideal$.
-Wybierzmy $W \in \tau_d \setminus \lbrace \emptyset \rbrace$.
-Bez zmniejszenia ogólności możemy zakładać że 
-$W \subseteq (0, 1)$. Gdyby dla pewnego 
-$m = 1,2,\ldots$ mielibyśmy $(a_m, b_m) \cap W \not= \emptyset$
-to wtedy $(a_m, b_m) \cap W \in \tau_d \setminus \lbrace \emptyset \rbrace$,
-więc skoro $l_m[A_m] \in \aideal$ (zarówno odwzorowanie liniowe $l_m$
-jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości),
-zatem istnieje zbiór otwarty $U$ taki, że $W \cap (a_m, b_m) \cap U \not=\emptyset$
-i $l_m[A_m] \cap W \cap (a_m, b_m) \cap U = \emptyset$. To oznacza że
-zbiór $U_1 = U \cap (a_m, b_m)$ jest taki, że $U_1 \cap W \not=\emptyset$
-oraz $U_1 \cap A^* \cap W = \emptyset$.
+\begin{proof}
+Z poprzednich wyników wiemy że $l_m[A_m] \in \aideal$, bo 
+$A_m \in \aideal$ a także zarówno odwzorowanie liniowe $l_m$
+jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości.
+Połóżmy zatem w Lemacie \ref{lemat-o-sumie} 
+$B_m = l_m[A_m]$ i z faktu iż $\aideal$ jest ideałem
+zawierającym singletony dostajemy natychmiast wniosek
+że $A^* \in \aideal$.
+\end{proof}
 
-Załóżmy zatem że $W \subseteq (0,1) \setminus \bigcup_{n=1}^\infty (a_n, b_n) \subseteq P$.
-Wówczas $W \cap A^* \not= \emptyset$ i jako $U_1$ można wziąć
-na przykład $(0,1)$.
-W obu tych przypadkach znaleźliśmy zbiór otwarty $U_1$ taki że
-$U_1 \cap W \not=\emptyset$ i $U_1 \cap W \cap A^* = \emptyset$
-co dowodzi że $A^* \in \aideal$.
-
-\missingfigure{
-Zebrać parę identycznych dowodów we wspólnym lemacie:
-mniej więcej takim:
-Załóżmy że dla każdego $m = 1,2,\ldots$ mamy ustalony zbiór
-$B_m \subseteq (a_m, b_m)$ taki że $B_m \in \aideal$.
-Wówczas zbiór $\bigcup_{m=1}^{\infty} B_m \in \aideal$.
-}
+\todo{Uzasadnienie że $A^*$ nie jest sumą skończenie wielu aprime}
 
 \end{document}
