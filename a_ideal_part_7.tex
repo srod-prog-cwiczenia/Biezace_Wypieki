@@ -259,7 +259,7 @@ zaś $f^{-1}[B]$ przeciwobraz zbioru $B \subseteq Y$.
 $\tau_d$ oznacza topologię gęstości (czyli rodzinę zbiorów otwartych w tej topologii).
 
 
-\section{Narzedziowe zbiory używane w konstrukcji}
+\section{Narzędziowe zbiory używane w konstrukcji}
 
 Niech $P \subseteq [0,1]$ będzie zbiorem takim, że:
 \begin{itemize}
@@ -402,8 +402,29 @@ zawierającym singletony dostajemy natychmiast wniosek
 \end{proof}
 
 \flushleft{\it Fakt 2:} $A_{n+1}$ nie jest sumą $n + 1$ zbiorów z rodziny $\aidealprime$.
-\flushleft{\sc DOWÓD:} \todo{Spisać dowod} 
+\begin{proof}
+Dowód przeprowadzamy indukcyjnie, więc zakładamy że $A_n$ nie jest sumą
+$n$ zbiorów z rodziny $\aidealprime$.
+Przypuśćmy że $A_{n+1} \subseteq \bigcup_{j=0}^n (E_j \setminus \Phi(E_1j)$
+dla pewnych dwóch zbiorów domkniętych $E_0, E_1, \ldots, E_n$.  Przypuśćmy że dla pewnego 
+$m = 1,2,\ldots$ mielibyśmy że $l_m[A_n] \cap E_0 = \emptyset$.
 
+Wówczas $l_m[A_n] \subseteq \bigcup_{j=1}^n E_j \setminus \Phi(E_j)$, czyli 
+$A_n \subseteq \bigcup_{j=1}^n l_m^{-1}[E_j] \setminus \Phi(l_m^{-1}[E_j])$, gdyż
+odwzorowanie liniowe $l_m$ zachowuje punkty gęstości (i tak samo odwzorowanie odwrotne). Ponieważ 
+przeprowadza ono też zbiory domknięte na zbiory domknięte (i tak samo odwzorowanie odwrotne)
+więc daje to sprzeczość z założeniem indukcyjnym że $A_n$ nie jest sumą $n$ zbiorów z rodziny $\aidealprime$.
+Zatem $l_m[A_n] \cap E_0 \not= \emptyset$.
+
+Identyczne rozumowanie (ze względu na symetrię założeń o zbiorach $E_j$)
+pokazuje że także i $l_m[A_n] \cap E_j \not= \emptyset$
+dla każdego $j = 0, \ldots, n$.
+Ponieważ $l_m[A_n] \subseteq (a_m, b_m)$
+więc $P \subseteq \bigcap_{j=0}^n E_j$. 
+Mamy zatem $\forall_{j=0,\ldots, n} p^* \in \Phi(P) \subseteq \Phi(E_j)$
+czyli $p^* \not\in \bigcup_{j=0}^n (E_j \setminus \Phi(E_j))$
+co jest niemożliwe bo $p^* \in A_{n+1}$.
+\end{proof}
 
 Na koniec definiujemy 
 \[ A^* = \bigcup_{m=1}^{\infty} l_m[A_m] \cup \lbrace p^* \rbrace.
