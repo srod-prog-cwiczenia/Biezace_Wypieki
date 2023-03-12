@@ -211,7 +211,7 @@
 \makeatother
 
 \pagestyle{myheadings}
-\markboth{{\bf \dummy}}{\bf \today}
+\markboth{{\bf Ideał generowany przez $\aprimeideal$ nie jest równy $\aideal$}}{\bf \today}
 
 % Types message, asks the user to type in a command, then
 % defines \answer to be the input instead of executing it.
@@ -237,17 +237,15 @@
 \pagestyle{myheadings}
 % To see corrections comment next line and uncomment the second one
 
-\author{\dummy}
-\address[]{
-\dummy
-}
+\author{Andrzej Nowik}
+%\address[]{}
 
 \begin{document}
 \title{Ideał generowany przez $\aidealprime$ nie jest równy ideałowi $\aideal$}
 
-\begin{abstract}
-\dummy
-\end{abstract}
+%\begin{abstract}
+%(...)
+%\end{abstract}
 
 \maketitle
 
@@ -258,6 +256,23 @@ $f[A]$ oznaczamy obraz zbioru $A\subseteq X$,
 zaś $f^{-1}[B]$ przeciwobraz zbioru $B \subseteq Y$.
 $\tau_d$ oznacza topologię gęstości (czyli rodzinę zbiorów otwartych w tej topologii).
 
+\section{Ważna Uwaga!!!}
+Metoda konstrukcji zbioru $A_1$ jak i dowód 
+jego własności jest technicznie kopią metody i pomysłu
+użytych w pracy \cite{FG}, Proposition 6.
+Tutaj wprowadzono do tej konstrukcji parę
+drobnych modyfikacji, jak np. użycie jednej
+sekwencji $(\frac{a_n + b_n}{2})$ - w
+cytowanej pracy Autorzy używali ,,macierzy ciągów'',
+czyli ,,ciągów ciągów'': $(x_n^k)$ oraz $(y_n^k)$),
+etc.
+
+\section{Główny wynik}
+\begin{theorem}
+  Istnieje zbiór przeliczalny $A^* \subseteq \real$ taki że
+$A^* \in \aideal$ oraz $A^*$ nie należy do ideału
+generowanego przez rodzinę zbiorów $\aidealprime$.
+\end{theorem}
 
 \section{Narzędziowe zbiory używane w konstrukcji}
 
@@ -312,11 +327,6 @@ co dowodzi że $B \in \aideal$.
 Definiujemy zbiór
 \[ A_1 = \lbrace \frac{a_n + b_n}{2} \colon n = 1,2,\ldots\rbrace \cup \lbrace p^* \rbrace.
 \]
-
-Ważna Uwaga!!: Metoda konstrukcji zbioru $A_1$ jak i dowód 
-jego własności jest technicznie kopią metody
-użytej w pracy ''On some ideal without ccc'', Głąb, Frankowska (wprowadzono tylko drobne uproszczenie, bo w
-cytowanej pracy Autorzy używali dwóch ciągów: $(x_n^k)$ oraz $(y_n^k)$).
 
 \flushleft{\it Fakt:} $A_1 \in \aideal \setminus \aidealprime$.
 \begin{proof}
@@ -405,7 +415,7 @@ zawierającym singletony dostajemy natychmiast wniosek
 \begin{proof}
 Dowód przeprowadzamy indukcyjnie, więc zakładamy że $A_n$ nie jest sumą
 $n$ zbiorów z rodziny $\aidealprime$.
-Przypuśćmy że $A_{n+1} \subseteq \bigcup_{j=0}^n (E_j \setminus \Phi(E_1j)$
+Przypuśćmy że $A_{n+1} \subseteq \bigcup_{j=0}^n (E_j \setminus \Phi(E_j)$
 dla pewnych dwóch zbiorów domkniętych $E_0, E_1, \ldots, E_n$.  Przypuśćmy że dla pewnego 
 $m = 1,2,\ldots$ mielibyśmy że $l_m[A_n] \cap E_0 = \emptyset$.
 
@@ -441,6 +451,31 @@ zawierającym singletony dostajemy natychmiast wniosek
 że $A^* \in \aideal$.
 \end{proof}
 
-\todo{Uzasadnienie że $A^*$ nie jest sumą skończenie wielu aprime}
+\flushleft{\it Fakt 2:} $A^*$ nie jest sumą skończenie
+wielu zbiorów z rodziny $\aidealprime$.
+\begin{proof}
+Przypuśćmy niewprost że
+$A^* \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$
+dla pewnych domkniętych zbiorów $E_j$.
+Wówczas mielibyśmy
+$l_{n+1}[A_{n+1}] \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$,
+czyli
+$A_{n+1} \subseteq \bigcup_{j=0}^n l_{n+1}^{-1}\big[E_j \setminus \Phi(E_j)\big]$,
+ale liniowe odwzorowanie $l_{n+1}$ zachowuje punkty gęstości,
+domknięcia zbiorów, zatem mielibyśmy:
+$A_{n+1} \subseteq \bigcup_{j=0}^n l_{n+1}^{-1}[E_j] \setminus
+\Phi(l_{n+1}^{-1}[E_j])$, co przeczy temu że zbiór
+$A_{n+1}$ nie jest sumą $n+1$ zbiorów z rodziny $\aidealprime$.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        The Bibliography                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{10}
+
+\bibitem[FG]{FG}
+M. Frankowska, S.G\l{}\c{a}b, 
+\emph{On some $\sigma$-ideal without ccc}, Colloquium Mathematicum \textbf{158 (1)} (2019), 127--140.
+\end{thebibliography}
 
 \end{document}
