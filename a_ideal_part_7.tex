@@ -249,12 +249,37 @@
 
 \maketitle
 
-\section{Oznaczenia}
+\section{Garść oznaczeń i definicji}
 $\Phi(E)$ oznacza zbiór punktów gęstości zbioru $E$.
 Jeśli $f \colon X \to Y$ jest funkcją to przez
 $f[A]$ oznaczamy obraz zbioru $A\subseteq X$, 
 zaś $f^{-1}[B]$ przeciwobraz zbioru $B \subseteq Y$.
-$\tau_d$ oznacza topologię gęstości (czyli rodzinę zbiorów otwartych w tej topologii).
+$\tau_d$ oznacza topologię gęstości
+(czyli rodzinę zbiorów otwartych w tej topologii),
+to znaczy rodzinę takich zbiorów mierzalnych $A\subseteq\real$,
+że $A \subseteq \Phi(A)$. Przez $\tau_e$ oznaczamy rodzinę
+zbiorów otwartych w standardowej topologii euklidesowej na $\real$.
+
+\subsection{Nieodzowne pojęcia używane w tej notatce}
+Ideał $\aideal$ posiada wiele równoważnych charakteryzacji.
+Tu będziemy stale korzystać z następującej:
+\begin{definition}
+  Zbiór $X \subseteq \real$ jest w ideale $\aideal$ wtedy i tylko
+  wtedy gdy spełniony jest następujący warunek:
+  \[
+  \forall_{W \in \tau_d\setminus\lbrace\emptyset\rbrace}
+    \exists_{U \in \tau_e} W \cap U \not= \emptyset \wedge
+    W \cap U \cap X = \emptyset.
+  \]
+\end{definition}
+
+Przez rodzinę $\aidealprime$ rozumiemy rodzinę takich zbiorów
+$X\subseteq\real$ dla których istnieje zbiór
+domknięty (w standardowej topologii) $E \subseteq\real$
+taki, że $X \subseteq \Phi(E) \setminus E$. Wiadomo
+że $\aidealprime\subseteq\aideal$ oraz że sigma ideały
+generowane przez rodziny $\aidealprime$ oraz $\aideal$
+są identyczne (\cite{FG}, Theorem 12).
 
 \section{Ważna Uwaga!!!}
 Metoda konstrukcji zbioru $A_1$ jak i dowód 
@@ -291,7 +316,7 @@ Niech $P \subseteq [0,1]$ będzie zbiorem takim, że:
 Ponadto wybierzmy jeden dowolny (ale ustalony) punkt $p^* \in \Phi(P)$
 Niech $[0, 1] \setminus P = \bigcup_{n=1}^\infty (a_n, b_n)$ będzie
 przedstawieniem zbioru otwartego będącego dopełnieniem zbioru $P$
-jako sumę parami rozłącznych przedziałów otwartych.
+jako sumy parami rozłącznych przedziałów otwartych.
 
 \section{Pomocnicze lematy}
 
