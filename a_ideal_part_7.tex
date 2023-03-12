@@ -380,53 +380,51 @@ Widać że odwzorowanie to przeprowadza przedział $[0,1]$ na
 równe części.
 
 \smallskip
-
-Definiujemy:
-
-\[ A_2 = \bigcup_{m=1}^{\infty} l_m[A_1] \cup \lbrace p^* \rbrace.
-\]
-
-
-\flushleft{\it Fakt 1:} $A_2 \in \aideal$.
-\begin{proof}
-Wiemy że $l_m[A_1] \in \aideal$, bo zarówno odwzorowanie liniowe $l_m$
-jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości.
-Połóżmy zatem w Lemacie \ref{lemat-o-sumie} 
-$B_m = l_m[A_1]$ i z faktu iż $\aideal$ jest ideałem
-zawierającym singletony dostajemy natychmiast wniosek
-że $A_2 \in \aideal$.
-
-\flushleft{\it Fakt 2:} $A_2$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
-Przypuśćmy że $A_2 \subseteq (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
-dla pewnych dwóch zbiorów domkniętych $E_1, E_2$.  Przypuśćmy że dla pewnego 
-$m = 1,2,\ldots$ mielibyśmy że $l_m[A_1] \cap E_2 = \emptyset$.
-Wówczas $l_m[A_1] \subseteq E_1 \setminus \Phi(E_1)$, czyli 
-$A_1 \subseteq l_m^{-1}[E_1] \setminus \Phi(l_m^{-1}[E_1])$, gdyż
-odwzorowanie liniowe $l_m$ zachowuje punkty gęstości (i tak samo odwzorowanie odwrotne). Ponieważ 
-przeprowadza ono też zbiory domknięte na zbiory domknięte (i tak samo odwzorowanie odwrotne)
-więc daje to sprzeczość z tym że $A_1 \not\in \aidealprime$.
-Zatem $l_m[A_1] \cap E_2 \not= \emptyset$.
-Identyczne rozumowanie (ze względu na symetrię założeń o $E_1$ i $E_2$)
-pokazuje że także i $l_m[A_1] \cap E_1 \not= \emptyset$.
-Ponieważ $l_m[A_1] \subseteq (a_m, b_m)$
-więc $P \subseteq E_1$ i $P \subseteq E_2$. 
-Mamy zatem $p^* \in \Phi(P) \subseteq \Phi(E_1)$
-i $p^* \in \Phi(P) \subseteq \Phi(E_2)$
-czyli $p^* \not\in (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
-co jest niemożliwe bo $p^* \in A_2$.
-\end{proof}
-
-Definiujemy teraz indukcyjne, mając już skonstruowane $A_n$:
+%%% ten fragment dowodu dotyczy zbioru A2 i jest
+%%% w zasadzie nadmiarowy bo wystarczy rozwazyc przypadek zbioru A_{n+1}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Definiujemy:
+%\[ A_2 = \bigcup_{m=1}^{\infty} l_m[A_1] \cup \lbrace p^* \rbrace.
+%\]
+%
+%\flushleft{\it Fakt 1:} $A_2 \in \aideal$.
+%\begin{proof}
+%Wiemy że $l_m[A_1] \in \aideal$, bo zarówno odwzorowanie liniowe $l_m$
+%jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości.
+%Połóżmy zatem w Lemacie \ref{lemat-o-sumie} 
+%$B_m = l_m[A_1]$ i z faktu iż $\aideal$ jest ideałem
+%zawierającym singletony dostajemy natychmiast wniosek
+%że $A_2 \in \aideal$.
+%
+%\flushleft{\it Fakt 2:} $A_2$ nie jest sumą dwóch zbiorów z rodziny $\aidealprime$.
+%Przypuśćmy że $A_2 \subseteq (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
+%dla pewnych dwóch zbiorów domkniętych $E_1, E_2$.  Przypuśćmy że dla pewnego 
+%$m = 1,2,\ldots$ mielibyśmy że $l_m[A_1] \cap E_2 = \emptyset$.
+%Wówczas $l_m[A_1] \subseteq E_1 \setminus \Phi(E_1)$, czyli 
+%$A_1 \subseteq l_m^{-1}[E_1] \setminus \Phi(l_m^{-1}[E_1])$, gdyż
+%odwzorowanie liniowe $l_m$ zachowuje punkty gęstości (i tak samo odwzorowanie odwrotne). Ponieważ 
+%przeprowadza ono też zbiory domknięte na zbiory domknięte (i tak samo odwzorowanie odwrotne)
+%więc daje to sprzeczość z tym że $A_1 \not\in \aidealprime$.
+%Zatem $l_m[A_1] \cap E_2 \not= \emptyset$.
+%Identyczne rozumowanie (ze względu na symetrię założeń o $E_1$ i $E_2$)
+%pokazuje że także i $l_m[A_1] \cap E_1 \not= \emptyset$.
+%Ponieważ $l_m[A_1] \subseteq (a_m, b_m)$
+%więc $P \subseteq E_1$ i $P \subseteq E_2$. 
+%Mamy zatem $p^* \in \Phi(P) \subseteq \Phi(E_1)$
+%i $p^* \in \Phi(P) \subseteq \Phi(E_2)$
+%czyli $p^* \not\in (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
+%co jest niemożliwe bo $p^* \in A_2$.
+%\end{proof}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Mając juz skonstruowane $A_n$ definiujemy:
 
 \[ A_{n + 1} = \bigcup_{m=1}^{\infty} l_m[A_n] \cup \lbrace p^* \rbrace.
 \]
 
 \flushleft{\it Fakt 1:} $A_{n+1} \in \aideal$.
 \begin{proof}
-Dowód przeprowadzamy przez indukcję. Pierwszy krok indukcyjny 
-(że $A_1 \in \aideal$) jak i zresztą przypadek że
-$A_2 \in \aideal$ zostały już wykazane wcześnej. 
-Zakładamy zatem że $A_n \in \aideal$.
+  Dowód przeprowadzamy przez indukcję, więc zakładamy
+że $A_n \in \aideal$.
 
 Wiemy że $l_m[A_n] \in \aideal$, bo zarówno odwzorowanie liniowe $l_m$
 jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości.
@@ -438,9 +436,9 @@ zawierającym singletony dostajemy natychmiast wniosek
 
 \flushleft{\it Fakt 2:} $A_{n+1}$ nie jest sumą $n + 1$ zbiorów z rodziny $\aidealprime$.
 \begin{proof}
-Dowód przeprowadzamy indukcyjnie, więc zakładamy że $A_n$ nie jest sumą
+Dowód przeprowadzamy indukcyjnie, zakładamy zatem że $A_n$ nie jest sumą
 $n$ zbiorów z rodziny $\aidealprime$.
-Przypuśćmy że $A_{n+1} \subseteq \bigcup_{j=0}^n (E_j \setminus \Phi(E_j)$
+Przypuśćmy że $A_{n+1} \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$
 dla pewnych dwóch zbiorów domkniętych $E_0, E_1, \ldots, E_n$.  Przypuśćmy że dla pewnego 
 $m = 1,2,\ldots$ mielibyśmy że $l_m[A_n] \cap E_0 = \emptyset$.
 
@@ -486,7 +484,7 @@ Wówczas mielibyśmy
 $l_{n+1}[A_{n+1}] \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$,
 czyli
 $A_{n+1} \subseteq \bigcup_{j=0}^n l_{n+1}^{-1}\big[E_j \setminus \Phi(E_j)\big]$,
-ale liniowe odwzorowanie $l_{n+1}$ zachowuje punkty gęstości,
+ale liniowe odwzorowanie $l_{n+1}$ zachowuje punkty gęstości i
 domknięcia zbiorów, zatem mielibyśmy:
 $A_{n+1} \subseteq \bigcup_{j=0}^n l_{n+1}^{-1}[E_j] \setminus
 \Phi(l_{n+1}^{-1}[E_j])$, co przeczy temu że zbiór
