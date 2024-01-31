@@ -349,17 +349,20 @@ Hence $p^* \in \Phi(P) \subseteq \Phi(E)$ so $A_1 \cap \Phi(E) \not= \emptyset$
 which is a contradiction.
 \end{proof}
 
-Let us construct a set $A_2$.
+Let us construct the set $A_2$.
 We will need the perfect set $P$
 previously used in the construction of the set
 $A_1$.
 For $n = 1,2,\ldots$ let us define the following
 linear mapping:
-$l_n\colon \real\to\real$ wzorem
+$l_n\colon \real\to\real$ as
 \[l_n(x) = \frac{b_n - a_n}{3} \cdot x + \frac{2}{3} a_n + \frac{1}{3} b_n.\]
-Widać że odwzorowanie to przeprowadza przedział $[0,1]$ na
-środkowy przedział powstały z podziału przedziału $[a_n, b_n]$ na trzy
-równe części.
+It is easy to see that this mapping
+takes the interval $[0,1]$ into the 
+middle subinterval $[\frac{2a_n + b_n}{3}, \frac{2b_n + a_n}{3}]$
+%%% tu mozna zaznaczyc ze ten przedzial powstaje z podzialu
+%%% przedzialu [a_n, b_n] na trzy rowne czesci.
+of the interval $[a_n, b_n]$.
 
 \smallskip
 %%% ten fragment dowodu dotyczy zbioru A2 i jest
@@ -398,28 +401,30 @@ równe części.
 %co jest niemożliwe bo $p^* \in A_2$.
 %\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Mając juz skonstruowane $A_n$ definiujemy:
+Having constructed sets $A_n$ let us define:
 
 \[ A_{n + 1} = \bigcup_{m=1}^{\infty} l_m[A_n] \cup \lbrace p^* \rbrace.
 \]
 
-\flushleft{\it Fakt 1:} $A_{n+1} \in \aideal$.
+\flushleft{\it Observation 1:} $A_{n+1} \in \aideal$.
 \begin{proof}
-  Dowód przeprowadzamy przez indukcję, więc zakładamy
-że $A_n \in \aideal$.
+  We proceed by induction. Assume that 
+$A_n \in \aideal$.
 
-Wiemy że $l_m[A_n] \in \aideal$, bo zarówno odwzorowanie liniowe $l_m$
-jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości.
-Połóżmy zatem w Lemacie \ref{lemat-o-sumie} 
-$B_m = l_m[A_n]$ i z faktu iż $\aideal$ jest ideałem
-zawierającym singletony dostajemy natychmiast wniosek
-że $A_{n+1} \in \aideal$.
+We know that $l_m[A_n] \in \aideal$, since the linear mapping $l_m$
+and $l_m^{-1}$ are homeomorphisms
+%%%TODO: które zachowują punkty gęstości, ale nie wiem jak to przetlumaczyc
+Use now the Lemma \ref{lemat-o-sumie} for
+$B_m = l_m[A_n]$ and since $\aideal$ contains singletons
+we immediately infer that $A_{n+1} \in \aideal$.
 \end{proof}
 
-\flushleft{\it Fakt 2:} $A_{n+1}$ nie jest sumą $n + 1$ zbiorów z rodziny $\aidealprime$.
+\flushleft{\it Observation 2:} $A_{n+1}$ cannot be represented
+as a sum of $n + 1$ set from the family $\aidealprime$.
 \begin{proof}
-Dowód przeprowadzamy indukcyjnie, zakładamy zatem że $A_n$ nie jest sumą
-$n$ zbiorów z rodziny $\aidealprime$.
+  Again we proceed by induction. Assume that $A_n$
+cannot be represented as a sum of 
+$n$ sets from the family $\aidealprime$.
 Przypuśćmy że $A_{n+1} \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$
 dla pewnych dwóch zbiorów domkniętych $E_0, E_1, \ldots, E_n$.  Przypuśćmy że dla pewnego 
 $m = 1,2,\ldots$ mielibyśmy że $l_m[A_n] \cap E_0 = \emptyset$.
