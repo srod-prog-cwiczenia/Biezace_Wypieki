@@ -425,36 +425,43 @@ as a sum of $n + 1$ set from the family $\aidealprime$.
   Again we proceed by induction. Assume that $A_n$
 cannot be represented as a sum of 
 $n$ sets from the family $\aidealprime$.
-Przypuśćmy że $A_{n+1} \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$
-dla pewnych dwóch zbiorów domkniętych $E_0, E_1, \ldots, E_n$.  Przypuśćmy że dla pewnego 
-$m = 1,2,\ldots$ mielibyśmy że $l_m[A_n] \cap E_0 = \emptyset$.
+By way of contradiction suppose that
+$A_{n+1} \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$
+for some closed sets $E_0, E_1, \ldots, E_n$.
+Suppose that for some  
+$m = 1,2,\ldots$ we have $l_m[A_n] \cap E_0 = \emptyset$.
 
-Wówczas $l_m[A_n] \subseteq \bigcup_{j=1}^n E_j \setminus \Phi(E_j)$, czyli 
-$A_n \subseteq \bigcup_{j=1}^n l_m^{-1}[E_j] \setminus \Phi(l_m^{-1}[E_j])$, gdyż
-odwzorowanie liniowe $l_m$ zachowuje punkty gęstości (i tak samo odwzorowanie odwrotne). Ponieważ 
-przeprowadza ono też zbiory domknięte na zbiory domknięte (i tak samo odwzorowanie odwrotne)
-więc daje to sprzeczość z założeniem indukcyjnym że $A_n$ nie jest sumą $n$ zbiorów z rodziny $\aidealprime$.
-Zatem $l_m[A_n] \cap E_0 \not= \emptyset$.
+Then $l_m[A_n] \subseteq \bigcup_{j=1}^n E_j \setminus \Phi(E_j)$, hence
+$A_n \subseteq \bigcup_{j=1}^n l_m^{-1}[E_j] \setminus \Phi(l_m^{-1}[E_j])$,
+since the linear mapping $l_m$ takes the density points
+into again a density point and the same holds for the
+inverse mapping. This is a contradiction with the assumption
+that $A_n$ is not the sum of $n$ sets from the family
+$\aidealprime$.
+Therefore $l_m[A_n] \cap E_0 \not= \emptyset$.
 
-Identyczne rozumowanie (ze względu na symetrię założeń o zbiorach $E_j$)
-pokazuje że także i $l_m[A_n] \cap E_j \not= \emptyset$
-dla każdego $j = 0, \ldots, n$.
-Ponieważ $l_m[A_n] \subseteq (a_m, b_m)$
-więc $P \subseteq \bigcap_{j=0}^n E_j$. 
-Mamy zatem $\forall_{j=0,\ldots, n} p^* \in \Phi(P) \subseteq \Phi(E_j)$
-czyli $p^* \not\in \bigcup_{j=0}^n (E_j \setminus \Phi(E_j))$
-co jest niemożliwe bo $p^* \in A_{n+1}$.
+The same argumentation (by virtue of the symmetry of
+the assumptions about the sets $E_j$)
+shows that $l_m[A_n] \cap E_j \not= \emptyset$
+for each $j = 0, \ldots, n$.
+Since $l_m[A_n] \subseteq (a_m, b_m)$ we have
+$P \subseteq \bigcap_{j=0}^n E_j$. 
+Thus we obtain $\forall_{j=0,\ldots, n} p^* \in \Phi(P) \subseteq \Phi(E_j)$
+hence $p^* \not\in \bigcup_{j=0}^n (E_j \setminus \Phi(E_j))$
+which is impossible, since $p^* \in A_{n+1}$.
 \end{proof}
 
-Na koniec definiujemy 
+
+Finally, define 
 \[ A^* = \bigcup_{m=1}^{\infty} l_m[A_m] \cup \lbrace p^* \rbrace.
 \]
 
-\flushleft{\it Fakt 1:} $A^* \in \aideal$.
+\flushleft{\it Observation 1:} $A^* \in \aideal$.
 \begin{proof}
-Z poprzednich wyników wiemy że $l_m[A_m] \in \aideal$, bo 
-$A_m \in \aideal$ a także zarówno odwzorowanie liniowe $l_m$
-jak i $l_m^{-1}$ są homeomorfizmami które zachowują punkty gęstości.
+We know that $l_m[A_m] \in \aideal$, since
+$A_m \in \aideal$ and both the linear mapping $l_m$
+and $l_m^{-1}$ are homeomorphisms which
+takes density points onto density points.
 Połóżmy zatem w Lemacie \ref{lemat-o-sumie} 
 $B_m = l_m[A_m]$ i z faktu iż $\aideal$ jest ideałem
 zawierającym singletony dostajemy natychmiast wniosek
