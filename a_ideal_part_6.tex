@@ -1085,42 +1085,6 @@ middle subinterval $[\frac{2a_n + b_n}{3}, \frac{2b_n + a_n}{3}]$
 of the interval $[a_n, b_n]$.
 
 \smallskip
-%%% ten fragment dowodu dotyczy zbioru A2 i jest
-%%% w zasadzie nadmiarowy bo wystarczy rozwazyc przypadek zbioru A_{n+1}.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Definiujemy:
-%\[ A_2 = \bigcup_{m=1}^{\infty} l_m[A_1] \cup \lbrace p^* \rbrace.
-%\]
-%
-%\flushleft{\it Fakt 1:} $A_2 \in \aideal$.
-%\begin{proof}
-%Wiemy ¿e $l_m[A_1] \in \aideal$, bo zarówno odwzorowanie liniowe $l_m$
-%jak i $l_m^{-1}$ s± homeomorfizmami które zachowuj± punkty gêsto¶ci.
-%Po³ó¿my zatem w Lemacie \ref{lemat-o-sumie} 
-%$B_m = l_m[A_1]$ i z faktu i¿ $\aideal$ jest idea³em
-%zawieraj±cym singletony dostajemy natychmiast wniosek
-%¿e $A_2 \in \aideal$.
-%
-%\flushleft{\it Fakt 2:} $A_2$ nie jest sum± dwóch zbiorów z rodziny $\aidealprime$.
-%Przypu¶æmy ¿e $A_2 \subseteq (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
-%dla pewnych dwóch zbiorów domkniêtych $E_1, E_2$.  Przypu¶æmy ¿e dla pewnego 
-%$m = 1,2,\ldots$ mieliby¶my ¿e $l_m[A_1] \cap E_2 = \emptyset$.
-%Wówczas $l_m[A_1] \subseteq E_1 \setminus \Phi(E_1)$, czyli 
-%$A_1 \subseteq l_m^{-1}[E_1] \setminus \Phi(l_m^{-1}[E_1])$, gdy¿
-%odwzorowanie liniowe $l_m$ zachowuje punkty gêsto¶ci (i tak samo odwzorowanie odwrotne). Poniewa¿ 
-%przeprowadza ono te¿ zbiory domkniête na zbiory domkniête (i tak samo odwzorowanie odwrotne)
-%wiêc daje to sprzeczo¶æ z tym ¿e $A_1 \not\in \aidealprime$.
-%Zatem $l_m[A_1] \cap E_2 \not= \emptyset$.
-%Identyczne rozumowanie (ze wzglêdu na symetriê za³o¿eñ o $E_1$ i $E_2$)
-%pokazuje ¿e tak¿e i $l_m[A_1] \cap E_1 \not= \emptyset$.
-%Poniewa¿ $l_m[A_1] \subseteq (a_m, b_m)$
-%wiêc $P \subseteq E_1$ i $P \subseteq E_2$. 
-%Mamy zatem $p^* \in \Phi(P) \subseteq \Phi(E_1)$
-%i $p^* \in \Phi(P) \subseteq \Phi(E_2)$
-%czyli $p^* \not\in (E_1 \setminus \Phi(E_1)) \cup (E_2 \setminus \Phi(E_2))$
-%co jest niemo¿liwe bo $p^* \in A_2$.
-%\end{proof}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Having constructed sets $A_n$ let us define:
 
 \[ A_{n + 1} = \bigcup_{m=1}^{\infty} l_m[A_n] \cup \lbrace p^* \rbrace.
@@ -1133,7 +1097,7 @@ $A_n \in \aideal$.
 
 We know that $l_m[A_n] \in \aideal$, since the linear mapping $l_m$
 and $l_m^{-1}$ are homeomorphisms
-%%%TODO: które zachowuj± punkty gêsto¶ci, ale nie wiem jak to przetlumaczyc
+%%%TODO: ktore zachowuja punkty gestosci, ale nie wiem jak to przetlumaczyc
 Use now the Lemma \ref{lemat-o-sumie} for
 $B_m = l_m[A_n]$ and since $\aideal$ contains singletons
 we immediately infer that $A_{n+1} \in \aideal$.
