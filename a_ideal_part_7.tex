@@ -462,27 +462,32 @@ We know that $l_m[A_m] \in \aideal$, since
 $A_m \in \aideal$ and both the linear mapping $l_m$
 and $l_m^{-1}$ are homeomorphisms which
 takes density points onto density points.
-Połóżmy zatem w Lemacie \ref{lemat-o-sumie} 
-$B_m = l_m[A_m]$ i z faktu iż $\aideal$ jest ideałem
-zawierającym singletony dostajemy natychmiast wniosek
-że $A^* \in \aideal$.
+Let us use the Lemma \ref{lemat-o-sumie} for
+$B_m = l_m[A_m]$ and since $\aideal$ is an ideal
+which contains singletons we obtain the conclusion that 
+$A^* \in \aideal$.
 \end{proof}
 
-\flushleft{\it Fakt 2:} $A^*$ nie jest sumą skończenie
-wielu zbiorów z rodziny $\aidealprime$.
+\flushleft{\it Observations 2:} $A^*$ cannot be represented
+as a finite union of sets from the family $\aidealprime$.
 \begin{proof}
-Przypuśćmy niewprost że
+By way of contradiction, suppose that
 $A^* \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$
-dla pewnych domkniętych zbiorów $E_j$.
-Wówczas mielibyśmy
+for some closed sets $E_j$.
+Then
 $l_{n+1}[A_{n+1}] \subseteq \bigcup_{j=0}^n E_j \setminus \Phi(E_j)$,
-czyli
+hence
 $A_{n+1} \subseteq \bigcup_{j=0}^n l_{n+1}^{-1}\big[E_j \setminus \Phi(E_j)\big]$,
-ale liniowe odwzorowanie $l_{n+1}$ zachowuje punkty gęstości i
-domknięcia zbiorów, zatem mielibyśmy:
+but the linear mapping $l_{n+1}$
+takes density points onto density points and also
+the closure of sets, therefore
+%%%TODO koniecznie przetlumaczyc to jakos bardziej
+% zgrabnie: ,,zachowuje domkniecia zbiorow''
 $A_{n+1} \subseteq \bigcup_{j=0}^n l_{n+1}^{-1}[E_j] \setminus
-\Phi(l_{n+1}^{-1}[E_j])$, co przeczy temu że zbiór
-$A_{n+1}$ nie jest sumą $n+1$ zbiorów z rodziny $\aidealprime$.
+\Phi(l_{n+1}^{-1}[E_j])$, which is a contradiction
+with the fact that the set 
+$A_{n+1}$ cannot be represented as a sum of $n+1$
+sets from the family $\aidealprime$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
