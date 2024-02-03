@@ -1,0 +1,400 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                  praca o ideale (a)                                   %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\documentclass[12pt]{article}
+%%% aby uzyc amsart w pelnej krasie:
+% 1. odkomentowac \address i \email
+% 2. odkomentowac \keywords{} \subjclass
+\documentclass[12pt]{amsart}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage{mathtools}
+%\usepackage[mathscr]{eucal}
+\usepackage[mathscr]{euscript}
+\usepackage{eqlist}
+\usepackage{amsthm}
+%%%%%%%%%%%%%%% Polish letter packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{t1enc}
+%%% pakiet do generowania belkotu (wypelniacza):
+\usepackage{lipsum}
+%%% pakiet do dodawania fikusnych notek `a la ``todo''
+\usepackage{todonotes}
+%---------------------------------------------------------------------
+% Theorems 
+%---------------------------------------------------------------------
+ 
+% Theorem style 'plain' are for: Theorem, Lemma, Corollary,
+% Proposition, Conjecture, Criterion, Algorithm
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemat}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conclusion}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{axiom}{Axiom}
+% Theorem style 'definition' are for: Definition, Condition, Problem,
+% Example
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{solution}{Solution}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{Problem}[theorem]{Problem}
+% Theorem style 'remark' are for: Remark, Note, Notation, Claim,
+% Summary, Acknowledgement, Case, Conclusion
+\theoremstyle{remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{acknowledgement}{Acknowledgement}
+
+%%%%%% makra:
+
+%A
+\newcommand{\afc}{AFC}
+\newcommand{\afcbar}{\overline{AFC}}
+\newcommand{\arr}{\rightarrow}
+\newcommand{\Arr}{\Rightarrow}
+
+%B
+\newcommand{\baire}{\omega^{\omega}}
+\newcommand{\Baire}{\mathfrak{Baire}}
+\newcommand{\Bor}{\mbox{${\mathcal B}or$}}
+%Previous seems to be much finer than next.
+%\newcommand{\Bor}{{\it Bor}}
+\newcommand{\borelucrz}{Borel-UCR_0}
+
+%C
+\newcommand{\ca}{2^{\omega}}
+\newcommand{\cantor}{\ca}
+\newcommand{\Card}[1]{\Vert #1 \Vert}
+\newcommand{\cl}{\mathit{cl}}
+
+%D
+\newcommand{\dom}{{\rm dom}}
+\newcommand{\dummy}{{\tt Blah blah blah}}
+
+%E
+\newcommand{\Even}{\hbox{\rm \tiny Even}}
+
+%F
+\newcommand{\finsub}{[\omega]^{<\omega}}
+\newcommand{\forces}{\mathrel{\|}\joinrel\mathrel{-}}
+
+%G
+\newcommand{\Graph}{\hbox{\it Graph}}
+
+%H
+\newcommand{\homeomorphic}{\approx}
+
+%I
+\newcommand{\incr}{\omega^{\uparrow \omega }}
+\newcommand{\infsub}{[\omega]^{\omega}}
+
+%L
+\newcommand{\la}{\langle}
+
+%M
+\newcommand{\meager}{{\mathcal{MGR}}}
+\newcommand{\minideal}{${\cal F}_{\hbox{\rm \scriptsize min}}(\neg
+  D)\;$}
+
+%N
+\newcommand{\neglig}{{\cal N}}
+\newcommand{\nnatural}{\mathbb{N}}
+
+%O
+\newcommand{\Odd}{\hbox{\rm \tiny Odd}}
+
+%P
+\newcommand{\Part}{{\it Part}}
+\newcommand{\Perf}{{\it Perf}}
+%%%\newcommand{\proof}{\flushleft{ \sc Proof. } \\ }
+\newcommand{\Proof}[1]{\bigbreak\noindent{\bf Proof #1}\enspace}
+
+%Q
+%%%\newcommand{\qed}{{\hfill\vrule height6pt width6pt depth1pt\medskip}}
+%\newcommand{\qed}{\sharp}
+\newcommand{\QED}{\hspace{0.1in} \Box \vspace{0.1in}}
+
+%R
+\newcommand{\ra}{\rangle}
+\newcommand{\ran}{{\rm ran}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\real}{\mathbb{R}}
+
+%S
+\newcommand{\seq}{\subseteq}
+%%%\newcommand{\square}{\hbox{\ \ \ \ \ \vrule\vbox{\hrule\phantom{o}\hrule}\vrule}}
+% a small restriction:
+\newcommand{\srestriction}{{\hbox{${\scriptstyle\,|\grave{}\,}$}}}
+\newcommand{\supp}{\mathit{supp}}
+
+%U
+\newcommand{\up}{\uparrow}
+\newcommand{\ucrz}{UCR_0}
+
+%%%%%%%%%%%%%%%%%%%%%% Calligraphic font commands %%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cA}{{\mathcal A}}
+\newcommand{\cB}{{\mathcal B}}
+\newcommand{\cC}{{\mathcal C}}
+\newcommand{\cD}{{\mathcal D}}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\cF}{{\mathcal F}}
+\newcommand{\cG}{{\mathcal G}}
+\newcommand{\cH}{{\mathcal H}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cJ}{{\mathcal J}}
+\newcommand{\cK}{{\mathcal K}}
+\newcommand{\cL}{{\mathcal L}}
+\newcommand{\cM}{{\mathcal M}}
+\newcommand{\cN}{{\mathcal N}}
+\newcommand{\cO}{{\mathcal O}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\cQ}{{\mathcal Q}}
+\newcommand{\cR}{{\mathcal R}}
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cT}{{\mathcal T}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cV}{{\mathcal V}}
+\newcommand{\cW}{{\mathcal W}}
+\newcommand{\cX}{{\mathcal X}}
+\newcommand{\cY}{{\mathcal Y}}
+\newcommand{\cZ}{{\mathcal Z}}
+%%%%%%%%%%%%%%%%%%%%%% inne %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SqrFr}{\mathbb{SF}}
+\newcommand{\Primes}{\mathit{Primes}}
+\newcommand{\mathint}{\mathit{int}}
+\newcommand{\mathcl}{\mathit{cl}}
+\newcommand{\exampleGFnotK}{\mathit{Ex}}
+%%%%%%%%%%%%%%%%%%%%%% Some Greek fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\oo}{\omega}
+\newcommand{\bb}{\beta}
+\newcommand{\dd}{\delta}
+\newcommand{\ee}{\varepsilon}
+\newcommand{\kk}{\kappa}
+%%%\newcommand{\th}{\theta}
+%%%% makra specyficzne dla tej pracy:
+\newcommand{\aideal}{\mathit{(a)}}
+\newcommand{\aidealprime}{\mathit{(a^\prime)}}
+\newcommand{\Afield}{\mathit{(A)}}
+\newcommand{\topWithoutEmptyset}[1]{#1\setminus\lbrace\emptyset\rbrace}
+\newcommand{\ND}{\mathsf{ND}}
+\newcommand{\biMB}{bi-Marczewski-Burstin}
+\newcommand{\tauEllentuck}{\tau_{\mathrm{EL}}}
+\newcommand{\baseEllentuck}{\cB_{\mathrm{EL}}}
+\newcommand{\ninomega}{n\in\omega}
+\newcommand{\Hereditary}{\mathcal{H}}
+\newcommand{\FatPerf}{\mathit{FatPerf}}
+%\renewcommand\abstractname{Summary}
+%%%To print the date and time on each page
+%%% comment out if not needed (next 14 lines)
+\makeatletter
+{\newcount\@hour}
+{\newcount\@minute}
+\def\timenow{\@hour=\time \divide\@hour by 60
+\number\@hour:
+  \multiply\@hour by 60 \@minute=\time
+  \global\advance\@minute by -\@hour
+  \ifnum\@minute<10 0\number\@minute\else
+  \number\@minute\fi}
+\def\ctimenow{\hfil{\tt \jobname.tex, \today~Time: \timenow }\hfil}
+      \let\@oddfoot\ctimenow\let\@evenfoot\ctimenow
+\makeatother
+
+\pagestyle{myheadings}
+\markboth{{\bf (...)}}{\bf \today}
+
+% To see corrections comment next line and uncomment the second one
+\newcommand{\correction}[2]{#1}
+% \newcommand{\correction}[2]{#2}
+
+\pagestyle{myheadings}
+% To see corrections comment next line and uncomment the second one
+
+%\author{}
+%\address[]{}
+
+\begin{document}
+\title{(...)}
+
+\maketitle
+
+\subsection{Notations and Definitions}
+\begin{definition}
+\label{definition:a_prime}
+$\aidealprime(\tau_1, \tau_2) = \lbrace A \subseteq X\colon \exists_{E \subseteq X} 
+X\setminus E \in \tau_1 \wedge A \subseteq E \setminus  \mathint_{\tau_2}(E) \rbrace$
+\end{definition}
+
+\subsection{$\aideal$ via Marczewski - Burstin schema}
+
+We may consider the definition of the ideals $\aideal$
+as a special kind of general schema via Marczewski - Burstin.
+Analogously to the notion of bitopological spaces we call define
+a {\it\biMB{}} system:
+
+\begin{definition}
+Suppose that $\cF_1$ and $\cF_2$ are collections of nonempty
+subset of a set $X$. 
+%%%@@TODO: a moze lepiej by brzmialo: analogously like...?
+Analogously to the notion of bitopological spaces we call a structure
+$\langle \cF_1, \cF_2 \rangle$ a {\it\biMB{}} system.
+Notice that we don't require an inclusion $\cF_1 \subseteq \cF_2$.
+To avoid trivial cases assume that $\bigcup \cF_1 = \bigcup \cF_2 = X$.
+\end{definition}
+
+\begin{definition}
+If $\langle \cF_1, \cF_2 \rangle$ is a {\it\biMB{}} system,
+then define 
+$\aideal(\cF_1, \cF_2) = \lbrace A \subseteq \real\colon 
+\forall_{W\in \cF_2} \exists_{U \in \cF_1}
+W \cap U \not= \emptyset \wedge W \cap U \cap A = \emptyset
+\rbrace$ 
+\end{definition}
+
+Notice that such defined collection $\aideal(\cF_1, \cF_2)$
+in general case need not be an ideal.
+%%%@@TODO: podac tu jakis ciekawy - naturalny - kontrprzyklad.
+
+Nevertheless, let us notice that the collection
+$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal. Namely we have:
+
+\begin{theorem}
+$\aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$ is an ideal.
+\end{theorem}
+
+\begin{proof}
+Let $A, B \in \aideal(\tau_e\setminus\lbrace\emptyset\rbrace, \Perf)$,
+and let $P$ be a perfect set. 
+There exist $W_A \in \tau_e$ such that 
+$W_A \cap P \not= \emptyset \wedge W_A \cap P \cap A = \emptyset$.
+Let $P_1 = \cl_{\tau_e}(P \cap W_1)$. It is well know that such defined
+$P_1$ is also a perfect set. So let $W_B \in \tau_e$ 
+be such that 
+$W_B \cap P_1 \not= \emptyset \wedge W_B \cap P_1 \cap B = \emptyset$.
+Define $W = W_A \cap W_B$. Then we have:
+$W \cap P = W_B \cap W_A \cap P$, 
+but since $W_B \cap \cl_{\tau_e}(P \cap W_A) \not= \emptyset$
+we have $W_B \cap P \cap W_A \not= \emptyset$,
+hence $W \cap P \not= \emptyset$.
+Moreover, we have
+$W \cap P \cap (A \cup B) = (W \cap P \cap A) \cup (W \cap P \cap B) \subseteq$
+$(W_A \cap P \cap A) \cup (W_B \cap W_A \cap P \cap B) =$
+$W_B \cap W_A \cap P \cap B \subseteq W_B \cap \cl_{\tau_e} (P \cap W_A) \cap B =$
+$W_B \cap P_1 \cap B = \emptyset$.
+\end{proof}
+
+Let us formulate a general theorem:
+
+\begin{theorem}
+Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB{} system.
+Assume that 
+\begin{enumerate}	
+\item
+\label{mb-condition-subset}
+  $\cF_1 \subseteq \cF_2$;
+\item 
+\label{mb-condition-f1}
+ $\forall_{E,F \in \cF_1} \exists{\cG \subseteq \cF_1} E \cap F 
+ = \bigcup \cG$
+ (in particular, 
+ this condition holds if $\forall_{E,F \in \cF_1} E \cap F \not= \emptyset \implies E \cap F \in \cF_1$);  
+\item
+\label{mb-condition-f1f2}
+  $\forall_{E \in cF_1} \forall_{W \in \cF_2} E \cap W \not= \emptyset \implies E \cap W \in \cF_2$  
+\end{enumerate}	
+Then the collection
+$\aideal(\cF_1, \cF_2) = \lbrace A \subseteq \real\colon 
+\forall_{W\in \cF_2} \exists_{U \in \cF_1}
+W \cap U \not= \emptyset \wedge W \cap U \cap A = \emptyset
+\rbrace$ 
+is an ideal. 
+\end{theorem}
+\begin{proof}
+It suffices only to check that if $A, B \in \aideal(\cF_1, \cF_2)$ then
+$A\cup B \in \aideal(\cF_1, \cF_2)$.
+Suppose that $W \in \cF_2$, then there exists $U\in\cF_1$
+such that 
+$W \cap U \not= \emptyset$ and $W \cap U \cap A = \emptyset$.
+By condition \ref{mb-condition-f1f2} 
+we know that $W \cap U \in \cF_2$ so
+we conclude that
+there exists a set $V \in \cF_1$ such that
+$W \cap U \cap V \not= \emptyset$ and $W \cap U \cap V \cap B = \emptyset$.
+By condition \ref{mb-condition-f1} we know that 
+there exists $V^* \in \cF_1$, $V^* \subseteq U \cap V$ such that 
+$W \cap V^* \not= \emptyset$ and $W \cap V^* \cap B = \emptyset$.
+Since $W \cap V^* \cap A = \emptyset$ we have that 
+$W \cap V^* \cap (A \cup B) = \emptyset$
+and this ends the proof.
+\end{proof}
+
+\begin{corollary}
+$\aideal(\tau_e, \baseEllentuck)$ is an ideal.
+\end{corollary} 
+
+\subsection{General $\aidealprime$ collection}
+
+Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB{} system.
+Let us define a general $\aidealprime$ collection:
+
+\begin{definition}
+A set $A \in \aidealprime(\cF_1, \cF_2)$ iff there exists
+a subfamily $\cF^\prime \subseteq \cF_1$ such 
+that $A \subseteq X \setminus \big( \bigcup \cF^\prime \cup 
+\bigcup \lbrace E \in \cF_2 \colon E \cap \bigcup \cF^\prime = \emptyset \rbrace\big) = \big( X \setminus \bigcup \cF^\prime \big)
+\setminus \bigcup \lbrace E \in \cF_2 \colon E \subseteq 
+\big( X \setminus \bigcup \cF^\prime \big)\rbrace$.
+\end{definition}
+
+  It is easy to see that this definition is indeed a generalization
+of the collection $\aidealprime(\tau_1, \tau_2)$ defined in 
+Definition \ref{definition:a_prime}. 
+By mimic the standard proof about the family $\aideal$
+we can prove the following
+\begin{fact}
+Suppose that $\langle \cF_1, \cF_2 \rangle$ is a \biMB{} system.
+Then $\aidealprime(\cF_1, \cF_2) \subseteq \aideal(\cF_1, \cF_2)$.
+\end{fact}
+\begin{proof}
+Suppose that $\cF^\prime \subseteq \cF_1$
+and let $W \in \cF_2$. 
+Denote $A = \big( X \setminus \bigcup \cF^\prime \big)
+\setminus \bigcup \lbrace E \in \cF_2 \colon E \subseteq 
+\big( X \setminus \bigcup \cF^\prime \big)\rbrace$
+If $W \cap \bigcup \cF^\prime \not= \emptyset$
+then $W \cap U \not= \emptyset$ for some 
+$U \in \cF^\prime \subseteq \cF_1$.
+Then $W \cap U \cap A = \emptyset$.
+On the other hand, if $W \cap \bigcup \cF^\prime = \emptyset$
+then $W \subseteq \big( X \setminus \bigcup \cF^\prime \big)$
+so $W \cap A \not= \emptyset$ and since 
+$\bigcup \cF_1 = X$ we can find $U \in \cF_1$
+such that $U \cap W \not= \emptyset$.
+Hence again $W \cap U \cap A = \emptyset$.
+\end{proof}
+
+%%%@@TODO: tutaj ewentualny przyklad z tau_e , perf:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        The Bibliography                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{10}
+
+\bibitem[FG]{FG}
+M. Frankowska, S.G\l{}\c{a}b, 
+\emph{On some $\sigma$-ideal without ccc}, Colloquium Mathematicum \textbf{158 (1)} (2019), 127--140.
+\end{thebibliography}
+
+\end{document}
+
