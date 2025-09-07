@@ -127,7 +127,7 @@
 \newcommand{\la}{\langle}
 
 %M
-\newcommand{\meager}{{\cal MGR}}
+\newcommand{\meager}{{\mathcal MGR}}
 \newcommand{\minideal}{${\cal F}_{\hbox{\rm \scriptsize min}}(\neg
   D)\;$}
 
@@ -261,10 +261,13 @@ N.w.s.r.
   Istnieje OFI (patrz praca o $UCR_0$ reaktywacja) $(I_n)$ 
 taka że dla każdego $z \in \cantor$ 
   $\lbrace x \in \cantor \colon \exists_{n}^\infty x \restriction I_n = z \restriction I_n \rbrace \in \calI$
+\item
+  Ideał $\calI$ nie jest ,,prostopadły'' do idealu $\meager$, to znaczy że
+istnieje partycja $\cantor = A \dot{\cup} M$ taka że $A \in \calI$, zaś $M \in \meager$.  
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-$1 \implies 2$ wybieramy $G$ $G$-deltę taką że $\finsub \subseteq G \in \calI$.
+$1 \implies 2$ wybieramy $G$ typu $G_\delta$ takie że $\finsub \subseteq G \in \calI$.
 Można udowodnić albo wprost przez kombinatoryczne rozważania (albo
 korzystając z tego że $\cantor\setminus G$ jest meager, i z charakteryzacji
 kombinatorycznej zbiorów meager a potem z przesuwalności ideału $\calI$) 
@@ -272,7 +275,30 @@ kombinatorycznej zbiorów meager a potem z przesuwalności ideału $\calI$)
 $\lbrace x \in \cantor \colon \exists_{n}^\infty x \restriction I_n = \mathbf{0} \restriction I_n \rbrace \in \calI$
 i potem z przesuwalności $\calI$ dostajemy tezę.
 
+$2 \implies 3$ - wystarczy zauważyc że dopełnienie zbioru
+$\lbrace x \in \cantor \colon \exists_{n}^\infty x \restriction I_n = z \restriction I_n \rbrace \in \calI$
+jest zbiorem pierwszej kategorii.
+
+$3 \implies 1$:
+Ustalamy partycję $\cantor = A \dot{\cup} M$ taką że $A \in \calI$, zaś $M \in \meager$.
+Znajdujemy ,,nakładkę'' typu $\Sigma^0_2$ ($F_{\sigma}$) na $M$, to znaczy
+takie $E \in \meager\cap \Sigma_2^0$ że $M \subseteq E$.
+Dla każdego zbioru przeliczalnego $C$ znajdujemy takie $z \in \cantor$ że
+$C \cap (E + z) = \emptyset$.
+Wówczas zbiór $G := \cantor\setminus(E + z)$ jest zbiorem typu $G_{\delta}$,
+$C \subseteq G$ oraz $G \subseteq \cantor \setminus (M + z) = A + z \in \calI$,
+bowiem $\calI$ jest $\sigma$-ideałem przesuwalnym.
 \end{proof}
+
+Mamy zatem następujący wniosek na podstawie
+Twierdzenia 3.1 z pracy \todo{Dodać cytowanie: Rosłanowski 1993, Mycielski ideals...}
+
+\begin{corollary}
+  Ideał Mycielskiego $\mathcal{M}_{\mathcal{K}}$ jest weakly-$G_\delta$
+  generated wtedy i tylko wtedy gdy rodzina $\lbrace \mathit{enum}_X\colon X \in \mathcal{K}\rbrace$
+  jest ograniczona w $\langle\omega^\omega, \leq^*\rangle$,
+  gdzie $\mathit{enum}_X$ oznacza rosnącą numerację elementów zbioru $X \in \infsub$.
+\end{corollary}
 
 
 \end{document}
