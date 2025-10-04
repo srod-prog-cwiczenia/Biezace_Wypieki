@@ -242,6 +242,7 @@
 \newcommand{\Split}{\mathrm{Split}}
 \newcommand{\lNawiasik}{\lParen}
 \newcommand{\rNawiasik}{\rParen}
+\newcommand{\notfinBW}{\neg \mathrm{finBW}}
 
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
@@ -337,7 +338,6 @@ Moreover, it is known that the collections of meager and negligible
 sets in the topology $\EllentuckTopologyStar$
 coincide with the collection of Completely Ramsey null sets
 (see \cite{Plewik1987}).
-\todo{Tu ustalić jak to jest z tymi meager w topologii star}
 
 It is common well known the following easy result:
 \begin{claim}
@@ -346,7 +346,7 @@ An ideał $\calI$ is dense iff $\calI^+ \in CR_0$.
 
 Also, we have: 
 \begin{theorem}
-  An ideal $\calI$ is not-finBW iff it contains a set of the form
+  An ideal $\calI$ is $\notfinBW$ iff it contains a set of the form
   \linebreak
 $\bigcap_{n=0}^\infty H(A_n)$, where
  $H(A) = \lbrace B \subseteq \omega \colon B \subseteq^* A \vee B \subseteq^* (\omega\setminus A)\rbrace$.
@@ -406,11 +406,68 @@ It is also easy to prove
 
 \begin{theorem}
   Suppose that $H \in \infsub$. Then
-  $\lNawiasik H \rNawiasik \cap\calI$ is $\ND$ in the topology
-  $\EllentuckTopology\restriction\calI^+$.
-
+  $\lNawiasik H \rNawiasik \cap\calI^+$ is $\ND$ in the topology
+  $\EllentuckTopologyStar\restriction\calI^+$.
 \end{theorem}
 
+\begin{proof}
+  Suppose $[A]^*\cap\calI^+\not=\emptyset$.
+Then $A\in \calI^+$. If $A\not\in \lNawiasik H \rNawiasik$
+then for each $Z\subseteq^* A$, $Z \not\in \lNawiasik H \rNawiasik$
+(since either $|A \cap H| < \aleph_0$ or $|A\setminus H| < \aleph_0$),
+hence $[A]^* \cap  \lNawiasik H \rNawiasik = \emptyset$.
+Assume that $A\in  \lNawiasik H \rNawiasik$. Then
+$|A \cap H| = |A\setminus H| = \aleph_0$. Either
+$A \cap H \in \calI^+$ or
+$A \setminus H \in \calI^+$. Without loss of generality,
+we can assume that $A\setminus H\in\calI^+$.
+Define $B:= A\setminus H$. Obviously $B\in\calI^+$
+and $[B]^*\subseteq [A]^*$. If $Z\in [B]^*$ then
+$|Z \setminus H| < \aleph_0$, hence
+$Z\not\in\lNawiasik H \rNawiasik$.
+Thus $[B]^* \cap \lNawiasik H \rNawiasik = \emptyset$
+and this proves that
+$\lNawiasik H \rNawiasik \in \ND(\EllentuckTopologyStar\restriction\calI^+)$.
+\end{proof}
+
+We have:
+\begin{theorem}
+  $\ND(\EllentuckTopologyStar\restriction\calI^+) \subseteq
+   \ND(\EllentuckTopology\restriction\calI^+)$.
+\end{theorem}
+\begin{proof}
+\todo{Do uzupełnienia}
+\end{proof}
+
+\begin{corollary}
+  If $\calI$ is $\notfinBW$, then
+$\calI^+$ is a perfect, meager in itself and meager
+in the Ellentuck topology. 
+\end{corollary}
+
+\begin{theorem}
+  $\calI^* \not\in \Split$ iff $\calI$ is an ultraideal
+which is a P-point.
+\end{theorem}
+\begin{proof}
+
+  \begin{fact}
+    If $\calI$ is not an ultraideal, then
+    there exists $H \in \infsub$ such that
+    $\calI^* \subseteq \lNawiasik H \rNawiasik$.
+    Hence $\calI^* \in \Split$.
+  \end{fact}
+  \begin{proof}
+    Let $H\in\infsub$ be such that $H\not\in\calI$
+    and $H^c \not\in\calI$. Let $Z \in \calI^*$.
+    Suppose that $|Z \cap H| < \aleph_0$.
+    Then $Z\subseteq^* H^c$. Since $Z\in\calI^*$,
+    $H^c\in\calI^*$, therefore $H\in\calI$, contradiction.
+    Similarly in the case $|Z\setminus H| < \aleph_0$.
+  \end{proof}
+
+
+\end{proof}
 
 \printbibliography
 \end{document}
