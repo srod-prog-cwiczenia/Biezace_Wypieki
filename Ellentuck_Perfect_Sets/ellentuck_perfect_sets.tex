@@ -134,7 +134,7 @@
 \newcommand{\la}{\langle}
 
 %M
-\newcommand{\meager}{{\cal MGR}}
+\newcommand{\meager}{{\mathcal MGR}}
 \newcommand{\minideal}{${\cal F}_{\hbox{\rm \scriptsize min}}(\neg
   D)\;$}
 
@@ -313,6 +313,8 @@ O pewnym twierdzeniu na temat Bardzo Waznego Problemu
 %                      Main part                                          %
 %                                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries}
+\subsection{The Ellentuck topology and its variations}
 
 If $\tau$ is a topology on $X$ and $Y \subseteq X$ 
 we denote by $\tau \restriction Y$ the corresponding subspace topology on $Y$.
@@ -377,6 +379,19 @@ that are of first category in themselves.
 In \cite{NowikReardon2003} it is stated that each nonprincipial filter is
 perfect in the Ellentuck topology and is $CR_0$.
 
+\subsection{Ideals on the natural numbers}
+Let us recall:
+\begin{definition}
+  An ideal $\calI \subseteq P(\omega)$ is called
+{\it a $P^+$ ideal} iff for any sequence
+$P_0 \supseteq^* P_1 \supseteq^* \ldots$
+(equivalently: for any sequence $P_0 \supseteq P_1 \supseteq \ldots$) of
+elements from $\calI$ there exists $P \in \calI^+$ such that
+$\forall_{n \in \omega} P \subseteq^* P_n$.
+\end{definition}
+
+\section{Results}
+
 Let us prove easy:
 \begin{claim}
   $\Split\subsetneq CR_0$.
@@ -435,6 +450,13 @@ and this proves that
 $\lNawiasik H \rNawiasik \in \ND(\EllentuckTopologyStar\restriction\calI^+)$.
 \end{proof}
 
+\begin{corollary}
+  If $\calI$ is $\notfinBW$, then
+$\calI^+$ is a perfect, meager in itself
+(i.e. $\calI^+ \in \meager(\EllentuckTopologyStar \restriction \calI^+)$)
+and meager in the topology $\EllentuckTopologyStar$. 
+\end{corollary}
+
 We have:
 \begin{theorem}
   $\ND(\EllentuckTopologyStar\restriction\calI^+) \subseteq
@@ -471,10 +493,46 @@ which is a P-point.
     Similarly in the case $|Z\setminus H| < \aleph_0$.
   \end{proof}
 
-
+  Suppose now that $\calI$ is an ultraideal.
+Then $\calI^* = \calI^+$, so in that
+case $\calI^* \in \Split$ iff
+$\calI$ is not finBW.
+Notice that an ultraideal has finBW iff
+it is a P-point \footnote{
+Many thanks to professors Martha and Adam Kwela for suggesting this information.
+} 
 \end{proof}
 
+We have
+\begin{theorem}
+  Suppose that an ideal $\calI$
+is such that $\calI^+ \in \meager(\EllentuckTopologyStar \restriction \calI^+)$.
+Then $\calI$ is not a $P^+$ ideal.  
+\end{theorem}
+
+\begin{proof}
+  Let $\calI^+ = \bigcup_{k=0}^\infty N_k$,
+where $N_k$ are $\ND(\EllentuckTopologyStar \restriction \calI^+)$.
+We define a sequence $(Z_0, Z_1, \ldots)$ inductively:
+As $Z_0$ let us take $A \in \calI^+$ such that
+$[A]^* \cap \calI^+ \cap N_0 = \emptyset$.
+Having constructed the sets $(Z_0, \ldots, Z_k)$
+choose $A \in \calI^+$ such that
+$A \subseteq^* Z_k$,
+$[A]^* \cap N_{k+1} = \emptyset$,
+and define $Z_{k+1} := A$.
+Assume for contradiction that there exists
+$Z \in \calI$ such that
+$\forall_k Z \subseteq^* Z_k$.
+Then for some $\tilde{k}$ we would have
+$Z \in N_{\tilde{k}}$, thus
+$ N_{\tilde{k}} \cap [Z_{\tilde{k}}]^* \not\emptyset$
+which is a contradiction.
+\end{proof}
+
+
 \section{Other topologies}
+\todo{{\tt Ten rozdzial trzeba zapewne wplesc gdzies powyzej bo tych topologii uzywamy juz wczesniej}}
 
 Let us define the following collection of
 topologies on the set $\infsub$:
