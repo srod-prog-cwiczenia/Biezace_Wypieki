@@ -116,6 +116,7 @@
 
 %F
 \newcommand{\finsub}{[\omega]^{<\omega}}
+\newcommand{\finbaire}{\omega^{<\omega}}
 \newcommand{\forces}{\mathrel{\|}\joinrel\mathrel{-}}
 
 %G
@@ -127,7 +128,7 @@
 \newcommand{\homeomorphic}{\approx}
 
 %I
-\newcommand{\incr}{\omega^{\uparrow \omega }}
+\newcommand{\incrbaire}{\omega^{\uparrow \omega }}
 \newcommand{\infsub}{[\omega]^{\omega}}
 
 %L
@@ -248,6 +249,8 @@
 \newcommand{\lNawiasik}{\lParen}
 \newcommand{\rNawiasik}{\rParen}
 \newcommand{\notfinBW}{\neg \mathrm{finBW}}
+\newcommand{\Hechler}[2]{U_{#1,#2}}
+\newcommand{\ffid}{\mathit{ffid}}
 
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
@@ -562,6 +565,32 @@ We have the following diagram of relations:
  \tau_{\mathit{\tiny Plewik}} \arrow[r] & \tau_{\mathit{\tiny Ramsey}} \arrow[r] & \tau_{\mathit{\tiny Ellentuck}} \\
    & & \tau_{\mathit{\tiny Euclidean}} \arrow[u] \\
 \end{tikzcd}
+
+\section{The Hechler topology}
+
+Following \cite{LabedzkiRepicky1995} let us define for $s \in \finbaire$,
+$f \in \baire$ such that $s \subseteq f$:
+$\Hechler{s}{f} = \lbrace x \in \baire\colon s \subseteq x \wedge \forall_{k \geq |s|} f(k) \geq x(k)\rbrace$
+\todo{Sugeruje (a tak jest w pracy LabedzkiRepicky) aby uzywac omega do omega ,,lewowykladnikowo'' }
+
+Let us recall Lemma 1.1 from \cite{LabedzkiRepicky1995}:
+\begin{lemma}
+  The family $\lbrace \Hechler{s}{f} \colon s \in \finbaire,
+  f \in \baire, s \subseteq f\rbrace$ is a base of a topology.
+  We call it {\it the Hechler topology} or {\it The eventually dominating topology}.
+  Moreover, every base set $\Hechler{s}{f}$ is clopen in this topology.
+\end{lemma}
+
+Let us define the following bijection
+$\ffid\colon\incrbaire\to\baire$, for
+$\mu\in\incrbaire$ define
+\[
+\ffid(\mu)(k) =
+\begin{cases}
+\mu(k) - \mu(k - 1) - 1 & \text{for } k \geq 0,\\
+\mu(0) & \text{for } k = 0.
+\end{cases}
+\]
 
 \printbibliography
 \end{document}
