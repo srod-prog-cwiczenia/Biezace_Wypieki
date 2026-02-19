@@ -254,6 +254,7 @@
 \newcommand{\HechlerNative}{\tau_{\mathit{He}}^{(N)}}
 \newcommand{\HechlerInduced}{\tau_{\mathit{He}}^{(I)}}
 \DeclareMathOperator{\ffid}{ffid}
+\newcommand{\INFZero}{\mathrm{INF}_0}
 
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
@@ -310,16 +311,16 @@ On the structure of coideals in various topologies.
 
 \maketitle
 
-\section{Preliminaries}
-
-\section{Results}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                                                                         %
 %                      Main part                                          %
 %                                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries}
+\subsection{General notation}
+If $k\in\omega$, we denote by $\underline{\bf k}$ the 
+function from $\baire$ that is constantly equal to $k$.
+
 \subsection{The Ellentuck topology and its variations}
 
 If $\tau$ is a topology on $X$ and $Y \subseteq X$ 
@@ -613,9 +614,10 @@ such that $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$.
 and we call it {\it the induced Hechler topology}
 and we denote it by $\HechlerInduced$.
 
-Remark: It is easy to see that
+\begin{theorem} We have
 $\HechlerInduced \subseteq \HechlerNative$ (so the ``native'' Hechler
 topology is stronger).
+\end{theorem}
 \begin{proof}
 Indeed, if $\Hechler{s}{f} \cap \incrbaire \not=\emptyset$
 and if $\mu \in \Hechler{s}{f} \cap \incrbaire$, then
@@ -629,11 +631,12 @@ Thus $\mu \in \ffid[\Hechler{\ffid(s)}{\ffid(\mu)}] \subseteq
 \end{proof}
 
 \begin{claim}
-  Let $INF_0 = \lbrace x \in \baire\colon \exists_j^\infty x(j) = 0\rbrace$
+  \label{claim:about-inf-0}
+  Let $\INFZero = \lbrace x \in \baire\colon \exists_j^\infty x(j) = 0\rbrace$
 Then for each $\Hechler{s}{f}$ such that
 $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
 we have
-$\ffid[\Hechler{s}{f} \cap \incrbaire] \cap INF_0 \not= \emptyset$.
+$\ffid[\Hechler{s}{f} \cap \incrbaire] \cap \INFZero \not= \emptyset$.
 \end{claim}
 \begin{proof}
   Since $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
@@ -642,14 +645,38 @@ $s \subseteq f$ and $f \in \incrbaire$. Find $\mu \in \incrbaire$
 such that $\mu \in \Hechler{s}{f}$ and
 $\exists_j^\infty \mu(j) + 1 = \mu(j + 1)$.
 Then $\exists_j^\infty \ffid(\mu)(j) = 0$,
-hence $\ffid(\mu) \in INF_0$.
+hence $\ffid(\mu) \in \INFZero$.
 \end{proof}
 
 \begin{corollary}
-  $\ffid^{-1}[INF_0] \not\in \ND(\HechlerInduced)$. Moreover,
-  $\ffid^{-1}[INF_0] \not\in \meager(\HechlerInduced)$.
-  \todo{Udowodnic to ostatnie}
+  $\ffid^{-1}[\INFZero] \not\in \ND(\HechlerInduced)$. Moreover,
+  $\ffid^{-1}[\INFZero] \not\in \meager(\HechlerInduced)$.
+  \todo{Udowodnic to ostatnie na podstawie Claim \ref{claim:about-inf-0}}
 \end{corollary}
+
+\begin{proof}
+  By virtue of Claim \ref{claim:about-inf-0}
+we know that if   
+$\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
+then
+$\Hechler{s}{f} \cap \incrbaire \cap \ffid^{-1}[\INFZero] \not= \emptyset$.
+So $\ffid^{-1}[\INFZero]$ meets each base neighbourhood of the
+topology $\HechlerInduced$, hence 
+$\ffid^{-1}[\INFZero] \not\in \ND(\HechlerInduced)$.
+\end{proof}
+
+\begin{corollary}
+$\HechlerNative \not\subseteq \HechlerInduced$.
+\end{corollary}
+
+\begin{proof}
+It is easy to observe that 
+$\INFZero \cap \Hechler{\emptyset}{\underline{\bf 1}} = \emptyset$.
+By Claim \ref{claim:about-inf-0} we obtain that
+$\ffid[\Hechler{s}{f} \cap \incrbaire] \not\subseteq \Hechler{\emptyset}{\underline{\bf 1}}$.
+Since $\Hechler{\emptyset}{\underline{\bf 1}}$ is a Hechler base neighbourhood,
+this proves the claim of the corollary.
+\end{proof}
 
 \printbibliography
 \end{document}
