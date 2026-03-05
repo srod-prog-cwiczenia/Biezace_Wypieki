@@ -37,7 +37,7 @@
 %ten pakiet sluzy do sprawdzania m.in. czy odpowiednie pozycje bibliograficzne
 %sa faktycznie uzywane w tresci pliku. Przypuszczalnie nalezy go
 %uruchamiac tylko podczas weryfikacji pliku - w oficjalnej wersji powininen byc wylaczony.
-\usepackage{refcheck}
+%\usepackage{refcheck}
 %pakiet dolaczony na razie po to aby moc utworzyc ,,monstrualne'' kwantyfikatory bigforall i bigexists
 \usepackage{graphicx}
 %pakiet do wielu symboli matematycznych. Tu używam go do symboli \smt, \lat
@@ -258,8 +258,9 @@
 \newcommand{\EventuallyDifferentInduced}{\tau_{\mathit{ED}}^{(I)}}
 \DeclareMathOperator{\ffid}{ffid}
 \newcommand{\INFZero}{\mathrm{INF}_0}
+\newcommand{\carre}{\mathit{sq}}
 
-%\renewcommand\abstractname{Summary}
+% \renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
 \makeatletter
@@ -729,8 +730,11 @@ We have:
 Suppose that 
 $\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire \not= \emptyset$
 and $h \in \baire$. Then 
-$\ffid[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire] \not\subseteq
-\EventuallyDifferent{\emptyset}{h}$.
+\[\ffid[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire] \not\subseteq
+\EventuallyDifferent{\emptyset}{h}.\]
+Hence 
+\[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire \not\subseteq
+\ffid^{-1}[\EventuallyDifferent{\emptyset}{h}].\]
 \end{lemma}
 \begin{proof}
   It is sufficent to find
@@ -741,5 +745,65 @@ $\ffid[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire] \not\subseteq
 \begin{corollary}
  $\EventuallyDifferentNative \not\subseteq \EventuallyDifferentInduced$.
 \end{corollary}
+
+We have also
+\begin{lemma}
+  Denote $\carre(k) = k^2$. Then
+for each $s \in \finbaire$, $g_1,\ldots, g_L \in \baire$
+we have
+\[
+  \ffid^{-1} [\EventuallyDifferent{s}{g_1, \ldots, g_L}]
+  \not\subseteq \EventuallyDifferent{\emptyset}{\carre}\cap\incrbaire.
+\]
+\end{lemma}
+\begin{proof}
+  We construct $x \in \EventuallyDifferent{s}{g_1, \ldots, g_L}$ by induction.
+  Let us denote $\hat{s} = \sum_{j=0}^{|s| - 1} s(j)$.
+  Obviously, put $x \restriction |s| = s$. Next, for
+  each $k \geq |s|$ we can find
+  $a \in \lbrace 0, \ldots, L\rbrace \setminus \lbrace g_1(k), \ldots, g_L(k)\rbrace$
+  and then define $x(k) := a$.
+  Choose $K > |s|$ such that
+  \begin{equation}\label{eq:warunek-carre}
+  (K + 1)^2 > 2L + 2 + \hat{s} + (L + 1)K.
+  \end{equation}
+  We proceed in that way for $|s| \leq k < K$,
+  and notice that we have
+  $\ffid^{-1}(x\restriction K)(K - 1) = \sum_{j=0}^{K-1} x(j) + K - 1$.
+  We are going to find $z, w \in \omega$ to define
+  $x(K) = z$, $x(K + 1) = w$.
+  We require that
+  \begin{equation}\label{eq:warunek-pudelkowy}
+    \begin{cases}
+      z \not\in \lbrace g_1(K),\ldots, g_L(K)\rbrace,\\
+      w \not\in \lbrace g_1(K + 1),\ldots, g_L(K + 1)\rbrace.
+     \end{cases}
+  \end{equation}
+  We also demand that
+  $\ffid^{-1}(x \restriction (K + 2)) (K + 1) = (K + 1)^2$.
+  This mean that we want that
+  \[
+   \sum_{j = 0}^{K - 1} x(j) + z + w + (K + 1) = (K + 1)^2,
+  \]
+  so we want
+  \[
+    z + w = (K + 1)^2 - (K + 1) - \sum_{j = 0}^{K - 1} x(j).
+  \]
+  We have
+  $\sum_{j = 0}^{K - 1} x(j) = \sum_{j = 0}^{|s| - 1} x(j) +  \sum_{j = |s|}^{K - 1} x(j)
+  \leq \hat{s} + K \cdot L$.
+  Note that
+\[
+  (K + 1)^2 - (K + 1) - \sum_{j = 0}^{K - 1} x(j) \geq
+  (K + 1)^2 - (K + 1) - \hat{s} - K \cdot L > 2\cdot L + 1,
+\]
+by the condition (\ref{eq:warunek-carre}).
+So $w = (K + 1)^2 - (K + 1) - \sum_{j = 0}^{K - 1} x(j) - z$
+and we require that $z \leq  (K + 1)^2 - (K + 1) - \sum_{j = 0}^{K - 1} x(j) > 2 \cdot L + 1$.
+Therefore we can find such $z$ which fulfills condition (\ref{eq:warunek-pudelkowy}).
+Next we put $x(K) = z$, $x(K + 1) = w$ and then extend $x$ arbitrarily
+(but still ensuring to avoid the functions $g_1, \ldots, g_L$).
+\end{proof}
+
 \printbibliography
 \end{document}
