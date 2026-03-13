@@ -241,7 +241,11 @@
 \newcommand{\idealLacunary}{\mathcal{L}\mathit{ac}}
 \newcommand{\idealAlmostThinSets}{\mathcal{A}}
 \newcommand{\idealThinSets}{\mathcal{T}}
+\newcommand{\idealFin}{{\mathrm Fin}}
 
+%%% zapozyczone z pracy o sigma-porowatych
+\newcommand{\Thick}{{\mathit Thick}}
+\newcommand{\ThickPlus}{{\Thick}^+}
 %%%%%%%%%%%%%%%%%%%%%%%% specjalne oznaczenia dla tej pracy:
 \newcommand{\EllentuckTopology}{\tau_\mathrm{El}}
 \newcommand{\EllentuckTopologyStar}{\EllentuckTopology^*}
@@ -301,10 +305,10 @@ Wita Stwosza 57,
 \begin{document}
 \title[
 % a brief title
-O pewnym twierdzeniu...
+On the structure...
 ]{
 %a full title
-On the structure of coideals in various topologies.
+On the structure of coideals in different topologies.
 }
 \keywords{topologia gestosci, topologia dyskretna, idealy}
 \subjclass[2010]{03E05, 54D05, 54H05, 54A05, 11A41, 11B05, 11B25}
@@ -321,9 +325,29 @@ On the structure of coideals in various topologies.
 %                                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries}
+\subsection{The basic spaces}
+By $\finsub$ we denote the collection of all finite subsets of the
+natural numbers.
+By $\incrbaire$ we denote the space of all infinite increasing
+sequences of the natural numbers.
+By $\finbaire$ and $\finincrbaire$
+we denote the collection of all finite sequences and increasing
+sequences, respectively, of natural numbers.
+
 \subsection{General notation}
 If $k\in\omega$, we denote by $\underline{\bf k}$ the 
 function from $\baire$ that is constantly equal to $k$.
+
+Denote:
+$\Thick = \lbrace A \subseteq \omega\colon \forall_{r\in\omega}
+\exists_{n \in \omega} \forall_{k < r} n + k \in A\rbrace$
+
+For any collection of sets $\calF \subseteq P(\omega)$
+define
+$\calF^+ = P(\omega) \setminus \calF$
+and
+$\calF^* = \lbrace \omega\setminus A\colon A \in \calF\rbrace$.
+We will usually use these symbols for ideals.
 
 \subsection{The Ellentuck topology and its variations}
 
@@ -804,6 +828,43 @@ Therefore we can find such $z$ which fulfills condition (\ref{eq:warunek-pudelko
 Next we put $x(K) = z$, $x(K + 1) = w$ and then extend $x$ arbitrarily
 (but still ensuring to avoid the functions $g_1, \ldots, g_L$).
 \end{proof}
+\begin{corollary}
+$\EventuallyDifferentInduced \not\subseteq \EventuallyDifferentNative$.
+\end{corollary}
+
+\flushleft{{\bf Question:}}
+For any reasonable ideal find the Borel class of it in the
+four topologies:
+$
+\HechlerNative, \HechlerInduced, \EventuallyDifferentInduced, \EventuallyDifferentNative.
+$.
+
+We have:
+\begin{theorem}
+  Suppose that an ideal $\calI \subseteq P(\omega)$ different from $\idealFin$
+  is $\sigma-porous$ - which is equivalent, by \todo{cytowanie (...)} to
+  the condition that $\calI \subseteq \ThickPlus$ - then $\calI$
+  is not closed in $\HechlerInduced$.
+\end{theorem}
+\begin{proof}
+  Suppose by way of contradiction that
+  $\calI$ is open in $\HechlerInduced$.
+  Take any $A \in \calI \setminus \idealFin$.
+  Let $a \in \incrbaire$ be the increasing enumeration
+  of elements of the set $A$.
+  Find $m \in \omega$ such that
+  $\Hechler{a \restriction m}{a} \subseteq \calI$,   
+\todo{Ta inkluzja jest miedzy roznymi przestrzeniami: incrbaire i infsub, nieodzowny wyjasniajacy opis!}
+  It is easy to find
+  an increasing sequence  $b_0 < b_1 < \ldots$
+  such that
+$\forall_{n < m} a_n = b_n$, 
+  $\forall_{n} a_n \leq b_n$ and the set
+  $B = \lbrace b_n \colon n \in \omega\rbrace \in \Thick$.
+  Then $B \in \Hechler{a \restriction m}{a} \setminus \calI$,
+  which is a contradiction.
+\end{proof}
+
 
 \printbibliography
 \end{document}
