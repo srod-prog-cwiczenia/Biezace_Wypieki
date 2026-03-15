@@ -328,11 +328,17 @@ On the structure of coideals in different topologies.
 \subsection{The basic spaces}
 By $\finsub$ we denote the collection of all finite subsets of the
 natural numbers.
+
 By $\incrbaire$ we denote the space of all infinite increasing
 sequences of the natural numbers.
+
 By $\finbaire$ and $\finincrbaire$
 we denote the collection of all finite sequences and increasing
 sequences, respectively, of natural numbers.
+
+For $A \in \infsub$ let
+$(A(n)) \in \incrbaire$ be the increasing enumeration
+of elements of the set $A$: $A(0) < A(1) < A(2) \ldots$.
 
 \subsection{General notation}
 If $k\in\omega$, we denote by $\underline{\bf k}$ the 
@@ -380,6 +386,13 @@ Moreover, it is known that the collections of meager and negligible
 sets in the topology $\EllentuckTopologyStar$
 coincide with the collection of Completely Ramsey null sets
 (see \cite{Plewik1987}).
+
+\subsection{Ideals}
+\todo{Tu chyba trzeba podefiniować wszystkie ideały
+  jakie tu się pojawią, w szczególności trzeba zdefiniować
+  co to jest zbiór lacunary i ideał lacunary}
+
+\section{Results on Ellentuck topology}
 
 It is common well known the following easy result:
 \begin{claim}
@@ -840,9 +853,9 @@ $
 $.
 
 We have:
-\begin{theorem}
+\begin{theorem}\label{sigma-porous-is-not-Hechler-open}
   Suppose that an ideal $\calI \subseteq P(\omega)$ different from $\idealFin$
-  is $\sigma-porous$ - which is equivalent, by \todo{cytowanie (...)} to
+  is $\sigma-porous$ - which is equivalent, see \cite{KlingaNowikWasik2025}, to
   the condition that $\calI \subseteq \ThickPlus$ - then $\calI$
   is not closed in $\HechlerInduced$.
 \end{theorem}
@@ -850,10 +863,8 @@ We have:
   Suppose by way of contradiction that
   $\calI$ is open in $\HechlerInduced$.
   Take any $A \in \calI \setminus \idealFin$.
-  Let $a \in \incrbaire$ be the increasing enumeration
-  of elements of the set $A$.
   Find $m \in \omega$ such that
-  $\Hechler{a \restriction m}{a} \subseteq \calI$,   
+  $\Hechler{(A(n)) \restriction m}{(A(n))} \subseteq \calI$,   
 \todo{Ta inkluzja jest miedzy roznymi przestrzeniami: incrbaire i infsub, nieodzowny wyjasniajacy opis!}
   It is easy to find
   an increasing sequence  $b_0 < b_1 < \ldots$
@@ -861,10 +872,38 @@ We have:
 $\forall_{n < m} a_n = b_n$, 
   $\forall_{n} a_n \leq b_n$ and the set
   $B = \lbrace b_n \colon n \in \omega\rbrace \in \Thick$.
-  Then $B \in \Hechler{a \restriction m}{a} \setminus \calI$,
+  Then $B \in \Hechler{(A(n)) \restriction m}{(A(n))} \setminus \calI$,
   which is a contradiction.
 \end{proof}
 
+\begin{theorem}
+  The density ideal $\idealGestosciowy$ is open in the
+  topology $\HechlerInduced$ so also in $\HechlerNative$.
+\end{theorem}
 
+\begin{proof}
+  It is sufficent to observe that if $A \in \idealGestosciowy$
+and if $A(n) \leq B(n)$ for some $B \in \infsub$
+then $|B \cap [0, m)| \leq |A \cap [0, m)|$, therefore
+$\Hechler{\emptyset}{(A(n))} \subseteq \idealGestosciowy$.
+\end{proof}
+
+\begin{theorem}
+  The lacunary ideal $\idealLacunary$ is open in the topology
+$\HechlerNative$ but not in $\HechlerInduced$.  
+\end{theorem}
+
+\begin{proof}
+  Since $\idealLacunary \subseteq \ThickPlus$ by Theorem \label{sigma-porous-is-not-Hechler-open}
+we must only verify that it is open in $\HechlerNative$. Suppose that
+we have set $A$ which is a disjoint sum of sets: $A = A_1 \cup\ldots\cup A_r$
+such that $\lim_{n\to\infty} A_j(n + 1) - A_j(n) = \infty$.
+Suppose that $B \in \infsub$ is such that
+$A(0) \leq B(0)$, $A(n + 1) - A(n) \leq B(n + 1) - B(n)$.
+Then $B$ is also a finite sum of lacunary sets,
+\todo{Może jednak tu warto trochę rozwinąć wyjaśnienie?}
+thus $\ffid^{-1}[\Hechler{\emptyset}{\ffid((B(n)))}] \subseteq \idealLacunary$.
+\end{proof}
+ 
 \printbibliography
 \end{document}
