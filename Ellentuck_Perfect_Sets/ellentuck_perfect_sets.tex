@@ -337,8 +337,12 @@ we denote the collection of all finite sequences and increasing
 sequences, respectively, of natural numbers.
 
 For $A \in \infsub$ let
-$(A(n)) \in \incrbaire$ be the increasing enumeration
+$(A(n))_{n\in\omega} \in \incrbaire$ be the increasing enumeration
 of elements of the set $A$: $A(0) < A(1) < A(2) \ldots$.
+
+Analogously, for $s \in \finsub$ let
+$(s(n))_{n < |s|}$ be the finite, increasing enumeration
+of elements of the set $s$: $s(0) < s(1) < \ldots < s(|s| - 1)$.
 
 \subsection{General notation}
 If $k\in\omega$, we denote by $\underline{\bf k}$ the 
@@ -593,7 +597,7 @@ $Z \in \calI$ such that
 $\forall_k Z \subseteq^* Z_k$.
 Then for some $\tilde{k}$ we would have
 $Z \in N_{\tilde{k}}$, thus
-$ N_{\tilde{k}} \cap [Z_{\tilde{k}}]^* \not\emptyset$
+$ N_{\tilde{k}} \cap [Z_{\tilde{k}}]^* \not= \emptyset$
 which is a contradiction.
 \end{proof}
 
@@ -743,6 +747,29 @@ $\ffid[\Hechler{s}{f} \cap \incrbaire] \not\subseteq \Hechler{\emptyset}{\underl
 Since $\Hechler{\emptyset}{\underline{\bf 1}}$ is a Hechler base neighbourhood,
 this proves the claim of the corollary.
 \end{proof}
+
+\begin{theorem}\label{thm:Hechler-induced-Ellentuck}
+$\HechlerInduced \subseteq \EllentuckTopology$.
+\end{theorem}
+\begin{proof}
+  Let $\Hechler{t}{f}$ be a Hechler neighborhood and suppose
+  that $x \in \Hechler{t}{f} \cap \incrbaire$. Then
+  define: $s = \lbrace t(n) \colon n < |t|\rbrace \in \finsub$
+  and $A = \lbrace x(n) \colon n \in \omega\rbrace \setminus s$.
+  Let $B \in [s,A]$. Then $s \subseteq B \subseteq s \cup A$.
+  We have: $s(k) = B(k)$ for $k < |t|$ and since
+  $s \cup A = \lbrace x(n) \colon n \in \omega\rbrace$,
+  $x(k) \leq B(k)$ for $k \geq |t|$. Hence
+  $(B(k))_{k\in\omega} \in \Hechler{t}{f}$.
+\end{proof}  
+Let us summarize those inclusions in the
+form of the diagram below:
+
+\begin{tikzcd}
+& \HechlerNative\\ 
+ \HechlerInduced \arrow[ur] \arrow[dr] &  \\
+   & \EllentuckTopology \\
+\end{tikzcd}
 
 \section{The Eventually Different Functions Topology}
 
