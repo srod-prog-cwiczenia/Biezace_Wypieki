@@ -779,11 +779,27 @@ $\HechlerNative \not\subseteq \EllentuckTopology$.
   \[
     x(n) = 
 \begin{cases}
-) - \mu(k - 1) - 1 & \text{for } k > 0,\\
-\mu(0) & \text{for } k = 0.
+10 & \text{ if } \neg(2 | n) \\
+0 & \text{ if } 2 | n.
 \end{cases}
 \]
-  
+Let $\mu = \ffid^{-1}(x) \in \incrbaire$
+and let $A = \lbrace \mu(k) \colon k \in \omega\rbrace$.
+Let us fix $n_0 \in \omega$. Let us consider the
+Ellentuck neighbourhood
+$[A \cap n_0, A \setminus n_0] \subseteq [A]^\omega$.
+We will show that
+$[A \cap n_0, A \setminus n_0] \not\subseteq \ffid^{-1}[\Hechler{\emptyset}{x}]$.
+We will construct $B \in [A]^\omega$ such that
+$B \in [A \cap n_0, A \setminus n_0]$ (i.e.
+$A \cap n_0 \subseteq B \subseteq A$)
+and such that $(B(n))_{n\in\omega} \not\in
+\ffid^{-1}[\Hechler{\emptyset}{x}]$.
+
+Let us consider two cases:
+
+\flushleft{Case 1:} $|A \cap n_0|$ is an even number.
+
 
 \end{proof}
 
