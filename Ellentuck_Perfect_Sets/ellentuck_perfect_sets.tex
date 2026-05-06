@@ -797,9 +797,39 @@ and such that $(B(n))_{n\in\omega} \not\in
 \ffid^{-1}[\Hechler{\emptyset}{x}]$.
 
 Let us consider two cases:
+Define $n_1 = \min (A \setminus n_0)$. Let $k_1$ be such
+that $A(k_1) = n_1$.
+Define
+$B = A \setminus\lbrace n_1 \rbrace = (A \cap n_0) \cup \rbrace A(k) \colon
+k \geq k_1 + 1\lbrace$.
+It is easy to see that
+
+\[
+    B(k) = 
+\begin{cases}
+A(k) & \text{ if } k < k_1 \\
+A(k + 1) & \text{ if } k \geq k_1.
+\end{cases}
+\]
+
+In particular:
+$B(k_1) = A(k_1 + 1), B(k_1 + 1) = A(k_1 + 2), B(k_1 + 2) = A(k_1 + 3)$.
 
 \flushleft{Case 1:} $|A \cap n_0|$ is an even number.
+Then $k_1$ is even.
+Hence 
+$\ffid((B(n))_{n\in\omega})(k_1 + 1) = B(k_1 + 1) - B(k_1) - 1
+= A(k_1 + 2) - A(k_1 + 1) - 1 = \mu(k_1 + 2) - \mu(k_1 + 1) - 1 = x(k_1 + 2) = 0$.
+Therefore $\ffid((B(n)_{n\in\omega})) \not\in \Hechler{\emptyset}{x}$,
+since $\ffid((B(n)_{n\in\omega}))(k_1 + 1) = 0 < x(k_1 + 1) = 10$.
 
+\flushleft{Case 2:} $|A \cap n_0|$ is an odd number.
+Then $k_1$ is odd.
+Hence 
+$\ffid((B(n))_{n\in\omega})(k_1 + 2) = B(k_1 + 2) - B(k_1 + 1) - 1
+= A(k_1 + 3) - A(k_1 + 2) - 1 = \mu(k_1 + 3) - \mu(k_1 + 2) - 1 = x(k_1 + 3) = 0$.
+Therefore $\ffid((B(n)_{n\in\omega})) \not\in \Hechler{\emptyset}{x}$,
+since $\ffid((B(n)_{n\in\omega}))(k_1 + 2) = 0 < x(k_1 + 2) = 10$.
 
 \end{proof}
 
