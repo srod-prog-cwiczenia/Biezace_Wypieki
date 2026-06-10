@@ -850,6 +850,13 @@ $\calI^+$ is rapid if and only if
 $\calI^+$ is a dense set in the topology $\HechlerInduced$.
 \todo{Przeliczyć to!!!}
 
+Also, recall the notion of {\it increasing-invariant} ideals,
+see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2:
+An ideal $\cI$ is increasing-invariant if for every $B \in \cI$ and
+$C$, if $\forall_n |C \cap n| \leq |B \cap n$, then $C \in cI$.
+Equivalently, for any $\mu \in \incrbaire$ and $B \in \cI$,
+$\mu[B] \in \cI$.
+
 \section{The Eventually Different Functions Topology}
 
 Following \cite{Labedzki1996} let us define for $s \in \finbaire$,
@@ -1054,16 +1061,41 @@ which are completely Ramsey null.
   in the binary tree $2^{<\omega}$.
   Let us define:
   \begin{equation}
-    E = \lbrace Z \in \infsub\colon \forall_{L \in \mathit{Chains}}
+    E = \lbrace Z \subseteq 2^{<\omega} \colon \forall_{L \in \mathit{Chains}}
     |Z \setminus L| = \aleph_0 \wedge
     \forall_{A \in \mathit{Antichains}}
     |Z \setminus A| = \aleph_0\rbrace.
   \end{equation}
-  It is easy to see that $E \in CR_0$. Indeed, if $Z \in \infsub$ then
+  Since $2^{<\omega}$ and $\omega$ are both countable,
+  the set $E \subseteq P(2^{<\omega})$ can be transferred to $P(\omega)$
+  (in fact, to $\infsub$) via standard bijection.
+  
+    Note that if we define a set $Z \subseteq \infsub$
+  to be an almost-chain if there exists a chain $L\subseteq 2^{<\omega}$
+  such that $Z \subseteq^* L$ (that is, $Z$ is a finite modification of a chain),
+  and, analogously, define a near-antichain,
+  then the definition of the family E can be stated as follows:
+  E is the collection of all sets which are neither almost-chains nor almost-antichains.
+  
+    It is easy to see that $E \in CR_0$. Indeed, if $Z \in \infsub$ then
   there exists an infinite set
   $B \in \mathit{Chains} \cup \mathit{Antichains}$
-  such that $B \subseteq Z$. 
-  
+  such that $B \subseteq Z$. If $C \in [B]^*$, then
+  $C$ is an almost-chain or almost-antichain, hence
+  $C \not\in E$. This proves that $E \in CR_0$.
+
+  Suppose now that $\cI \subseteq P(2^{<\omega})$ is a tall ideal.
+  For $j = 0,1$ define chain:
+  \[
+    L_j = \big\lbrace \langle \underbrace{j, \ldots, j}_{k\text{\ times\ }}\rangle \colon
+    k \in \omega\setminus\lbrace 0 \rbrace \big\rbrace.
+  \]
+  Since $\cI$ is tall we can find $Z_j \in [L_j]^\omega \cap \cI$
+  (for $j = 0,1$).
+  Define $\tilde{Z} = Z_0 \cup Z_1$. Then $\tilde{Z} \in \cI$. It is
+  easy to see that $\tilde{Z}$ cannot be neither almost-chain nor
+  almost-antichain.
+  \todo{Czy jest tu nieodzowne bardziej dokladne uzasadnienie czy tak moze pozostac?}  
 \end{proof}
 
 
