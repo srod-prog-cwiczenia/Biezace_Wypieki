@@ -509,7 +509,7 @@ $\lNawiasik H \rNawiasik \in \ND(\EllentuckTopologyStar\restriction\calI^+)$.
 
 \begin{corollary}
   If $\calI$ is $\notfinBW$, then
-$\calI^+$ is a perfect, meager in itself
+$\calI^+$ is a Ellentuck star perfect, Ellentuck star meager in itself
 (i.e. $\calI^+ \in \meager(\EllentuckTopologyStar \restriction \calI^+)$)
 and meager in the topology $\EllentuckTopologyStar$. 
 \end{corollary}
@@ -539,8 +539,9 @@ and $[s, B] \cap Z = \emptyset$.
 
 \begin{corollary}
   If $\calI$ is $\notfinBW$, then
-$\calI^+$ is a perfect, meager in itself and meager
-in the Ellentuck topology. 
+  $\calI^+$ is an Ellentuck perfect, Elletuck meager in itself
+(i.e. $\calI^+ \in \meager(\EllentuckTopology \restriction \calI^+)$)
+and meager in the Ellentuck topology. 
 \end{corollary}
 
 \begin{theorem}
@@ -580,7 +581,7 @@ We have
 is such that $\calI^+ \in \meager(\EllentuckTopologyStar \restriction \calI^+)$.
 Then $\calI$ is not a $P^+$ ideal.
 \todo{Porownac to z warunkiem na semiselektywny ideal - Proposition 2.5 z pracy
-  CanoPriscoHrusak}
+  \cite{CanoPriscoHrusak2026}}
 \end{theorem}
 
 \begin{proof}
@@ -851,11 +852,15 @@ $\calI^+$ is a dense set in the topology $\HechlerInduced$.
 \todo{Przeliczyć to!!!}
 
 Also, recall the notion of {\it increasing-invariant} ideals,
-see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2:
+(see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2,
+or \cite{Kwela2018}, Definition 1):
 An ideal $\cI$ is increasing-invariant if for every $B \in \cI$ and
-$C$, if $\forall_n |C \cap n| \leq |B \cap n$, then $C \in cI$.
+$C$, if $\forall_n |C \cap n| \leq |B \cap n|$, then $C \in \cI$.
 Equivalently, for any $\mu \in \incrbaire$ and $B \in \cI$,
 $\mu[B] \in \cI$.
+
+The notion of increasing-invariant is equivalent \todo{Przeliczyc to!}
+to the condition that $\cI^+$ is a closed set in the topology $\HechlerInduced$.
 
 \section{The Eventually Different Functions Topology}
 
@@ -1012,11 +1017,15 @@ $\forall_{n < m} a_n = b_n$,
   which is a contradiction.
 \end{proof}
 
-\begin{theorem}
+Let us cite \cite{KwelaPoplawskiSwaczynaTryba2019}, Proposition 11:
+{\it Each simple density ideal is increasing-invariant}
+
+\begin{corollary}
   The density ideal $\idealGestosciowy$ is open in the
   topology $\HechlerInduced$ so also in $\HechlerNative$.
-\end{theorem}
+\end{corollary}
 
+  For completeness, we give an independent very simply proof of this fact:
 \begin{proof}
   It is sufficent to observe that if $A \in \idealGestosciowy$
 and if $A(n) \leq B(n)$ for some $B \in \infsub$
