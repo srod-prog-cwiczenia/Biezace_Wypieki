@@ -112,6 +112,7 @@
 \newcommand{\dummy}{{\tt Blah blah blah}}
 
 %E
+\newcommand{\ensembleDeFonctions}[2]{\prescript{#1}{}{#2}}
 \newcommand{\Even}{\hbox{\rm \tiny Even}}
 
 %F
@@ -141,7 +142,8 @@
   D)\;$}
 
 %N
-\newcommand{\neglig}{{\cal N}}
+\newcommand{\negligible}{\mathcal{N}}
+\newcommand{\Negligible}{\negligible}
 \newcommand{\nnatural}{\mathbb{N}}
 \newcommand{\ND}{\mathsf{ND}}
 
@@ -243,7 +245,11 @@
 \newcommand{\idealThinSets}{\mathcal{T}}
 \newcommand{\idealFin}{{\mathrm Fin}}
 \newcommand{\idealChainsAntichains}{I_{\mathit{Ch}, \mathit{Anti}}}
+%%% ideały na drzewie :
 \newcommand{\idealLancuchyAntylancuchy}{\idealChainsAntichains}
+\newcommand{\idealHarmonicznyTree}{\cI^{\mathit{tree}}_{1/n}}
+\newcommand{\idealGestosciowyTree}{\cI^{\mathit{tree}}_{d}}
+\newcommand{\idealTraceTree}{\mathrm{tr}(\Negligible)}
 
 %%% zapozyczone z pracy o sigma-porowatych
 \newcommand{\Thick}{{\mathit Thick}}
@@ -361,10 +367,36 @@ and
 $\calF^* = \lbrace \omega\setminus A\colon A \in \calF\rbrace$.
 We will usually use these symbols for ideals.
 
-\subsection{The Ellentuck topology and its variations}
+\subsection{Ideals}
 
 \todo{Gdzieś - może tu - trzeba zdefiniować zbiory Ramseya,
   Ramseya zero, Całkowicie Ramseya i Całkowicie Ramseya zero}
+
+Following \cite{BorodulinNadziejaFarkasPlebanek2015}
+let us define:
+\[
+  \idealHarmonicznyTree =
+  \big\lbrace A \subseteq 2^{<\omega}\colon
+  \sum_{s \in A} 2^{-|s|} < \infty \big\rbrace.
+ \]
+\[
+  \idealGestosciowyTree =
+  \big\lbrace A \subseteq 2^{<\omega}\colon
+  \lim_{n \to \infty} \frac{|A \cap \ensembleDeFonctions{n}{2}|}{2^n} < \infty \big\rbrace.
+ \]
+
+ For any set $A \subseteq 2^{<\omega}$ define
+ the {\it $G_{\delta}$-closure} by
+ \todo{To jest oznaczenie z pracy BNFP ale chyba zbyt pospolite, sugerowalbym bardiej wyszukane}
+ $[A] = \lbrace x \in \cantor \colon \exists_n^\infty x\restriction n \in A\rbrace$
+ Define:
+ \[
+\idealTraceTree = \lbrace A \subseteq 2^{<\omega}\colon [A] \in \Negligible\rbrace.
+ \]
+
+ Note that (see \cite{BorodulinNadziejaFarkasPlebanek2015}, Remark 3.1) that
+ $\idealHarmonicznyTree \subseteq \idealTraceTree \subseteq \idealGestosciowyTree$.
+\subsection{The Ellentuck topology and its variations}
 
 If $\tau$ is a topology on $X$ and $Y \subseteq X$ 
 we denote by $\tau \restriction Y$ the corresponding subspace topology on $Y$.
@@ -1104,9 +1136,24 @@ which are completely Ramsey null.
   Define $\tilde{Z} = Z_0 \cup Z_1$. Then $\tilde{Z} \in \cI$. It is
   easy to see that $\tilde{Z}$ cannot be neither almost-chain nor
   almost-antichain.
-  \todo{Czy jest tu nieodzowne bardziej dokladne uzasadnienie czy tak moze pozostac?}  
+  \todo{Czy jest tu nieodzowne bardziej dokladne uzasadnienie czy tak moze pozostac?}
 \end{proof}
 
+Let us also state:
+\begin{claim}
+$\idealChainsAntichains \subseteq \idealHarmonicznyTree$.
+\end{claim}
+
+\begin{proof}
+Take any chain $L \subseteq 2^{<\omega}$.
+Withous loss of generality we may assume that $L$ is a maximal chain.
+Hence $L = \lbrace x_0 \restriction n \colon n \in \omega \rbrace$ for
+some $x_0 \in \cantor$. Then
+$\sum_{s \in L} 2^{-|s|} \leq \sum_{n = 0}^\infty 2^{-n} < \infty$.
+Let $A\subseteq 2^{<\omega}$ be an antichain.
+Let
+$s_n = \sum_{s \in A \cap  \ensembleDeFonctions{n}{2}} 2^{-|s|}$.
+\end{proof}
 
 \printbibliography
 \end{document}
