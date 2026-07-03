@@ -54,6 +54,9 @@
 \usepackage[T1]{fontenc}
 %%% to jest celem podkreślenia tekstu przez ,,wężyk''.
 \usepackage{ulem}
+\normalem %aby przywrócić standardowe funkcjonowanie \emph.
+% po to by używać bibera:
+\usepackage[backend=biber]{biblatex}
 
 %%% to pozwala kontrolować overfulle, są one zaznaczane na marginesie czarną beleczką (o zadanym rozmiarze):
 \overfullrule=5pt 
@@ -282,6 +285,7 @@ Wita Stwosza 57,
 }
 \email[A.~Kowalski]{adam.kowalski@jakas.tam.domena.pl}
 
+\addbibresource{rotacje.bib}
 \begin{document}
 \title[
 % a brief title
@@ -299,14 +303,55 @@ dummy
 
 \maketitle
 
+\section{Notations}
+Let $\mu$ and $\mu_2$ denote the Lebesgue measure on the line
+and on the plane, respectively.
+Let $\theta \in [0, \pi)$ be any angle.
+Let $\phi_\theta \colon \real^2\to\real^2$ denote
+the rotation of the plane about the origin by an angle $\theta$.
+Suppose that $B\subseteq\real$ is
+a Lebesgue measurable set.
+Let $\Phi(B)$ denote the set of all Lebesgue density points of the set $B$.
 \section{Preliminaries}
+
 
 Let us recall the classical notion of the density point on the plane
 (see for example \cite{WagnerBojakowska19921993}):
 
 \begin{definition}
 Suppose that $E \subseteq \real^2$ is a measurable set. 
+Define
+\[
+  (x_0, y_0) \in \Phi_2(E) \iff
+  \lim_{\varepsilon\to 0^+}
+  \frac{\mu_2(E \cap [x_0 - \varepsilon; x_0 + \varepsilon] \times
+   [y_0 - \varepsilon; y_0 + \varepsilon])}{4 \varepsilon^2} = 1.
+\]
 \end{definition}
+
+It is well known that:
+\begin{fact}
+  This definition is equivalent to the ``circular'' one, namely:
+\[
+  (x_0, y_0) \in \Phi_2(E) \iff
+  \lim_{\varepsilon\to 0^+}
+  \frac{\mu_2(E \cap B((x_0, y_0), \varepsilon))}{\pi \varepsilon^2} = 1.
+\]  
+\end{fact}
+
+The latter version of the definition of the $\Phi_2$ points is invariant under rotations,
+so we have
+\[
+  (x_0, y_0) \in \Phi_2(E) \iff \phi_\theta(x_0, y_0) \in \Phi_2(\phi_\theta[E]).
+\]
+
+\begin{lemma}
+  Suppose that $B \subseteq \real$ is a Lebesgue measurable set.
+  Then $\Phi(B] \times \real \subseteq \Phi_2(B \times \real)$.
+\end{lemma}
+\begin{proof}
+  
+\end{proof}
 \section{Results}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -325,30 +370,25 @@ Suppose that $E \subseteq \real^2$ is a measurable set.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{thebibliography}{10}
-%@article {WagnerBojakowska19921993,
-%    AUTHOR = {Wagner-Bojakowska, El\.zbieta},
-%     TITLE = {Some remarks on density topologies on the plane},
-%   JOURNAL = {Real Anal. Exchange},
-%  FJOURNAL = {Real Analysis Exchange},
-%    VOLUME = {18},
-%      YEAR = {1992/93},
-%    NUMBER = {2},
-%     PAGES = {339--342},
-%      ISSN = {0147-1937,1930-1219},
-%   MRCLASS = {26A03 (54A10 54A25 54C08)},
-%  MRNUMBER = {1228399},
-%MRREVIEWER = {Aliasghar\ Alikhani-Koopaei},
-%}
 
-\bibitem{QQQ1}
-J.~Kowalski, \emph{O pewnym bardzo waznym wyniku nr 1},
-Colloquium Mathematicum \textbf{77} (1999) 191--199.
+\begin{filecontents*}{rotacje.bib}
+@article {WagnerBojakowska19921993,
+    AUTHOR = {Wagner-Bojakowska, El\.zbieta},
+     TITLE = {Some remarks on density topologies on the plane},
+   JOURNAL = {Real Anal. Exchange},
+  FJOURNAL = {Real Analysis Exchange},
+    VOLUME = {18},
+      YEAR = {1992/93},
+    NUMBER = {2},
+     PAGES = {339--342},
+  %    ISSN = {0147-1937,1930-1219},
+  % MRCLASS = {26A03 (54A10 54A25 54C08)},
+  %MRNUMBER = {1228399},
+  %MRREVIEWER = {Aliasghar\ Alikhani-Koopaei},
+}
+\end{filecontents*}
 
-\bibitem{QQQ2}
-J.~Kowalski, \textit{O pewnym bardzo waznym wyniku nr 2},
-Colloquium Mathematicum \textbf{88} (2001) 101--111.
-\end{thebibliography}
+\printbibliography
 
 \begin{center}
 \ctimenow
