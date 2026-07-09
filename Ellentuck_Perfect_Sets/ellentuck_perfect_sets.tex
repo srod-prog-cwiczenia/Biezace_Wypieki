@@ -1152,7 +1152,15 @@ some $x_0 \in \cantor$. Then
 $\sum_{s \in L} 2^{-|s|} \leq \sum_{n = 0}^\infty 2^{-n} < \infty$.
 Let $A\subseteq 2^{<\omega}$ be an antichain.
 Let
-$s_n = \sum_{s \in A \cap  \ensembleDeFonctions{n}{2}} 2^{-|s|}$.
+$A_n =  A \cap \ensembleDeFonctions{n}{2}$ and
+$s_n = \sum_{s \in A_n 2^{-|s|}}$.
+
+  Fact:
+  If $k < n < m$ then
+  \[
+    \{ t \in \ensembleDeFonctions{m}{2} \colon \exists_{s\in A_n} s \subseteq t \} \cap
+    \{ t \in \ensembleDeFonctions{m}{2} \colon \exists_{s\in A_k} s \subseteq t \} = \emptyset.
+  \]
 \end{proof}
 
 \printbibliography
