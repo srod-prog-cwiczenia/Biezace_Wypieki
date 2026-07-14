@@ -237,7 +237,7 @@
 \makeatother
 
 \pagestyle{myheadings}
-\markboth{{\bf Adam Kowalski}}{\bf \today}
+\markboth{{\bf Andrzej Nowik}}{\bf \today}
 
 %%%% opcjonalne dolaczanie komentarzy na marginesie (uruchomic zdejmujac komentarze z kodu ponizej):
 %\typein[\wersjaRELEASE]{Czy wygenerowac wersje RELEASE ? (t/n)}
@@ -266,24 +266,16 @@
 \pagestyle{myheadings}
 % To see corrections comment next line and uncomment the second one
 
-\author{Pierwszy Autor}
+
+\author{Andrzej Nowik}
 \address[]{
-Pierwszy Autor\\
+Andrzej Nowik\\
 University of Gda\'nsk \\
 Institute of Mathematics \\
 Wita Stwosza 57,
 80--952 Gda\'nsk, Poland \\
 }
-\email[P.~Autor]{pierwszy.autor@jakas.tam.domena.pl}
-\author{Adam Kowalski}
-\address[]{
-Adam Kowalski\\
-University of Gda\'nsk \\
-Institute of Mathematics \\
-Wita Stwosza 57,
-80--952 Gda\'nsk, Poland \\
-}
-\email[A.~Kowalski]{adam.kowalski@jakas.tam.domena.pl}
+\email[A.~Nowik]{andrzej.nowik@ug.edu.pl}
 
 \addbibresource{rotacje.bib}
 \begin{document}
@@ -339,33 +331,49 @@ It is well known that:
 \]  
 \end{fact}
 
+\begin{claim}\label{claim:density-point-rotation}
 The latter version of the definition of the $\Phi_2$ points is invariant under rotations,
 so we have
 \[
   (x_0, y_0) \in \Phi_2(E) \iff \phi_\theta(x_0, y_0) \in \Phi_2(\phi_\theta[E]).
 \]
-
-\begin{lemma}
+\end{claim}
+\begin{lemma}\label{lemma:rotation-measurable-stripe}
   Suppose that $B \subseteq \real$ is a Lebesgue measurable set.
-  Then $\Phi(B] \times \real \subseteq \Phi_2(B \times \real)$.
+  Then $\Phi(B) \times \real \subseteq \Phi_2(B \times \real)$.
+  \todo{Chyba tu zachodzi nawet równość?}
 \end{lemma}
 \begin{proof}
-  
+  Suppose $(x_0, y_0) \in \Phi(B)$ and let $0 < \eta < 1$.
+  There exists $r_0 > 0$ such that
+  \[
+\forall_{0 < r < r_0} 
+  \frac{\mu(B \cap [x_0 - r; x_0 + r])}{2r} > 1 - \eta.
+\]
+Then
+\[
+  \frac{\mu_2((B \times \real) \cap [x_0 - r; x_0 + r] \times
+   [y_0 - r; y_0 + r])}{4 r^2} = 
+\]
+\[
+  = \frac{\mu(B \cap [x_0 - r; x_0 + r]) \cdot 2r}{4r^2} > 1 - \eta.
+\]
 \end{proof}
+
+\begin{lemma}
+  For $\theta \in [0, \pi)$, $B$ Lebesgue measurable, then
+  $\phi_{\theta} [\Phi(B) \times \real] \subseteq \Phi_2(\phi_{\theta} [B\times\real])$.
+\end{lemma}
+
+\begin{proof}
+  This is a consequence of the fact that density points in the plane are
+  invariant under rotations (see Claim \ref{claim:density-point-rotation}).
+  By Lemma \ref{lemma:rotation-measurable-stripe} we have:
+  $\phi_{\theta} [\Phi(B) \times \real] \subseteq \phi_{\theta}[\phi_2(B\times\real)] =
+  \Phi_2(\phi_\theta [B\times\real])$
+\end{proof}
+
 \section{Results}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                         %
-%                      Main part                                          %
-%                                                                         %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%% blok z przykladem polskich liter %%%%%%%%%%%%%%%%%%%%%
-%TODO: nalezy to uruchomic
-
-%Polish letters:    
-%Za"r"o"l"c g"e"sl"a ja"z"n. 
-%ZA"R"O"L"C G"E"SL"A JA"Z"N. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        The Bibliography                                   %
