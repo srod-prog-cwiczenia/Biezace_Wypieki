@@ -281,10 +281,10 @@ Wita Stwosza 57,
 \begin{document}
 \title[
 % a brief title
-O pewnym twierdzeniu...
+On rotations of sets...
 ]{
 %a full title
-O pewnym twierdzeniu na temat Bardzo Waznego Problemu
+On rotations of sets of measure zero and sets of first category
 }
 \keywords{topologia gestosci, topologia dyskretna, idealy}
 \subjclass[2010]{03E05, 54D05, 54H05, 54A05, 11A41, 11B05, 11B25}
@@ -361,7 +361,7 @@ Then
 \end{proof}
 
 \begin{lemma}
-  For $\theta \in [0, \pi)$, $B$ Lebesgue measurable, then
+  For $\theta \in [0, \pi)$, $B\subseteq\real$ Lebesgue measurable, then
   $\phi_{\theta} [\Phi(B) \times \real] \subseteq \Phi_2(\phi_{\theta} [B\times\real])$.
 \end{lemma}
 
@@ -373,8 +373,38 @@ Then
   \Phi_2(\phi_\theta [B\times\real])$
 \end{proof}
 
+\begin{lemma}
+  For $\theta_1,\ldots,\theta_L \in [0; \pi)$
+  and for $B\subseteq\real$ Lebesgue measurable,
+  we have
+  \[
+    \bigcap_{j=1}^L \phi_{\theta_j} [\Phi(B) \times \real] \subseteq
+    \Phi_2(\bigcap_{j=1}^L \phi_{\theta_j} [B\times\real]).
+  \]
+\end{lemma}
+\begin{proof}
+  We have
+  $\bigcap_{j=1}^L \phi_{\theta_j} [\Phi(B) \times \real] \subseteq$
+  $\bigcap_{j=1}^L \Phi_2(\phi_{\theta_j} [B\times\real]) \subseteq$
+  $\Phi_2(\bigcap_{j=1}^L \phi_{\theta_j} [B\times\real])$.
+
+\end{proof}
+
 \section{Results}
 
+\begin{theorem}
+  Suppose that $(\mu)_{j=0}^\infty$ and $\theta_0,\ldots, \theta_{k-1}$
+  are sequences of angles from $[0,\pi)$. Assume also that
+  $\forall_{j \in 0,1,\ldots} \forall_{l = 0,\ldots, k-1} \mu_j \not= \theta_l$.
+  Suppose also that $M \subseteq \real$ is a meager set and
+  $N \subseteq \real$ is a Lebesgue measure zero set.
+  Then the set
+  \[
+    \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real] \cup
+    \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]
+  \]
+  is not the whole plane $\real^2$.
+  \end{theorem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
