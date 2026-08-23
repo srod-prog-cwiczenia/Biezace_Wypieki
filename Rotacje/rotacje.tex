@@ -304,6 +304,10 @@ the rotation of the plane about the origin by an angle $\theta$.
 Suppose that $B\subseteq\real$ is
 a Lebesgue measurable set.
 Let $\Phi(B)$ denote the set of all Lebesgue density points of the set $B$.
+
+If $Y$ is any subset of a topological space $X$ then by a portion of
+$Y$ we mean a nonempty and relative open subset of $Y$
+(see \cite{Laczkovich1998}, page 1783).
 \section{Preliminaries}
 
 
@@ -404,8 +408,28 @@ Then
     \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]
   \]
   is not the whole plane $\real^2$.
-  \end{theorem}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{theorem}
+
+\begin{proof}
+  Suppose, for contradiction, that the conclusion is false.
+  Choose a closed set $E \subseteq \real\setminus N$
+  such that $\overline{\Phi(E)} = E$ (thus $E$ is a perfect set)
+  and moreover, all portions of $E$ have measure greater than zero.
+  We may also assume that
+  \[
+    \mu_2(\bigcap_{l = 0}^{k-1} \phi_{\theta_l}[E \times \real]) > 0.
+  \]
+  The latter follows from the following identity:
+  For any increasing sequence of sets: $E_n \subseteq E_{n+1}$
+  we have
+  \[
+    \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[\bigcup_{n=1}^\infty E_n \times \real]
+    = \bigcup_{n=1}^\infty
+      \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[E_n \times \real].
+  \]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -416,13 +440,21 @@ Then
    JOURNAL = {Real Anal. Exchange},
   FJOURNAL = {Real Analysis Exchange},
     VOLUME = {18},
-      YEAR = {1992/93},
+      date = {1992/1993},
     NUMBER = {2},
-     PAGES = {339--342},
+     PAGES = {339--342}
   %    ISSN = {0147-1937,1930-1219},
   % MRCLASS = {26A03 (54A10 54A25 54C08)},
   %MRNUMBER = {1228399},
   %MRREVIEWER = {Aliasghar\ Alikhani-Koopaei},
+}
+@article{Laczkovich1998,
+  author  = {M. Laczkovich},
+  title   = {Analytic subgroups of the reals},
+  journal = {Proc. Amer. Math. Soc.},
+  volume  = {126},
+  year    = {1998},
+  pages   = {1783--1790}
 }
 \end{filecontents*}
 

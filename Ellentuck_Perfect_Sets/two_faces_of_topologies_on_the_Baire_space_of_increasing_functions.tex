@@ -1,105 +1,98 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                                                                       %
-%                          TEMPLATE                                     %
-%                                                                       %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\documentclass[12pt]{article}
-
-%---------------------------------------------------------------------
-% AMS packages 
-%---------------------------------------------------------------------
- 
-% Packiet loaded automatically by amsart:
-%  1. amsmath, 2. amsthm, 3. amsfonts.
- 
-%\usepackage{amssymb}
-%\usepackage{amsmath}
- 
-% *** 'amsfonts': 
-% boldface of the symbol of the real line: 'R'
+\documentclass[12pt]{amsart}
+\usepackage{amssymb} % ten pakiet jest nieodzowny m.in. po to aby zrenderowac instrukcje varsubsetneq
+\usepackage{amsmath}
+\usepackage{latexsym}
 \usepackage{amsfonts}
- 
-% *** 'amsthm': 
-% 1. makes easy to modify the macro: \newtheorem{}{} since contains
-% \theoremstyle{}
-% 2. contains macro: \begin{proof} ... \end{proof}
-\usepackage{amsthm} 
-
-
+\usepackage{enumerate}
+%\usepackage[mathscr]{eucal}
+\usepackage[mathscr]{euscript}
+\usepackage{eqlist}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem} % po to aby mozna bylo tworzyc otoczenie
+% enumerate z innymi sposobami numeracji itemow
+\usepackage{hyperref} % aby moc tworzyc linki w tekscie
 %%%%%%%%%%%%%%% Polish letter packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage[polish]{babel}
-%\usepackage[latin2]{inputenc}
+%\usepackage[utf8]{inputenc}
 %\usepackage{t1enc}
- 
+%%% pakiet do generowania belkotu (wypelniacza):
+\usepackage{lipsum}
+%%% pakiet do dodawania fikusnych notek `a la ``todo''
+\usepackage{todonotes}
+%Ten pakiet niby jest m.in. po to aby mozna bylo ,,lamac'' linie w komorkach i ,,glowie'' tabeli
+% (otoczenie table)
+\usepackage{makecell}
+%ten pakiet sluzy do eleganckiego formatowania listingow (programow? lecz zapewne nie tylko)
+\usepackage{listings}
+%ten pakiet sluzy do sprawdzania m.in. czy odpowiednie pozycje bibliograficzne
+%sa faktycznie uzywane w tresci pliku. Przypuszczalnie nalezy go
+%uruchamiac tylko podczas weryfikacji pliku - w oficjalnej wersji powininen byc wylaczony.
+%\usepackage{refcheck}
+%pakiet dolaczony na razie po to aby moc utworzyc ,,monstrualne'' kwantyfikatory bigforall i bigexists
+\usepackage{graphicx}
+%pakiet do wielu symboli matematycznych. Tu używam go do symboli \smt, \lat
+\usepackage{stix} 
+%pakiet rotating służy do obracania obiektów, takich jak tekst, tabele, obrazy, wykresy itp.
+\usepackage{rotating}
+%pakiet do zrecznego tworzenia wielowierszowych tabel.
+\usepackage{multirow}
+% pierwszy pakiet daje możliwość użycia fontów caligraficznych,
+% natiomiast nie mam pojęcia w jakim celu jest ten drugi pakiet,
+% ale on jest z całą pewnością powiązany z pierwszym.
+\usepackage{calligra}
+\usepackage[T1]{fontenc}
+\usepackage[backend=biber,style=numeric-comp]{biblatex}
+%%% to pozwala kontrolować overfulle, są one zaznaczane na marginesie czarną beleczką (o zadanym rozmiarze):
+%\overfullrule=5pt 
+
+\usepackage{tikz-cd}
+\usepackage{comment}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+
 %---------------------------------------------------------------------
 % Theorems 
 %---------------------------------------------------------------------
  
-% Theorem style 'plain' are for: Theorem, Lemma, Corollary, 
-% Proposition, Conjecture, Criterion, Algorithm  
-\theoremstyle{plain} 
-\newtheorem{theorem}{Theorem}[section] 
-\newtheorem{lemma}[theorem]{Lemma} 
+% Theorem style 'plain' are for: Theorem, Lemma, Corollary,
+% Proposition, Conjecture, Criterion, Algorithm
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{question}[theorem]{Question}
-\newtheorem{corollary}[theorem]{Corollary} 
-\newtheorem{conclusion}[theorem]{Corollary} 
-\newtheorem{claim}[theorem]{Claim} 
-\newtheorem{fact}[theorem]{Fact} 
-\newtheorem{proposition}[theorem]{Proposition} 
-\newtheorem{axiom}{Axiom} 
- 
-% Theorem style 'definition' are for: Definition, Condition, Problem, 
-% Example 
- 
-\theoremstyle{definition} 
-\newtheorem{definition}[theorem]{Definition} 
-\newtheorem{example}[theorem]{Example} 
-\newtheorem{exercise}{Exercise} 
-\newtheorem*{solution}{Solution} 
- 
-% Theorem style 'remark' are for: Remark, Note, Notation, Claim, 
-% Summary, Acknowledgement, Case, Conclusion 
- 
-\theoremstyle{remark} 
-\newtheorem*{remark}{Remark} 
-\newtheorem*{notation}{Notation} 
-\newtheorem*{acknowledgement}{Acknowledgement} 
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conclusion}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{axiom}{Axiom}
+% Theorem style 'definition' are for: Definition, Condition, Problem,
+% Example
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{solution}{Solution}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{Problem}[theorem]{Problem}
+% Theorem style 'remark' are for: Remark, Note, Notation, Claim,
+% Summary, Acknowledgement, Case, Conclusion
+\theoremstyle{remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{acknowledgement}{Acknowledgement}
 
-%%%%%%%%%%%%%%%%%  The previous one %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newtheorem{theorem}{Theorem}[section]
-%\newtheorem{lemma}[theorem]{Lemma}
-%\newtheorem{observation}[theorem]{Observation}
-%\newtheorem{conclusion}[theorem]{Conclusion}
-%\newtheorem{question}[theorem]{Question}
-%\newtheorem{problem}[theorem]{Problem}
-%\newtheorem{corollary}[theorem]{Corollary}
-%\newtheorem{definition}[theorem]{Definiton}
-%\newtheorem{claim}[theorem]{Claim}
-%\newtheorem{fact}[theorem]{Fact}
-%\newtheorem{conjecture}[theorem]{Conjecture}
-%\newtheorem{example}[theorem]{Example}
-%\newtheorem{proposition}[theorem]{Proposition}
-%\newtheorem{remark}[theorem]{Remark}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%% makra:
 
 %A
-\newcommand{\afc}{AFC}
-\newcommand{\afcbar}{\overline{AFC}}
+\newcommand{\afc}{\mathrm{AFC}}
+\newcommand{\afcbar}{\overline{\afc}}
 \newcommand{\arr}{\rightarrow}
 \newcommand{\Arr}{\Rightarrow}
-\newcommand{\bp}{\begin{proof}}
-\newcommand{\ep}{\end{proof}}
 
 %B
 \newcommand{\baire}{\omega^{\omega}}
-\newcommand{\blacksquare}{\begin{flushright} \rule{2mm}{2mm} \end{flushright}}
-\newcommand{\Bor}{\mbox{${\cal B}or$}}
-%Previous seems to be much finer than next.
-%\newcommand{\Bor}{{\it Bor}}
-\newcommand{\borelucrz}{Borel-UCR_0}
+\newcommand{\Bor}{\mbox{$\mathcal{Bor}$}}
 
 %C
 \newcommand{\ca}{2^{\omega}}
@@ -111,33 +104,40 @@
 \newcommand{\dummy}{{\tt Blah blah blah}}
 
 %E
+\newcommand{\ensembleDeFonctions}[2]{\prescript{#1}{}{#2}}
 \newcommand{\Even}{\hbox{\rm \tiny Even}}
 
-%a
+%F
 \newcommand{\finsub}{[\omega]^{<\omega}}
+\newcommand{\finbaire}{\omega^{<\omega}}
+\newcommand{\finincrbaire}{\omega^{< \omega \uparrow}}
 \newcommand{\forces}{\mathrel{\|}\joinrel\mathrel{-}}
 
 %G
 \newcommand{\Graph}{\hbox{\it Graph}}
+\newcommand{\Graphit}{{\mathit Graph}}
+\newcommand{\Graphh}{\operatorname{Graph}}
 
 %H
 \newcommand{\homeomorphic}{\approx}
 
 %I
-\newcommand{\incr}{\omega^{\uparrow \omega }}
+\newcommand{\incrbaire}{\omega^{\omega \uparrow}}
 \newcommand{\infsub}{[\omega]^{\omega}}
 
 %L
 \newcommand{\la}{\langle}
 
 %M
-\newcommand{\meager}{{\cal MGR}}
+\newcommand{\meager}{{\mathcal MGR}}
 \newcommand{\minideal}{${\cal F}_{\hbox{\rm \scriptsize min}}(\neg
   D)\;$}
 
 %N
-\newcommand{\neglig}{{\cal N}}
+\newcommand{\negligible}{\mathcal{N}}
+\newcommand{\Negligible}{\negligible}
 \newcommand{\nnatural}{\mathbb{N}}
+\newcommand{\ND}{\mathsf{ND}}
 
 %O
 \newcommand{\Odd}{\hbox{\rm \tiny Odd}}
@@ -151,53 +151,58 @@
 %Q
 %%%\newcommand{\qed}{{\hfill\vrule height6pt width6pt depth1pt\medskip}}
 %\newcommand{\qed}{\sharp}
-\newcommand{\QED}{\hspace{0.1in} \Box \vspace{0.1in}}
+%\newcommand{\QED}{\hspace{0.1in} \Box \vspace{0.1in}}
 
 %R
 \newcommand{\ra}{\rangle}
 \newcommand{\ran}{{\rm ran}}
 \newcommand{\rational}{\mathbb{Q}}
 \newcommand{\real}{\mathbb{R}}
-\newcommand{\restriction}{{\hbox{$\,|\grave{}\,$}}}
 
 %S
 \newcommand{\seq}{\subseteq}
 %%%\newcommand{\square}{\hbox{\ \ \ \ \ \vrule\vbox{\hrule\phantom{o}\hrule}\vrule}}
 % a small restriction:
 \newcommand{\srestriction}{{\hbox{${\scriptstyle\,|\grave{}\,}$}}}
+\newcommand{\supp}{\mathit{supp}}
 
 %U
 \newcommand{\up}{\uparrow}
-\newcommand{\ucrz}{UCR_0}
 
 %%%%%%%%%%%%%%%%%%%%%% Calligraphic font commands %%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\cA}{{\cal A}}
-\newcommand{\cB}{{\cal B}}
-\newcommand{\cC}{{\cal C}}
-\newcommand{\cD}{{\cal D}}
-\newcommand{\cE}{{\cal E}}
-\newcommand{\cF}{{\cal F}}
-\newcommand{\cG}{{\cal G}}
-\newcommand{\cH}{{\cal H}}
-\newcommand{\cI}{{\cal I}}
-\newcommand{\cJ}{{\cal J}}
-\newcommand{\cK}{{\cal K}}
-\newcommand{\cL}{{\cal L}}
-\newcommand{\cM}{{\cal M}}
-\newcommand{\cN}{{\cal N}}
-\newcommand{\cO}{{\cal O}}
-\newcommand{\cP}{{\cal P}}
-\newcommand{\cQ}{{\cal Q}}
-\newcommand{\cR}{{\cal R}}
-\newcommand{\cS}{{\cal S}}
-\newcommand{\cT}{{\cal T}}
-\newcommand{\cU}{{\cal U}}
-\newcommand{\cV}{{\cal V}}
-\newcommand{\cW}{{\cal W}}
-\newcommand{\cX}{{\cal X}}
-\newcommand{\cY}{{\cal Y}}
-\newcommand{\cZ}{{\cal Z}}
-
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+\newcommand{\calZ}{\mathcal{Z}}
+%%%%%%%%%%%%%%%%%%%%%% inne %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SqrFr}{\mathbb{SF}}
+\newcommand{\Primes}{\mathit{Primes}}
+\newcommand{\mathint}{\mathit{int}}
+\newcommand{\mathcl}{\mathit{cl}}
+\newcommand{\exampleGFnotK}{\mathit{Ex}}
 %%%%%%%%%%%%%%%%%%%%%% Some Greek fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\oo}{\omega}
 \newcommand{\bb}{\beta}
@@ -205,50 +210,124 @@
 \newcommand{\ee}{\varepsilon}
 \newcommand{\kk}{\kappa}
 %%%\newcommand{\th}{\theta}
+\newcommand{\stirlingii}{\genfrac{\{}{\}}{0pt}{}}
+%%% makra dla utworzenia monstrualnych kwantyfikatorow:
+\newcommand{\bigforall}{\mbox{\Large $\mathsurround0pt\forall$}}
+\newcommand{\bigexists}{\mbox{\Large $\mathsurround0pt\exists$}}
 
-\renewcommand\abstractname{Summary}
+%%%%%%%%% some common ideals:
+\newcommand{\nonPiecewiseSyndetic}{\mathrm{nPS}}
+\newcommand{\nonPiecewiseSyndeticSquare}{\nonPiecewiseSyndetic_{\square}}
+\newcommand{\nonPiecewiseSyndeticRectangle}{\nonPiecewiseSyndetic_{2}}
+\newcommand{\nonPiecewiseSyndeticFixedSizeRectangle}{\nonPiecewiseSyndetic_{n \times m}}
+\newcommand{\idealSumowalny}{\cI_{(\alpha_n)}}
+\newcommand{\idealHarmoniczny}{\cI_{\frac{1}{n}}}
+% to może będzie lepiej wyglądać
+\newcommand{\idealHarmonicznyVar}{\cI_{1/n}}
+\newcommand{\vanderWaerdenIdeal}{\mathrm{W}}
+\newcommand{\idealVanDerWaerdena}{\vanderWaerdenIdeal}
+\newcommand{\idealGestosciowy}{\mathcal{I}_d}
+\newcommand{\idealJednostajny}{\mathcal{I}_u}
+\newcommand{\idealHindmana}{\mathcal{H}}
+\newcommand{\sidonIdeal}{\mathcal{S}\mathit{i}}
+\newcommand{\differenceIdeal}{\mathcal{D}}
+\newcommand{\differenceIdealFin}{\mathcal{D}_{\mathit{fin}}}
+\newcommand{\idealLacunary}{\mathcal{L}\mathit{ac}}
+\newcommand{\idealAlmostThinSets}{\mathcal{A}}
+\newcommand{\idealThinSets}{\mathcal{T}}
+\newcommand{\idealFin}{{\mathrm Fin}}
+\newcommand{\idealChainsAntichains}{I_{\mathit{Ch}, \mathit{Anti}}}
+%%% ideały na drzewie :
+\newcommand{\idealLancuchyAntylancuchy}{\idealChainsAntichains}
+\newcommand{\idealHarmonicznyTree}{\cI^{\mathit{tree}}_{1/n}}
+\newcommand{\idealGestosciowyTree}{\cI^{\mathit{tree}}_{d}}
+\newcommand{\idealTraceTree}{\mathrm{tr}(\Negligible)}
 
+%%% zapozyczone z pracy o sigma-porowatych
+\newcommand{\Thick}{{\mathit Thick}}
+\newcommand{\ThickPlus}{{\Thick}^+}
+%%%%%%%%%%%%%%%%%%%%%%%% specjalne oznaczenia dla tej pracy:
+\newcommand{\EllentuckTopology}{\tau_\mathrm{El}}
+\newcommand{\EllentuckTopologyStar}{\EllentuckTopology^*}
+\newcommand{\EllentuckTopologyStarIdeal}{(\EllentuckTopologyStar)_{\calI}}
+\newcommand{\Split}{\mathrm{Split}}
+\newcommand{\lNawiasik}{\lParen}
+\newcommand{\rNawiasik}{\rParen}
+\newcommand{\notfinBW}{\neg \mathrm{finBW}}
+\newcommand{\Hechler}[2]{U_{#1,#2}}
+\newcommand{\EventuallyDifferent}[2]{\mathrm{ED}_{#1,#2}}
+\newcommand{\HechlerNative}{\tau_{\mathit{He}}^{(N)}}
+\newcommand{\HechlerInduced}{\tau_{\mathit{He}}^{(I)}}
+\newcommand{\EventuallyDifferentNative}{\tau_{\mathit{ED}}^{(N)}}
+\newcommand{\EventuallyDifferentInduced}{\tau_{\mathit{ED}}^{(I)}}
+\newcommand{\ffid}{\psi^{-1}}
+\newcommand{\INFZero}{\mathrm{INF}_0}
+\newcommand{\carre}{\mathit{sq}}
+
+% \renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
-%\makeatletter
-%{\newcount\@hour}
-%{\newcount\@minute}
-%\def\timenow{\@hour=\time \divide\@hour by 60
-%\number\@hour:
-%  \multiply\@hour by 60 \@minute=\time
-%  \global\advance\@minute by -\@hour
-%  \ifnum\@minute<10 0\number\@minute\else
-%  \number\@minute\fi}
-%\def\ctimenow{\hfil{\tt \jobname.tex, \today~Time: \timenow }\hfil}
-%      \let\@oddfoot\ctimenow\let\@evenfoot\ctimenow
-%\makeatother
+\makeatletter
+{\newcount\@hour}
+{\newcount\@minute}
+\def\timenow{\@hour=\time \divide\@hour by 60
+\number\@hour:
+  \multiply\@hour by 60 \@minute=\time
+  \global\advance\@minute by -\@hour
+  \ifnum\@minute<10 0\number\@minute\else
+  \number\@minute\fi}
+\def\ctimenow{\hfil{\tt \jobname.tex, \today~Time: \timenow }\hfil}
+      \let\@oddfoot\ctimenow\let\@evenfoot\ctimenow
+\makeatother
 
 \pagestyle{myheadings}
-%\markboth{{\bf Andrzej Nowik}}{\bf \today}
+\markboth{{\bf Andrzej Nowik}}{\bf \today}
 
-
-% Types message, asks the user to type in a command, then
-% defines \answer to be the input instead of executing it.
-%%% comment out if not needed (next 13 lines)
-%\typein[\answer]{Do you want to include comments? (y/n)}
-%
-%\newcommand{\annotation}[1]
-%  {
-%  \if\answer y {{\tt #1}}
-%  \fi
-%  }
-%
-%\if\answer y
-%\typeout{I shall INCLUDE comments.}
-%\else
-%\typeout{Comments will be NOT shown.}
-%\fi
-
+\newcommand{\comentario}[1]{\if\uwzglednicKomentarze t \marginpar{\tt #1} \fi}
 % To see corrections comment next line and uncomment the second one
 \newcommand{\correction}[2]{#1}
 % \newcommand{\correction}[2]{#2}
 
+\pagestyle{myheadings}
+% To see corrections comment next line and uncomment the second one
+
+\author{Andrzej Nowik}
+\address[]{
+Andrzej Nowik\\
+University of Gda\'nsk \\
+Institute of Mathematics \\
+Wita Stwosza 57,
+80--952 Gda\'nsk, Poland \\
+}
+\email[A.~Nowik]{andrzej.nowik@ug.edu.pl}
+
+\author{Patrick Reardon}
+\address[]{
+Patrick Reardon\\
+Department of Mathematics\\
+Southeastern Oklahoma State University\\
+1405 N. 4th Avenue\\
+Durant, OK 74701, USA\\
+}
+\email[P.~Reardon]{preardon@se.edu}
+
+\addbibresource{pismiennictwo_el_perf.bib}
 \begin{document}
+\title[
+% a brief title
+On the structure...
+]{
+%a full title
+On the structure of coideals in different topologies.
+}
+\keywords{topologia gestosci, topologia dyskretna, idealy}
+\subjclass[2010]{03E05, 54D05, 54H05, 54A05, 11A41, 11B05, 11B25}
+
+\begin{abstract}
+\dummy
+\end{abstract}
+
+\maketitle
 
 \begin{center}{\bf \Large
 \dummy
@@ -261,10 +340,11 @@
 %                                                                         %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A problem with the dominating topology:
+\section{Introduction}
+
 Let us consider the following two spaces:
 $\omega^\omega$ and $\omega^{\omega\uparrow}$.
-Of course, they are homeomorphic by the standard
+It is obvious that they are homeomorphic by the standard
 homeomorphism: 
 $\psi \colon \omega^\omega \to \omega^{\omega\uparrow}$ defined
 by the following:
@@ -344,18 +424,436 @@ Or perhaps they have the same Baire sets?
 Or perhaps they have the same meager sets?
 \end{question}
 
+
+\section{The Hechler topology}
+
+Following \cite{LabedzkiRepicky1995} let us define for $s \in \finbaire$,
+$f \in \baire$ such that $s \subseteq f$:
+\[
+  \Hechler{s}{f} = \lbrace x \in \baire\colon s \subseteq x \wedge \forall_{k \geq |s|} f(k) \geq x(k)\rbrace.
+\]
+\todo{
+I suggest (as is done in the LabędzkiRepicky paper) using ($\omega$) left-associatively.}
+
+Let us recall Lemma 1.1 from \cite{LabedzkiRepicky1995}:
+\begin{lemma}
+  The family
+  \[\lbrace \Hechler{s}{f} \colon s \in \finbaire,
+    f \in \baire, s \subseteq f\rbrace\]
+  is a base of a topology.
+  We call it {\it the Hechler topology} or {\it The eventually dominating topology}.
+  Moreover, every base set $\Hechler{s}{f}$ is clopen in this topology.
+\end{lemma}
+
+Let us define the following bijection 
+$\psi \colon \baire \to \incrbaire$, for
+$x \in \baire$ define
+$\psi(x)(n) = \sum_{k = 0}^n x(k) + n$, then
+obviously $\psi(x) \in \incrbaire$.
+
+Note that the inverse function $\ffid$ is given by the following
+formula: 
+\[
+\ffid(\mu)(k) =
+\begin{cases}
+\mu(k) - \mu(k - 1) - 1 & \text{for } k > 0,\\
+\mu(0) & \text{for } k = 0.
+\end{cases}
+\]
+
+%%%Also we have: $(\ffid)^{-1}(f)(k) = \sum_{j=0}^k f(j) + k$.
+Notice that we can also define $\psi(\tau)$
+for a finite sequence $\tau\in\finbaire$ in the natural
+manner, so $\psi\colon\finbaire\to\finincrbaire$ is a bijection.
+
+On the set $\incrbaire$ we can define two different topologies:
+the first is generated by the base sets of the form
+$\psi[\Hechler{s}{f}]$
+and we call it {\it the native Hechler topology} and
+we denote it by $\HechlerNative$, and the second is generated by the basis
+of the form $\incrbaire \cap \Hechler{s}{f}$ for
+all $s \in \finbaire, f \in \baire, s \subseteq f$
+such that $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$. 
+and we call it {\it the induced Hechler topology}
+and we denote it by $\HechlerInduced$.
+
+\begin{theorem} We have
+$\HechlerInduced \subseteq \HechlerNative$ (so the ``native'' Hechler
+topology is stronger).
+\end{theorem}
+\begin{proof}
+Indeed, if $\Hechler{s}{f} \cap \incrbaire \not=\emptyset$
+and if $\mu \in \Hechler{s}{f} \cap \incrbaire$, then
+if $g \in \Hechler{\ffid(s)}{\ffid(\mu)}$ then
+$\ffid(s) \subseteq g$, so $s \subseteq \psi(g)$.
+Moreover, since $\ffid(\mu) \leq g$, we have
+$\mu \leq \psi(g)$. This means that
+$\psi(g) \in \Hechler{s}{\mu} \subseteq \Hechler{s}{f}$.
+Thus $\mu \in \ffid[\Hechler{\ffid(s)}{\ffid(\mu)}] \subseteq
+  \Hechler{s}{f} \cap \incrbaire$.
+\end{proof}
+
+\begin{claim}
+  \label{claim:about-inf-0}
+  Let $\INFZero = \lbrace x \in \baire\colon \exists_j^\infty x(j) = 0\rbrace$
+Then for each $\Hechler{s}{f}$ such that
+$\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
+we have
+$\ffid[\Hechler{s}{f} \cap \incrbaire] \cap \INFZero \not= \emptyset$.
+\end{claim}
+\begin{proof}
+  Since $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
+we know that $s \in \finincrbaire$, we may also assume that
+$s \subseteq f$ and $f \in \incrbaire$. Find $\mu \in \incrbaire$
+such that $\mu \in \Hechler{s}{f}$ and
+$\exists_j^\infty \mu(j) + 1 = \mu(j + 1)$.
+Then $\exists_j^\infty \ffid(\mu)(j) = 0$,
+hence $\ffid(\mu) \in \INFZero$.
+\end{proof}
+
+\begin{corollary}
+  $\psi[\INFZero] \not\in \ND(\HechlerInduced)$. Moreover,
+  $\psi[\INFZero] \not\in \meager(\HechlerInduced)$.
+  \todo{Prove the latter using Claim \ref{claim:about-inf-0}.}
+\end{corollary}
+
+\begin{proof}
+  By virtue of Claim \ref{claim:about-inf-0}
+we know that if   
+$\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
+then
+$\Hechler{s}{f} \cap \incrbaire \cap \psi[\INFZero] \not= \emptyset$.
+So $\psi[\INFZero]$ meets each base neighbourhood of the
+topology $\HechlerInduced$, hence 
+$\psi[\INFZero] \not\in \ND(\HechlerInduced)$.
+\end{proof}
+
+\begin{corollary}
+$\HechlerNative \not\subseteq \HechlerInduced$.
+\end{corollary}
+
+\begin{proof}
+It is easy to observe that 
+$\INFZero \cap \Hechler{\emptyset}{\underline{\bf 1}} = \emptyset$.
+By Claim \ref{claim:about-inf-0} we obtain that
+$\ffid[\Hechler{s}{f} \cap \incrbaire] \not\subseteq \Hechler{\emptyset}{\underline{\bf 1}}$.
+Since $\Hechler{\emptyset}{\underline{\bf 1}}$ is a Hechler base neighbourhood,
+this proves the claim of the corollary.
+\end{proof}
+
+\begin{theorem}\label{thm:Hechler-induced-Ellentuck}
+$\HechlerInduced \subseteq \EllentuckTopology$.
+\end{theorem}
+\begin{proof}
+  Let $\Hechler{t}{f}$ be a Hechler neighborhood and suppose
+  that $x \in \Hechler{t}{f} \cap \incrbaire$. Then
+  define: $s = \lbrace t(n) \colon n < |t|\rbrace \in \finsub$
+  and $A = \lbrace x(n) \colon n \in \omega\rbrace \setminus s$.
+  Let $B \in [s,A]$. Then $s \subseteq B \subseteq s \cup A$.
+  We have: $s(k) = B(k)$ for $k < |t|$ and since
+  $s \cup A = \lbrace x(n) \colon n \in \omega\rbrace$,
+  $x(k) \leq B(k)$ for $k \geq |t|$. Hence
+  $(B(k))_{k\in\omega} \in \Hechler{t}{f}$.
+\end{proof}  
+Let us summarize those inclusions in the
+form of the diagram below:
+
+\begin{tikzcd}
+& \HechlerNative\\ 
+ \HechlerInduced \arrow[ur] \arrow[dr] &  \\
+   & \EllentuckTopology \\
+\end{tikzcd}
+
+\begin{theorem}
+$\HechlerNative \not\subseteq \EllentuckTopology$.
+\end{theorem}
+\begin{proof}
+  Define $x \in \baire$ as follows:
+  \[
+    x(n) = 
+\begin{cases}
+10 & \text{ if } \neg(2 | n) \\
+0 & \text{ if } 2 | n.
+\end{cases}
+\]
+Let $\mu = \psi(x) \in \incrbaire$
+and let $A = \lbrace \mu(k) \colon k \in \omega\rbrace$.
+Let us fix $n_0 \in \omega$. Let us consider the
+Ellentuck neighbourhood
+$[A \cap n_0, A \setminus n_0] \subseteq [A]^\omega$.
+We will show that
+$[A \cap n_0, A \setminus n_0] \not\subseteq \psi[\Hechler{\emptyset}{x}]$.
+We will construct $B \in [A]^\omega$ such that
+$B \in [A \cap n_0, A \setminus n_0]$ (i.e.
+$A \cap n_0 \subseteq B \subseteq A$)
+and such that $(B(n))_{n\in\omega} \not\in
+\psi[\Hechler{\emptyset}{x}]$.
+
+Let us consider two cases:
+Define $n_1 = \min (A \setminus n_0)$. Let $k_1$ be such
+that $A(k_1) = n_1$.
+Define
+$B = A \setminus\lbrace n_1 \rbrace = (A \cap n_0) \cup \rbrace A(k) \colon
+k \geq k_1 + 1\lbrace$.
+It is easy to see that
+
+\[
+    B(k) = 
+\begin{cases}
+A(k) & \text{ if } k < k_1 \\
+A(k + 1) & \text{ if } k \geq k_1.
+\end{cases}
+\]
+
+In particular:
+$B(k_1) = A(k_1 + 1), B(k_1 + 1) = A(k_1 + 2), B(k_1 + 2) = A(k_1 + 3)$.
+
+\flushleft{Case 1:} $|A \cap n_0|$ is an even number.
+Then $k_1$ is even.
+Hence 
+$\ffid((B(n))_{n\in\omega})(k_1 + 1) = B(k_1 + 1) - B(k_1) - 1
+= A(k_1 + 2) - A(k_1 + 1) - 1 = \mu(k_1 + 2) - \mu(k_1 + 1) - 1 = x(k_1 + 2) = 0$.
+Therefore $\ffid((B(n)_{n\in\omega})) \not\in \Hechler{\emptyset}{x}$,
+since $\ffid((B(n)_{n\in\omega}))(k_1 + 1) = 0 < x(k_1 + 1) = 10$.
+
+\flushleft{Case 2:} $|A \cap n_0|$ is an odd number.
+Then $k_1$ is odd.
+Hence 
+$\ffid((B(n))_{n\in\omega})(k_1 + 2) = B(k_1 + 2) - B(k_1 + 1) - 1
+= A(k_1 + 3) - A(k_1 + 2) - 1 = \mu(k_1 + 3) - \mu(k_1 + 2) - 1 = x(k_1 + 3) = 0$.
+Therefore $\ffid((B(n)_{n\in\omega})) \not\in \Hechler{\emptyset}{x}$,
+since $\ffid((B(n)_{n\in\omega}))(k_1 + 2) = 0 < x(k_1 + 2) = 10$.
+
+\end{proof}
+
+Note that in the language of the Hechler topology,
+quite a few classical properties can be expressed, for example, recall:
+
+\begin{definition} (see \cite{Mokobodzki19671968})
+A filter $\calF \subseteq P(\omega)$ is {\it rapid}
+iff for each $f \colon \omega\to\omega$
+there exists $A \in \calF$ such that
+$\forall_n f(n) < A(n)$.
+\end{definition}
+
+It is easy to compute that for any ideal $\calI$,
+$\calI^+$ is rapid if and only if
+$\calI^+$ is a dense set in the topology $\HechlerInduced$.
+\todo{Recalculate it!!!}
+
+Also, recall the notion of {\it increasing-invariant} ideals,
+(see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2,
+or \cite{Kwela2018}, Definition 1):
+An ideal $\cI$ is increasing-invariant if for every $B \in \cI$ and
+$C$, if $\forall_n |C \cap n| \leq |B \cap n|$, then $C \in \cI$.
+Equivalently, for any $\mu \in \incrbaire$ and $B \in \cI$,
+$\mu[B] \in \cI$.
+
+The notion of increasing-invariant is equivalent \todo{Recalculate it!}
+to the condition that $\cI^+$ is a closed set in the topology $\HechlerInduced$.
+
+\section{The Eventually Different Functions Topology}
+
+Following \cite{Labedzki1996} let us define for $s \in \finbaire$,
+and a finite $F \subseteq \baire$ such that
+$\forall_{f \in F} \forall_{k < |s|} s(k) \not= f(k)$:
+\[\EventuallyDifferent{s}{F} =
+\lbrace x \in \baire\colon
+s \subseteq x \wedge \forall_{f \in F} \forall_{k \geq |s|} f(k) \not= x(k)\rbrace\]
+\todo{A remark as in the case of the Hechler topology: I suggest
+  (as is done in the LabędzkiRepicky paper) using ($\omega$) left-associatively.}
+For simplicity of notation, instead of
+$\EventuallyDifferent{s}{\lbrace g_1, \ldots, g_L\rbrace}$
+we just write 
+$\EventuallyDifferent{s}{g_1, \ldots, g_L}$.
+
+Let us recall Lemma 1.1 from \cite{Labedzki1996}:
+\begin{lemma}
+  The family $\lbrace \EventuallyDifferent{s}{F} \colon s \in \finbaire,
+  F \subseteq \baire, |F| < \aleph_0,
+  \forall_{f \in F} \forall_{k < |s|} s(k) \not= f(k)\rbrace$
+  is a base of a topology.
+  We call it {\it the Eventually Different Functions topology}
+  \todo{Check whether the analogous statement is true here, as in the case of the Hechler topology, namely:
+Moreover, every base set $\EventuallyDifferent{s}{F}$ is clopen in this topology.}
+\end{lemma}
+
+Also, same like in the case of the Hechler topology,
+on the set $\incrbaire$ we can define two different topologies:
+the first is generated by the base sets of the form
+$\psi[\EventuallyDifferent{s}{F}]$
+and, analogously like in the Hechler case,
+we call it {\it the native Eventually Different Functions topology} and
+we denote it by $\EventuallyDifferentNative$, and the second is generated by the basis
+of the form $\incrbaire \cap \EventuallyDifferent{s}{f}$ for
+all $s \in \finbaire, F \subseteq \baire, |F| < \aleph_0,
+\forall_{f \in F} \forall_{k < |s|} s(k) \not= f(k)\rbrace$
+such that $\incrbaire \cap \EventuallyDifferent{s}{f} \not= \emptyset$. 
+and we call it {\it the induced Eventually Different Functions topology}
+and we denote it by $\EventuallyDifferentInduced$.
+
+We have:
+\begin{lemma}
+Suppose that 
+$\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire \not= \emptyset$
+and $h \in \baire$. Then 
+\[\ffid[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire] \not\subseteq
+\EventuallyDifferent{\emptyset}{h}.\]
+Hence 
+\[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire \not\subseteq
+\psi[\EventuallyDifferent{\emptyset}{h}].\]
+\end{lemma}
+\begin{proof}
+  It is sufficent to find
+  $x \in \EventuallyDifferent{s}{g_1, \ldots, g_L}$ such that
+  for $k := |s|$ we have
+  $x(k + 2) = x(k + 1) + h(k + 1) + 1$.
+\end{proof}
+\begin{corollary}
+ $\EventuallyDifferentNative \not\subseteq \EventuallyDifferentInduced$.
+\end{corollary}
+
+We have also
+\begin{lemma}
+  Denote $\carre(k) = k^2$. Then
+for each $s \in \finbaire$, $g_1,\ldots, g_L \in \baire$
+we have
+\[
+  \psi [\EventuallyDifferent{s}{g_1, \ldots, g_L}]
+  \not\subseteq \EventuallyDifferent{\emptyset}{\carre}\cap\incrbaire.
+\]
+\end{lemma}
+\begin{proof}
+  We construct $x \in \EventuallyDifferent{s}{g_1, \ldots, g_L}$ by induction.
+  Let us denote\linebreak $\hat{s} = \sum_{j=0}^{|s| - 1} s(j)$.
+  Obviously, put $x \restriction |s| = s$. Next, for
+  each $k \geq |s|$ we can find
+  $a \in \lbrace 0, \ldots, L\rbrace \setminus \lbrace g_1(k), \ldots, g_L(k)\rbrace$
+  and then define $x(k) := a$.
+  Choose $K > |s|$ such that
+  \begin{equation}\label{eq:warunek-carre}
+  (K + 1)^2 > 2L + 2 + \hat{s} + (L + 1)K.
+  \end{equation}
+  We proceed in that way for $|s| \leq k < K$,
+  and notice that we have
+  $\psi(x\restriction K)(K - 1) = \sum_{j=0}^{K-1} x(j) + K - 1$.
+  We are going to find $z, w \in \omega$ to define
+  $x(K) = z$, $x(K + 1) = w$.
+  We require that
+  \begin{equation}\label{eq:warunek-pudelkowy}
+    \begin{cases}
+      z \not\in \lbrace g_1(K),\ldots, g_L(K)\rbrace,\\
+      w \not\in \lbrace g_1(K + 1),\ldots, g_L(K + 1)\rbrace.
+     \end{cases}
+  \end{equation}
+  We also demand that
+  $\psi(x \restriction (K + 2)) (K + 1) = (K + 1)^2$.
+  This mean that we want that
+  \[
+   \sum_{j = 0}^{K - 1} x(j) + z + w + (K + 1) = (K + 1)^2,
+  \]
+  so we want
+  \[
+    z + w = (K + 1)^2 - (K + 1) - \sum_{j = 0}^{K - 1} x(j).
+  \]
+  We have
+  $\sum_{j = 0}^{K - 1} x(j) = \sum_{j = 0}^{|s| - 1} x(j) +  \sum_{j = |s|}^{K - 1} x(j)
+  \leq \hat{s} + K \cdot L$.
+  Note that
+\[
+  (K + 1)^2 - (K + 1) - \sum_{j = 0}^{K - 1} x(j) \geq
+  (K + 1)^2 - (K + 1) - \hat{s} - K \cdot L > 2\cdot L + 1,
+\]
+by the condition (\ref{eq:warunek-carre}).
+So $w = (K + 1)^2 - (K + 1) - \sum_{j = 0}^{K - 1} x(j) - z$
+and we require that $z \leq  (K + 1)^2 - (K + 1) - \sum_{j = 0}^{K - 1} x(j) > 2 \cdot L + 1$.
+Therefore we can find such $z$ which fulfills condition (\ref{eq:warunek-pudelkowy}).
+Next we put $x(K) = z$, $x(K + 1) = w$ and then extend $x$ arbitrarily
+(but still ensuring to avoid the functions $g_1, \ldots, g_L$).
+\end{proof}
+\begin{corollary}
+$\EventuallyDifferentInduced \not\subseteq \EventuallyDifferentNative$.
+\end{corollary}
+
+\flushleft{{\bf Question:}}
+For any reasonable ideal find the Borel class of it in the
+four topologies:
+$
+\HechlerNative, \HechlerInduced, \EventuallyDifferentInduced, \EventuallyDifferentNative.
+$.
+
+We have:
+\begin{theorem}\label{sigma-porous-is-not-Hechler-open}
+  Suppose that an ideal $\calI \subseteq P(\omega)$ different from $\idealFin$
+  is $\sigma-porous$ - which is equivalent, see \cite{KlingaNowikWasik2025}, to
+  the condition that $\calI \subseteq \ThickPlus$ - then $\calI$
+  is not closed in $\HechlerInduced$.
+\end{theorem}
+\begin{proof}
+  Suppose by way of contradiction that
+  $\calI$ is open in $\HechlerInduced$.
+  Take any $A \in \calI \setminus \idealFin$.
+  Find $m \in \omega$ such that
+  $\Hechler{(A(n)) \restriction m}{(A(n))} \subseteq \calI$,   
+  \todo{
+    This inclusion is between different spaces, namely $\incrbaire$ and $\infsub$.
+    A clarifying explanation is essential here!}
+  It is easy to find
+  an increasing sequence  $b_0 < b_1 < \ldots$
+  such that
+$\forall_{n < m} a_n = b_n$, 
+  $\forall_{n} a_n \leq b_n$ and the set
+  $B = \lbrace b_n \colon n \in \omega\rbrace \in \Thick$.
+  Then $B \in \Hechler{(A(n)) \restriction m}{(A(n))} \setminus \calI$,
+  which is a contradiction.
+\end{proof}
+
+Let us cite \cite{KwelaPoplawskiSwaczynaTryba2019}, Proposition 11:
+{\it Each simple density ideal is increasing-invariant}
+
+\begin{corollary}
+  The density ideal $\idealGestosciowy$ is open in the
+  topology $\HechlerInduced$ so also in $\HechlerNative$.
+\end{corollary}
+
+  For completeness, we give an independent very simply proof of this fact:
+\begin{proof}
+  It is sufficent to observe that if $A \in \idealGestosciowy$
+and if $A(n) \leq B(n)$ for some $B \in \infsub$
+then $|B \cap [0, m)| \leq |A \cap [0, m)|$, therefore
+$\Hechler{\emptyset}{(A(n))} \subseteq \idealGestosciowy$.
+\end{proof}
+
+\begin{theorem}
+  The lacunary ideal $\idealLacunary$ is open in the topology
+$\HechlerNative$ but not in $\HechlerInduced$.  
+\end{theorem}
+
+\begin{proof}
+  Since $\idealLacunary \subseteq \ThickPlus$ by Theorem \label{sigma-porous-is-not-Hechler-open}
+we must only verify that it is open in $\HechlerNative$. Suppose that
+we have set $A$ which is a disjoint sum of sets: $A = A_1 \cup\ldots\cup A_r$
+such that $\lim_{n\to\infty} A_j(n + 1) - A_j(n) = \infty$.
+Suppose that $B \in \infsub$ is such that
+$A(0) \leq B(0)$, $A(n + 1) - A(n) \leq B(n + 1) - B(n)$.
+Then $B$ is also a finite sum of lacunary sets,
+\todo{Perhaps it would be worth elaborating on the explanation a little here?}
+thus $\psi[\Hechler{\emptyset}{\ffid((B(n)))}] \subseteq \idealLacunary$.
+\end{proof}
+
+
 \newpage
 Take the dominating topology as the base topology on 
 $\baire$. \\
-\\
+
 Say a set is $\psi$-open if it is the image of 
 an open set under $\psi$.\\
-\\
+
 {\bf Fact.}
-Every relative open set in $\incr$ is $\psi$-open.\\
-\bp
-Let $U$ be a basic relative open subset of $\incr$, 
-say $U = [N, f] \cap \incr$,
+Every relative open set in $\incrbaire$ is $\psi$-open.\\
+\begin{proof}
+Let $U$ be a basic relative open subset of $\incrbaire$, 
+say $U = [N, f] \cap \incrbaire$,
 where $f$ is in $\baire$.
 Note that if $f|N$ is not increasing, then $U$ is empty, 
 so we may assume it is increasing. 
@@ -381,18 +879,18 @@ U = \cup_{g\in U} \;\psi\left([N, \psi^{-1}(g)]\right)
 	= \psi\left(  \cup_{g\in U} [N, \psi^{-1}(g)] \right).
 $$
 Therefore $U$ is $\psi$-open.
-\ep
+\end{proof}
 
 \noindent
 {\bf Fact.}
 There is a basic $\psi$-open set that's not a relative open set.\\
-\bp
+\begin{proof}
 Define $f \in\baire$ by $f(2k) = 4k$ and $f(2k+1) = 4k + 3$.
 %$g(2k) = 4k + 1$, and $g(2k+1) = 4k + 2$.
 
 Suppose the basic $\psi$-open set 
 $$
-\psi [N,f] = \bigcup_{h\in \cI} [N_h,h] \cap \incr,
+\psi [N,f] = \bigcup_{h\in \cI} [N_h,h] \cap \incrbaire,
 $$
 i.e. is relatively open, where $\cI\subseteq \baire$ is a 
 suitably chosen index set.
@@ -409,57 +907,25 @@ for infinitely many $n$.)
 
 
 Thus $h \le \psi(f) \le \psi(g)$ implies that 
-$\psi(g) \in [N_h, h] \cap \incr \subseteq \psi[N,f]$.
+$\psi(g) \in [N_h, h] \cap \incrbaire \subseteq \psi[N,f]$.
 But $g\notin [N,f]$ and $\psi$ is 1-1, a contradiction.
-\ep
+\end{proof}
 
 \noindent
 Conclusion:
 If these two proofs are correct, then 
 the $\psi$-generated topoology
 strictly refines the relative topology.\\
-\\
-Question: $\psi[\emptyset,\overline{0}] = \incr$. 
+
+Question: $\psi[\emptyset,\overline{0}] = \incrbaire$. 
 Is $\psi[N,f]$ dense in $[N,\psi(f)]$ for every $f$?
 For what $f$ does $\psi[N,f]$ have {\em any} 
 ``largeness/smallness'' properties?
 
 \newpage
 \newcommand{\inversepsi}{\psi^{-1}}
-\section{more stuff}
-A {\bf  recursive formula} for $\inversepsi:\incr\to\baire$. 
-Supppose that $h\in\incr$. Then
-$\inversepsi(h)(0) = h(0)$, and for all $n\ge 1$,
-$$
-\inversepsi(h)(n) = h(n) - h(n-1) - 1.
-$$
-\bp
-For $n=0$, it's easy to see that $\inversepsi(h)(0) = h(0)$, 
-because 
-$$
-h(0) = \psi(\inversepsi(h)(0))) = \inversepsi(h)(0) + 0.
-$$
-For $n=1$, $\inversepsi(h)(1) = h(1) - h(0)  - 1$, 
-because 
-$$
-h(1) = \psi(\inversepsi(h))(1) = \inversepsi(h)(0) + \inversepsi(h)(1) + 1
-	= h(0) + \inversepsi(h)(1) + 1.
-$$
-In general suppose it's true for $n<\oo$.
-\begin{eqnarray*}
-h(n+1) &= &\psi(\inversepsi(h)(n+1)) = \inversepsi(h)(n+1)
-	+ \left(\sum_{k=0}^n \inversepsi(h)(k) \right) + n+1 \\
-	&=& \inversepsi(h)(n+1) 
-	+ \left( h(0) + \sum_{k=1}^n [h(k) - h(k-1) - 1]\right)
-	+ n + 1 \\
-	&=& \inversepsi(h)(n+1) )+ h(n) + 1.
-\end{eqnarray*}
-It follows that
-$$
-\inversepsi(h)(n+1) = h(n+1) - h(n) - 1.
-$$
-\ep
 
+\section{more stuff}
 \noindent
 {\bf Another formula.} For $n\ge 0$, \\
 $$
@@ -480,9 +946,9 @@ $$
 \newpage
 \noindent
 {\bf   Question.}
-Suppose that $f\in\baire$ and $h\in\incr$.
+Suppose that $f\in\baire$ and $h\in\incrbaire$.
 Under what conditions is $\inversepsi(h) \ge f$?\\
-\\
+
 %For convenience, define $h(-1) = -1$.
 %The  
 %statement
@@ -500,16 +966,16 @@ on any final segment of $\oo$.
 
 An earlier example was constructed to show that $\psi([N,f])$
 is  not necessarily open. The next proposition generalizes this.\\
-\\
+
 {\bf Proposition.} [editted on Oct 16].
 For every $f\in \baire$ that doesn't terminate in $0$'s,
 the image $\psi([\emptyset,f])$ doesn't
 contain an open set.
-\bp
+\begin{proof}
 Let $A= \{n:\;f(n) \not=0\}$ with the standard increasing enumeration
 $(a_k:\;k<\oo)$.
 Set $A_{Od} = \{a_{2k+1}:\;k<\oo\}$ and
-suppose that $M<\oo$ and $g\in\incr$.
+suppose that $M<\oo$ and $g\in\incrbaire$.
 %suppose that $[M,g]$ is a basic open set.
 %et $[M,g]\subseteq \psi([\emptyset,f])$ 
 %be an arbitrary open set.
@@ -541,7 +1007,7 @@ $$
 Thus $(\exists^\infty n)\;\inversepsi(h)(n) < f(n)$,
 and it follows that $\inversepsi(h)\notin [\emptyset,f]$.
 Therefore $h \in [M,g] \setminus \psi([\emptyset,f])$.
-\ep
+\end{proof}
 
 
 \section{Added Sat, Oct 16 - Sunday, Oct 17} 
@@ -551,41 +1017,41 @@ Therefore $h \in [M,g] \setminus \psi([\emptyset,f])$.
 %throughout, and the proof goes through as before.\\
 %\\
 Note 1: Since $g$ in the proof could be {\em any} function
-in $\incr$, the collection of functions $h
+in $\incrbaire$, the collection of functions $h
 \notin \psi([\emptyset, f])$ is dense.\\
-\\
+
 Note 2: The proposition applies to a co-countable subset of $\baire$.\\
-\\
+
 {\bf Corollary.} 
 If $f\in\baire$ is not eventually zero, then
 $\psi([\emptyset, f])$ is co-dense.\\
-\\
+
 {\bf Questions.}
 Is $\psi([\emptyset,f])$ closed? Is the $\psi$ topology ccc?
 Is the $\psi$ topology a Baire space?\\
-\\
+
 {\bf Corollary.}
 If $\psi([N, f])$ is closed, then it's nowhere dense.
-\bp
+\begin{proof}
 If $\psi([N, f])$ is closed and dense in some open $[M,g]$,
 then it contains $[M,g]$, a contradiction
-\ep
+\end{proof}
 
 \noindent
 {\bf Fact.}
 The $\psi$ topology is ccc.
-\bp
+\begin{proof}
 Every $\psi$-open set pulls back to an open set in $\baire$
 and the dominating topology is ccc.
-\ep
+\end{proof}
 
 \noindent
 {\bf Fact.}
 $\psi$ is order preserving but $\inversepsi$ is not.\\
-\\
+
 {\bf Fact.} Basic open sets $[N,f]$ and $[M,g]$ are disjoint
 if and only if $f|N\perp g|M$.
-\bp
+\begin{proof}
 The ``if'' direction is trivial, for if 
 $f|N\perp g|M$, then $h\in [N,f]$ implies $h|N \not= g|M$.
 For the other direction, suppose $f|N$ is compatible with $g|M$ and
@@ -593,13 +1059,13 @@ WLOG that $f|N \subseteq g|M$ (if not just rename $f$ and $g$).
 Define $h|M = g|M$ and $h = f\vee g$ for $n\ge M$. 
 Clearly $\forall^\infty n, f(n) \le h(n)$ and $g(n) \le h(n)$.
 In addition, $h|N = f|N$ and $h|M = g|M$, so $h \in [N,f]\cap [M,g]$.
-\ep
+\end{proof}
 
 \noindent
 {\bf Questions.}
 If $f,g\in\baire$ correspond to (almost) disjoint subsets of $\oo$,
 what can we say about $\psi(f)$ and $\psi(g)$? What if $f\le g$?\\
-\\
+
 Answer: Not much. The particular examples of $f$ and $g$ in a previous proof
 correspond to disjoint sets, and $\psi(f) \le \psi(g)$. On the other
 hand, it would be easy to construct disjoint $f$ and $g$ such
@@ -607,13 +1073,13 @@ that $\psi(f)(n) < \psi(g)(n)$ infinitely often and
 $\psi(f)(n) > \psi(g)(n)$ infinitely often.
 However, if $f\le g$ then $\psi(f)\le \psi(g)$.
 What else??\\
-\\
+
 {\bf Theorem.}
 For all $f\in\baire$ and $N <\oo$, 
 $\psi([N, f])$ is dense in $[N, \psi(f)]$,
 and if $f$ doesn't terminate in $0$'s, then it's
 co-dense as well.
-\bp
+\begin{proof}
 The part about co-density has been shown above.
 To show it's dense,
 %For convenience, we assume WLOG that $N\ge 1$.  
@@ -632,32 +1098,32 @@ $h(n) = g(n) + h(n-1) + f(n)$.
 (We use $n\ge M+1$ to make sure that $n\not=0$.) 
 Then for $n\ge M+1$ we have 
 $\inversepsi(h)(n) = h(n) - h(n-1) - 1 = f(n) + g(n) - 1 \ge f(n)$.
-\ep
+\end{proof}
 
 \noindent
 {\bf Corollary.}
 Suppose $f\in \baire$ doesn't terminate in $0$'s and $N<\oo$. Then
 $\psi([N,f])$ is neither open nor closed.
-\bp
+\begin{proof}
 It's not open by a previous result and if 
 it was closed then it would contain $[N,\psi(f)]$ since it's dense
 in $[N,\psi(f)]$.
 This is a contradiction.
-\ep
+\end{proof}
 
 \noindent
 {\bf Conjecture.}
 $\psi$ is  not continuous, although it is clearly $\psi$-continuous.
-\bp
+\begin{proof}
 If a basic open set pulls back to an open set, 
 then it's $\psi$ image is ?? not open ?? if $f$ isn't eventually $0$.
 Clearly it doesn't pull back to a basic open set.
 
 Suppose $\inversepsi([N,g])$ is open. .....
-\ep
+\end{proof}
 
 \noindent
 {\bf Conjecture.} The $\psi$-topology is a Baire space.
 
-
+\printbibliography
 \end{document}
