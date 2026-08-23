@@ -1,0 +1,663 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                       %
+%                          TEMPLATE                                     %
+%                                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[12pt]{article}
+
+%---------------------------------------------------------------------
+% AMS packages 
+%---------------------------------------------------------------------
+ 
+% Packiet loaded automatically by amsart:
+%  1. amsmath, 2. amsthm, 3. amsfonts.
+ 
+%\usepackage{amssymb}
+%\usepackage{amsmath}
+ 
+% *** 'amsfonts': 
+% boldface of the symbol of the real line: 'R'
+\usepackage{amsfonts}
+ 
+% *** 'amsthm': 
+% 1. makes easy to modify the macro: \newtheorem{}{} since contains
+% \theoremstyle{}
+% 2. contains macro: \begin{proof} ... \end{proof}
+\usepackage{amsthm} 
+
+
+%%%%%%%%%%%%%%% Polish letter packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[polish]{babel}
+%\usepackage[latin2]{inputenc}
+%\usepackage{t1enc}
+ 
+%---------------------------------------------------------------------
+% Theorems 
+%---------------------------------------------------------------------
+ 
+% Theorem style 'plain' are for: Theorem, Lemma, Corollary, 
+% Proposition, Conjecture, Criterion, Algorithm  
+\theoremstyle{plain} 
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{lemma}[theorem]{Lemma} 
+\newtheorem{question}[theorem]{Question}
+\newtheorem{corollary}[theorem]{Corollary} 
+\newtheorem{conclusion}[theorem]{Corollary} 
+\newtheorem{claim}[theorem]{Claim} 
+\newtheorem{fact}[theorem]{Fact} 
+\newtheorem{proposition}[theorem]{Proposition} 
+\newtheorem{axiom}{Axiom} 
+ 
+% Theorem style 'definition' are for: Definition, Condition, Problem, 
+% Example 
+ 
+\theoremstyle{definition} 
+\newtheorem{definition}[theorem]{Definition} 
+\newtheorem{example}[theorem]{Example} 
+\newtheorem{exercise}{Exercise} 
+\newtheorem*{solution}{Solution} 
+ 
+% Theorem style 'remark' are for: Remark, Note, Notation, Claim, 
+% Summary, Acknowledgement, Case, Conclusion 
+ 
+\theoremstyle{remark} 
+\newtheorem*{remark}{Remark} 
+\newtheorem*{notation}{Notation} 
+\newtheorem*{acknowledgement}{Acknowledgement} 
+
+%%%%%%%%%%%%%%%%%  The previous one %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{observation}[theorem]{Observation}
+%\newtheorem{conclusion}[theorem]{Conclusion}
+%\newtheorem{question}[theorem]{Question}
+%\newtheorem{problem}[theorem]{Problem}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{definition}[theorem]{Definiton}
+%\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{fact}[theorem]{Fact}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{remark}[theorem]{Remark}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%A
+\newcommand{\afc}{AFC}
+\newcommand{\afcbar}{\overline{AFC}}
+\newcommand{\arr}{\rightarrow}
+\newcommand{\Arr}{\Rightarrow}
+\newcommand{\bp}{\begin{proof}}
+\newcommand{\ep}{\end{proof}}
+
+%B
+\newcommand{\baire}{\omega^{\omega}}
+\newcommand{\blacksquare}{\begin{flushright} \rule{2mm}{2mm} \end{flushright}}
+\newcommand{\Bor}{\mbox{${\cal B}or$}}
+%Previous seems to be much finer than next.
+%\newcommand{\Bor}{{\it Bor}}
+\newcommand{\borelucrz}{Borel-UCR_0}
+
+%C
+\newcommand{\ca}{2^{\omega}}
+\newcommand{\cantor}{\ca}
+\newcommand{\Card}[1]{\Vert #1 \Vert}
+
+%D
+\newcommand{\dom}{{\rm dom}}
+\newcommand{\dummy}{{\tt Blah blah blah}}
+
+%E
+\newcommand{\Even}{\hbox{\rm \tiny Even}}
+
+%a
+\newcommand{\finsub}{[\omega]^{<\omega}}
+\newcommand{\forces}{\mathrel{\|}\joinrel\mathrel{-}}
+
+%G
+\newcommand{\Graph}{\hbox{\it Graph}}
+
+%H
+\newcommand{\homeomorphic}{\approx}
+
+%I
+\newcommand{\incr}{\omega^{\uparrow \omega }}
+\newcommand{\infsub}{[\omega]^{\omega}}
+
+%L
+\newcommand{\la}{\langle}
+
+%M
+\newcommand{\meager}{{\cal MGR}}
+\newcommand{\minideal}{${\cal F}_{\hbox{\rm \scriptsize min}}(\neg
+  D)\;$}
+
+%N
+\newcommand{\neglig}{{\cal N}}
+\newcommand{\nnatural}{\mathbb{N}}
+
+%O
+\newcommand{\Odd}{\hbox{\rm \tiny Odd}}
+
+%P
+\newcommand{\Part}{{\it Part}}
+\newcommand{\Perf}{{\it Perf}}
+%%%\newcommand{\proof}{\flushleft{ \sc Proof. } \\ }
+\newcommand{\Proof}[1]{\bigbreak\noindent{\bf Proof #1}\enspace}
+
+%Q
+%%%\newcommand{\qed}{{\hfill\vrule height6pt width6pt depth1pt\medskip}}
+%\newcommand{\qed}{\sharp}
+\newcommand{\QED}{\hspace{0.1in} \Box \vspace{0.1in}}
+
+%R
+\newcommand{\ra}{\rangle}
+\newcommand{\ran}{{\rm ran}}
+\newcommand{\rational}{\mathbb{Q}}
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\restriction}{{\hbox{$\,|\grave{}\,$}}}
+
+%S
+\newcommand{\seq}{\subseteq}
+%%%\newcommand{\square}{\hbox{\ \ \ \ \ \vrule\vbox{\hrule\phantom{o}\hrule}\vrule}}
+% a small restriction:
+\newcommand{\srestriction}{{\hbox{${\scriptstyle\,|\grave{}\,}$}}}
+
+%U
+\newcommand{\up}{\uparrow}
+\newcommand{\ucrz}{UCR_0}
+
+%%%%%%%%%%%%%%%%%%%%%% Calligraphic font commands %%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cA}{{\cal A}}
+\newcommand{\cB}{{\cal B}}
+\newcommand{\cC}{{\cal C}}
+\newcommand{\cD}{{\cal D}}
+\newcommand{\cE}{{\cal E}}
+\newcommand{\cF}{{\cal F}}
+\newcommand{\cG}{{\cal G}}
+\newcommand{\cH}{{\cal H}}
+\newcommand{\cI}{{\cal I}}
+\newcommand{\cJ}{{\cal J}}
+\newcommand{\cK}{{\cal K}}
+\newcommand{\cL}{{\cal L}}
+\newcommand{\cM}{{\cal M}}
+\newcommand{\cN}{{\cal N}}
+\newcommand{\cO}{{\cal O}}
+\newcommand{\cP}{{\cal P}}
+\newcommand{\cQ}{{\cal Q}}
+\newcommand{\cR}{{\cal R}}
+\newcommand{\cS}{{\cal S}}
+\newcommand{\cT}{{\cal T}}
+\newcommand{\cU}{{\cal U}}
+\newcommand{\cV}{{\cal V}}
+\newcommand{\cW}{{\cal W}}
+\newcommand{\cX}{{\cal X}}
+\newcommand{\cY}{{\cal Y}}
+\newcommand{\cZ}{{\cal Z}}
+
+%%%%%%%%%%%%%%%%%%%%%% Some Greek fonts %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\oo}{\omega}
+\newcommand{\bb}{\beta}
+\newcommand{\dd}{\delta}
+\newcommand{\ee}{\varepsilon}
+\newcommand{\kk}{\kappa}
+%%%\newcommand{\th}{\theta}
+
+\renewcommand\abstractname{Summary}
+
+%%%To print the date and time on each page
+%%% comment out if not needed (next 14 lines)
+%\makeatletter
+%{\newcount\@hour}
+%{\newcount\@minute}
+%\def\timenow{\@hour=\time \divide\@hour by 60
+%\number\@hour:
+%  \multiply\@hour by 60 \@minute=\time
+%  \global\advance\@minute by -\@hour
+%  \ifnum\@minute<10 0\number\@minute\else
+%  \number\@minute\fi}
+%\def\ctimenow{\hfil{\tt \jobname.tex, \today~Time: \timenow }\hfil}
+%      \let\@oddfoot\ctimenow\let\@evenfoot\ctimenow
+%\makeatother
+
+\pagestyle{myheadings}
+%\markboth{{\bf Andrzej Nowik}}{\bf \today}
+
+
+% Types message, asks the user to type in a command, then
+% defines \answer to be the input instead of executing it.
+%%% comment out if not needed (next 13 lines)
+%\typein[\answer]{Do you want to include comments? (y/n)}
+%
+%\newcommand{\annotation}[1]
+%  {
+%  \if\answer y {{\tt #1}}
+%  \fi
+%  }
+%
+%\if\answer y
+%\typeout{I shall INCLUDE comments.}
+%\else
+%\typeout{Comments will be NOT shown.}
+%\fi
+
+% To see corrections comment next line and uncomment the second one
+\newcommand{\correction}[2]{#1}
+% \newcommand{\correction}[2]{#2}
+
+\begin{document}
+
+\begin{center}{\bf \Large
+\dummy
+}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                         %
+%                      Main part                                          %
+%                                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A problem with the dominating topology:
+Let us consider the following two spaces:
+$\omega^\omega$ and $\omega^{\omega\uparrow}$.
+Of course, they are homeomorphic by the standard
+homeomorphism: 
+$\psi \colon \omega^\omega \to \omega^{\omega\uparrow}$ defined
+by the following:
+$\psi(x)(n) = \sum_{k=1}^n x(k) + n$.
+
+We can consider the dominating topology defined
+on the space $\omega^\omega$ (by taking into accout 
+the standard basis Hechler neighbourhoods:
+$D(N, f) = \{g \in \omega^\omega \colon 
+f \restriction N = g \restriction N \wedge
+\forall_k f(k) \leq g(k)\}$.) In this way 
+we obtain the standard dominating topology
+on the space $\omega^\omega$. Using the
+standard bijection $\psi$ we can "move" this
+topology into the space $\omega^{\omega\uparrow}$.
+  However, notice that the space 
+$\omega^{\omega\uparrow}$ is a subspace
+of the space $\omega^\omega$. So the precise
+formulation of my question is like follows:
+Does the topologies: The topology on 
+the space $\omega^{\omega\uparrow}$
+inherited from the usuall dominating topology
+defined on $\omega^\omega$ (we treat here the
+space $\omega^{\omega\up}$ as a subspace of the space
+$\omega^\omega$) and the topology
+also defined on the same space $\omega^{\omega\uparrow}$
+but ``moved'' from the space $\omega^\omega$ (equipped
+with the dominating topology of course) by the 
+bijection $\psi$ are the same?
+  
+  This question is related to the two possibilities 
+in introduction of the dominating topology in the space
+$[\omega]^\omega$. Indeed, we can ``import'' the dominating topology
+into the space $[\omega]^\omega$ by two possible ways:
+The first one simply by the homeomorphism between 
+$[\omega]^\omega$ and $\omega^\omega$ and the second one, by the
+homeomorphism between $[\omega]^\omega$ and
+$\omega^{\omega\uparrow}$ which is simply a subset of the space
+$\omega^\omega$. In both cases we can move the topology 
+by the functions. So we indeed obtain the two topologies.
+Simply say that:
+
+  We consider the canonical bijection:
+$\Psi \colon [\omega]^\omega \to \omega^\omega$
+and by this bijection we can move the dominating topology
+from $\omega^\omega$ into the space $[\omega]^\omega$.
+
+the second possibility is to consider the
+cannonical bijecton 
+$\Xi \colon [\omega]^\omega \to \omega^{\omega\uparrow}$
+and then move the topology on $\omega^{\omega\uparrow}$
+induced by the domination topology on $\omega^\omega$.
+Are these two topologies the same? I think, the answer is
+false. However, we can even have that the families of
+Baire sets in our topologies are the same. 
+
+OK, so let us formulate these two questions 
+in a concise way:
+
+\begin{question}
+Let us introduce two topologies on the space
+$\omega^\omega$. Define:
+$\psi \colon \omega^\omega \to \omega^{\omega\uparrow}$ 
+by the following:
+$\psi(x)(n) = \sum_{k=1}^n x(k) + n$.
+Then we can define the topology:
+$\tau_1 = \{ \psi[U]\colon U \in \tau_D\}$, 
+where of course $\tau_D$ denotes the dominating topology
+on $\omega^\omega$.
+However, consider $\omega^{\omega\uparrow}$ as a
+subspace of the space $\omega^\omega$ and then 
+consider the topology 
+$\tau_2 = \{U \cap \omega^{\omega\uparrow}
+\colon U \in \tau_D \}$.
+The question is: Are these two topologies the same?
+Or perhaps they have the same Baire sets?
+Or perhaps they have the same meager sets?
+\end{question}
+
+\newpage
+Take the dominating topology as the base topology on 
+$\baire$. \\
+\\
+Say a set is $\psi$-open if it is the image of 
+an open set under $\psi$.\\
+\\
+{\bf Fact.}
+Every relative open set in $\incr$ is $\psi$-open.\\
+\bp
+Let $U$ be a basic relative open subset of $\incr$, 
+say $U = [N, f] \cap \incr$,
+where $f$ is in $\baire$.
+Note that if $f|N$ is not increasing, then $U$ is empty, 
+so we may assume it is increasing. 
+%Define
+%$$
+%F(n) = f(n) \mbox{ if } n\le N, \mbox{ and } F(n) = max\{n,f(n)\} 
+%	\mbox{ otherwise.}
+%F(0) = f(0) \mbox{ and } F(n+1) = \max\{f(n+1), F(n) + 1 \}.
+%$$
+
+%Observe that $U = [N, F]$.
+%and $[N,F]$ is an open subset of $\baire$.
+%As $\psi$ is a homeomorphism, $U$ is $\psi$-open.
+
+Suppose $g \in U$, and consider $V = [N, \psi^{-1}(g)]$ as a basic open 
+subset of $\baire$.
+If $h \in V$, then $\forall^\infty n, g(n) \le \psi(h)(n)$, and 
+$\forall^\infty n, f(n) \le g(n)$. Therefore $\forall^\infty n,
+ f(n) \le \psi(h)(n)$ and hence $\psi(h) \in U$. 
+ Thus $g \in \psi (V) \subseteq U$.  It follows that
+$$
+U = \cup_{g\in U} \;\psi\left([N, \psi^{-1}(g)]\right)
+	= \psi\left(  \cup_{g\in U} [N, \psi^{-1}(g)] \right).
+$$
+Therefore $U$ is $\psi$-open.
+\ep
+
+\noindent
+{\bf Fact.}
+There is a basic $\psi$-open set that's not a relative open set.\\
+\bp
+Define $f \in\baire$ by $f(2k) = 4k$ and $f(2k+1) = 4k + 3$.
+%$g(2k) = 4k + 1$, and $g(2k+1) = 4k + 2$.
+
+Suppose the basic $\psi$-open set 
+$$
+\psi [N,f] = \bigcup_{h\in \cI} [N_h,h] \cap \incr,
+$$
+i.e. is relatively open, where $\cI\subseteq \baire$ is a 
+suitably chosen index set.
+Select $h\in \cI$ such that $\psi(f) \in [N_h,h]$.
+
+Construct $g\in\baire$ by 
+$g(2k) = f(2k) + 1$ and $g(2k+1) = f(2k+1) - 1$ whenever
+$2k\ge N_h$, and $g(n) = f(n)$ otherwise.
+It's not hard to see that $\psi(f) \le \psi(g)$ 
+but that neither $f\le g$ nor $g\le f$
+on any final segment of $\oo$. (Note: such a $g$ can
+be constructed for any $f$ that satisfies $f(n+1) - f(n) \ge 3$
+for infinitely many $n$.)
+
+
+Thus $h \le \psi(f) \le \psi(g)$ implies that 
+$\psi(g) \in [N_h, h] \cap \incr \subseteq \psi[N,f]$.
+But $g\notin [N,f]$ and $\psi$ is 1-1, a contradiction.
+\ep
+
+\noindent
+Conclusion:
+If these two proofs are correct, then 
+the $\psi$-generated topoology
+strictly refines the relative topology.\\
+\\
+Question: $\psi[\emptyset,\overline{0}] = \incr$. 
+Is $\psi[N,f]$ dense in $[N,\psi(f)]$ for every $f$?
+For what $f$ does $\psi[N,f]$ have {\em any} 
+``largeness/smallness'' properties?
+
+\newpage
+\newcommand{\inversepsi}{\psi^{-1}}
+\section{more stuff}
+A {\bf  recursive formula} for $\inversepsi:\incr\to\baire$. 
+Supppose that $h\in\incr$. Then
+$\inversepsi(h)(0) = h(0)$, and for all $n\ge 1$,
+$$
+\inversepsi(h)(n) = h(n) - h(n-1) - 1.
+$$
+\bp
+For $n=0$, it's easy to see that $\inversepsi(h)(0) = h(0)$, 
+because 
+$$
+h(0) = \psi(\inversepsi(h)(0))) = \inversepsi(h)(0) + 0.
+$$
+For $n=1$, $\inversepsi(h)(1) = h(1) - h(0)  - 1$, 
+because 
+$$
+h(1) = \psi(\inversepsi(h))(1) = \inversepsi(h)(0) + \inversepsi(h)(1) + 1
+	= h(0) + \inversepsi(h)(1) + 1.
+$$
+In general suppose it's true for $n<\oo$.
+\begin{eqnarray*}
+h(n+1) &= &\psi(\inversepsi(h)(n+1)) = \inversepsi(h)(n+1)
+	+ \left(\sum_{k=0}^n \inversepsi(h)(k) \right) + n+1 \\
+	&=& \inversepsi(h)(n+1) 
+	+ \left( h(0) + \sum_{k=1}^n [h(k) - h(k-1) - 1]\right)
+	+ n + 1 \\
+	&=& \inversepsi(h)(n+1) )+ h(n) + 1.
+\end{eqnarray*}
+It follows that
+$$
+\inversepsi(h)(n+1) = h(n+1) - h(n) - 1.
+$$
+\ep
+
+\noindent
+{\bf Another formula.} For $n\ge 0$, \\
+$$
+\inversepsi(h)(n) = h(n) - 
+	\sum_{k=0}^{n-1} \inversepsi(h)(k) - n.
+$$
+To see this,
+%\begin{eqnarray*}
+$$
+h(n) = \psi(\inversepsi(h))(n) = 
+\inversepsi(h)(n) + \sum_{k=0}^{n-1} \inversepsi(h)(k) + n.
+%= [h(n) - \sum_{k=0}^{n-1} \inversepsi(h)(k) + n ]
+%+ \sum_{k=0}^{n-1} \inversepsi(h)(k) + n.
+$$
+%\end{eqnarray*}
+%As $\psi$ is 1-1, the formula is verified.
+
+\newpage
+\noindent
+{\bf   Question.}
+Suppose that $f\in\baire$ and $h\in\incr$.
+Under what conditions is $\inversepsi(h) \ge f$?\\
+\\
+%For convenience, define $h(-1) = -1$.
+%The  
+%statement
+%$\inversepsi(h)(n) \ge f(n)$
+%is equivalent to $h(n) - h(n-1) - 1 \ge f(n)$.
+Answer: If 
+\begin{equation}
+\label{main} 
+h(n) - h(n-1) - 1 < f(n) ,
+\end{equation}
+then $\inversepsi(h)(n) < f(n)$,
+and if (\ref{main}) holds for 
+infinitely many $n$ then $\inversepsi(h) \not\ge f$
+on any final segment of $\oo$.
+
+An earlier example was constructed to show that $\psi([N,f])$
+is  not necessarily open. The next proposition generalizes this.\\
+\\
+{\bf Proposition.} [editted on Oct 16].
+For every $f\in \baire$ that doesn't terminate in $0$'s,
+the image $\psi([\emptyset,f])$ doesn't
+contain an open set.
+\bp
+Let $A= \{n:\;f(n) \not=0\}$ with the standard increasing enumeration
+$(a_k:\;k<\oo)$.
+Set $A_{Od} = \{a_{2k+1}:\;k<\oo\}$ and
+suppose that $M<\oo$ and $g\in\incr$.
+%suppose that $[M,g]$ is a basic open set.
+%et $[M,g]\subseteq \psi([\emptyset,f])$ 
+%be an arbitrary open set.
+%For our purposes we may assume WLOG that $M$ is odd.
+Define $h\in [M,g]$ by 
+$$
+h(n) = \left\{ 
+	\begin{tabular}{lll}
+	$g(n)$ && if $n < M$\\
+	$g(n) + 1$  && if $n \in A_{Od} \setminus M$\\
+	$g(n+1)$ && otherwise
+	\end{tabular}
+	\right.
+$$
+Suppose $n\in A_{Od} \setminus M$. Then 
+$h(n) = g(n) + 1$. And if $n \notin A_{Od}\cup M$,
+then $h(n) = g(n+1)$.
+In either case, $h(n) \ge g(n)$
+and thus $h\in [M,g]$.
+
+For $n\in A_{Od} \setminus (M+1)$,
+we have 
+$$
+\inversepsi(h)(n) = h(n) - h(n-1) - 1 = g(n) + 1 - g(n-1+1) - 1 = 0 < f(n).
+$$
+%whenever $f(n) \not= 0$. We know that $f(n) \not= 0$
+%for infinitely many $n$, and we will assume that 
+%$f(n) \not= 0$ for infinitely many odd $n$. 
+Thus $(\exists^\infty n)\;\inversepsi(h)(n) < f(n)$,
+and it follows that $\inversepsi(h)\notin [\emptyset,f]$.
+Therefore $h \in [M,g] \setminus \psi([\emptyset,f])$.
+\ep
+
+
+\section{Added Sat, Oct 16 - Sunday, Oct 17} 
+\noindent
+%If $f(n) = 0$ for all but finitely many $n\in Od$, then
+%we simply switch ``Od'' with ``Ev''  and ``odd'' with ``even''
+%throughout, and the proof goes through as before.\\
+%\\
+Note 1: Since $g$ in the proof could be {\em any} function
+in $\incr$, the collection of functions $h
+\notin \psi([\emptyset, f])$ is dense.\\
+\\
+Note 2: The proposition applies to a co-countable subset of $\baire$.\\
+\\
+{\bf Corollary.} 
+If $f\in\baire$ is not eventually zero, then
+$\psi([\emptyset, f])$ is co-dense.\\
+\\
+{\bf Questions.}
+Is $\psi([\emptyset,f])$ closed? Is the $\psi$ topology ccc?
+Is the $\psi$ topology a Baire space?\\
+\\
+{\bf Corollary.}
+If $\psi([N, f])$ is closed, then it's nowhere dense.
+\bp
+If $\psi([N, f])$ is closed and dense in some open $[M,g]$,
+then it contains $[M,g]$, a contradiction
+\ep
+
+\noindent
+{\bf Fact.}
+The $\psi$ topology is ccc.
+\bp
+Every $\psi$-open set pulls back to an open set in $\baire$
+and the dominating topology is ccc.
+\ep
+
+\noindent
+{\bf Fact.}
+$\psi$ is order preserving but $\inversepsi$ is not.\\
+\\
+{\bf Fact.} Basic open sets $[N,f]$ and $[M,g]$ are disjoint
+if and only if $f|N\perp g|M$.
+\bp
+The ``if'' direction is trivial, for if 
+$f|N\perp g|M$, then $h\in [N,f]$ implies $h|N \not= g|M$.
+For the other direction, suppose $f|N$ is compatible with $g|M$ and
+WLOG that $f|N \subseteq g|M$ (if not just rename $f$ and $g$).
+Define $h|M = g|M$ and $h = f\vee g$ for $n\ge M$. 
+Clearly $\forall^\infty n, f(n) \le h(n)$ and $g(n) \le h(n)$.
+In addition, $h|N = f|N$ and $h|M = g|M$, so $h \in [N,f]\cap [M,g]$.
+\ep
+
+\noindent
+{\bf Questions.}
+If $f,g\in\baire$ correspond to (almost) disjoint subsets of $\oo$,
+what can we say about $\psi(f)$ and $\psi(g)$? What if $f\le g$?\\
+\\
+Answer: Not much. The particular examples of $f$ and $g$ in a previous proof
+correspond to disjoint sets, and $\psi(f) \le \psi(g)$. On the other
+hand, it would be easy to construct disjoint $f$ and $g$ such
+that $\psi(f)(n) < \psi(g)(n)$ infinitely often and
+$\psi(f)(n) > \psi(g)(n)$ infinitely often.
+However, if $f\le g$ then $\psi(f)\le \psi(g)$.
+What else??\\
+\\
+{\bf Theorem.}
+For all $f\in\baire$ and $N <\oo$, 
+$\psi([N, f])$ is dense in $[N, \psi(f)]$,
+and if $f$ doesn't terminate in $0$'s, then it's
+co-dense as well.
+\bp
+The part about co-density has been shown above.
+To show it's dense,
+%For convenience, we assume WLOG that $N\ge 1$.  
+take $M \ge N$ and $g\in [N, \psi(f)]$.
+We need $h\in[M,g]$ such that 
+%$\inversepsi(h)|N = f|N$ and 
+$\inversepsi(h) \in [N,f]$.
+In other words, $h|M = g|M$ and  
+$\forall^\infty n$, 
+$$
+h(n) \ge g(n) \;\;\mbox{  and  }\;\; h(n) - h(n-1) - 1 \ge f(n).
+$$
+This is easy to do. Set $h(0) = g(0)$, 
+$h|(M+1) = g|(M+1)$ and for $n\ge M+1$, define  
+$h(n) = g(n) + h(n-1) + f(n)$.
+(We use $n\ge M+1$ to make sure that $n\not=0$.) 
+Then for $n\ge M+1$ we have 
+$\inversepsi(h)(n) = h(n) - h(n-1) - 1 = f(n) + g(n) - 1 \ge f(n)$.
+\ep
+
+\noindent
+{\bf Corollary.}
+Suppose $f\in \baire$ doesn't terminate in $0$'s and $N<\oo$. Then
+$\psi([N,f])$ is neither open nor closed.
+\bp
+It's not open by a previous result and if 
+it was closed then it would contain $[N,\psi(f)]$ since it's dense
+in $[N,\psi(f)]$.
+This is a contradiction.
+\ep
+
+\noindent
+{\bf Conjecture.}
+$\psi$ is  not continuous, although it is clearly $\psi$-continuous.
+\bp
+If a basic open set pulls back to an open set, 
+then it's $\psi$ image is ?? not open ?? if $f$ isn't eventually $0$.
+Clearly it doesn't pull back to a basic open set.
+
+Suppose $\inversepsi([N,g])$ is open. .....
+\ep
+
+\noindent
+{\bf Conjecture.} The $\psi$-topology is a Baire space.
+
+
+\end{document}
