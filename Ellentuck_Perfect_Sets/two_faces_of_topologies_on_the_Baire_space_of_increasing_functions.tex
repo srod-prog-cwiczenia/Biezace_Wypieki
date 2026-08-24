@@ -124,6 +124,7 @@
 %I
 \newcommand{\incrbaire}{\omega^{\omega \uparrow}}
 \newcommand{\infsub}{[\omega]^{\omega}}
+\newcommand{\inversepsi}{\psi^{-1}}
 
 %L
 \newcommand{\la}{\langle}
@@ -495,7 +496,7 @@ Thus $\mu \in \ffid[\Hechler{\ffid(s)}{\ffid(\mu)}] \subseteq
 
 \begin{claim}
   \label{claim:about-inf-0}
-  Let $\INFZero = \lbrace x \in \baire\colon \exists_j^\infty x(j) = 0\rbrace$
+  Let $\INFZero = \lbrace x \in \baire\colon \exists_j^\infty x(j) = 0\rbrace$.
 Then for each $\Hechler{s}{f}$ such that
 $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
 we have
@@ -509,6 +510,49 @@ such that $\mu \in \Hechler{s}{f}$ and
 $\exists_j^\infty \mu(j) + 1 = \mu(j + 1)$.
 Then $\exists_j^\infty \ffid(\mu)(j) = 0$,
 hence $\ffid(\mu) \in \INFZero$.
+\end{proof}
+
+\begin{claim}
+For every $f\in \baire$ that doesn't terminate in $0$'s,
+the image $\psi[\Hechler{\emptyset}{f}]$ doesn't
+contain an nonempty $\HechlerNative$ - open set.
+\end{claim}
+\begin{proof}
+Let $A= \{n:\;f(n) \not=0\}$ with the standard increasing enumeration
+$(a_k:\;k<\oo)$.
+Set $A_{Odd} = \{a_{2k+1}:\;k<\oo\}$ and
+suppose that $M<\oo$ and $g\in\incrbaire$.
+%suppose that $[M,g]$ is a basic open set.
+%et $[M,g]\subseteq \psi([\emptyset,f])$ 
+%be an arbitrary open set.
+%For our purposes we may assume WLOG that $M$ is odd.
+Define $h\in \Hechler{M}{g} \cap \incrbaire$ by 
+\[
+h(n) = \left\{ 
+	\begin{tabular}{lll}
+	$g(n)$ && if $n < M$\\
+	$g(n) + 1$  && if $n \in A_{Odd} \setminus M$\\
+	$g(n+1)$ && otherwise
+	\end{tabular}
+	\right.
+\]
+Suppose $n\in A_{Odd} \setminus M$. Then 
+$h(n) = g(n) + 1$. And if $n \notin A_{Od}\cup M$,
+then $h(n) = g(n+1)$.
+In either case, $h(n) \ge g(n)$
+and thus $h\in \Hechler{M}{g} \cap \incrbaire$.
+
+For $n\in A_{Odd} \setminus (M+1)$,
+we have 
+$$
+\inversepsi(h)(n) = h(n) - h(n-1) - 1 = g(n) + 1 - g(n-1+1) - 1 = 0 < f(n).
+$$
+%whenever $f(n) \not= 0$. We know that $f(n) \not= 0$
+%for infinitely many $n$, and we will assume that 
+%$f(n) \not= 0$ for infinitely many odd $n$. 
+Thus $(\exists^\infty n)\;\inversepsi(h)(n) < f(n)$,
+and it follows that $\inversepsi(h)\notin [\emptyset,f]$.
+Therefore $h \in \Hechler{M}{g} \cap \incrbaire \setminus \psi([\emptyset,f])$.
 \end{proof}
 
 \begin{corollary}
@@ -923,7 +967,6 @@ For what $f$ does $\psi[N,f]$ have {\em any}
 ``largeness/smallness'' properties?
 
 \newpage
-\newcommand{\inversepsi}{\psi^{-1}}
 
 \section{more stuff}
 \noindent
@@ -966,49 +1009,6 @@ on any final segment of $\oo$.
 
 An earlier example was constructed to show that $\psi([N,f])$
 is  not necessarily open. The next proposition generalizes this.\\
-
-{\bf Proposition.} [editted on Oct 16].
-For every $f\in \baire$ that doesn't terminate in $0$'s,
-the image $\psi([\emptyset,f])$ doesn't
-contain an open set.
-\begin{proof}
-Let $A= \{n:\;f(n) \not=0\}$ with the standard increasing enumeration
-$(a_k:\;k<\oo)$.
-Set $A_{Od} = \{a_{2k+1}:\;k<\oo\}$ and
-suppose that $M<\oo$ and $g\in\incrbaire$.
-%suppose that $[M,g]$ is a basic open set.
-%et $[M,g]\subseteq \psi([\emptyset,f])$ 
-%be an arbitrary open set.
-%For our purposes we may assume WLOG that $M$ is odd.
-Define $h\in [M,g]$ by 
-$$
-h(n) = \left\{ 
-	\begin{tabular}{lll}
-	$g(n)$ && if $n < M$\\
-	$g(n) + 1$  && if $n \in A_{Od} \setminus M$\\
-	$g(n+1)$ && otherwise
-	\end{tabular}
-	\right.
-$$
-Suppose $n\in A_{Od} \setminus M$. Then 
-$h(n) = g(n) + 1$. And if $n \notin A_{Od}\cup M$,
-then $h(n) = g(n+1)$.
-In either case, $h(n) \ge g(n)$
-and thus $h\in [M,g]$.
-
-For $n\in A_{Od} \setminus (M+1)$,
-we have 
-$$
-\inversepsi(h)(n) = h(n) - h(n-1) - 1 = g(n) + 1 - g(n-1+1) - 1 = 0 < f(n).
-$$
-%whenever $f(n) \not= 0$. We know that $f(n) \not= 0$
-%for infinitely many $n$, and we will assume that 
-%$f(n) \not= 0$ for infinitely many odd $n$. 
-Thus $(\exists^\infty n)\;\inversepsi(h)(n) < f(n)$,
-and it follows that $\inversepsi(h)\notin [\emptyset,f]$.
-Therefore $h \in [M,g] \setminus \psi([\emptyset,f])$.
-\end{proof}
-
 
 \section{Added Sat, Oct 16 - Sunday, Oct 17} 
 \noindent

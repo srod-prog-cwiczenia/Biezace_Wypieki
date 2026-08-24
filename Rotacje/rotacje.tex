@@ -277,7 +277,7 @@ Wita Stwosza 57,
 }
 \email[A.~Nowik]{andrzej.nowik@ug.edu.pl}
 
-\addbibresource{rotacje.bib}
+\addbibresource{rotacje_plik_pomocniczo_tymczasowy.bib}
 \begin{document}
 \title[
 % a brief title
@@ -308,8 +308,14 @@ Let $\Phi(B)$ denote the set of all Lebesgue density points of the set $B$.
 If $Y$ is any subset of a topological space $X$ then by a portion of
 $Y$ we mean a nonempty and relative open subset of $Y$
 (see \cite{Laczkovich1998}, page 1783).
-\section{Preliminaries}
 
+Under ``fat'' perfect set we mean a perfect set such that each of
+its portion is of positive Lebesgue measure (see \cite{Buczolich2004}, page 497).
+Let us note here that in the cited paper by Buczolich,
+the notion of ``fat'' applies to Cantor sets
+(i.e., perfect sets homeomorphic to the Cantor space),
+but there is no obstacle to defining this property for all perfect sets.
+\section{Preliminaries}
 
 Let us recall the classical notion of the density point on the plane
 (see for example \cite{WagnerBojakowska19921993}):
@@ -427,13 +433,39 @@ Then
     = \bigcup_{n=1}^\infty
       \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[E_n \times \real].
   \]
+
+  Let us denote:
+  \[
+   E^* = \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[E \times \real]
+  \]
+  \[
+  \tilde{E} =  \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[\Phi(E) \times \real].
+\]
+We have
+\[
+\tilde{E} \subseteq \Phi_2(E^*) \subseteq \overline{\Phi_2(E^*)} \subseteq E^*.
+\]
+Moreover, $\Phi_2(E^*)$ is a perfect ``fat'' set.  
+It suffices to check only that this set is a ``fat'' set,
+i.e. if $W$ is an open set such that $W \cap \overline{\Phi_2(E^*)} \not= \emptyset$
+then $\mu_2(W \cap \overline{\Phi_2(E^*)}) > 0$. But since
+$W \cap \overline{\Phi_2(E^*)} \not= \emptyset$, then
+$W \cap \Phi_2(E^*) \not= \emptyset$, hence
+$\mu_2(E^* \cap W) > 0$.
+
+We have also
+$\mu_2(E^* \setminus \Phi_2(E^*)) = 0$, thus
+$\mu_2(\Phi_2(E^*) \cap W) > 0.
+
+
+
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{filecontents*}{rotacje.bib}
+\begin{filecontents*}[overwrite]{rotacje_plik_pomocniczo_tymczasowy.bib}
 @article {WagnerBojakowska19921993,
     AUTHOR = {Wagner-Bojakowska, El\.zbieta},
      TITLE = {Some remarks on density topologies on the plane},
@@ -455,6 +487,15 @@ Then
   volume  = {126},
   year    = {1998},
   pages   = {1783--1790}
+}
+@article{Buczolich2004,
+  author  = {Zolt{\'a}n Buczolich},
+  title   = {Category of density points of fat Cantor sets},
+  journal = {Real Analysis Exchange},
+  volume  = {29},
+  number  = {1},
+  pages   = {497--502},
+  date    = {2003/2004}
 }
 \end{filecontents*}
 
