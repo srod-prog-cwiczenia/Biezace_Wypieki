@@ -263,6 +263,7 @@
 \newcommand{\EventuallyDifferentInduced}{\tau_{\mathit{ED}}^{(I)}}
 \newcommand{\ffid}{\psi^{-1}}
 \newcommand{\INFZero}{\mathrm{INF}_0}
+\newcommand{\INFNonZero}{\mathrm{INF}_{>0}}
 \newcommand{\carre}{\mathit{sq}}
 
 % \renewcommand\abstractname{Summary}
@@ -425,6 +426,13 @@ Or perhaps they have the same Baire sets?
 Or perhaps they have the same meager sets?
 \end{question}
 
+\section{Preliminaries and Notation}
+
+Denote \[\INFZero = \lbrace x \in \baire\colon \exists_j^\infty x(j) = 0\rbrace\]
+and 
+\[\INFNonZero = \lbrace x \in \baire\colon \exists_j^\infty x(j) > 0\rbrace\]
+i.e.
+$\INFNonZero$ is the family of all functions $f\in \baire$ that doesn't terminate in $0$'s.
 
 \section{The Hechler topology}
 
@@ -496,8 +504,7 @@ Thus $\mu \in \ffid[\Hechler{\ffid(s)}{\ffid(\mu)}] \subseteq
 
 \begin{claim}
   \label{claim:about-inf-0}
-  Let $\INFZero = \lbrace x \in \baire\colon \exists_j^\infty x(j) = 0\rbrace$.
-Then for each $\Hechler{s}{f}$ such that
+For each $\Hechler{s}{f}$ such that
 $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
 we have
 $\ffid[\Hechler{s}{f} \cap \incrbaire] \cap \INFZero \not= \emptyset$.
@@ -513,9 +520,9 @@ hence $\ffid(\mu) \in \INFZero$.
 \end{proof}
 
 \begin{claim}
-For every $f\in \baire$ that doesn't terminate in $0$'s,
-the image $\psi[\Hechler{\emptyset}{f}]$ doesn't
-contain an nonempty $\HechlerNative$ - open set.
+\label{claim:about-not-terminate-in-0}
+For every $f\in \INFNonZero$,
+we have $\mathit{int}_{\HechlerInduced}(\psi[\Hechler{\emptyset}{f}]) = \emptyset$.
 \end{claim}
 \begin{proof}
 Let $A= \{n:\;f(n) \not=0\}$ with the standard increasing enumeration
@@ -583,6 +590,9 @@ By Claim \ref{claim:about-inf-0} we obtain that
 $\ffid[\Hechler{s}{f} \cap \incrbaire] \not\subseteq \Hechler{\emptyset}{\underline{\bf 1}}$.
 Since $\Hechler{\emptyset}{\underline{\bf 1}}$ is a Hechler base neighbourhood,
 this proves the claim of the corollary.
+
+Let us note that the statement of this corollary also follows from
+the Claim \ref{claim:about-not-terminate-in-0}.
 \end{proof}
 
 \begin{theorem}\label{thm:Hechler-induced-Ellentuck}
@@ -668,6 +678,45 @@ $\ffid((B(n))_{n\in\omega})(k_1 + 2) = B(k_1 + 2) - B(k_1 + 1) - 1
 Therefore $\ffid((B(n)_{n\in\omega})) \not\in \Hechler{\emptyset}{x}$,
 since $\ffid((B(n)_{n\in\omega}))(k_1 + 2) = 0 < x(k_1 + 2) = 10$.
 
+\end{proof}
+
+\begin{theorem}
+For all $f\in\baire$ and $N <\oo$, 
+$\psi[\Hechler{N}{f}]$ is dense in $\Hechler{N}{\psi(f)} \cap \incrbaire$
+in the topology $\HechlerInduced$,
+and if $f \in \INFNonZero$, then it's
+co-dense as well (again as above in the topology $\HechlerInduced$).
+\end{theorem}
+\begin{proof}
+  The part about co-density follows from the Claim \ref{claim:about-not-terminate-in-0}.
+To show it's dense,
+%For convenience, we assume WLOG that $N\ge 1$.  
+take $M \ge N$ and $g\in \Hechler{N}{\psi(f)} \cap \incrbaire$.
+We need $h\in[M,g]$ such that 
+%$\inversepsi(h)|N = f|N$ and 
+$\inversepsi(h) \in [N,f]$.
+In other words, $h|M = g|M$ and  
+$\forall^\infty n$, 
+$$
+h(n) \ge g(n) \;\;\mbox{  and  }\;\; h(n) - h(n-1) - 1 \ge f(n).
+$$
+This is easy to do. Set $h(0) = g(0)$, 
+$h|(M+1) = g|(M+1)$ and for $n\ge M+1$, define  
+$h(n) = g(n) + h(n-1) + f(n)$.
+(We use $n\ge M+1$ to make sure that $n\not=0$.) 
+Then for $n\ge M+1$ we have 
+$\inversepsi(h)(n) = h(n) - h(n-1) - 1 = f(n) + g(n) - 1 \ge f(n)$.
+\end{proof}
+
+\begin{corollary}
+Suppose $f\in \baire$ doesn't terminate in $0$'s and $N<\oo$. Then
+$\psi([N,f])$ is neither open nor closed.
+\end{corollary}
+\begin{proof}
+It's not open by a previous result and if 
+it was closed then it would contain $[N,\psi(f)]$ since it's dense
+in $[N,\psi(f)]$.
+This is a contradiction.
 \end{proof}
 
 Note that in the language of the Hechler topology,
@@ -926,36 +975,6 @@ Therefore $U$ is $\psi$-open.
 \end{proof}
 
 \noindent
-{\bf Fact.}
-There is a basic $\psi$-open set that's not a relative open set.\\
-\begin{proof}
-Define $f \in\baire$ by $f(2k) = 4k$ and $f(2k+1) = 4k + 3$.
-%$g(2k) = 4k + 1$, and $g(2k+1) = 4k + 2$.
-
-Suppose the basic $\psi$-open set 
-$$
-\psi [N,f] = \bigcup_{h\in \cI} [N_h,h] \cap \incrbaire,
-$$
-i.e. is relatively open, where $\cI\subseteq \baire$ is a 
-suitably chosen index set.
-Select $h\in \cI$ such that $\psi(f) \in [N_h,h]$.
-
-Construct $g\in\baire$ by 
-$g(2k) = f(2k) + 1$ and $g(2k+1) = f(2k+1) - 1$ whenever
-$2k\ge N_h$, and $g(n) = f(n)$ otherwise.
-It's not hard to see that $\psi(f) \le \psi(g)$ 
-but that neither $f\le g$ nor $g\le f$
-on any final segment of $\oo$. (Note: such a $g$ can
-be constructed for any $f$ that satisfies $f(n+1) - f(n) \ge 3$
-for infinitely many $n$.)
-
-
-Thus $h \le \psi(f) \le \psi(g)$ implies that 
-$\psi(g) \in [N_h, h] \cap \incrbaire \subseteq \psi[N,f]$.
-But $g\notin [N,f]$ and $\psi$ is 1-1, a contradiction.
-\end{proof}
-
-\noindent
 Conclusion:
 If these two proofs are correct, then 
 the $\psi$-generated topoology
@@ -1073,43 +1092,6 @@ that $\psi(f)(n) < \psi(g)(n)$ infinitely often and
 $\psi(f)(n) > \psi(g)(n)$ infinitely often.
 However, if $f\le g$ then $\psi(f)\le \psi(g)$.
 What else??\\
-
-{\bf Theorem.}
-For all $f\in\baire$ and $N <\oo$, 
-$\psi([N, f])$ is dense in $[N, \psi(f)]$,
-and if $f$ doesn't terminate in $0$'s, then it's
-co-dense as well.
-\begin{proof}
-The part about co-density has been shown above.
-To show it's dense,
-%For convenience, we assume WLOG that $N\ge 1$.  
-take $M \ge N$ and $g\in [N, \psi(f)]$.
-We need $h\in[M,g]$ such that 
-%$\inversepsi(h)|N = f|N$ and 
-$\inversepsi(h) \in [N,f]$.
-In other words, $h|M = g|M$ and  
-$\forall^\infty n$, 
-$$
-h(n) \ge g(n) \;\;\mbox{  and  }\;\; h(n) - h(n-1) - 1 \ge f(n).
-$$
-This is easy to do. Set $h(0) = g(0)$, 
-$h|(M+1) = g|(M+1)$ and for $n\ge M+1$, define  
-$h(n) = g(n) + h(n-1) + f(n)$.
-(We use $n\ge M+1$ to make sure that $n\not=0$.) 
-Then for $n\ge M+1$ we have 
-$\inversepsi(h)(n) = h(n) - h(n-1) - 1 = f(n) + g(n) - 1 \ge f(n)$.
-\end{proof}
-
-\noindent
-{\bf Corollary.}
-Suppose $f\in \baire$ doesn't terminate in $0$'s and $N<\oo$. Then
-$\psi([N,f])$ is neither open nor closed.
-\begin{proof}
-It's not open by a previous result and if 
-it was closed then it would contain $[N,\psi(f)]$ since it's dense
-in $[N,\psi(f)]$.
-This is a contradiction.
-\end{proof}
 
 \noindent
 {\bf Conjecture.}

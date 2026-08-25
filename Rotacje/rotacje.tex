@@ -296,8 +296,8 @@ dummy
 \maketitle
 
 \section{Notations}
-Let $\mu$ and $\mu_2$ denote the Lebesgue measure on the line
-and on the plane, respectively.
+Let $\mu$ and $\mu_2$ denote the standard one-dimensional Lebesgue measure 
+and the two-dimensional Lebesgue measure, respectively.
 Let $\theta \in [0, \pi)$ be any angle.
 Let $\phi_\theta \colon \real^2\to\real^2$ denote
 the rotation of the plane about the origin by an angle $\theta$.
@@ -317,7 +317,7 @@ the notion of ``fat'' applies to Cantor sets
 but there is no obstacle to defining this property for all perfect sets.
 \section{Preliminaries}
 
-Let us recall the classical notion of the density point on the plane
+Let us recall the classical notion of a density point in the plane
 (see for example \cite{WagnerBojakowska19921993}):
 
 \begin{definition}
@@ -439,7 +439,10 @@ Then
    E^* = \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[E \times \real]
   \]
   \[
-  \tilde{E} =  \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[\Phi(E) \times \real].
+  \tilde{E} = \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[\Phi(E) \times \real].
+\]
+and \[
+P^* = \overline{\Phi_2(E^*)}.
 \]
 We have
 \[
@@ -455,10 +458,32 @@ $\mu_2(E^* \cap W) > 0$.
 
 We have also
 $\mu_2(E^* \setminus \Phi_2(E^*)) = 0$, thus
-$\mu_2(\Phi_2(E^*) \cap W) > 0.
+$\mu_2(\Phi_2(E^*) \cap W) > 0$.
 
+Let us observe that
+\[
+  E^* \setminus \tilde{E} =\]
+\[
+  \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[E \times \real] \setminus
+  \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[\Phi(E) \times \real] \subseteq
+\]
+\[
+   \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[(E \setminus \Phi(E)) \times \real]
+\]
+and this latter set has two-dimensional Lebesgue measure zero.
 
-
+Observe that we have
+\[
+  E^* \subseteq \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real].
+\]
+Indeed, suppose that $X$ is a point from $E^*$ such that
+$X \not\in \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real]$.
+Then $X \in \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]$,
+so there exists $0 \leq l_0 \leq k - 1$ and $(x(L), y(L)) \in N \times \real$
+such that $X = \phi_{\theta_{l_0}}((x(L), y(L)))$.
+Since $X \in E^*$, $X \in \phi_{\theta_{l_0}}[E \times \real]$.
+Hence $(x(L), y(L)) \in E \times \real$, which is a contradiction with
+the definition of the set $E$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
