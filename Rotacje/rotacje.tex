@@ -219,6 +219,8 @@
 %%% makra dla utworzenia monstrualnych kwantyfikatorow:
 \newcommand{\bigforall}{\mbox{\Large $\mathsurround0pt\forall$}}
 \newcommand{\bigexists}{\mbox{\Large $\mathsurround0pt\exists$}}
+%%% tutaj makra specyficzne tylko w tej pracy:
+\newcommand{\NICEDIRECTIONS}{\mathrm{NiceDir}}
 
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
@@ -400,6 +402,19 @@ Then
 
 \end{proof}
 
+Let us define
+\begin{definition}
+  Suppose that $P \subseteq \real^2$ is a perfect plane set.
+  Suppose that $\theta \in [0, \pi)$. We say that
+  $P$ is {\it nowhere dense nice in the direction $\theta$}
+  if, for every nowhere dense set $E \subseteq \real$, the set
+  $P \cap \phi_{\theta}[E \times \real]$ is
+  nowhere dense in the subspace topology on $P$.
+  For a perfect set $P \subseteq \real^2$
+  let $\NICEDIRECTIONS(P)$ denote the set of all directions $\theta \in [0, \pi)$
+  such that $P$ is nowhere dense nice in the direction $\theta$.
+\end{definition}
+
 \section{Results}
 
 \begin{theorem}
@@ -418,6 +433,9 @@ Then
 
 \begin{proof}
   Suppose, for contradiction, that the conclusion is false.
+  Without loss of generality, we may assume that
+  $M$ is an $F_{\sigma}$ meager set and $N$ is a $G_{\delta}$
+  Lebesgue null set.
   Choose a closed set $E \subseteq \real\setminus N$
   such that $\overline{\Phi(E)} = E$ (thus $E$ is a perfect set)
   and moreover, all portions of $E$ have measure greater than zero.
@@ -446,7 +464,7 @@ P^* = \overline{\Phi_2(E^*)}.
 \]
 We have
 \[
-\tilde{E} \subseteq \Phi_2(E^*) \subseteq \overline{\Phi_2(E^*)} \subseteq E^*.
+\tilde{E} \subseteq \Phi_2(E^*) \subseteq P^* \subseteq E^*.
 \]
 Moreover, $\Phi_2(E^*)$ is a perfect ``fat'' set.  
 It suffices to check only that this set is a ``fat'' set,
@@ -484,6 +502,17 @@ such that $X = \phi_{\theta_{l_0}}((x(L), y(L)))$.
 Since $X \in E^*$, $X \in \phi_{\theta_{l_0}}[E \times \real]$.
 Hence $(x(L), y(L)) \in E \times \real$, which is a contradiction with
 the definition of the set $E$.
+
+Then there exists an open $W^* \subseteq \real^2$ and natural number $n^*$
+such that $\emptyset \not= W^* \cap P^* \subseteq \phi_{\mu_{n^*}}[M \times \real]$.
+Hence $W^* \cap \Phi_2(E^*) \not= \emptyset$, therefore
+$\mu_2(W^* \cap E^*) > 0$. Since $\mu_2(E^* \setminus \tilde{E}) = 0$
+we obtain that $W^* \cap \tilde{E} \not= \emptyset$.
+
+Take any point $X_0 \in W^* \cap \tilde{E}$. So we have
+\[
+  X_0 \in W^* \cap \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[\Phi(E) \times \real].
+\]
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

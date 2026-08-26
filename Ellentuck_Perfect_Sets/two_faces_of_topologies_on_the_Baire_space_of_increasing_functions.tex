@@ -692,10 +692,10 @@ co-dense as well (again as above in the topology $\HechlerInduced$).
 To show it's dense,
 %For convenience, we assume WLOG that $N\ge 1$.  
 take $M \ge N$ and $g\in \Hechler{N}{\psi(f)} \cap \incrbaire$.
-We need $h\in[M,g]$ such that 
+We need $h\in \Hechler{M}{g}\cap\incrbaire$ such that 
 %$\inversepsi(h)|N = f|N$ and 
-$\inversepsi(h) \in [N,f]$.
-In other words, $h|M = g|M$ and  
+$\inversepsi(h) \in \Hechler{N}{f}$.
+In other words, $h\restriction M = g\restriction M$ and  
 $\forall^\infty n$, 
 $$
 h(n) \ge g(n) \;\;\mbox{  and  }\;\; h(n) - h(n-1) - 1 \ge f(n).
@@ -709,13 +709,14 @@ $\inversepsi(h)(n) = h(n) - h(n-1) - 1 = f(n) + g(n) - 1 \ge f(n)$.
 \end{proof}
 
 \begin{corollary}
-Suppose $f\in \baire$ doesn't terminate in $0$'s and $N<\oo$. Then
-$\psi([N,f])$ is neither open nor closed.
+Suppose that $f\in \INFNonZero$ and $N<\oo$. Then
+$\psi[\Hechler{N}{f}]$ is neither open nor closed
+in the topology $\HechlerInduced$.
 \end{corollary}
 \begin{proof}
 It's not open by a previous result and if 
-it was closed then it would contain $[N,\psi(f)]$ since it's dense
-in $[N,\psi(f)]$.
+it was closed then it would contain $\Hechler{N}{\psi(f)}$ since it's $\HechlerInduced$ dense
+in $\Hechler{N}{\psi(f)}$.
 This is a contradiction.
 \end{proof}
 
@@ -980,31 +981,12 @@ If these two proofs are correct, then
 the $\psi$-generated topoology
 strictly refines the relative topology.\\
 
-Question: $\psi[\emptyset,\overline{0}] = \incrbaire$. 
-Is $\psi[N,f]$ dense in $[N,\psi(f)]$ for every $f$?
 For what $f$ does $\psi[N,f]$ have {\em any} 
 ``largeness/smallness'' properties?
 
 \newpage
 
 \section{more stuff}
-\noindent
-{\bf Another formula.} For $n\ge 0$, \\
-$$
-\inversepsi(h)(n) = h(n) - 
-	\sum_{k=0}^{n-1} \inversepsi(h)(k) - n.
-$$
-To see this,
-%\begin{eqnarray*}
-$$
-h(n) = \psi(\inversepsi(h))(n) = 
-\inversepsi(h)(n) + \sum_{k=0}^{n-1} \inversepsi(h)(k) + n.
-%= [h(n) - \sum_{k=0}^{n-1} \inversepsi(h)(k) + n ]
-%+ \sum_{k=0}^{n-1} \inversepsi(h)(k) + n.
-$$
-%\end{eqnarray*}
-%As $\psi$ is 1-1, the formula is verified.
-
 \newpage
 \noindent
 {\bf   Question.}
