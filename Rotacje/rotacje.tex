@@ -307,6 +307,9 @@ Suppose that $B\subseteq\real$ is
 a Lebesgue measurable set.
 Let $\Phi(B)$ denote the set of all Lebesgue density points of the set $B$.
 
+Let $\pi_x$ and $\pi_y$ denote the projections of the plane
+onto the $x$-axis and $y$-axis, respectively.
+
 If $Y$ is any subset of a topological space $X$ then by a portion of
 $Y$ we mean a nonempty and relative open subset of $Y$
 (see \cite{Laczkovich1998}, page 1783).
@@ -399,7 +402,7 @@ Then
   $\bigcap_{j=1}^L \phi_{\theta_j} [\Phi(B) \times \real] \subseteq$
   $\bigcap_{j=1}^L \Phi_2(\phi_{\theta_j} [B\times\real]) \subseteq$
   $\Phi_2(\bigcap_{j=1}^L \phi_{\theta_j} [B\times\real])$.
-
+\todo{(...)}
 \end{proof}
 
 Let us define
@@ -414,6 +417,23 @@ Let us define
   let $\NICEDIRECTIONS(P)$ denote the set of all directions $\theta \in [0, \pi)$
   such that $P$ is nowhere dense nice in the direction $\theta$.
 \end{definition}
+Let us prove the following easy characterization:
+\begin{lemma}
+Suppose that $P \subseteq \real^2$ is a perfect plane set and
+suppose that $\theta \in [0, \pi)$. The following conditions are
+equivalent:
+
+\begin{enumerate}
+\item
+  $\theta \in \NICEDIRECTIONS(P)$;
+\item
+  For any open set $W \subseteq \real^2$ such that
+  $W \cap P \not= \emptyset$ we have
+  $\pi_x[\phi_{\theta}^{-1}[W \cap P]$ has a nonempty interior.
+\end{enumerate}
+ 
+
+\end{lemma}
 
 \section{Results}
 
@@ -513,8 +533,16 @@ Take any point $X_0 \in W^* \cap \tilde{E}$. So we have
 \[
   X_0 \in W^* \cap \bigcap_{l = 0}^{k-1} \phi_{\theta_l}[\Phi(E) \times \real].
 \]
-\end{proof}
+Denote:
+\begin{align*}
+\phi^{-1}_{\mu_{n^*}}(X_0) &= (x(\mu), y(\mu)) \\
+\phi^{-1}_{\theta_k}(X_0) &= (x^{(k)}_0, y^{(k)}_0) \qquad \text{for }k = 0,\ldots, K-1 
+\end{align*}
 
+Evidently
+$x(\mu) \in M$ and $x^{(k)}_0 \in \Phi(E)$ for $k = 0, \ldots, K-1$.
+\todo{(...)}
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
