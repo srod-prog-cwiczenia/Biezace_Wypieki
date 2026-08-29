@@ -438,6 +438,7 @@ equivalent:
 \section{Results}
 
 \begin{theorem}
+  \label{theorem:main}
   Suppose that $(\mu)_{j=0}^\infty$ and $\theta_0,\ldots, \theta_{k-1}$
   are sequences of angles from $[0,\pi)$. Assume also that
   $\forall_{j \in 0,1,\ldots} \forall_{l = 0,\ldots, k-1} \mu_j \not= \theta_l$.
@@ -456,6 +457,22 @@ equivalent:
   Without loss of generality, we may assume that
   $M$ is an $F_{\sigma}$ meager set and $N$ is a $G_{\delta}$
   Lebesgue null set.
+
+  First, we will prove the following lemma:
+
+  \begin{lemma}\label{lemma:main}
+  Suppose that $\theta_0,\ldots,\theta_{k-1}$
+  is a finite sequence of angles from $[0,\pi)$, and suppose that 
+  $N \subseteq \real$ is a Lebesgue measure zero set.
+  Then there exist a perfect set $P$ such that
+  \[
+     P \cap \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real] = \emptyset.
+  \]
+  Moreover,
+    $[0, \pi) \setminus \lbrace \theta_0,\ldots,\theta_{k-1} \rbrace \subseteq \NICEDIRECTIONS(P)$.
+  \end{lemma}
+  
+\begin{proof}
   Choose a closed set $E \subseteq \real\setminus N$
   such that $\overline{\Phi(E)} = E$ (thus $E$ is a perfect set)
   and moreover, all portions of $E$ have measure greater than zero.
@@ -512,16 +529,17 @@ and this latter set has two-dimensional Lebesgue measure zero.
 
 Observe that we have
 \[
-  E^* \subseteq \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real].
+  E^* \cap \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real] = \emptyset.
 \]
 Indeed, suppose that $X$ is a point from $E^*$ such that
-$X \not\in \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real]$.
-Then $X \in \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]$,
+$X \in \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]$,
 so there exists $0 \leq l_0 \leq k - 1$ and $(x(L), y(L)) \in N \times \real$
 such that $X = \phi_{\theta_{l_0}}((x(L), y(L)))$.
 Since $X \in E^*$, $X \in \phi_{\theta_{l_0}}[E \times \real]$.
 Hence $(x(L), y(L)) \in E \times \real$, which is a contradiction with
 the definition of the set $E$.
+
+
 
 Then there exists an open $W^* \subseteq \real^2$ and natural number $n^*$
 such that $\emptyset \not= W^* \cap P^* \subseteq \phi_{\mu_{n^*}}[M \times \real]$.
@@ -542,6 +560,21 @@ Denote:
 Evidently
 $x(\mu) \in M$ and $x^{(k)}_0 \in \Phi(E)$ for $k = 0, \ldots, K-1$.
 \todo{(...)}
+\end{proof}
+
+Continuation of the proof of Theorem \ref{theorem:main}:
+
+Apply Lemma \ref{lemma:main} to the sequence $\theta_0,\ldots,\theta_{k-1}$
+and to the set $N$. So we get a suitable perfect set $P$.
+Observe that we have
+\[
+  P \subseteq \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real].
+\]
+Indeed, suppose that $X$ is a point from $P$ such that
+$X \not\in \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real]$.
+Then $X \in \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]$,
+which is a contradition with Lemma \ref{lemma:main}.
+
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %                        The Bibliography                                   %

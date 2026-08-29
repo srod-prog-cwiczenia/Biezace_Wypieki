@@ -1,5 +1,6 @@
 \documentclass[12pt]{amsart}
-\usepackage{amssymb} % ten pakiet jest nieodzowny m.in. po to aby zrenderowac instrukcje varsubsetneq
+\usepackage{amssymb}
+% this package is indispensable, among other things, for rendering the \varsubsetneq instruction
 \usepackage{amsmath}
 \usepackage{latexsym}
 \usepackage{amsfonts}
@@ -9,42 +10,45 @@
 \usepackage{eqlist}
 \usepackage{amsthm}
 \usepackage{mathtools}
-\usepackage{enumitem} % po to aby mozna bylo tworzyc otoczenie
-% enumerate z innymi sposobami numeracji itemow
-\usepackage{hyperref} % aby moc tworzyc linki w tekscie
+\usepackage{enumitem}
+% so that it is possible to create the enumerate environment with other ways of numbering items
+\usepackage{hyperref}
+% so that links can be created in the text
 %%%%%%%%%%%%%%% Polish letter packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage[polish]{babel}
 %\usepackage[utf8]{inputenc}
 %\usepackage{t1enc}
-%%% pakiet do generowania belkotu (wypelniacza):
+%%% package for generating gibberish (filler):
 \usepackage{lipsum}
-%%% pakiet do dodawania fikusnych notek `a la ``todo''
+%%% package for adding fictitious notes `a la todo
 \usepackage{todonotes}
-%Ten pakiet niby jest m.in. po to aby mozna bylo ,,lamac'' linie w komorkach i ,,glowie'' tabeli
-% (otoczenie table)
+% This package is supposedly intended, among other things, to allow lines to be broken
+% in table cells and in the table header
+% (table environment)
 \usepackage{makecell}
-%ten pakiet sluzy do eleganckiego formatowania listingow (programow? lecz zapewne nie tylko)
+% this package is used for elegant formatting of listings (programs? but presumably not only)
 \usepackage{listings}
-%ten pakiet sluzy do sprawdzania m.in. czy odpowiednie pozycje bibliograficzne
-%sa faktycznie uzywane w tresci pliku. Przypuszczalnie nalezy go
-%uruchamiac tylko podczas weryfikacji pliku - w oficjalnej wersji powininen byc wylaczony.
-%\usepackage{refcheck}
-%pakiet dolaczony na razie po to aby moc utworzyc ,,monstrualne'' kwantyfikatory bigforall i bigexists
+% this package is used to check, among other things, whether the appropriate bibliographic entries
+% are actually used in the content of the file. Presumably it should
+% only be run when verifying the file - in the official version it should be disabled.
+% \usepackage{refcheck}
+% package included for now so that it is possible to create monstrous quantifiers bigforall and bigexists
 \usepackage{graphicx}
-%pakiet do wielu symboli matematycznych. Tu używam go do symboli \smt, \lat
-\usepackage{stix} 
-%pakiet rotating służy do obracania obiektów, takich jak tekst, tabele, obrazy, wykresy itp.
+%package for many mathematical symbols. Here I use it for the symbols \smt, \lat
+\usepackage{stix}
+%the rotating package is used for rotating objects such as text, tables, images, charts, etc.
 \usepackage{rotating}
-%pakiet do zrecznego tworzenia wielowierszowych tabel.
+%package for conveniently creating multi-row tables.
 \usepackage{multirow}
-% pierwszy pakiet daje możliwość użycia fontów caligraficznych,
-% natiomiast nie mam pojęcia w jakim celu jest ten drugi pakiet,
-% ale on jest z całą pewnością powiązany z pierwszym.
+% the first package makes it possible to use calligraphic fonts,
+% whereas I have no idea what the purpose of the second package is,
+% but it is certainly related to the first one.
 \usepackage{calligra}
 \usepackage[T1]{fontenc}
 \usepackage[backend=biber,style=numeric-comp]{biblatex}
-%%% to pozwala kontrolować overfulle, są one zaznaczane na marginesie czarną beleczką (o zadanym rozmiarze):
-%\overfullrule=5pt 
+%%% this allows overfulls to be controlled;
+%they are marked in the margin with a black bar (of the specified size):
+%\overfullrule=5pt
 
 \usepackage{tikz-cd}
 \usepackage{comment}
@@ -238,16 +242,16 @@
 \newcommand{\idealThinSets}{\mathcal{T}}
 \newcommand{\idealFin}{{\mathrm Fin}}
 \newcommand{\idealChainsAntichains}{I_{\mathit{Ch}, \mathit{Anti}}}
-%%% ideały na drzewie :
+%%% ideals on the tree:
 \newcommand{\idealLancuchyAntylancuchy}{\idealChainsAntichains}
 \newcommand{\idealHarmonicznyTree}{\cI^{\mathit{tree}}_{1/n}}
 \newcommand{\idealGestosciowyTree}{\cI^{\mathit{tree}}_{d}}
 \newcommand{\idealTraceTree}{\mathrm{tr}(\Negligible)}
 
-%%% zapozyczone z pracy o sigma-porowatych
+%%% and this is taken from the paper on sigma-porous sets.
 \newcommand{\Thick}{{\mathit Thick}}
 \newcommand{\ThickPlus}{{\Thick}^+}
-%%%%%%%%%%%%%%%%%%%%%%%% specjalne oznaczenia dla tej pracy:
+%%%%%%%%%%%%%%%%%%%%%%%% here are notations specifically introduced for this file:
 \newcommand{\EllentuckTopology}{\tau_\mathrm{El}}
 \newcommand{\EllentuckTopologyStar}{\EllentuckTopology^*}
 \newcommand{\EllentuckTopologyStarIdeal}{(\EllentuckTopologyStar)_{\calI}}
@@ -356,7 +360,8 @@ infinite sequences of natural numbers ($\incrbaire$)
 is homeomorphic to the space $\infsub$ (simply take
 the increasing enumeration of the elements of a given infinite
 $A \subseteq \omega$).
-
+  Therefore, we can simply assume that the Ellentuck
+topology ``lives'' on the space $\incrbaire$.
 
 
 It is obvious that they are homeomorphic by the standard
