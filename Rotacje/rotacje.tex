@@ -468,7 +468,7 @@ equivalent:
   \[
      P \cap \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real] = \emptyset.
   \]
-  Moreover,
+  and, moreover,
     $[0, \pi) \setminus \lbrace \theta_0,\ldots,\theta_{k-1} \rbrace \subseteq \NICEDIRECTIONS(P)$.
   \end{lemma}
   
@@ -539,10 +539,14 @@ Since $X \in E^*$, $X \in \phi_{\theta_{l_0}}[E \times \real]$.
 Hence $(x(L), y(L)) \in E \times \real$, which is a contradiction with
 the definition of the set $E$.
 
+By way of contradiction, suppose that
+$\mu \in [0, \pi) \setminus \lbrace \theta_0,\ldots,\theta_{k-1} \rbrace$
+and there exists a nowhere dense closed set $F \subseteq \real$
+such that $\phi_{\mu}[F \times \real] \cap P^*$ is not a nowhere dense
+set in the subspace topology on $P^*$.
 
-
-Then there exists an open $W^* \subseteq \real^2$ and natural number $n^*$
-such that $\emptyset \not= W^* \cap P^* \subseteq \phi_{\mu_{n^*}}[M \times \real]$.
+Then there exists an open $W^* \subseteq \real^2$ 
+such that $\emptyset \not= W^* \cap P^* \subseteq \phi_{\mu}[M \times \real]$.
 Hence $W^* \cap \Phi_2(E^*) \not= \emptyset$, therefore
 $\mu_2(W^* \cap E^*) > 0$. Since $\mu_2(E^* \setminus \tilde{E}) = 0$
 we obtain that $W^* \cap \tilde{E} \not= \emptyset$.
@@ -553,13 +557,31 @@ Take any point $X_0 \in W^* \cap \tilde{E}$. So we have
 \]
 Denote:
 \begin{align*}
-\phi^{-1}_{\mu_{n^*}}(X_0) &= (x(\mu), y(\mu)) \\
-\phi^{-1}_{\theta_k}(X_0) &= (x^{(k)}_0, y^{(k)}_0) \qquad \text{for }k = 0,\ldots, K-1 
+\phi^{-1}_{\mu}(X_0) &= (x(\mu), y(\mu)) \\
+\phi^{-1}_{\theta_l}(X_0) &= (x^{(l)}_0, y^{(l)}_0) \qquad \text{for }l = 0,\ldots, k-1 
 \end{align*}
 
 Evidently
 $x(\mu) \in M$ and $x^{(k)}_0 \in \Phi(E)$ for $k = 0, \ldots, K-1$.
-\todo{(...)}
+
+Let us formulate the following auxiliary lemma:
+\begin{lemma}
+  If $B \subseteq A$, $A, B$ Lebesgue measurable sets, $\mu(B) > 0$,
+  $E$ also Lebesgue measurable set, then if
+  for some $\varepsilon \in (0,1)$ we have
+  \[
+  \mu(E \cap A) \geq (1 - \varepsilon) \mu(A),
+\]
+then
+\[
+  \mu(E \cap B) \geq (1 - \varepsilon \frac{\mu(A)}{\mu(B)}) \mu(B),
+\]
+\end{lemma}
+\begin{proof}
+  \todo{(...)}
+\end{proof}
+
+
 \end{proof}
 
 Continuation of the proof of Theorem \ref{theorem:main}:
@@ -567,13 +589,17 @@ Continuation of the proof of Theorem \ref{theorem:main}:
 Apply Lemma \ref{lemma:main} to the sequence $\theta_0,\ldots,\theta_{k-1}$
 and to the set $N$. So we get a suitable perfect set $P$.
 Observe that we have
-\[
+\begin{equation}\label{equation:P-is-pathological}
   P \subseteq \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real].
-\]
+\end{equation}
 Indeed, suppose that $X$ is a point from $P$ such that
 $X \not\in \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real]$.
 Then $X \in \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]$,
-which is a contradition with Lemma \ref{lemma:main}.
+which contradicts the statement of Lemma \ref{lemma:main}.
+Since $\mu_j \in \NICEDIRECTIONS(P)$ for all $j = 0,1,\ldots$, 
+$\phi_{\mu_j}[M \times \real]$ is a meager set in the
+subspace topology on $P$. By the inequality (\ref{equation:P-is-pathological})
+we obtain a contradiction.
 
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
