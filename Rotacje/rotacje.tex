@@ -574,13 +574,26 @@ Let us formulate the following auxiliary lemma:
 \]
 then
 \[
-  \mu(E \cap B) \geq (1 - \varepsilon \frac{\mu(A)}{\mu(B)}) \mu(B),
+  \mu(E \cap B) \geq \big(1 - \varepsilon \frac{\mu(A)}{\mu(B)}\big) \mu(B),
 \]
 \end{lemma}
 \begin{proof}
-  \todo{(...)}
+  We have
+  $\mu(E \cap B) = \mu(E \cap A) - \mu(E \cap A \setminus B) \geq$
+  $(1 - \varepsilon) \mu(A) - \mu(A \setminus B) =
+  (1 - \varepsilon) \mu(A) - \mu(A) + \mu(B) =$
+  $- \varepsilon \mu(A) + \mu(B) = $
+  $\mu(B) (1 - \varepsilon \frac{\mu(A)}{\mu(B)}$.
 \end{proof}
 
+For $l = 0,\ldots, k-1$
+let us denote the angle $\mu - \theta_l$ by $\theta^*_l$.
+By our assumption, $\theta^*_l \not= 0$, hence
+$\theta^*_l \in (-\pi, \pi) \setminus \lbrace 0 \brace$.
+We have
+$\pi_x(\phi_{\theta_l}^{-1}(\phi_{\mu}(x(\mu), y(\mu))) =$
+$ \pi_x(\phi_{\theta_l}(X_0)) =$
+$\pi_x(x_{(l}
 
 \end{proof}
 
