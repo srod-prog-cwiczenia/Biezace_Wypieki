@@ -362,39 +362,28 @@ the increasing enumeration of the elements of a given infinite
 $A \subseteq \omega$).
   Therefore, we can simply assume that the Ellentuck
 topology ``lives'' on the space $\incrbaire$.
-
-
-It is obvious that they are homeomorphic by the standard
-homeomorphism: 
-$\psi \colon \omega^\omega \to \omega^{\omega\uparrow}$ defined
-by the following:
+It is also clear that the spaces $\baire$ and $\incrbaire$
+are homeomorphic via the standard homeomorphism
+$\psi \colon \baire \to \incrbaire$
+given by
 $\psi(x)(n) = \sum_{k=1}^n x(k) + n$.
 
-We can consider the dominating topology defined
-on the space $\omega^\omega$ (by taking into accout 
-the standard basis Hechler neighbourhoods:
-$D(N, f) = \{g \in \omega^\omega \colon 
-f \restriction N = g \restriction N \wedge
-\forall_k f(k) \leq g(k)\}$.) In this way 
-we obtain the standard dominating topology
-on the space $\omega^\omega$. Using the
-standard bijection $\psi$ we can "move" this
-topology into the space $\omega^{\omega\uparrow}$.
-  However, notice that the space 
-$\omega^{\omega\uparrow}$ is a subspace
-of the space $\omega^\omega$. So the precise
-formulation of my question is like follows:
-Does the topologies: The topology on 
-the space $\omega^{\omega\uparrow}$
-inherited from the usuall dominating topology
-defined on $\omega^\omega$ (we treat here the
-space $\omega^{\omega\up}$ as a subspace of the space
-$\omega^\omega$) and the topology
-also defined on the same space $\omega^{\omega\uparrow}$
-but ``moved'' from the space $\omega^\omega$ (equipped
-with the dominating topology of course) by the 
-bijection $\psi$ are the same?
-  
+Also, let us note that the space $\incrbaire$
+is simply a subspace of the space $\baire$.
+Thus, the following phenomenon occurs, which is fundamental to the course of our work.
+If we have a topology on the space $\baire$,
+we can transfer it to the space $\incrbaire$ via the
+standard bijection $\psi$. Alternatively, we can consider
+Alternatively, we can consider the topology induced by the ambient space $\baire$ on $\incrbaire$.
+Thus, unlike the Ellentuck topology, which is uniquely ``transferred''
+to $\incrbaire$, we obtain two topologies on $\incrbaire$,
+and in general they are different from each other.
+
+In our work we will mainly focus on the
+eventually dominating topology (Hechler topology) and on
+the eventually different functions topology.
+
+\todo{The next part must be reformulated}
   This question is related to the two possibilities 
 in introduction of the dominating topology in the space
 $[\omega]^\omega$. Indeed, we can ``import'' the dominating topology
