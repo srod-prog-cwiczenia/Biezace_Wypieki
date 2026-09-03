@@ -503,7 +503,7 @@ We have
 \[
 \tilde{E} \subseteq \Phi_2(E^*) \subseteq P^* \subseteq E^*.
 \]
-Moreover, $\Phi_2(E^*)$ is a perfect ``fat'' set.  
+Moreover, $P^*$ is a perfect ``fat'' set.  
 It suffices to check only that this set is a ``fat'' set,
 i.e. if $W$ is an open set such that $W \cap \overline{\Phi_2(E^*)} \not= \emptyset$
 then $\mu_2(W \cap \overline{\Phi_2(E^*)}) > 0$. But since
@@ -562,11 +562,11 @@ Denote:
 \end{align*}
 
 Evidently
-$x(\mu) \in M$ and $x^{(k)}_0 \in \Phi(E)$ for $k = 0, \ldots, K-1$.
+$x(\mu) \in M$ and $x^{(l)}_0 \in \Phi(E)$ for $l = 0, \ldots, k-1$.
 
 Let us formulate the following auxiliary lemma:
 \begin{lemma}
-  If $B \subseteq A$, $A, B$ Lebesgue measurable sets, $\mu(B) > 0$,
+  If $B \subseteq A$, $A, B$ Lebesgue measurable sets, $\mu(B) > 0$, $\mu(A) < \infty$,
   $E$ also Lebesgue measurable set, then if
   for some $\varepsilon \in (0,1)$ we have
   \[
@@ -601,8 +601,10 @@ $x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l$.
 
 Let us choose $\varepsilon > 0$ such that
 \[
-  \frac{1}{4 \sum_{l=0}^{k-1} \frac{1}{\sin \theta^*_l}} > \varepsilon.
+  \frac{1}{4 \sum_{l=0}^{k-1} \frac{1}{|\sin \theta^*_l}|} > \varepsilon.
 \]
+and let $\eta_0 > 0$ be such that
+for each $\hat{x}(\mu), \hat{y}(\mu)$ such that
 
 \end{proof}
 
