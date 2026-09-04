@@ -439,7 +439,7 @@ equivalent:
 
 \begin{theorem}
   \label{theorem:main}
-  Suppose that $(\mu)_{j=0}^\infty$ and $\theta_0,\ldots, \theta_{k-1}$
+  Suppose that $(\mu_j)_{j=0}^\infty$ and $\theta_0,\ldots, \theta_{k-1}$
   are sequences of angles from $[0,\pi)$. Assume also that
   $\forall_{j \in 0,1,\ldots} \forall_{l = 0,\ldots, k-1} \mu_j \not= \theta_l$.
   Suppose also that $M \subseteq \real$ is a meager set and
@@ -583,13 +583,13 @@ then
   $(1 - \varepsilon) \mu(A) - \mu(A \setminus B) =
   (1 - \varepsilon) \mu(A) - \mu(A) + \mu(B) =$
   $- \varepsilon \mu(A) + \mu(B) = $
-  $\mu(B) (1 - \varepsilon \frac{\mu(A)}{\mu(B)}$.
+  $\mu(B) \big(1 - \varepsilon \frac{\mu(A)}{\mu(B)}\big)$.
 \end{proof}
 
 For $l = 0,\ldots, k-1$
 let us denote the angle $\mu - \theta_l$ by $\theta^*_l$.
 By our assumption, $\theta^*_l \not= 0$, hence
-$\theta^*_l \in (-\pi, \pi) \setminus \lbrace 0 \brace$.
+$\theta^*_l \in (-\pi, \pi) \setminus \lbrace 0 \rbrace$.
 We have
 $\pi_x(\phi_{\theta_l}^{-1}(\phi_{\mu}(x(\mu), y(\mu))) =$
 $ \pi_x(\phi_{\theta_l}(X_0)) =$
@@ -604,7 +604,17 @@ Let us choose $\varepsilon > 0$ such that
   \frac{1}{4 \sum_{l=0}^{k-1} \frac{1}{|\sin \theta^*_l}|} > \varepsilon.
 \]
 and let $\eta_0 > 0$ be such that
-for each $\hat{x}(\mu), \hat{y}(\mu)$ such that
+\begin{enumerate}
+\item  
+For each $\hat{x}(\mu), \hat{y}(\mu)$ such that
+$|\hat{x}(\mu) - x(\mu)| < \eta_0$ and
+$|\hat{y}(\mu) - y(\mu)| < \eta_0$, we have
+$\phi_{\mu}(\hat{x}(\mu), \hat{y}(\mu)) \in W^*$.
+%%% this is true since $\phi_{\mu}(x(\mu), y(\mu)) = X_0 \in W^*$.
+\item
+  For each $0 < \eta < \eta_0$ we have
+$\mu((x^{(l)}_0 - \eta, x^{(l)}_0 + \eta$
+\end{enumerate}
 
 \end{proof}
 
