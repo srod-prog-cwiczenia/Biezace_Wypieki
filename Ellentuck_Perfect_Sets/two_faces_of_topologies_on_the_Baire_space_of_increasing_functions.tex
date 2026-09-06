@@ -364,14 +364,14 @@ It is also clear that the spaces $\baire$ and $\incrbaire$
 are homeomorphic via the standard homeomorphism
 $\psi \colon \baire \to \incrbaire$
 given by
-$\psi(x)(n) = \sum_{k=1}^n x(k) + n$.
+$\psi(x)(n) = \sum_{k = 0}^n x(k) + n$.
 
 Also, let us note that the space $\incrbaire$
 is simply a subspace of the space $\baire$.
 Thus, the following phenomenon occurs, which is fundamental to the course of our work.
 If we have a topology on the space $\baire$,
 we can transfer it to the space $\incrbaire$ via the
-standard bijection $\psi$. Alternatively, we can consider
+standard bijection $\psi$. 
 Alternatively, we can consider the topology induced by the ambient space $\baire$ on $\incrbaire$.
 Thus, unlike the Ellentuck topology, which is uniquely ``transferred''
 to $\incrbaire$, we obtain two topologies on $\incrbaire$,
@@ -381,6 +381,7 @@ In our work we will mainly focus on the
 eventually dominating topology (Hechler topology) and on
 the eventually different functions topology.
 
+\begin{comment}
 \todo{The next part must be reformulated}
   This question is related to the two possibilities 
 in introduction of the dominating topology in the space
@@ -430,6 +431,7 @@ The question is: Are these two topologies the same?
 Or perhaps they have the same Baire sets?
 Or perhaps they have the same meager sets?
 \end{question}
+\end{comment}
 
 \section{Preliminaries and Notation}
 
@@ -444,7 +446,7 @@ $\INFNonZero$ is the family of all functions $f\in \baire$ that doesn't terminat
 Following \cite{LabedzkiRepicky1995} let us define for $s \in \finbaire$,
 $f \in \baire$ such that $s \subseteq f$:
 \[
-  \Hechler{s}{f} = \lbrace x \in \baire\colon s \subseteq x \wedge \forall_{k \geq |s|} f(k) \geq x(k)\rbrace.
+  \Hechler{s}{f} = \lbrace x \in \baire\colon s \subseteq x \wedge \forall_{k \geq |s|} f(k) \leq x(k)\rbrace.
 \]
 \todo{
 I suggest (as is done in the LabędzkiRepicky paper) using ($\omega$) left-associatively.}
@@ -543,13 +545,13 @@ Define $h\in \Hechler{M}{g} \cap \incrbaire$ by
 h(n) = \left\{ 
 	\begin{tabular}{lll}
 	$g(n)$ && if $n < M$\\
-	$g(n) + 1$  && if $n \in A_{Odd} \setminus M$\\
+	$g(n) + 1$  && if $n \in A_{Odd} \setminus \lbrace 0, \ldots, M-1\rbrace$\\
 	$g(n+1)$ && otherwise
 	\end{tabular}
 	\right.
 \]
 Suppose $n\in A_{Odd} \setminus M$. Then 
-$h(n) = g(n) + 1$. And if $n \notin A_{Od}\cup M$,
+$h(n) = g(n) + 1$. And if $n \notin A_{Odd}\cup \lbrace 0, \ldots, M-1\rbrace$,
 then $h(n) = g(n+1)$.
 In either case, $h(n) \ge g(n)$
 and thus $h\in \Hechler{M}{g} \cap \incrbaire$.
@@ -929,7 +931,7 @@ $\HechlerNative$ but not in $\HechlerInduced$.
 \end{theorem}
 
 \begin{proof}
-  Since $\idealLacunary \subseteq \ThickPlus$ by Theorem \label{sigma-porous-is-not-Hechler-open}
+  Since $\idealLacunary \subseteq \ThickPlus$ by Theorem \ref{sigma-porous-is-not-Hechler-open}
 we must only verify that it is open in $\HechlerNative$. Suppose that
 we have set $A$ which is a disjoint sum of sets: $A = A_1 \cup\ldots\cup A_r$
 such that $\lim_{n\to\infty} A_j(n + 1) - A_j(n) = \infty$.
@@ -1033,8 +1035,7 @@ If $f\in\baire$ is not eventually zero, then
 $\psi([\emptyset, f])$ is co-dense.\\
 
 {\bf Questions.}
-Is $\psi([\emptyset,f])$ closed? Is the $\psi$ topology ccc?
-Is the $\psi$ topology a Baire space?\\
+Is $\psi([\emptyset,f])$ closed? \\
 
 {\bf Corollary.}
 If $\psi([N, f])$ is closed, then it's nowhere dense.

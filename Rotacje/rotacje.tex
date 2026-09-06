@@ -565,7 +565,7 @@ Evidently
 $x(\mu) \in M$ and $x^{(l)}_0 \in \Phi(E)$ for $l = 0, \ldots, k-1$.
 
 Let us formulate the following auxiliary lemma:
-\begin{lemma}
+\begin{lemma}\label{lemma:change-in-density}
   If $B \subseteq A$, $A, B$ Lebesgue measurable sets, $\mu(B) > 0$, $\mu(A) < \infty$,
   $E$ also Lebesgue measurable set, then if
   for some $\varepsilon \in (0,1)$ we have
@@ -613,19 +613,31 @@ $\phi_{\mu}(\hat{x}(\mu), \hat{y}(\mu)) \in W^*$.
 %%% this is true since $\phi_{\mu}(x(\mu), y(\mu)) = X_0 \in W^*$.
 \item
   For each $0 < \eta < \eta_0$ we have
-  $\mu((x^{(l)}_0 - \eta, x^{(l)}_0 + \eta) \cap \Phi(E)) \geq (1 - varepsilon) 2 \eta$
+  $\mu((x^{(l)}_0 - \eta, x^{(l)}_0 + \eta) \cap \Phi(E)) \geq (1 - \varepsilon) 2 \eta$
   (such an $\eta_0$ exists, since $x^{(l)}_0\in \Phi(E)$ and $\mu(\Phi(E) \triangle E) = 0$).
 \end{enumerate}
 
-Suppose that $\mu{x}(\mu)$ is such that
+Suppose that $\hat{x}(\mu)$ is such that
 $|\hat{x}(\mu) - x(\mu)| < \frac{\eta_0}{2}$.
-Then we have:
-$(\hat{x}(\mu) \cos \theta^*_k - y(\mu) | \sin \theta^*_k | - \frac{\eta_0}{2};
-(\hat{x}(\mu) \cos \theta^*_k - y(\mu) | \sin \theta^*_k | + \frac{\eta_0}{2})\subseteq$
+Then we have for each $l = 0,\ldots,k-1$:
+\[(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
+(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})\subseteq\]
+\[
+(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \eta_0;
+(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \eta_0).
+\]
+By Lemma \ref{lemma:change-in-density} we obtain:
+\[\mu(
+(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
+(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})
+\cap \Phi(E)) \geq \eta_0 (1 - 2 \varepsilon).
+\]
+Note that for every $l = 0, \ldots, k-1$ we have
 $
-(\hat{x}(\mu) \cos \theta^*_k - y(\mu) | \sin \theta^*_k | - \eta_0;
-(\hat{x}(\mu) \cos \theta^*_k - y(\mu) | \sin \theta^*_k | + \eta_0).
-$
+\hat{x}(\mu) \cos \theta^*_l - \hat{y}(\mu) \sin \theta^*_l \in
+(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
+\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})
+$.
 \end{proof}
 
 Continuation of the proof of Theorem \ref{theorem:main}:
