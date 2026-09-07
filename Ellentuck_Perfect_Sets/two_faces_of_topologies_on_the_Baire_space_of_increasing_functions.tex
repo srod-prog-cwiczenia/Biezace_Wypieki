@@ -540,7 +540,7 @@ suppose that $M<\oo$ and $g\in\incrbaire$.
 %et $[M,g]\subseteq \psi([\emptyset,f])$ 
 %be an arbitrary open set.
 %For our purposes we may assume WLOG that $M$ is odd.
-Define $h\in \Hechler{M}{g} \cap \incrbaire$ by 
+Define $h\in \Hechler{g\restriction M}{g} \cap \incrbaire$ by 
 \[
 h(n) = \left\{ 
 	\begin{tabular}{lll}
@@ -554,7 +554,7 @@ Suppose $n\in A_{Odd} \setminus M$. Then
 $h(n) = g(n) + 1$. And if $n \notin A_{Odd}\cup \lbrace 0, \ldots, M-1\rbrace$,
 then $h(n) = g(n+1)$.
 In either case, $h(n) \ge g(n)$
-and thus $h\in \Hechler{M}{g} \cap \incrbaire$.
+and thus $h\in \Hechler{g\restriction M}{g} \cap \incrbaire$.
 
 For $n\in A_{Odd} \setminus (M+1)$,
 we have 
@@ -566,7 +566,7 @@ $$
 %$f(n) \not= 0$ for infinitely many odd $n$. 
 Thus $(\exists^\infty n)\;\inversepsi(h)(n) < f(n)$,
 and it follows that $\inversepsi(h)\notin [\emptyset,f]$.
-Therefore $h \in \Hechler{M}{g} \cap \incrbaire \setminus \psi([\emptyset,f])$.
+Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi([\emptyset,f])$.
 \end{proof}
 
 \begin{corollary}
@@ -689,7 +689,7 @@ since $\ffid((B(n)_{n\in\omega}))(k_1 + 2) = 0 < x(k_1 + 2) = 10$.
 
 \begin{theorem}
 For all $f\in\baire$ and $N <\oo$, 
-$\psi[\Hechler{N}{f}]$ is dense in $\Hechler{N}{\psi(f)} \cap \incrbaire$
+$\psi[\Hechler{f\restriction N}{f}]$ is dense in $\Hechler{\psi(f)\restriction N}{\psi(f)} \cap \incrbaire$
 in the topology $\HechlerInduced$,
 and if $f \in \INFNonZero$, then it's
 co-dense as well (again as above in the topology $\HechlerInduced$).
@@ -698,17 +698,18 @@ co-dense as well (again as above in the topology $\HechlerInduced$).
   The part about co-density follows from the Claim \ref{claim:about-not-terminate-in-0}.
 To show it's dense,
 %For convenience, we assume WLOG that $N\ge 1$.  
-take $M \ge N$ and $g\in \Hechler{N}{\psi(f)} \cap \incrbaire$.
-We need $h\in \Hechler{M}{g}\cap\incrbaire$ such that 
+take $M \ge N$ and $g\in \Hechler{\psi(f)\restriction N}{\psi(f)} \cap \incrbaire$.
+We need $h\in \Hechler{g\restriction M}{g}\cap\incrbaire$ such that 
 %$\inversepsi(h)|N = f|N$ and 
-$\inversepsi(h) \in \Hechler{N}{f}$.
+$\inversepsi(h) \in \Hechler{f\restriction N}{f}$.
 In other words, $h\restriction M = g\restriction M$ and  
 $\forall^\infty n$, 
 $$
 h(n) \ge g(n) \;\;\mbox{  and  }\;\; h(n) - h(n-1) - 1 \ge f(n).
 $$
 This is easy to do. Set $h(0) = g(0)$, 
-$h|(M+1) = g|(M+1)$ and for $n\ge M+1$, define  
+$h\restriction \lbrace 0, \ldots, M\rbrace =
+g\restriction \lbrace 0, \ldots, M\rbrace$ and for $n \ge M + 1$, define  
 $h(n) = g(n) + h(n-1) + f(n)$.
 (We use $n\ge M+1$ to make sure that $n\not=0$.) 
 Then for $n\ge M+1$ we have 
@@ -717,13 +718,13 @@ $\inversepsi(h)(n) = h(n) - h(n-1) - 1 = f(n) + g(n) - 1 \ge f(n)$.
 
 \begin{corollary}
 Suppose that $f\in \INFNonZero$ and $N<\oo$. Then
-$\psi[\Hechler{N}{f}]$ is neither open nor closed
+$\psi[\Hechler{f\restriction N}{f}]$ is neither open nor closed
 in the topology $\HechlerInduced$.
 \end{corollary}
 \begin{proof}
 It's not open by a previous result and if 
 it was closed then it would contain $\Hechler{N}{\psi(f)}$ since it's $\HechlerInduced$ dense
-in $\Hechler{N}{\psi(f)}$.
+in $\Hechler{\psi(f)\restriction N}{\psi(f)}$.
 This is a contradiction.
 \end{proof}
 
@@ -888,7 +889,7 @@ We have:
   Suppose that an ideal $\calI \subseteq P(\omega)$ different from $\idealFin$
   is $\sigma-porous$ - which is equivalent, see \cite{KlingaNowikWasik2025}, to
   the condition that $\calI \subseteq \ThickPlus$ - then $\calI$
-  is not closed in $\HechlerInduced$.
+  is not open in $\HechlerInduced$ (thus $\calI^+$ is not closed in $\HechlerInduced$).
 \end{theorem}
 \begin{proof}
   Suppose by way of contradiction that
