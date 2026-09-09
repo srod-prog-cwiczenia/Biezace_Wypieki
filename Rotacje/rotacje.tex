@@ -649,7 +649,41 @@ Let us compute $\mu(T_l)$, where
 
 Let us also define a function $L_l \colon \real \to \real$
 by a formula:
-$L_l(x) = \hat{x}(\mu) \cos \theta^*_l - x \sin \theta^*_l$
+$L_l(x) = \hat{x}(\mu) \cos \theta^*_l - x \sin \theta^*_l$.
+
+We have:
+\[
+  \mu\big( (\hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l - \frac{\eta_0}{2} | \sin \theta^*_l|;
+  \hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l + \frac{\eta_0}{2} | \sin \theta^*_l|)
+  \cap \Phi(E) \geq
+  \big)
+\]
+\[
+  \eta_0 |\sin \theta^*_l| \big(1 - \varepsilon\frac{2 \eta_0}{\eta_0 |\sin \theta^*_l|}\big) =
+\]
+\[
+  \eta_0 |\sin \theta^*_l| - 2 \varepsilon \eta_0.
+\]
+Next, we have
+\[
+\mu(T_l) \geq \frac{1}{|\sin \theta^*_l|} \big( \eta_0 |\sin \theta^*_l| - 2 \varepsilon \eta_0\big) =
+\]
+\[
+\eta_0 \big(1 - \frac{2 \varepsilon}{|\sin \theta^*_l|}\big).
+\]
+
+Next,
+\[
+  \mu\big(y(\mu) - \frac{\eta_0}{2}; y(\mu) + \frac{\eta_0}{2} \setminus T_l\big) \leq
+\]
+\[
+  \frac{2 \varepsilon \eta_0}{|\sin \theta^*_l|}.
+\]
+Hence
+\[
+  \mu\big( \bigcup_{l = 0}^{k - 1} \big(y(\mu) - \frac{\eta_0}{2};
+  y(\mu) + \frac{\eta_0}{2} \setminus T_l\big) \leq
+\]
 \end{proof}
 
 Continuation of the proof of Theorem \ref{theorem:main}:
