@@ -269,6 +269,7 @@
 \newcommand{\INFZero}{\mathrm{INF}_0}
 \newcommand{\INFNonZero}{\mathrm{INF}_{>0}}
 \newcommand{\carre}{\mathit{sq}}
+\newcommand{\sequenceOnes}{\underline{\bf 1}}
 
 % \renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
@@ -571,9 +572,15 @@ Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi([\e
 
 \begin{corollary}
   $\psi[\INFZero] \not\in \ND(\HechlerInduced)$. Moreover,
-  $\psi[\INFZero] \not\in \meager(\HechlerInduced)$.
+  $\psi[\INFZero] \not\in \meager(\HechlerInduced)$,
+  moreover, $\psi[\INFZero]$ is a $\HechlerInduced$ - residual set.
   \todo{Prove the latter using Claim \ref{claim:about-inf-0}.}
 \end{corollary}
+
+\begin{proof}
+  Since $\baire\setminus\INFZero = \bigcup_{s \in \finbaire} \Hechler{s}{s \frown \sequenceOnes}$
+  \todo{Complete the proof!}
+\end{proof}
 
 \begin{proof}
   By virtue of Claim \ref{claim:about-inf-0}
@@ -592,10 +599,10 @@ $\HechlerNative \not\subseteq \HechlerInduced$.
 
 \begin{proof}
 It is easy to observe that 
-$\INFZero \cap \Hechler{\emptyset}{\underline{\bf 1}} = \emptyset$.
+$\INFZero \cap \Hechler{\emptyset}{\sequenceOnes} = \emptyset$.
 By Claim \ref{claim:about-inf-0} we obtain that
-$\ffid[\Hechler{s}{f} \cap \incrbaire] \not\subseteq \Hechler{\emptyset}{\underline{\bf 1}}$.
-Since $\Hechler{\emptyset}{\underline{\bf 1}}$ is a Hechler base neighbourhood,
+$\ffid[\Hechler{s}{f} \cap \incrbaire] \not\subseteq \Hechler{\emptyset}{\sequenceOnes}$.
+Since $\Hechler{\emptyset}{\sequenceOnes}$ is a Hechler base neighbourhood,
 this proves the claim of the corollary.
 
 Let us note that the statement of this corollary also follows from
