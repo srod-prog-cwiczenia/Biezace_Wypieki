@@ -579,7 +579,9 @@ Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi([\e
 
 \begin{proof}
   Since $\baire\setminus\INFZero = \bigcup_{s \in \finbaire} \Hechler{s}{s \frown \sequenceOnes}$
-  \todo{Complete the proof!}
+  it suffices to prove that for any ${s \in \finbaire}$,
+  $\phi[\Hechler{s}{s \frown \sequenceOnes}]$ is a nowhere dense set in $\HechlerInduced$.
+  Take any $\Hechler{t}{y}$ such that $\Hechler{t}{y}\cap\incrbaire\not=\emptyset$.
 \end{proof}
 
 \begin{proof}
@@ -1043,7 +1045,8 @@ If $f\in\baire$ is not eventually zero, then
 $\psi([\emptyset, f])$ is co-dense.\\
 
 {\bf Questions.}
-Is $\psi([\emptyset,f])$ closed? \\
+Determine the Borel class of the set $\psi([\emptyset,f])$
+(depending of $f$). \\
 
 {\bf Corollary.}
 If $\psi([N, f])$ is closed, then it's nowhere dense.
@@ -1094,6 +1097,10 @@ Suppose $\inversepsi([N,g])$ is open. .....
 
 \noindent
 {\bf Conjecture.} The $\psi$-topology is a Baire space.
+
+\noindent
+It seems that $\psi[\Hechler{s}{x}] \subseteq \Hechler{\psi(s)}{\psi(x)}\cap\incrbaire$,
+but not {\it vice versa}?
 
 \printbibliography
 \end{document}

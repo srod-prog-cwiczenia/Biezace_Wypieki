@@ -221,6 +221,7 @@
 \newcommand{\bigexists}{\mbox{\Large $\mathsurround0pt\exists$}}
 %%% tutaj makra specyficzne tylko w tej pracy:
 \newcommand{\NICEDIRECTIONS}{\mathrm{NiceDir}}
+\newcommand{\yxMu}{\hat{y}(\hat{x}(\mu))}
 
 %\renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
@@ -600,9 +601,9 @@ $\pi_x(\phi_{\theta^*_l}(x(\mu), y(\mu)) =$
 $x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l$.
 
 Let us choose $\varepsilon > 0$ such that
-\[
+\begin{equation}\label{equation:four-sinus}
   \frac{1}{4 \sum_{l=0}^{k-1} \frac{1}{|\sin \theta^*_l}|} > \varepsilon.
-\]
+\end{equation}
 and let $\eta_0 > 0$ be such that
 \begin{enumerate}
 \item  
@@ -688,8 +689,41 @@ Hence
 Thus
 \[
   \mu\big(\bigcap_{l=0}^{k-1} T_l \big) \geq \eta_0
-  \big(1 - \sum_{l = 0}^{k - 1} \frac{2 \varepsilon \eta_0}{|\sin \theta^*_l|}\big).
+  \big(1 - \sum_{l = 0}^{k - 1} \frac{2 \varepsilon}{|\sin \theta^*_l|}\big).
 \]
+and by inequality (\ref{equation:four-sinus}) we obtain
+\[
+  \mu\big(\bigcap_{l=0}^{k-1} T_l \big) \geq \frac{\eta_0}{2},
+\]
+hence $\bigcap_{l=0}^{k-1} T_l\not=\emptyset$.
+Thus, let us choose any 
+$\yxMu \in \bigcap_{l=0}^{k-1} T_l$
+(We use this notation because $\hat{y}$ depends on $\hat{x}$).
+
+Denote $X^*_0 = (\hat{x}(\mu), \yxMu)$.
+We have that
+\[
+  \left\{
+    \begin{array}{l}
+    |\hat{x}(\mu) - x(\mu)| < \frac{\eta_0}{2} \\
+    |\yxMu - y(\mu)| < \frac{\eta_0}{2},
+    \end{array}
+  \right.
+\]
+so in particular $\phi_{\mu}(X^*_0) \in W^*$.
+Moreover, we have
+\begin{equation}\label{equation:conclusion-3}
+\hat{x}(\mu) \cos \theta^*_l - \yxMu \sin \theta^*_l \in \Phi(E).
+\end{equation}
+We will show that $\phi_\mu(X^*_0) \in \tilde{E}$.
+Since (\ref{equation:conclusion-3}) we have
+$\pi_x(\phi_{\theta^*_l}(X^*_0)) \in \Phi(E)$,
+hence
+$\pi_x(\phi_{\theta_l}^{-1}(\phi_{\mu}(X^*_0))) \in \Phi(E)$,
+so
+$\phi_{\mu}(X^*_0) \in \phi_{\theta_l}[\phi(E) \times \real]$.
+Therefore
+$\phi_{\mu}(X^*_0) \in \tilde{E}$.
 \end{proof}
 
 Continuation of the proof of Theorem \ref{theorem:main}:
