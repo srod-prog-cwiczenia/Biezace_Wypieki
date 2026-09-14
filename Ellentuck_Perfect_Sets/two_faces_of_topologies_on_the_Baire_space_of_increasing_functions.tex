@@ -439,15 +439,15 @@ Or perhaps they have the same meager sets?
 We denote by $\baire$ the space of all infinite sequences of
 natural numbers and call it the Baire space.
 
-By $\finsub$ we denote the collection of all finite subsets of the
-natural numbers.
-
-By $\incrbaire$ we denote the space of all infinite increasing
+By $\incrbaire$ we denote the space of all infinite strictly increasing
 sequences of the natural numbers.
 
-By $\finbaire$ and $\finincrbaire$
-we denote the collection of all finite sequences and increasing
-sequences, respectively, of natural numbers.
+We denote by $\finbaire$ and $\finincrbaire$, respectively,
+the collection of all finite sequences and finite strictly increasing
+sequences of natural numbers.
+
+We denote by $\finsub$ and $\infsub$, respectively,
+the collections of all finite and infinite subsets of the natural numbers.
 
 For $A \in \infsub$ let
 $(A(n))_{n\in\omega} \in \incrbaire$ be the increasing enumeration
@@ -459,6 +459,10 @@ of elements of the set $s$: $s(0) < s(1) < \ldots < s(|s| - 1)$.
 
 If $k\in\omega$, we denote by $\underline{\bf k}$ the 
 function from $\baire$ that is constantly equal to $k$.
+
+If $s \in \finbaire$ and $w \in \finbaire \cup \baire$
+then by $s \frown w$ we denote the concatenation of these sequences,
+which is finite or infinite sequence depending on $w$.
 
 Denote \[\INFZero = \lbrace x \in \baire\colon \exists_j^\infty x(j) = 0\rbrace\]
 and 
@@ -544,7 +548,7 @@ so $h \in \Hechler{f\restriction N}{f} \cap \Hechler{g\restriction [M}{g}$.
 
 We have also simply 
 \begin{fact}\label{fact:inclusion}
-$\psi[\Hechler{s}{x}] \subseteq \psi[\Hechler{\psi(s)}{\psi(x)}$.
+$\psi[\Hechler{s}{x}] \subseteq \psi[\Hechler{\psi(s)}{\psi(x)}]$.
 \end{fact}
 
 \subsection{The two topologies}
@@ -636,18 +640,17 @@ and it follows that $\inversepsi(h)\notin [\emptyset,f]$.
 Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi([\emptyset,f])$.
 \end{proof}
 
-\begin{corollary}
-  $\psi[\INFZero] \not\in \ND(\HechlerInduced)$. Moreover,
-  $\psi[\INFZero] \not\in \meager(\HechlerInduced)$,
-  moreover, $\psi[\INFZero]$ is a $\HechlerInduced$ - residual set.
-  \todo{Prove the latter using Claim \ref{claim:about-inf-0}.}
-\end{corollary}
+\begin{theorem}\label{theorem:psiinfzero-residual}
+  $\psi[\INFZero]$ is a $\HechlerInduced$ - residual set, hence
+  $\psi[\INFZero] \not\in \meager(\HechlerInduced)$.
+\end{theorem}
 
 \begin{proof}
   Since $\baire\setminus\INFZero = \bigcup_{s \in \finbaire} \Hechler{s}{s \frown \sequenceOnes}$
   it suffices to prove that for any ${s \in \finbaire}$,
   $\phi[\Hechler{s}{s \frown \sequenceOnes}]$ is a nowhere dense set in $\HechlerInduced$.
   Take any $\Hechler{t}{y}$ such that $\Hechler{t}{y}\cap\incrbaire\not=\emptyset$.
+  We may assume that $t \in \finincrbaire$ and $y \in \incrbaire$.
   If $\phi[\Hechler{s}{s \frown \sequenceOnes}] \cap \Hechler{t}{y} = \emptyset$
   then we are done. So suppose that
   $\phi[\Hechler{s}{s \frown \sequenceOnes}] \cap \Hechler{t}{y} \not= \emptyset$.
@@ -655,22 +658,35 @@ Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi([\e
   $\Hechler{\phi(s)}{\phi(s \frown \sequenceOnes}) \cap \Hechler{t}{y} \not= \emptyset$.
   This means that $\phi(s)$ and $t$ are compatible finite sequences
   which means that either $\phi(s) \subseteq t$ or vice versa.
-  Let $u = \phi(s) \cup t$ and define $\mu \in \incrbaire$ by
+Let $u = \phi(s) \cup t$ and define $v \in \finincrbaire$
+by 
+\[
+  v(j) = \begin{cases}
+    u(j) & \text{for } j < |u|,\\
+    y(|u| + 1) + 10 & \text{for } j = |u|,\\
+    y(|u| + 1) + 11 & \text{for } j = |u| + 1.
+    \end{cases}
+\]
+and define $\mu \in \incrbaire$ by
 \[
 \mu(k) =
 \begin{cases}
-  u(k) & \text{for } k < |u|,\\
-  y(|u| + 1) + 10 & \text{for } k = |u|,\\
-  y(|u| + 1) + 11 & \text{for } k = |u| + 1,\\
-  y(k) + 12 & \text{for } k > |u| + 1.
+  v(j) & \text{for } j \leq |u| + 1,\\
+  y(j) + 11 & \text{for } j > |u| + 1.\\
 \end{cases}
 \]
-Then $\Hechler{u}{\mu} \cap \incrbaire \not=\emptyset$,
-$\Hechler{u}{\mu} \subseteq \Hechler{t}{y}$ and
-$\Hechler{u}{\mu} \cap \phi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$,
+Then $\Hechler{v}{\mu} \cap \incrbaire \not=\emptyset$,
+$\Hechler{v}{\mu} \subseteq \Hechler{t}{y}$ and
+$\Hechler{v}{\mu} \cap \phi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$,
 which completes the proof.
 \end{proof}
 
+Note that
+$\bigcup_{s \in \finbaire} \Hechler{s}{s \frown \sequenceOnes} = \baire\setminus\INFZero$
+is an open dense set in the Hechler topology of $\baire$, hence
+$\psi[\INFZero]$ is a $\ND(\HechlerNative)$ set.
+
+\begin{comment}%%% superfluous by virtue of stronger result of Theorem \ref{theorem:psiinfzero-residual}
 \begin{proof}
   By virtue of Claim \ref{claim:about-inf-0}
 we know that if   
@@ -681,6 +697,7 @@ So $\psi[\INFZero]$ meets each base neighbourhood of the
 topology $\HechlerInduced$, hence 
 $\psi[\INFZero] \not\in \ND(\HechlerInduced)$.
 \end{proof}
+\end{comment}
 
 \begin{corollary}
 $\HechlerNative \not\subseteq \HechlerInduced$.
