@@ -493,7 +493,7 @@ Let us recall Lemma 1.1 from \cite{LabedzkiRepicky1995}:
   \[\lbrace \Hechler{s}{f} \colon s \in \finbaire,
     f \in \baire, s \subseteq f\rbrace\]
   is a base of a topology.
-  We call it {\it the Hechler topology} or {\it The eventually dominating topology}.
+  We call it \underline{the Hechler topology} or \underline{the eventually dominating topology}.
   Moreover, every base set $\Hechler{s}{f}$ is clopen in this topology.
 \end{lemma}
 
@@ -563,6 +563,8 @@ all $s \in \finbaire, f \in \baire, s \subseteq f$
 such that $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$. 
 and we call it {\it the induced Hechler topology}
 and we denote it by $\HechlerInduced$.
+
+Obviously, both of these topologies are Baire.
 
 \begin{theorem} We have
 $\HechlerInduced \subseteq \HechlerNative$ (so the ``native'' Hechler
@@ -658,13 +660,15 @@ Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi([\e
   $\Hechler{\phi(s)}{\phi(s \frown \sequenceOnes}) \cap \Hechler{t}{y} \not= \emptyset$.
   This means that $\phi(s)$ and $t$ are compatible finite sequences
   which means that either $\phi(s) \subseteq t$ or vice versa.
-Let $u = \phi(s) \cup t$ and define $v \in \finincrbaire$
+  Let $u = \phi(s) \cup t$, take any
+  $\tau \in \Hechler{\phi(s)}{\phi(s \frown \sequenceOnes}) \cap \Hechler{t}{y}$
+  and define $v \in \finincrbaire$
 by 
 \[
   v(j) = \begin{cases}
     u(j) & \text{for } j < |u|,\\
-    y(|u| + 1) + 10 & \text{for } j = |u|,\\
-    y(|u| + 1) + 11 & \text{for } j = |u| + 1.
+    \tau(|u| + 1) + 10 & \text{for } j = |u|,\\
+    \tau(|u| + 1) + 11 & \text{for } j = |u| + 1.
     \end{cases}
 \]
 and define $\mu \in \incrbaire$ by
@@ -672,12 +676,15 @@ and define $\mu \in \incrbaire$ by
 \mu(k) =
 \begin{cases}
   v(j) & \text{for } j \leq |u| + 1,\\
-  y(j) + 11 & \text{for } j > |u| + 1.\\
+  \tau(j) + 11 & \text{for } j > |u| + 1.\\
 \end{cases}
 \]
-Then $\Hechler{v}{\mu} \cap \incrbaire \not=\emptyset$,
-$\Hechler{v}{\mu} \subseteq \Hechler{t}{y}$ and
-$\Hechler{v}{\mu} \cap \phi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$,
+Then:
+\begin{enumerate}[label=\alph*]
+\item $\Hechler{v}{\mu} \cap \incrbaire \not=\emptyset$;
+\item $\Hechler{v}{\mu} \subseteq \Hechler{t}{y}$ and
+\item $\Hechler{v}{\mu} \cap \phi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$,
+\end{enumerate}
 which completes the proof.
 \end{proof}
 
@@ -1182,9 +1189,6 @@ Clearly it doesn't pull back to a basic open set.
 
 Suppose $\inversepsi([N,g])$ is open. .....
 \end{proof}
-
-\noindent
-{\bf Conjecture.} The $\psi$-topology is a Baire space.
 
 \noindent
 It seems that $\psi[\Hechler{s}{x}] \subseteq \Hechler{\psi(s)}{\psi(x)}\cap\incrbaire$,
