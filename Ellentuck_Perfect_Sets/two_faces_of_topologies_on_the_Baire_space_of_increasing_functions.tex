@@ -551,6 +551,17 @@ We have also simply
 $\psi[\Hechler{s}{x}] \subseteq \psi[\Hechler{\psi(s)}{\psi(x)}]$.
 \end{fact}
 
+\subsection{Partitions into small sets}
+
+Suppose that $X$ is a bitopological space, i.e.
+$X$ is equipped with two topologies, say $\tau_1$ and $\tau_2$.
+Assume also that both $(X, \tau_1)$ and $(X, \tau_2)$ is a Baire
+space. If $\alpha_1$ is one of the four conditions (where the arrow denotes inclusion):
+
+\begin{tikzcd}
+\ND \arrow[r] & \meager \arrow[r] & \neg \mathit{co}-\meager \arrow[r] & \neg \mathit{co}-\ND 
+\end{tikzcd}
+
 \subsection{The two topologies}
 
 On the set $\incrbaire$ we can define two different topologies:
@@ -692,6 +703,12 @@ Note that
 $\bigcup_{s \in \finbaire} \Hechler{s}{s \frown \sequenceOnes} = \baire\setminus\INFZero$
 is an open dense set in the Hechler topology of $\baire$, hence
 $\psi[\INFZero]$ is a $\ND(\HechlerNative)$ set.
+
+\begin{corollary}
+The tuple $(\psi[\INFZero], \incrbaire\setminus\psi[\INFZero])$
+is a partition into $\ND(\HechlerNative)$ and
+$\meager(\HechlerInduced)$ sets, respectively.
+\end{corollary}
 
 \begin{comment}%%% superfluous by virtue of stronger result of Theorem \ref{theorem:psiinfzero-residual}
 \begin{proof}
