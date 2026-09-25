@@ -553,14 +553,38 @@ $\psi[\Hechler{s}{x}] \subseteq \psi[\Hechler{\psi(s)}{\psi(x)}]$.
 
 \subsection{Partitions into small sets}
 
+\begin{definition}
 Suppose that $X$ is a bitopological space, i.e.
 $X$ is equipped with two topologies, say $\tau_1$ and $\tau_2$.
-Assume also that both $(X, \tau_1)$ and $(X, \tau_2)$ is a Baire
+Assume also that both $(X, \tau_1)$ and $(X, \tau_2)$ are a Baire
 space. If $\alpha_1$ is one of the four conditions (where the arrow denotes inclusion):
 
 \begin{tikzcd}
 \ND \arrow[r] & \meager \arrow[r] & \neg \mathit{co}-\meager \arrow[r] & \neg \mathit{co}-\ND 
 \end{tikzcd}
+and similarly for $\alpha_2$, then
+we mean by an $(\alpha_1, \alpha_2)$-partition any partition
+of $X$ into two sets: $A$ and $B$ such that $A$ has the $\alpha_1$ property
+in the topology $\tau_1$ and $B$ has the $\alpha_2$ property
+in $\tau_2$. We simply write $(\alpha_1, \alpha_2)$ iff there
+exists an $(\alpha_1, \alpha_2)$-partition.
+\end{definition}
+
+We now formulate a simple lemma that will be useful in what follows.
+\begin{lemma}
+  Suppose that $X$ is a bitopological space with topologies
+$(\tau_1, \tau_2)$ such that $\tau_1 \subseteq \tau_2$, i.e.
+the topology $\tau_2$ is stronger than the topology $\tau_1$.
+Then the space $X$ cannot fulfills the $(\ND, \meager)$ condition.
+\end{lemma}
+\begin{proof}
+  By way of contradiction, suppose that $X = A \cap B$, where
+  $A \in \ND(\tau_1)$ and $B \in \meager(\tau_2)$.
+  Then there exists an $\tau_1$-open and nonempty set $V$
+  such that $V \cap A = \emptyset$. Then $V \in \tau_2$
+  and $V \subseteq B$, so $V \in \meager(\tau_2)$ which
+  is impossible ($(X, \tau_2)$ is a Baire space.
+\end{proof}
 
 \subsection{The two topologies}
 
