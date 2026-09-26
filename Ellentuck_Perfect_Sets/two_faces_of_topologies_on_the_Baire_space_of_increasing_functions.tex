@@ -270,6 +270,7 @@
 \newcommand{\INFNonZero}{\mathrm{INF}_{>0}}
 \newcommand{\carre}{\mathit{sq}}
 \newcommand{\sequenceOnes}{\underline{\bf 1}}
+\newcommand{\PiqueProperty}{(\spadesuit)}
 
 % \renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
@@ -484,8 +485,6 @@ $f \in \baire$ such that $s \subseteq f$:
 \[
   \Hechler{s}{f} = \lbrace x \in \baire\colon s \subseteq x \wedge \forall_{k \geq |s|} f(k) \leq x(k)\rbrace.
 \]
-\todo{
-I suggest (as is done in the LabędzkiRepicky paper) using ($\omega$) left-associatively.}
 
 Let us recall Lemma 1.1 from \cite{LabedzkiRepicky1995}:
 \begin{lemma}
@@ -500,10 +499,9 @@ Let us recall Lemma 1.1 from \cite{LabedzkiRepicky1995}:
 Let us define the following bijection 
 $\psi \colon \baire \to \incrbaire$, for
 $x \in \baire$ define
-$\psi(x)(n) = \sum_{k = 0}^n x(k) + n$, then
-obviously $\psi(x) \in \incrbaire$.
+$\psi(x)(n) = \sum_{k = 0}^n x(k) + n$.
 
-Note that the inverse function $\ffid$ is given by the following
+It is easy to compute that the inverse function $\ffid$ is given by the following
 formula: 
 \[
 \ffid(\mu)(k) =
@@ -513,8 +511,12 @@ formula:
 \end{cases}
 \]
 
-%%%Also we have: $(\ffid)^{-1}(f)(k) = \sum_{j=0}^k f(j) + k$.
-Notice that we can also define $\psi(\tau)$
+Let us note here that if $s \subseteq t$, $s,t\in\finbaire$,
+then $\psi(s) \subseteq \psi(t)$, and similarly,
+if $s \subseteq x$, $s\in\finbaire$, $x \in \baire$,
+then $\psi(s) \subseteq \psi(x)$.
+
+Note that we can also define $\psi(\tau)$
 for a finite sequence $\tau\in\finbaire$ in the natural
 manner, so $\psi\colon\finbaire\to\finincrbaire$ is a bijection.
 
@@ -553,7 +555,7 @@ $\psi[\Hechler{s}{x}] \subseteq \psi[\Hechler{\psi(s)}{\psi(x)}]$.
 
 \subsection{Partitions into small sets}
 
-\begin{definition}
+\begin{definition}\label{definition:partition-property}
 Suppose that $X$ is a bitopological space, i.e.
 $X$ is equipped with two topologies, say $\tau_1$ and $\tau_2$.
 Assume also that both $(X, \tau_1)$ and $(X, \tau_2)$ are a Baire
@@ -586,6 +588,21 @@ Then the space $X$ cannot fulfills the $(\ND, \meager)$ condition.
   is impossible ($(X, \tau_2)$ is a Baire space.
 \end{proof}
 
+Let us define
+\begin{definition}
+  We say that a bitopological space $(X, \tau_1, \tau_2)$ fulfills
+  the $\PiqueProperty$ iff for each
+  $U \in \tau_1 \setminus \lbrace \emptyset \rbrace$
+  there exists $U^* \subseteq U$, $U^* \in \tau_1 \setminus \lbrace \emptyset \rbrace$,
+  such that $U^* \in \ND(\tau_2)$, 
+  and analogously upon interchanging $\tau_1$ and $\tau_2$.
+\end{definition}
+
+\begin{lemma}
+If a bitopological space $(X, \tau_1, \tau_2)$ fulfills the
+$(\ND, \ND)$-partition property (see Definition \ref{definition:partition-property})
+then $X$ fulfills $\PiqueProperty$ \todo{complete the proof!}.
+\end{lemma}
 \subsection{The two topologies}
 
 On the set $\incrbaire$ we can define two different topologies:
@@ -598,6 +615,9 @@ all $s \in \finbaire, f \in \baire, s \subseteq f$
 such that $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$. 
 and we call it {\it the induced Hechler topology}
 and we denote it by $\HechlerInduced$.
+Thus, $\HechlerInduced$ is simply the topology induced on
+the subset $\incrbaire\subseteq\baire$
+by the Hechler topology on the Baire space $\baire$.
 
 Obviously, both of these topologies are Baire.
 
@@ -613,7 +633,7 @@ $\ffid(s) \subseteq g$, so $s \subseteq \psi(g)$.
 Moreover, since $\ffid(\mu) \leq g$, we have
 $\mu \leq \psi(g)$. This means that
 $\psi(g) \in \Hechler{s}{\mu} \subseteq \Hechler{s}{f}$.
-Thus $\mu \in \ffid[\Hechler{\ffid(s)}{\ffid(\mu)}] \subseteq
+Thus $\mu \in \psi[\Hechler{\ffid(s)}{\ffid(\mu)}] \subseteq
   \Hechler{s}{f} \cap \incrbaire$.
 \end{proof}
 
@@ -623,6 +643,8 @@ For each $\Hechler{s}{f}$ such that
 $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
 we have
 $\ffid[\Hechler{s}{f} \cap \incrbaire] \cap \INFZero \not= \emptyset$.
+Equivalently, $\psi[\INFZero]$ is a dense set in
+$\HechlerInduced$.
 \end{claim}
 \begin{proof}
   Since $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$
