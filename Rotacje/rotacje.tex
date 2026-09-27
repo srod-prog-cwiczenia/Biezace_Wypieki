@@ -356,54 +356,60 @@ so we have
 \end{claim}
 \begin{lemma}\label{lemma:rotation-measurable-stripe}
   Suppose that $B \subseteq \real$ is a Lebesgue measurable set.
-  Then $\Phi(B) \times \real \subseteq \Phi_2(B \times \real)$.
-  \todo{Chyba tu zachodzi nawet równość?}
+  Then $\Phi(B) \times \real = \Phi_2(B \times \real)$.
 \end{lemma}
 \begin{proof}
-  Suppose $(x_0, y_0) \in \Phi(B)$ and let $0 < \eta < 1$.
-  There exists $r_0 > 0$ such that
-  \[
-\forall_{0 < r < r_0} 
-  \frac{\mu(B \cap [x_0 - r; x_0 + r])}{2r} > 1 - \eta.
-\]
-Then
+  Let $(x_0, y_0) \in \real^2$ and $\varepsilon > 0$.
+  Then
 \[
-  \frac{\mu_2((B \times \real) \cap [x_0 - r; x_0 + r] \times
-   [y_0 - r; y_0 + r])}{4 r^2} = 
+  \frac{\mu_2((B \times \real) \cap [x_0 - \varepsilon; x_0 + \varepsilon] \times
+   [y_0 - \varepsilon; y_0 + \varepsilon])}{4 \varepsilon^2} = 
 \]
 \[
-  = \frac{\mu(B \cap [x_0 - r; x_0 + r]) \cdot 2r}{4r^2} > 1 - \eta.
+  = \frac{\mu(B \cap [x_0 - \varepsilon; x_0 + \varepsilon]) \cdot 2\varepsilon}{4\varepsilon^2}
+\]
+\[
+= \frac{\mu(B \cap [x_0 - \varepsilon; x_0 + \varepsilon])}{2\varepsilon}.
+\]
+Hence
+\[
+\forall_{0 < \eta < 1} \exists_{\varepsilon_0 > 0} \forall_{0 < \varepsilon < \varepsilon_0}
+  \frac{\mu(B \cap [x_0 - \varepsilon; x_0 + \varepsilon])}{2\varepsilon} > 1 - \eta \iff
+\]
+\[
+  \forall_{0 < \eta < 1} \exists_{\varepsilon_0 > 0} \forall_{0 < \varepsilon < \varepsilon_0}
+  \frac{\mu_2((B \times \real) \cap [x_0 - \varepsilon; x_0 + \varepsilon] \times
+   [y_0 - \varepsilon; y_0 + \varepsilon])}{4 \varepsilon^2} > 1 - \eta. 
 \]
 \end{proof}
 
 \begin{lemma}
   For $\theta \in [0, \pi)$, $B\subseteq\real$ Lebesgue measurable, then
-  $\phi_{\theta} [\Phi(B) \times \real] \subseteq \Phi_2(\phi_{\theta} [B\times\real])$.
+  $\phi_{\theta} [\Phi(B) \times \real] = \Phi_2(\phi_{\theta} [B\times\real])$.
 \end{lemma}
 
 \begin{proof}
   This is a consequence of the fact that density points in the plane are
   invariant under rotations (see Claim \ref{claim:density-point-rotation}).
   By Lemma \ref{lemma:rotation-measurable-stripe} we have:
-  $\phi_{\theta} [\Phi(B) \times \real] \subseteq \phi_{\theta}[\phi_2(B\times\real)] =
+  $\phi_{\theta} [\Phi(B) \times \real] = \phi_{\theta}[\phi_2(B\times\real)] =
   \Phi_2(\phi_\theta [B\times\real])$
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:finite-rotations-density-points}
   For $\theta_1,\ldots,\theta_L \in [0; \pi)$
   and for $B\subseteq\real$ Lebesgue measurable,
   we have
   \[
-    \bigcap_{j=1}^L \phi_{\theta_j} [\Phi(B) \times \real] \subseteq
+    \bigcap_{j=1}^L \phi_{\theta_j} [\Phi(B) \times \real] =
     \Phi_2(\bigcap_{j=1}^L \phi_{\theta_j} [B\times\real]).
   \]
 \end{lemma}
 \begin{proof}
   We have
-  $\bigcap_{j=1}^L \phi_{\theta_j} [\Phi(B) \times \real] \subseteq$
-  $\bigcap_{j=1}^L \Phi_2(\phi_{\theta_j} [B\times\real]) \subseteq$
+  $\bigcap_{j=1}^L \phi_{\theta_j} [\Phi(B) \times \real] =$
+  $\bigcap_{j=1}^L \Phi_2(\phi_{\theta_j} [B\times\real]) =$
   $\Phi_2(\bigcap_{j=1}^L \phi_{\theta_j} [B\times\real])$.
-\todo{(...)}
 \end{proof}
 
 Let us define
@@ -432,7 +438,6 @@ equivalent:
   $W \cap P \not= \emptyset$ we have
   $\pi_x[\phi_{\theta}^{-1}[W \cap P]$ has a nonempty interior.
 \end{enumerate}
- 
 
 \end{lemma}
 
@@ -476,7 +481,7 @@ condition $\frac{\pi}{4} \in \NICEDIRECTIONS(F_1 \times F_2)$.
   \[
      P \cap \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real] = \emptyset.
   \]
-  and, moreover,
+  and
     $[0, \pi) \setminus \lbrace \theta_0,\ldots,\theta_{k-1} \rbrace \subseteq \NICEDIRECTIONS(P)$.
   \end{lemma}
   
@@ -488,7 +493,7 @@ condition $\frac{\pi}{4} \in \NICEDIRECTIONS(F_1 \times F_2)$.
   \[
     \mu_2(\bigcap_{l = 0}^{k-1} \phi_{\theta_l}[E \times \real]) > 0.
   \]
-  The latter follows from the following identity:
+  The latter follows from the following:
   For any increasing sequence of sets: $E_n \subseteq E_{n+1}$
   we have
   \[
@@ -509,8 +514,9 @@ P^* = \overline{\Phi_2(E^*)}.
 \]
 We have
 \[
-\tilde{E} \subseteq \Phi_2(E^*) \subseteq P^* \subseteq E^*.
+\tilde{E} = \Phi_2(E^*) \subseteq P^* \subseteq E^*.
 \]
+(by Lemma \ref{lemma:finite-rotations-density-points})
 Moreover, $P^*$ is a perfect ``fat'' set.  
 It suffices to check only that this set is a ``fat'' set,
 i.e. if $W$ is an open set such that $W \cap \overline{\Phi_2(E^*)} \not= \emptyset$
@@ -544,8 +550,8 @@ $X \in \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]$,
 so there exists $0 \leq l_0 \leq k - 1$ and $(x(L), y(L)) \in N \times \real$
 such that $X = \phi_{\theta_{l_0}}((x(L), y(L)))$.
 Since $X \in E^*$, $X \in \phi_{\theta_{l_0}}[E \times \real]$.
-Hence $(x(L), y(L)) \in E \times \real$, which is a contradiction with
-the definition of the set $E$.
+Hence $(x(L), y(L)) \in E \times \real$, therefore $E \cap N \not= \emptyset$
+which is a contradiction with the definition of the set $E$.
 
 By way of contradiction, suppose that
 $\mu \in [0, \pi) \setminus \lbrace \theta_0,\ldots,\theta_{k-1} \rbrace$
