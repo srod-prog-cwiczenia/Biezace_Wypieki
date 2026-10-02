@@ -437,6 +437,11 @@ Or perhaps they have the same meager sets?
 
 \section{Preliminaries and Notation}
 \subsection{The basic spaces}
+The quantifiers
+$\forall^\infty$ and $\exists^\infty$ means
+``For all but finitely many$'' and
+``For infinitely many$'', respectively.
+
 We denote by $\baire$ the space of all infinite sequences of
 natural numbers and call it the Baire space.
 
@@ -478,6 +483,10 @@ $x \leq y \iff \forall_{n \in \omega} x(n) \leq y(n)$
 and
 $x \leq^* y \iff \forall_{n \in \omega}^{\infty} x(n) \leq y(n)$.
 
+A bitopological space (see \cite{Kelly1963}) is a set equipped with two (not necessarily related) topologies.
+So, bitopological space is a triple $(X,\tau_1,\tau_2)$
+where $X$ is a set and $\tau_1,\tau_2$ are topologies on $X$.
+
 \section{The Hechler topology}
 
 Following \cite{LabedzkiRepicky1995} let us define for $s \in \finbaire$,
@@ -485,6 +494,12 @@ $f \in \baire$ such that $s \subseteq f$:
 \[
   \Hechler{s}{f} = \lbrace x \in \baire\colon s \subseteq x \wedge \forall_{k \geq |s|} f(k) \leq x(k)\rbrace.
 \]
+
+For simplicity of notation, we assume also that for
+$N \in \omega$ and $f \in \baire$,
+$\Hechler{N}{f} = \Hechler{f \restriction \lbrace 0, \ldots, N - 1 \rbrace}{f}$.
+
+Notice that $\Hechler{\emptyset}{f} = \Hechler{0}{f}$.
 
 Let us recall Lemma 1.1 from \cite{LabedzkiRepicky1995}:
 \begin{lemma}
@@ -550,14 +565,14 @@ so $h \in \Hechler{f\restriction N}{f} \cap \Hechler{g\restriction [M}{g}$.
 
 We have also simply 
 \begin{fact}\label{fact:inclusion}
-$\psi[\Hechler{s}{x}] \subseteq \psi[\Hechler{\psi(s)}{\psi(x)}]$.
+$\psi[\Hechler{s}{x}] \subseteq \Hechler{\psi(s)}{\psi(x)} \cap \incrbaire$.
 \end{fact}
 
 \subsection{Partitions into small sets}
 
 \begin{definition}\label{definition:partition-property}
-Suppose that $X$ is a bitopological space, i.e.
-$X$ is equipped with two topologies, say $\tau_1$ and $\tau_2$.
+Suppose that $X$ is a bitopological space:
+$(X, \tau_1, \tau_2)$ where $\tau_1$ and $\tau_2$ are two topologies.
 Assume also that both $(X, \tau_1)$ and $(X, \tau_2)$ are a Baire
 space. If $\alpha_1$ is one of the four conditions (where the arrow denotes inclusion):
 
@@ -696,7 +711,7 @@ $$
 %$f(n) \not= 0$ for infinitely many odd $n$. 
 Thus $(\exists^\infty n)\;\inversepsi(h)(n) < f(n)$,
 and it follows that $\inversepsi(h)\notin [\emptyset,f]$.
-Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi([\emptyset,f])$.
+Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi(\Hechler{\emptyset}{f}])$.
 \end{proof}
 
 \begin{theorem}\label{theorem:psiinfzero-residual}
