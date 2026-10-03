@@ -560,7 +560,7 @@ such that $\phi_{\mu}[F \times \real] \cap P^*$ is not a nowhere dense
 set in the subspace topology on $P^*$.
 
 Then there exists an open $W^* \subseteq \real^2$ 
-such that $\emptyset \not= W^* \cap P^* \subseteq \phi_{\mu}[M \times \real]$.
+such that $\emptyset \not= W^* \cap P^* \subseteq \phi_{\mu}[F \times \real]$.
 Hence $W^* \cap \Phi_2(E^*) \not= \emptyset$, therefore
 $\mu_2(W^* \cap E^*) > 0$. Since $\mu_2(E^* \setminus \tilde{E}) = 0$
 we obtain that $W^* \cap \tilde{E} \not= \emptyset$.
@@ -576,7 +576,7 @@ Denote:
 \end{align*}
 
 Evidently
-$x(\mu) \in M$ and $x^{(l)}_0 \in \Phi(E)$ for $l = 0, \ldots, k-1$.
+$x(\mu) \in F$ and $x^{(l)}_0 \in \Phi(E)$ for $l = 0, \ldots, k-1$.
 
 Let us formulate the following auxiliary lemma:
 \begin{lemma}\label{lemma:change-in-density}
@@ -605,13 +605,15 @@ let us denote the angle $\mu - \theta_l$ by $\theta^*_l$.
 By our assumption, $\theta^*_l \not= 0$, hence
 $\theta^*_l \in (-\pi, \pi) \setminus \lbrace 0 \rbrace$.
 We have
-$\pi_x(\phi_{\theta_l}^{-1}(\phi_{\mu}(x(\mu), y(\mu))) =$
-$ \pi_x(\phi_{\theta_l}(X_0)) =$
+$\pi_x(\phi_{\theta_l}^{-1}(\phi_{\mu}(x(\mu), y(\mu)))) =$
+$ \pi_x(\phi_{\theta_l}^{-1}(X_0)) =$
 $\pi_x(x^{(l)}_0, y^{(l)}_0) = x^{(l)}_0$.
 Likewise:
-$\pi_x(\phi_{\theta_l}^{-1}(\phi_{\mu}(x(\mu), y(\mu))) =$
-$\pi_x(\phi_{\theta^*_l}(x(\mu), y(\mu)) =$
-$x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l$.
+$\pi_x(\phi_{\theta_l}^{-1}(\phi_{\mu}(x(\mu), y(\mu)))) =$
+$\pi_x(\phi_{\theta^*_l}(x(\mu), y(\mu))) =$
+$x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l$,
+hence
+$x_0^{(l)} = x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l$.
 
 Let us choose $\varepsilon > 0$ such that
 \begin{equation}\label{equation:four-sinus}
@@ -635,15 +637,15 @@ Suppose that $\hat{x}(\mu)$ is such that
 $|\hat{x}(\mu) - x(\mu)| < \frac{\eta_0}{2}$.
 Then we have for each $l = 0,\ldots,k-1$:
 \[(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
-(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})\subseteq\]
+\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})\subseteq\]
 \[
 (\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \eta_0;
-(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \eta_0).
+\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \eta_0).
 \]
 By Lemma \ref{lemma:change-in-density} we obtain:
 \[\mu(
 (\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
-(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})
+\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})
 \cap \Phi(E)) \geq \eta_0 (1 - 2 \varepsilon).
 \]
 Note that for every $l = 0, \ldots, k-1$ we have

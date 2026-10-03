@@ -442,6 +442,12 @@ $\forall^\infty$ and $\exists^\infty$ means
 ``For all but finitely many$'' and
 ``For infinitely many$'', respectively.
 
+We denote by $\omega$ the set of natural numbers, including $0$.
+
+In this paper, we use the von Neumann notation,
+that is, we identify a natural number $n$ with the set of its predecessors:
+$n = \lbrace 0, \ldots, n - 1\rbrace$.
+
 We denote by $\baire$ the space of all infinite sequences of
 natural numbers and call it the Baire space.
 
@@ -538,6 +544,12 @@ manner, so $\psi\colon\finbaire\to\finincrbaire$ is a bijection.
 \subsection{Basic facts about Hechler basic open sets}
 \noindent
 \begin{fact}
+  Clearly, $\psi$ is a homeomorphism between
+  $\baire$ and $\incrbaire$
+  where we consider both spaces equipped with the standard topology.
+\end{fact}
+
+\begin{fact}
   $\psi$ preserves the order $\leq$, but not $\leq^*$, unless 
   $x \leq^* y$ and $\neg (y \leq^* x)$.
 But $\inversepsi$ preserves neither the order $\leq$ nor $\leq^*$.
@@ -545,7 +557,7 @@ But $\inversepsi$ preserves neither the order $\leq$ nor $\leq^*$.
 
 \begin{fact}
   Basic open sets $\Hechler{f\restriction N}{f}$
-and $\Hechler{g\restriction [M}{g}$ are disjoint
+and $\Hechler{g\restriction M}{g}$ are disjoint
 if and only if $f\restriction N \perp g\restriction M$.
 \end{fact}
 \begin{proof}
@@ -567,6 +579,7 @@ We have also simply
 \begin{fact}\label{fact:inclusion}
 $\psi[\Hechler{s}{x}] \subseteq \Hechler{\psi(s)}{\psi(x)} \cap \incrbaire$.
 \end{fact}
+\todo{...and this inclusion cannot be reversed because...?}
 
 \subsection{Partitions into small sets}
 
@@ -588,7 +601,7 @@ exists an $(\alpha_1, \alpha_2)$-partition.
 \end{definition}
 
 We now formulate a simple lemma that will be useful in what follows.
-\begin{lemma}
+\begin{lemma}\label{lemma:no-nd-meager-partition}
   Suppose that $X$ is a bitopological space with topologies
 $(\tau_1, \tau_2)$ such that $\tau_1 \subseteq \tau_2$, i.e.
 the topology $\tau_2$ is stronger than the topology $\tau_1$.
@@ -636,7 +649,7 @@ by the Hechler topology on the Baire space $\baire$.
 
 Obviously, both of these topologies are Baire.
 
-\begin{theorem} We have
+\begin{theorem}\label{theorem:native-stronger-than-induced} We have
 $\HechlerInduced \subseteq \HechlerNative$ (so the ``native'' Hechler
 topology is stronger).
 \end{theorem}
@@ -722,18 +735,18 @@ Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi(\He
 \begin{proof}
   Since $\baire\setminus\INFZero = \bigcup_{s \in \finbaire} \Hechler{s}{s \frown \sequenceOnes}$
   it suffices to prove that for any ${s \in \finbaire}$,
-  $\phi[\Hechler{s}{s \frown \sequenceOnes}]$ is a nowhere dense set in $\HechlerInduced$.
+  $\psi[\Hechler{s}{s \frown \sequenceOnes}]$ is a nowhere dense set in $\HechlerInduced$.
   Take any $\Hechler{t}{y}$ such that $\Hechler{t}{y}\cap\incrbaire\not=\emptyset$.
   We may assume that $t \in \finincrbaire$ and $y \in \incrbaire$.
-  If $\phi[\Hechler{s}{s \frown \sequenceOnes}] \cap \Hechler{t}{y} = \emptyset$
+  If $\psi[\Hechler{s}{s \frown \sequenceOnes}] \cap \Hechler{t}{y} = \emptyset$
   then we are done. So suppose that
-  $\phi[\Hechler{s}{s \frown \sequenceOnes}] \cap \Hechler{t}{y} \not= \emptyset$.
+  $\psi[\Hechler{s}{s \frown \sequenceOnes}] \cap \Hechler{t}{y} \not= \emptyset$.
   Then (by Fact \ref{fact:inclusion})
-  $\Hechler{\phi(s)}{\phi(s \frown \sequenceOnes}) \cap \Hechler{t}{y} \not= \emptyset$.
-  This means that $\phi(s)$ and $t$ are compatible finite sequences
-  which means that either $\phi(s) \subseteq t$ or vice versa.
-  Let $u = \phi(s) \cup t$, take any
-  $\tau \in \Hechler{\phi(s)}{\phi(s \frown \sequenceOnes}) \cap \Hechler{t}{y}$
+  $\Hechler{\psi(s)}{\psi(s \frown \sequenceOnes}) \cap \Hechler{t}{y} \not= \emptyset$.
+  This means that $\psi(s)$ and $t$ are compatible finite sequences
+  which means that either $\psi(s) \subseteq t$ or vice versa.
+  Let $u = \psi(s) \cup t$, take any
+  $\tau \in \Hechler{\psi(s)}{\phi(s \frown \sequenceOnes}) \cap \Hechler{t}{y}$
   and define $v \in \finincrbaire$
 by 
 \[
@@ -755,7 +768,7 @@ Then:
 \begin{enumerate}[label=\alph*]
 \item $\Hechler{v}{\mu} \cap \incrbaire \not=\emptyset$;
 \item $\Hechler{v}{\mu} \subseteq \Hechler{t}{y}$ and
-\item $\Hechler{v}{\mu} \cap \phi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$,
+\item $\Hechler{v}{\mu} \cap \psi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$,
 \end{enumerate}
 which completes the proof.
 \end{proof}
@@ -766,10 +779,15 @@ is an open dense set in the Hechler topology of $\baire$, hence
 $\psi[\INFZero]$ is a $\ND(\HechlerNative)$ set.
 
 \begin{corollary}
-The tuple $(\psi[\INFZero], \incrbaire\setminus\psi[\INFZero])$
-is a partition into $\ND(\HechlerNative)$ and
-$\meager(\HechlerInduced)$ sets, respectively.
+The tuple $(\incrbaire\setminus\psi[\INFZero], \psi[\INFZero])$
+is a partition into $\meager(\HechlerInduced)$ and $\ND(\HechlerNative)$ sets, respectively.
 \end{corollary}
+
+Let us note that we cannot find a partition into
+$\ND(\HechlerInduced)$ and $\meager(\HechlerNative)$ sets, respectively,
+by virtue of Lemma \ref{lemma:no-nd-meager-partition}, since
+by Theorem \ref{theorem:native-stronger-than-induced},
+$\HechlerInduced \subseteq \HechlerNative$.
 
 \begin{comment}%%% superfluous by virtue of stronger result of Theorem \ref{theorem:psiinfzero-residual}
 \begin{proof}
@@ -853,7 +871,7 @@ Define $n_1 = \min (A \setminus n_0)$. Let $k_1$ be such
 that $A(k_1) = n_1$.
 Define
 $B = A \setminus\lbrace n_1 \rbrace = (A \cap n_0) \cup \lbrace A(k) \colon
-k \geq k_1 + 1\rbrace$.
+k \geq k_1 + 1\rbrace = \lbrace A(k) \colon k \not= k_1\rbrace$.
 It is easy to see that
 
 \[
@@ -900,7 +918,8 @@ take $M \ge N$ and $g\in \Hechler{\psi(f)\restriction N}{\psi(f)} \cap \incrbair
 We need $h\in \Hechler{g\restriction M}{g}\cap\incrbaire$ such that 
 %$\inversepsi(h)|N = f|N$ and 
 $\inversepsi(h) \in \Hechler{f\restriction N}{f}$.
-In other words, $h\restriction M = g\restriction M$ and  
+In other words,
+$h\restriction \lbrace 0, \ldots, M - 1\rbrace = g\restriction \lbrace 0, \ldots, M - 1\rbrace$ and  
 $\forall^\infty n$, 
 $$
 h(n) \ge g(n) \;\;\mbox{  and  }\;\; h(n) - h(n-1) - 1 \ge f(n).
@@ -974,8 +993,9 @@ Let us recall Lemma 1.1 from \cite{Labedzki1996}:
   \forall_{f \in F} \forall_{k < |s|} s(k) \not= f(k)\rbrace$
   is a base of a topology.
   We call it {\it the Eventually Different Functions topology}
-  \todo{Check whether the analogous statement is true here, as in the case of the Hechler topology, namely:
-Moreover, every base set $\EventuallyDifferent{s}{F}$ is clopen in this topology.}
+  As in the case of the Hechler topology,
+  every base set $\EventuallyDifferent{s}{F}$ is clopen in the
+  Eventually Different Functions topology.
 \end{lemma}
 
 Also, same like in the case of the Hechler topology,
@@ -1001,13 +1021,24 @@ and $h \in \baire$. Then
 \EventuallyDifferent{\emptyset}{h}.\]
 Hence 
 \[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire \not\subseteq
-\psi[\EventuallyDifferent{\emptyset}{h}].\]
+  \psi[\EventuallyDifferent{\emptyset}{h}].\]
+In other words,
+$\int_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]) = \emptyset$.
 \end{lemma}
 \begin{proof}
   It is sufficent to find
-  $x \in \EventuallyDifferent{s}{g_1, \ldots, g_L}$ such that
+  $x \in \EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire$ such that
   for $k := |s|$ we have
   $x(k + 2) = x(k + 1) + h(k + 1) + 1$.
+  Thus, we can define:
+  \[
+    x(k + 1) = \max \lbrace g_j(k + 1), g(k + 2)\rbrace + 1,
+  \]
+  \[
+    x(k + 2) = x(k + 1) + h(k + 1) + 1,
+  \]
+  and then arbitrarily, provided that
+  $x \in \EventuallyDifferent{s}{g_1, \ldots, g_L}$
 \end{proof}
 \begin{corollary}
  $\EventuallyDifferentNative \not\subseteq \EventuallyDifferentInduced$.
@@ -1141,7 +1172,7 @@ Then $B$ is also a finite sum of lacunary sets,
 thus $\psi[\Hechler{\emptyset}{\ffid((B(n)))}] \subseteq \idealLacunary$.
 \end{proof}
 
-
+\begin{comment}
 \newpage
 Take the dominating topology as the base topology on 
 $\baire$. \\
@@ -1189,7 +1220,7 @@ strictly refines the relative topology.\\
 
 For what $f$ does $\psi[N,f]$ have {\em any} 
 ``largeness/smallness'' properties?
-
+\end{comment}
 \newpage
 
 \section{more stuff}
