@@ -493,6 +493,41 @@ A bitopological space (see \cite{Kelly1963}) is a set equipped with two (not nec
 So, bitopological space is a triple $(X,\tau_1,\tau_2)$
 where $X$ is a set and $\tau_1,\tau_2$ are topologies on $X$.
 
+\section{Ieals}
+
+We recall here some basic facts from the theory of ideals of
+subsets of the natural numbers.
+
+\begin{definition}
+A nonempty family $\calF\subseteq P(\omega)$ is called a
+\emph{filter on $\omega$} if:
+\begin{enumerate}
+    \item $\emptyset\notin\calF$;
+    \item if $A\in\calF$ and $A\subseteq B\subseteq\omega$,
+    then $B\in\calF$;
+    \item if $A,B\in\calF$, then $A\cap B\in\calF$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+An \emph{ideal} on $\omega$ is a nonempty family $\cI\subseteq P(\omega)$ such that:
+\begin{enumerate}
+    \item $\omega\notin \cI$;
+    \item if $A\in \cI$ and $B\subseteq A$, then $B\in \cI$;
+    \item if $A,B\in \cI$, then $A\cup B\in \cI$.
+\end{enumerate}
+\end{definition}
+
+For an ideal $\cI$ on $\omega$, we put
+\[
+\cI^+ = P(\omega)\setminus \cI
+\]
+and
+\[
+I^* = \lbrace A\subseteq\omega \colon \omega\setminus A\in \cI\rbrace.
+\]
+We say that $\cI^+$ is the family of all $\cI$-positive sets, while $\cI^*$ is the dual filter of $\cI$.
+
 \section{The Hechler topology}
 
 Following \cite{LabedzkiRepicky1995} let us define for $s \in \finbaire$,
@@ -924,7 +959,8 @@ $\forall^\infty n$,
 $$
 h(n) \ge g(n) \;\;\mbox{  and  }\;\; h(n) - h(n-1) - 1 \ge f(n).
 $$
-This is easy to do. Set $h(0) = g(0)$, 
+%%% This is easy to do.
+Set $h(0) = g(0)$, 
 $h\restriction \lbrace 0, \ldots, M\rbrace =
 g\restriction \lbrace 0, \ldots, M\rbrace$ and for $n \ge M + 1$, define  
 $h(n) = g(n) + h(n-1) + f(n)$.
@@ -968,7 +1004,7 @@ $C$, if $\forall_n |C \cap n| \leq |B \cap n|$, then $C \in \cI$.
 Equivalently, for any $\mu \in \incrbaire$ and $B \in \cI$,
 $\mu[B] \in \cI$.
 
-The notion of increasing-invariant is equivalent \todo{Recalculate it!}
+Similarly, the notion of increasing-invariant is equivalent \todo{Recalculate it!}
 to the condition that $\cI^+$ is a closed set in the topology $\HechlerInduced$.
 
 \section{The Eventually Different Functions Topology}
@@ -979,8 +1015,6 @@ $\forall_{f \in F} \forall_{k < |s|} s(k) \not= f(k)$:
 \[\EventuallyDifferent{s}{F} =
 \lbrace x \in \baire\colon
 s \subseteq x \wedge \forall_{f \in F} \forall_{k \geq |s|} f(k) \not= x(k)\rbrace\]
-\todo{A remark as in the case of the Hechler topology: I suggest
-  (as is done in the LabędzkiRepicky paper) using ($\omega$) left-associatively.}
 For simplicity of notation, instead of
 $\EventuallyDifferent{s}{\lbrace g_1, \ldots, g_L\rbrace}$
 we just write 
