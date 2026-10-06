@@ -489,6 +489,9 @@ $x \leq y \iff \forall_{n \in \omega} x(n) \leq y(n)$
 and
 $x \leq^* y \iff \forall_{n \in \omega}^{\infty} x(n) \leq y(n)$.
 
+If $t \in \finbaire$, then by $C[t]$ we denote the cylinder:
+$C[t] = \lbrace x \in \baire\colon t \subseteq x \rbrace$.
+
 A bitopological space (see \cite{Kelly1963}) is a set equipped with two (not necessarily related) topologies.
 So, bitopological space is a triple $(X,\tau_1,\tau_2)$
 where $X$ is a set and $\tau_1,\tau_2$ are topologies on $X$.
@@ -1083,10 +1086,17 @@ ${\it int}_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]
   such that $\forall_{\substack{k < |s| \\ j < L}} g_j(k) \not= s(k)$,
   the set
   $\psi[\EventuallyDifferent{s}{g_1, \ldots, g_L}]$ is
-  $\EventuallyDifferentInduced$
-  
+  $\EventuallyDifferentInduced$ - dense in the set
+  $\psi[C[s]] = C[\psi(s)] \cap \incrbaire$.
 \end{theorem}
 
+\begin{proof}
+  Suppose that $\EventuallyDifferent{u}{h_1,\ldots, h_M}$ is an eventually
+  different neighbourhood such that
+  $\EventuallyDifferent{u}{h_1,\ldots, h_M} \cap C[\psi(s)] \cap \incrbaire \not= \emptyset$.
+  Obviously $u\in incrbaire$.
+  \todo{(...)}
+\end{proof}
 
 We have also
 \begin{lemma}
