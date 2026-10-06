@@ -992,8 +992,8 @@ $\forall_n f(n) < A(n)$.
 \end{definition}
 
 It is easy to compute that for any ideal $\calI$,
-$\calI^+$ is rapid if and only if
-$\calI^+$ is a dense set in the topology $\HechlerInduced$.
+$\calI^*$ is rapid if and only if
+$\calI^*$ is a dense set in the topology $\HechlerInduced$.
 \todo{Recalculate it!!!}
 
 Also, recall the notion of {\it increasing-invariant} ideals,
@@ -1057,7 +1057,7 @@ Hence
 \[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire \not\subseteq
   \psi[\EventuallyDifferent{\emptyset}{h}].\]
 In other words,
-$\int_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]) = \emptyset$.
+${\it int}_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]) = \emptyset$.
 \end{lemma}
 \begin{proof}
   It is sufficent to find
@@ -1078,6 +1078,16 @@ $\int_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]) = \
  $\EventuallyDifferentNative \not\subseteq \EventuallyDifferentInduced$.
 \end{corollary}
 
+\begin{theorem}
+  For any $g_1, \ldots, g_L \in \baire$ and $s\in\finbaire$
+  such that $\forall_{\substack{k < |s| \\ j < L}} g_j(k) \not= s(k)$,
+  the set
+  $\psi[\EventuallyDifferent{s}{g_1, \ldots, g_L}]$ is
+  $\EventuallyDifferentInduced$
+  
+\end{theorem}
+
+
 We have also
 \begin{lemma}
   Denote $\carre(k) = k^2$. Then
@@ -1091,14 +1101,18 @@ we have
 \begin{proof}
   We construct $x \in \EventuallyDifferent{s}{g_1, \ldots, g_L}$ by induction.
   Let us denote\linebreak $\hat{s} = \sum_{j=0}^{|s| - 1} s(j)$.
-  Obviously, put $x \restriction |s| = s$. Next, for
-  each $k \geq |s|$ we can find
-  $a \in \lbrace 0, \ldots, L\rbrace \setminus \lbrace g_1(k), \ldots, g_L(k)\rbrace$
-  and then define $x(k) := a$.
+  Obviously, put $x \restriction |s| = s$.
+
   Choose $K > |s|$ such that
   \begin{equation}\label{eq:warunek-carre}
-  (K + 1)^2 > 2L + 2 + \hat{s} + (L + 1)K.
+  K^2 + K - \hat{s} - K\cdot L - 2L - 1 > 0.
   \end{equation}
+
+  Next, for
+  each $|s| \leq < K$ we can find
+  $a \in \lbrace 0, \ldots, L\rbrace \setminus \lbrace g_1(k), \ldots, g_L(k)\rbrace$
+  and then define $x(k) := a$.
+
   We proceed in that way for $|s| \leq k < K$,
   and notice that we have
   $\psi(x\restriction K)(K - 1) = \sum_{j=0}^{K-1} x(j) + K - 1$.
