@@ -308,6 +308,12 @@ Suppose that $B\subseteq\real$ is
 a Lebesgue measurable set.
 Let $\Phi(B)$ denote the set of all Lebesgue density points of the set $B$.
 
+It is known that for measurable sets $A, B$ we have
+$\Phi(A \cap B) = \Phi(A) \cap \Phi(B)$ and
+$\Phi(A) \triangle A$ has measure zero, and
+these properties hold for other density operators
+(such as $\Phi_2$, introduced below).
+
 Let $\pi_x$ and $\pi_y$ denote the projections of the plane
 onto the $x$-axis and $y$-axis, respectively.
 
@@ -628,7 +634,7 @@ $|\hat{y}(\mu) - y(\mu)| < \eta_0$, we have
 $\phi_{\mu}(\hat{x}(\mu), \hat{y}(\mu)) \in W^*$.
 %%% this is true since $\phi_{\mu}(x(\mu), y(\mu)) = X_0 \in W^*$.
 \item
-  For each $0 < \eta < \eta_0$ we have
+  For each $0 < \eta \leq \eta_0$ we have
   $\mu((x^{(l)}_0 - \eta, x^{(l)}_0 + \eta) \cap \Phi(E)) \geq (1 - \varepsilon) 2 \eta$
   (such an $\eta_0$ exists, since $x^{(l)}_0\in \Phi(E)$ and $\mu(\Phi(E) \triangle E) = 0$).
 \end{enumerate}
@@ -636,16 +642,17 @@ $\phi_{\mu}(\hat{x}(\mu), \hat{y}(\mu)) \in W^*$.
 Suppose that $\hat{x}(\mu)$ is such that
 $|\hat{x}(\mu) - x(\mu)| < \frac{\eta_0}{2}$.
 Then we have for each $l = 0,\ldots,k-1$:
-\[(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
-\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})\subseteq\]
+\[(\hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l - \frac{\eta_0}{2};
+\hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l + \frac{\eta_0}{2})\subseteq\]
 \[
-(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \eta_0;
-\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \eta_0).
+(x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l - \eta_0;
+x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l + \eta_0) =
+(x_0^{(l)} - \eta_0, x_0^{(l)} + \eta_0).
 \]
 By Lemma \ref{lemma:change-in-density} we obtain:
 \[\mu(
-(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
-\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})
+(\hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l - \frac{\eta_0}{2};
+\hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l + \frac{\eta_0}{2})
 \cap \Phi(E)) \geq \eta_0 (1 - 2 \varepsilon).
 \]
 Note that for every $l = 0, \ldots, k-1$ we have

@@ -265,7 +265,7 @@
 \newcommand{\HechlerInduced}{\tau_{\mathit{He}}^{(I)}}
 \newcommand{\EventuallyDifferentNative}{\tau_{\mathit{ED}}^{(N)}}
 \newcommand{\EventuallyDifferentInduced}{\tau_{\mathit{ED}}^{(I)}}
-\newcommand{\ffid}{\psi^{-1}}
+\newcommand{\ffid}{\inversepsi}
 \newcommand{\INFZero}{\mathrm{INF}_0}
 \newcommand{\INFNonZero}{\mathrm{INF}_{>0}}
 \newcommand{\carre}{\mathit{sq}}
@@ -328,11 +328,25 @@ On two versions of Hechler topology and related topologies.
 %a full title
 On two versions of Hechler topology and related topologies.
 }
-\keywords{Hechler topology, ideals, Ellentuck topology}
-\subjclass[2010]{03E05, 54D05, 54H05, 54A05, 11A41, 11B05, 11B25}
+\keywords{Hechler topology, Eventually different topology, ideals on $\omega$, Ellentuck topology
+}
+\subjclass[2020]{
+%%% 03E05, 54D05, 54H05, 54A05, 11A41, 11B05, 11B25
+54A10, 54E52, 03E05, 03E15
+}
 
 \begin{abstract}
-\dummy
+  We study two natural versions of the Hechler topology and two versions of the topology of
+eventually different functions on the space of increasing functions
+of the Baire space $\omega^\omega$.
+We compare these four topologies and establish several strict non-inclusion results.
+In particular, the native and induced versions of the topology of eventually different functions are incomparable.
+We also investigate the interaction of these topologies with the Ellentuck topology and with ideals on $\omega$.
+We characterize, for several natural ideals, when they are open in the corresponding topologies.
+In particular, we show that every increasing-invariant density ideal is open
+in the induced Hechler topology, while the lacunary ideal is open in the native
+Hechler topology but not in the induced one.
+We also obtain non-openness results for ideals contained in the ideal of thick sets.
 \end{abstract}
 
 \maketitle
@@ -438,9 +452,9 @@ Or perhaps they have the same meager sets?
 \section{Preliminaries and Notation}
 \subsection{The basic spaces}
 The quantifiers
-$\forall^\infty$ and $\exists^\infty$ means
-``For all but finitely many$'' and
-``For infinitely many$'', respectively.
+$\forall^\infty$ and $\exists^\infty$ mean
+``For all but finitely many'' and
+``For infinitely many'', respectively.
 
 We denote by $\omega$ the set of natural numbers, including $0$.
 
@@ -496,7 +510,7 @@ A bitopological space (see \cite{Kelly1963}) is a set equipped with two (not nec
 So, bitopological space is a triple $(X,\tau_1,\tau_2)$
 where $X$ is a set and $\tau_1,\tau_2$ are topologies on $X$.
 
-\section{Ieals}
+\section{Ideals}
 
 We recall here some basic facts from the theory of ideals of
 subsets of the natural numbers.
@@ -530,6 +544,11 @@ and
 I^* = \lbrace A\subseteq\omega \colon \omega\setminus A\in \cI\rbrace.
 \]
 We say that $\cI^+$ is the family of all $\cI$-positive sets, while $\cI^*$ is the dual filter of $\cI$.
+
+By $\Thick$ and $\ThickPlus$ we denote the collection of {\underline thick}
+subsets of $\omega$ (i.e. sets $A \subseteq \omega$ such that
+$\forall_{k} \exists_{n} \lbrace n, n + 1, \ldots, n + k\rbrace \subseteq A$)
+and non thick sets, respectively.
 
 \section{The Hechler topology}
 
@@ -570,7 +589,11 @@ formula:
 \end{cases}
 \]
 
-Let us note here that if $s \subseteq t$, $s,t\in\finbaire$,
+  Notice that if we, for convenience, define $\mu(-1) = -1$,
+then we can write simply
+$\inversepsi(\mu)(n) = \mu(n) - \mu(n - 1) - 1$.
+
+  Let us note here that if $s \subseteq t$, $s,t\in\finbaire$,
 then $\psi(s) \subseteq \psi(t)$, and similarly,
 if $s \subseteq x$, $s\in\finbaire$, $x \in \baire$,
 then $\psi(s) \subseteq \psi(x)$.
@@ -594,14 +617,14 @@ But $\inversepsi$ preserves neither the order $\leq$ nor $\leq^*$.
 \end{fact}
 
 \begin{fact}
-  Basic open sets $\Hechler{f\restriction N}{f}$
-and $\Hechler{g\restriction M}{g}$ are disjoint
+  Basic open sets $\Hechler{N}{f}$
+and $\Hechler{M}{g}$ are disjoint
 if and only if $f\restriction N \perp g\restriction M$.
 \end{fact}
 \begin{proof}
 The ``if'' direction is trivial, for if 
 $f\restriction N\perp g\restriction M$, then
-$h\in \Hechler{f\restriction N}{f}$ implies
+$h\in \Hechler{N}{f}$ implies
 $h\restriction N \not= g\restriction M$.
 For the other direction, suppose $f\restriction N$ is compatible
 with $g\restriction M$ and
@@ -610,7 +633,7 @@ Define $h\restriction M = g\restriction M$ and $h = f\vee g$ for $n\ge M$.
 Clearly $\forall^\infty n, f(n) \le h(n)$ and $g(n) \le h(n)$.
 In addition,
 $h\restriction N = f\restriction N$ and $h\restriction M = g\restriction M$,
-so $h \in \Hechler{f\restriction N}{f} \cap \Hechler{g\restriction [M}{g}$.
+so $h \in \Hechler{N}{f} \cap \Hechler{M}{g}$.
 \end{proof}
 
 We have also simply 
@@ -643,15 +666,17 @@ We now formulate a simple lemma that will be useful in what follows.
   Suppose that $X$ is a bitopological space with topologies
 $(\tau_1, \tau_2)$ such that $\tau_1 \subseteq \tau_2$, i.e.
 the topology $\tau_2$ is stronger than the topology $\tau_1$.
-Then the space $X$ cannot fulfills the $(\ND, \meager)$ condition.
+Assume also that at least $(X, \tau_2)$ is a Baire
+space. Then the space $X$ cannot satisfies the $(\ND, \meager)$ condition.
 \end{lemma}
 \begin{proof}
-  By way of contradiction, suppose that $X = A \cap B$, where
+  By way of contradiction, suppose that $X = A \cup B$, where
   $A \in \ND(\tau_1)$ and $B \in \meager(\tau_2)$.
-  Then there exists an $\tau_1$-open and nonempty set $V$
-  such that $V \cap A = \emptyset$. Then $V \in \tau_2$
-  and $V \subseteq B$, so $V \in \meager(\tau_2)$ which
-  is impossible ($(X, \tau_2)$ is a Baire space.
+  Then there exists a nonempty $\tau_1$-open set $V$
+  such that $V \cap A = \emptyset$. Since $\tau_1\subseteq\tau_2$,
+  we have $V \in \tau_2$. Moreover, since $X = A \cup B$,
+  we have $V \subseteq B$, so $V \in \meager(\tau_2)$ which
+  is impossible ($(X, \tau_2)$ is a Baire space).
 \end{proof}
 
 Let us define
@@ -675,7 +700,7 @@ On the set $\incrbaire$ we can define two different topologies:
 the first is generated by the base sets of the form
 $\psi[\Hechler{s}{f}]$
 and we call it {\it the native Hechler topology} and
-we denote it by $\HechlerNative$, and the second is generated by the basis
+we denote it by $\HechlerNative$, and the second is generated by the base
 of the form $\incrbaire \cap \Hechler{s}{f}$ for
 all $s \in \finbaire, f \in \baire, s \subseteq f$
 such that $\incrbaire \cap \Hechler{s}{f} \not= \emptyset$. 
@@ -941,11 +966,11 @@ since $\ffid((B(n)_{n\in\omega}))(k_1 + 2) = 0 < x(k_1 + 2) = 10$.
 
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:dense-co-dense-Hechler}
 For all $f\in\baire$ and $N <\oo$, 
 $\psi[\Hechler{f\restriction N}{f}]$ is dense in $\Hechler{\psi(f)\restriction N}{\psi(f)} \cap \incrbaire$
 in the topology $\HechlerInduced$,
-and if $f \in \INFNonZero$, then it's
+and if $f \in \INFNonZero$, then it is
 co-dense as well (again as above in the topology $\HechlerInduced$).
 \end{theorem}
 \begin{proof}
@@ -1041,9 +1066,9 @@ the first is generated by the base sets of the form
 $\psi[\EventuallyDifferent{s}{F}]$
 and, analogously like in the Hechler case,
 we call it {\it the native Eventually Different Functions topology} and
-we denote it by $\EventuallyDifferentNative$, and the second is generated by the basis
+we denote it by $\EventuallyDifferentNative$, and the second is generated by the base
 of the form $\incrbaire \cap \EventuallyDifferent{s}{f}$ for
-all $s \in \finbaire, F \subseteq \baire, |F| < \aleph_0,
+all $s \in \lbrace\finbaire, F \subseteq \baire, |F| < \aleph_0,
 \forall_{f \in F} \forall_{k < |s|} s(k) \not= f(k)\rbrace$
 such that $\incrbaire \cap \EventuallyDifferent{s}{f} \not= \emptyset$. 
 and we call it {\it the induced Eventually Different Functions topology}
@@ -1069,7 +1094,7 @@ ${\it int}_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]
   $x(k + 2) = x(k + 1) + h(k + 1) + 1$.
   Thus, we can define:
   \[
-    x(k + 1) = \max \lbrace g_j(k + 1), g(k + 2)\rbrace + 1,
+    x(k + 1) = \max \lbrace s(k - 1), g_j(k + 1), g_j(k + 2)\rbrace + 1,
   \]
   \[
     x(k + 2) = x(k + 1) + h(k + 1) + 1,
@@ -1080,6 +1105,9 @@ ${\it int}_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]
 \begin{corollary}
  $\EventuallyDifferentNative \not\subseteq \EventuallyDifferentInduced$.
 \end{corollary}
+
+This theorem is analogous to Theorem \ref{theorem:dense-co-dense-Hechler}
+in the case of eventually different functions topology.
 
 \begin{theorem}
   For any $g_1, \ldots, g_L \in \baire$ and $s\in\finbaire$
@@ -1094,8 +1122,25 @@ ${\it int}_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]
   Suppose that $\EventuallyDifferent{u}{h_1,\ldots, h_M}$ is an eventually
   different neighbourhood such that
   $\EventuallyDifferent{u}{h_1,\ldots, h_M} \cap C[\psi(s)] \cap \incrbaire \not= \emptyset$.
-  Obviously $u\in incrbaire$.
-  \todo{(...)}
+  Obviously $u\in \incrbaire$ and $u \subseteq \psi(s) \vee \psi(s) \subseteq u$.
+  We may assume without loss of generality, extending appropriately $u$, that
+  $\psi(s) \subseteq u$. Define $\mu \in \incrbaire$ recursively:
+  For convenience, define $\mu(-1) = -1$.
+  For $k < |u|$ set $\mu(k) = u(k)$.
+  If $k \geq |u|$ then choose $z \in \omega$ such that
+  \begin{enumerate}
+  \item
+    $z > \mu(k - 1)$;
+  \item
+    $z > \max_{j = 1,\ldots, M} h_j(k)$;
+  \item
+    $z - \mu(k - 1) - 1 > \max_{j = 1,\ldots, L} g_j(k)$;
+  \end{enumerate}
+  and define $\mu(k) = z$.
+  It is easy to verify that
+  \[ \mu \in \EventuallyDifferent{u}{h_1,\ldots, h_M} \cap C[\psi(s)] \cap
+    \psi[\EventuallyDifferent{s}{g_1, \ldots, g_L}] \cap \incrbaire.
+  \]
 \end{proof}
 
 We have also
@@ -1119,7 +1164,7 @@ we have
   \end{equation}
 
   Next, for
-  each $|s| \leq < K$ we can find
+  each $|s| \leq k < K$ we can find
   $a \in \lbrace 0, \ldots, L\rbrace \setminus \lbrace g_1(k), \ldots, g_L(k)\rbrace$
   and then define $x(k) := a$.
 
@@ -1345,17 +1390,6 @@ that $\psi(f)(n) < \psi(g)(n)$ infinitely often and
 $\psi(f)(n) > \psi(g)(n)$ infinitely often.
 However, if $f\le g$ then $\psi(f)\le \psi(g)$.
 What else??\\
-
-\noindent
-{\bf Conjecture.}
-$\psi$ is  not continuous, although it is clearly $\psi$-continuous.
-\begin{proof}
-If a basic open set pulls back to an open set, 
-then it's $\psi$ image is ?? not open ?? if $f$ isn't eventually $0$.
-Clearly it doesn't pull back to a basic open set.
-
-Suppose $\inversepsi([N,g])$ is open. .....
-\end{proof}
 
 \noindent
 It seems that $\psi[\Hechler{s}{x}] \subseteq \Hechler{\psi(s)}{\psi(x)}\cap\incrbaire$,
