@@ -462,6 +462,8 @@ In this paper, we use the von Neumann notation,
 that is, we identify a natural number $n$ with the set of its predecessors:
 $n = \lbrace 0, \ldots, n - 1\rbrace$.
 
+Let $\dom(f)$ and $\ran(f)$ denote the domain and range of the function $f$, respectively.
+
 We denote by $\baire$ the space of all infinite sequences of
 natural numbers and call it the Baire space.
 
@@ -1022,7 +1024,20 @@ $\forall_n f(n) < A(n)$.
 It is easy to compute that for any ideal $\calI$,
 $\calI^*$ is rapid if and only if
 $\calI^*$ is a dense set in the topology $\HechlerInduced$.
-\todo{Recalculate it!!!}
+Indeed, if $\calI^*$ is dense in $\HechlerInduced$ then
+for any $f \in \baire$,
+$\Hechler{\emptyset}{f} \cap \incrbaire \not= \emptyset$, hence
+$\Hechler{\emptyset}{f} \cap \calI^* \not\emptyset$, so
+there exists $A \in \calI^*$ such that $\forall_n f(n) \leq A(n)$.
+On the other hand, suppose that $s \in \finincrbaire$
+and $\mu \in \incrbaire$, $s \subseteq \mu$.
+Denote $B = \ran(\mu) \setminus \ran(s)$
+and let $C(n) = B(n + \max(\ran(s)))$. By assumption,
+there exists $A \in \calI^*$ such that
+$\forall_{n} C(n) < A(n)$.
+Set $A^* = A \cup \ran(s)$. Then $A^*(n) \leq A(n + \max\ran(s))$.
+
+\todo{Recalculate it and check the numbers!!!}
 
 Also, recall the notion of {\it increasing-invariant} ideals,
 (see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2,
