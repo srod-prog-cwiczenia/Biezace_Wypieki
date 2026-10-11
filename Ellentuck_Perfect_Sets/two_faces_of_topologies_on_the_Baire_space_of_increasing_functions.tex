@@ -160,7 +160,7 @@
 
 %R
 \newcommand{\ra}{\rangle}
-\newcommand{\ran}{{\rm ran}}
+\newcommand{\ran}{{\mathrm ran}}
 \newcommand{\rational}{\mathbb{Q}}
 \newcommand{\real}{\mathbb{R}}
 
@@ -590,7 +590,7 @@ formula:
 \mu(0) & \text{for } k = 0.
 \end{cases}
 \]
-
+ 
   Notice that if we, for convenience, define $\mu(-1) = -1$,
 then we can write simply
 $\inversepsi(\mu)(n) = \mu(n) - \mu(n - 1) - 1$.
@@ -642,7 +642,21 @@ We have also simply
 \begin{fact}\label{fact:inclusion}
 $\psi[\Hechler{s}{x}] \subseteq \Hechler{\psi(s)}{\psi(x)} \cap \incrbaire$.
 \end{fact}
-\todo{...and this inclusion cannot be reversed because...?}
+It is easy to see that this inclusion cannot be reversed: we have
+$\psi(\sequenceOnes) = \mu_2$, where
+$\mu_2(n) = 2n$ so
+$\psi[\Hechler{\emptyset}{\sequenceOnes}] \subseteq \Hechler{\emptyset}{\mu_2}$,
+but if we define 
+\[
+\mu^*(n) =
+\begin{cases}
+4n + 1 & \text{for } 2 | n\\
+4n + 2 & \text{for } \neg(2|n),
+\end{cases}
+\]
+then $\mu^* \in \Hechler{\emptyset}{\mu_2}$,
+and
+$\ffid(\mu^*) \not\in \Hechler{\emptyset}{\sequenceOnes}$.
 
 \subsection{Partitions into small sets}
 
@@ -1027,17 +1041,26 @@ $\calI^*$ is a dense set in the topology $\HechlerInduced$.
 Indeed, if $\calI^*$ is dense in $\HechlerInduced$ then
 for any $f \in \baire$,
 $\Hechler{\emptyset}{f} \cap \incrbaire \not= \emptyset$, hence
-$\Hechler{\emptyset}{f} \cap \calI^* \not\emptyset$, so
+$\Hechler{\emptyset}{f} \cap \calI^* \not= \emptyset$, so
 there exists $A \in \calI^*$ such that $\forall_n f(n) \leq A(n)$.
 On the other hand, suppose that $s \in \finincrbaire$
 and $\mu \in \incrbaire$, $s \subseteq \mu$.
-Denote $B = \ran(\mu) \setminus \ran(s)$
-and let $C(n) = B(n + \max(\ran(s)))$. By assumption,
+%%%Denote $B = \ran(\mu)$
+%%%and let $C(n) = B(n + |\ran(s)|)$.
+By assumption,
 there exists $A \in \calI^*$ such that
-$\forall_{n} C(n) < A(n)$.
-Set $A^* = A \cup \ran(s)$. Then $A^*(n) \leq A(n + \max\ran(s))$.
+$\forall_{n} \mu(n + |\ran(s)|) < A(n)$.
+Set $A^* = (A \setminus \lbrace 0,\ldots,\max(\ran(s)\rbrace) \cup \ran(s)$. Then $A(n) \leq A^*(n + |\ran(s)|)$.
+We have $ \mu(n + |\ran(s)|) < A(n) \leq  A^*(n + |\ran(s)|)$.
+So $\forall_{m \leq |\ran(s)|} \mu(m) < A^*(m)$.
+Since $s \subseteq \mu$ and $A^* \cap  \lbrace 0,\ldots,\max(\ran(s)\rbrace = \ran(s)$,
+it follows that  $\forall_{m \in \omega} \mu(m) \geq A^*(m)$.
 
-\todo{Recalculate it and check the numbers!!!}
+Let us note that the following observations can be used to justify the inequality
+$A(n) \leq A^*(n + |\ran(s)|)$:
+  If $A \in \infsub$ and $a \in \omega$ then
+$A(n) \geq (A\setminus\lbrace a \rbrace)(n)$ and 
+$A(n) \leq (A \cup\lbrace a \rbrace)(n + 1)$. 
 
 Also, recall the notion of {\it increasing-invariant} ideals,
 (see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2,
