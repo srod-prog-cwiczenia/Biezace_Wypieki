@@ -142,6 +142,7 @@
 %N
 \newcommand{\neglig}{{\cal N}}
 \newcommand{\nnatural}{\mathbb{N}}
+\newcommand{\ND}{\mathsf{ND}}
 
 %O
 \newcommand{\Odd}{\hbox{\rm \tiny Odd}}
@@ -437,15 +438,29 @@ suppose that $\theta \in [0, \pi)$. The following conditions are
 equivalent:
 
 \begin{enumerate}
-\item
+\item\label{enumerate:nicedir}
   $\theta \in \NICEDIRECTIONS(P)$;
-\item
+\item\label{enumerate:nicedir-characterization}
   For any open set $W \subseteq \real^2$ such that
   $W \cap P \not= \emptyset$ we have
   $\pi_x[\phi_{\theta}^{-1}[W \cap P]$ has a nonempty interior.
 \end{enumerate}
 
 \end{lemma}
+
+\begin{proof}
+$(\ref{enumerate:nicedir-characterization}) \implies (\ref{enumerate:nicedir})$:
+Suppose a contrario that $\theta \not\in \NICEDIRECTIONS(P)$
+and $\theta$ fulfills the condition (\ref{enumerate:nicedir-characterization}).
+Since $\theta \not\in \NICEDIRECTIONS(P)$ there exists a nowhere dense set
+$E \subseteq \real$ such that
+$P \cap \phi_{\theta}[E \times \real] \not\in \ND(P)$.
+We may assume that $E$ is a closed set. Hence the set
+$P \cap \phi_{\theta}[E \times \real]$ is a closed set.
+Thus there exsists an nonempty open $W \subseteq \real^2$
+such that $W \subseteq P \cap \phi_{\theta}[E \times \real]$.
+
+\end{proof}
 
 Let us note here that this notion is a generalization of a property introduced in
 \cite{Laczkovich1998}. Namely, in Lemma 2 of the aforementioned paper \cite{Laczkovich1998},
