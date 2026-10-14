@@ -457,9 +457,32 @@ $E \subseteq \real$ such that
 $P \cap \phi_{\theta}[E \times \real] \not\in \ND(P)$.
 We may assume that $E$ is a closed set. Hence the set
 $P \cap \phi_{\theta}[E \times \real]$ is a closed set.
-Thus there exsists an nonempty open $W \subseteq \real^2$
-such that $W \subseteq P \cap \phi_{\theta}[E \times \real]$.
+Thus there exsists an open $W \subseteq \real^2$
+such that $W \cap P \not= \emptyset$ and 
+$W \cap P \subseteq \phi_{\theta}[E \times \real]$.
+By (\ref{enumerate:nicedir-characterization}) we obtain
+that $\mathit{int} \pi_x [\phi_\theta^{-1} [W \cap P]] \not= \emptyset$.
+But $W \cap P \subseteq \phi_{\theta}[E \times \real]$, hence
+$\phi_{\theta}^{-1}[W \cap P] \subseteq E \times \real$,
+thus 
+$\pi_x[\phi_{\theta}^{-1}[W \cap P]] \subseteq \pi_x[E \times \real] = E$.
+This is however a contradiction, since $\mathit{int}(E) = \emptyset$.
 
+$(\ref{enumerate:nicedir}) \implies (\ref{enumerate:nicedir-characterization})$:
+Suppose that $\theta \in \NICEDIRECTIONS(P)$ and let $W \subseteq \real^2$
+be an open set such that $W \cap P \not=\emptyset$ and
+$\mathit{int} \pi_x [\phi_\theta^{-1} [W \cap P]] = \emptyset$.
+Since $W \cap P$ is an $F_{\sigma}$ set, then
+there exists a sequence of compact subsets $(K_n)$ such that
+$W \cap P = \bigcup_{n=0}^\infty K_n$. Then
+$\phi^{-1}_\theta [W \cap P] = \bigcup_{n=0}^\infty \phi_\theta^{-1}[K_n]$ hence
+$\pi_x[\phi^{-1}_\theta [W \cap P]] = \pi_x[\bigcup_{n=0}^\infty \phi_\theta^{-1}[K_n]]$
+and this latter set is $F_{\sigma}$.
+Since
+$\mathit{int}(\pi_x[\phi^{-1}_\theta [W \cap P]])=\emptyset$, the set
+$\pi_x[\phi^{-1}_\theta [W \cap P]]$
+is first category.
+\todo{(...)}
 \end{proof}
 
 Let us note here that this notion is a generalization of a property introduced in
@@ -670,7 +693,9 @@ By Lemma \ref{lemma:change-in-density} we obtain:
 \hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l + \frac{\eta_0}{2})
 \cap \Phi(E)) \geq \eta_0 (1 - 2 \varepsilon).
 \]
-Note that for every $l = 0, \ldots, k-1$ we have
+Note that for every $l = 0, \ldots, k-1$
+and for every $\hat{y}(\mu)$ such that $|\hat{y}(\mu) - y(\mu)| < \frac{\eta_0}{2}$.
+we have
 $
 \hat{x}(\mu) \cos \theta^*_l - \hat{y}(\mu) \sin \theta^*_l \in
 (\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
