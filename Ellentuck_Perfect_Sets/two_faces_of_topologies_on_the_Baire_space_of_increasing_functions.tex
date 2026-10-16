@@ -821,7 +821,7 @@ Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi(\He
   then we are done. So suppose that
   $\psi[\Hechler{s}{s \frown \sequenceOnes}] \cap \Hechler{t}{y} \not= \emptyset$.
   Then (by Fact \ref{fact:inclusion})
-  $\Hechler{\psi(s)}{\psi(s \frown \sequenceOnes}) \cap \Hechler{t}{y} \not= \emptyset$.
+  $\Hechler{\psi(s)}{\psi(s \frown \sequenceOnes)} \cap \Hechler{t}{y} \not= \emptyset$.
   This means that $\psi(s)$ and $t$ are compatible finite sequences
   which means that either $\psi(s) \subseteq t$ or vice versa.
   Let $u = \psi(s) \cup t$, take any
@@ -1123,7 +1123,7 @@ Hence
 \[\EventuallyDifferent{s}{g_1, \ldots, g_L} \cap \incrbaire \not\subseteq
   \psi[\EventuallyDifferent{\emptyset}{h}].\]
 In other words,
-${\it int}_{\EventuallyDifferentNative}(\psi[\EventuallyDifferent{\emptyset}{h}]) = \emptyset$.
+${\it int}_{\EventuallyDifferentInduced}(\psi[\EventuallyDifferent{\emptyset}{h}]) = \emptyset$.
 \end{lemma}
 \begin{proof}
   It is sufficent to find
@@ -1246,6 +1246,26 @@ Next we put $x(K) = z$, $x(K + 1) = w$ and then extend $x$ arbitrarily
 \begin{corollary}
 $\EventuallyDifferentInduced \not\subseteq \EventuallyDifferentNative$.
 \end{corollary}
+
+\begin{theorem}
+  $\psi[\INFZero] \in \ND(\EventuallyDifferentNative)$.
+\end{theorem}
+\begin{proof}
+  Choose $\EventuallyDifferent{s}{x_1, \ldots, x_n}$ such that
+  $s \in \finbaire$, $x_1,\ldots, x_n \in \baire$,
+  $\forall_{1 \leq j \leq n} \forall_{k < |s|} x_j(k) \not= s(k)$.
+  Define $y \in \baire$:
+  \[
+  y(k)= \begin{cases}
+    s(k) + 1 & \text{if } k < |s|,\\
+      0  & \text{if } k \geq |s|.
+    \end{cases}
+   \]
+   It is obvious that
+   $\EventuallyDifferent{s}{x_1, \ldots, x_n, y} \subseteq \EventuallyDifferent{s}{x_1, \ldots, x_n}$
+   and
+   $\EventuallyDifferent{s}{x_1, \ldots, x_n, y} \cap \INFZero = \emptyset$.
+\end{proof}
 
 \flushleft{{\bf Question:}}
 For any reasonable ideal find the Borel class of it in the
@@ -1428,10 +1448,6 @@ that $\psi(f)(n) < \psi(g)(n)$ infinitely often and
 $\psi(f)(n) > \psi(g)(n)$ infinitely often.
 However, if $f\le g$ then $\psi(f)\le \psi(g)$.
 What else??\\
-
-\noindent
-It seems that $\psi[\Hechler{s}{x}] \subseteq \Hechler{\psi(s)}{\psi(x)}\cap\incrbaire$,
-but not {\it vice versa}?
 
 \printbibliography
 \end{document}
