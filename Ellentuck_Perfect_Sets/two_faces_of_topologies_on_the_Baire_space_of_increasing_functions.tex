@@ -270,7 +270,13 @@
 \newcommand{\INFNonZero}{\mathrm{INF}_{>0}}
 \newcommand{\carre}{\mathit{sq}}
 \newcommand{\sequenceOnes}{\underline{\bf 1}}
-\newcommand{\PiqueProperty}{(\spadesuit)}
+\newcommand{\PiqueProperty}[2]{\mathrm{C%
+\ifcase#1
+ND%
+\or MGR%
+\else ND%
+\fi
+}(\tau_{#2})}
 
 % \renewcommand\abstractname{Summary}
 %%%To print the date and time on each page
@@ -644,7 +650,7 @@ $\psi[\Hechler{s}{x}] \subseteq \Hechler{\psi(s)}{\psi(x)} \cap \incrbaire$.
 \end{fact}
 It is easy to see that this inclusion cannot be reversed: we have
 $\psi(\sequenceOnes) = \mu_2$, where
-$\mu_2(n) = 2n$ so
+$\mu_2(n) = 2n+1$ so
 $\psi[\Hechler{\emptyset}{\sequenceOnes}] \subseteq \Hechler{\emptyset}{\mu_2}$,
 but if we define 
 \[
@@ -698,18 +704,32 @@ space. Then the space $X$ cannot satisfies the $(\ND, \meager)$ condition.
 Let us define
 \begin{definition}
   We say that a bitopological space $(X, \tau_1, \tau_2)$ fulfills
-  the $\PiqueProperty$ iff for each
-  $U \in \tau_1 \setminus \lbrace \emptyset \rbrace$
-  there exists $U^* \subseteq U$, $U^* \in \tau_1 \setminus \lbrace \emptyset \rbrace$,
-  such that $U^* \in \ND(\tau_2)$, 
-  and analogously upon interchanging $\tau_1$ and $\tau_2$.
+  the \underline{cross-nowhere-dense} (or \underline{cross-meager}) property
+  for the topology $\tau_j$ (where $j = 1$ or $j = 2$)
+  iff for each
+  $U \in \tau_{3 - j} \setminus \lbrace \emptyset \rbrace$
+  there exists $U^* \subseteq U$, $U^* \in \tau_{3 - j} \setminus \lbrace \emptyset \rbrace$,
+  such that $U^* \in \ND(\tau_j)$ ($U^* \in \meager(\tau_j)$, respectively). 
+  We denote this property by $\PiqueProperty{0}{j}$
+  ($\PiqueProperty{1}{j}$, respectively).
 \end{definition}
 
 \begin{lemma}
 If a bitopological space $(X, \tau_1, \tau_2)$ fulfills the
 $(\ND, \ND)$-partition property (see Definition \ref{definition:partition-property})
-then $X$ fulfills $\PiqueProperty$ \todo{complete the proof!}.
+then $X$ fulfills $\PiqueProperty{0}{j}$ for $j = 1,2$.
+If it fulfills the $(\ND, \meager)$-partition property
+then $X$ fulfill $\PiqueProperty{1}{2}$.
 \end{lemma}
+\begin{proof}
+  Suppose that $X = A \cupdot B$, where $A \in \ND(\tau_1)$
+and $B \in \ND(\tau_2)$. For $j = 1,2$, if $U \in \tau_j$,
+then there exists $U^* \subseteq U$ such that
+$U^* \in \tau_j \setminus \lbrace \emptyset \rbrace$
+and $U^* \cap A = \emptyset$. Then $U^* \subseteq B$,
+therefore $U^* \in \ND(\tau_{3 - j})$. The same argument
+works for the second part of the theorem.
+\end{proof}
 \subsection{The two topologies}
 
 On the set $\incrbaire$ we can define two different topologies:
@@ -1025,54 +1045,6 @@ in $\Hechler{\psi(f)\restriction N}{\psi(f)}$.
 This is a contradiction.
 \end{proof}
 
-Note that in the language of the Hechler topology,
-quite a few classical properties can be expressed, for example, recall:
-
-\begin{definition} (see \cite{Mokobodzki19671968})
-A filter $\calF \subseteq P(\omega)$ is {\it rapid}
-iff for each $f \colon \omega\to\omega$
-there exists $A \in \calF$ such that
-$\forall_n f(n) < A(n)$.
-\end{definition}
-
-It is easy to compute that for any ideal $\calI$,
-$\calI^*$ is rapid if and only if
-$\calI^*$ is a dense set in the topology $\HechlerInduced$.
-Indeed, if $\calI^*$ is dense in $\HechlerInduced$ then
-for any $f \in \baire$,
-$\Hechler{\emptyset}{f} \cap \incrbaire \not= \emptyset$, hence
-$\Hechler{\emptyset}{f} \cap \calI^* \not= \emptyset$, so
-there exists $A \in \calI^*$ such that $\forall_n f(n) \leq A(n)$.
-On the other hand, suppose that $s \in \finincrbaire$
-and $\mu \in \incrbaire$, $s \subseteq \mu$.
-%%%Denote $B = \ran(\mu)$
-%%%and let $C(n) = B(n + |\ran(s)|)$.
-By assumption,
-there exists $A \in \calI^*$ such that
-$\forall_{n} \mu(n + |\ran(s)|) < A(n)$.
-Set $A^* = (A \setminus \lbrace 0,\ldots,\max(\ran(s)\rbrace) \cup \ran(s)$. Then $A(n) \leq A^*(n + |\ran(s)|)$.
-We have $ \mu(n + |\ran(s)|) < A(n) \leq  A^*(n + |\ran(s)|)$.
-So $\forall_{m \leq |\ran(s)|} \mu(m) < A^*(m)$.
-Since $s \subseteq \mu$ and $A^* \cap  \lbrace 0,\ldots,\max(\ran(s)\rbrace = \ran(s)$,
-it follows that  $\forall_{m \in \omega} \mu(m) \geq A^*(m)$.
-
-Let us note that the following observations can be used to justify the inequality
-$A(n) \leq A^*(n + |\ran(s)|)$:
-  If $A \in \infsub$ and $a \in \omega$ then
-$A(n) \geq (A\setminus\lbrace a \rbrace)(n)$ and 
-$A(n) \leq (A \cup\lbrace a \rbrace)(n + 1)$. 
-
-Also, recall the notion of {\it increasing-invariant} ideals,
-(see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2,
-or \cite{Kwela2018}, Definition 1):
-An ideal $\cI$ is increasing-invariant if for every $B \in \cI$ and
-$C$, if $\forall_n |C \cap n| \leq |B \cap n|$, then $C \in \cI$.
-Equivalently, for any $\mu \in \incrbaire$ and $B \in \cI$,
-$\mu[B] \in \cI$.
-
-Similarly, the notion of increasing-invariant is equivalent \todo{Recalculate it!}
-to the condition that $\cI^+$ is a closed set in the topology $\HechlerInduced$.
-
 \section{The Eventually Different Functions Topology}
 
 Following \cite{Labedzki1996} let us define for $s \in \finbaire$,
@@ -1112,6 +1084,39 @@ such that $\incrbaire \cap \EventuallyDifferent{s}{f} \not= \emptyset$.
 and we call it {\it the induced Eventually Different Functions topology}
 and we denote it by $\EventuallyDifferentInduced$.
 
+\subsection{Basic facts about Eventually Different Functions basic open sets}
+It is worth noting that the analogue of
+Fact \ref{fact:inclusion} does not hold 
+for the eventually different functions topology.
+Indeed:
+\begin{example}
+  Neither of these two sets is contained in the other:
+$\psi[\EventuallyDifferent{\emptyset}{\sequenceOnes}]$ and
+$\EventuallyDifferent{\emptyset}{\psi(\sequenceOnes)}$.
+\end{example}
+\begin{proof}
+  Set
+\[x(k) =
+\begin{cases}
+0 & \text{for } k \not= 1,\\
+2 & \text{for } k = 1.
+\end{cases}
+\]
+Then $x \in \EventuallyDifferent{\emptyset}{\sequenceOnes}$
+and $\psi(x) \not\in \EventuallyDifferent{\emptyset}{psi(\sequenceOnes)}$.
+On the other hand, if   
+\[
+  \mu(k) =
+\begin{cases}
+0 & \text{for } k = 0,\\
+k + 1 & \text{for } k > 0,
+\end{cases}
+\]
+then $\mu\in\incrbaire$,
+$\mu \in \EventuallyDifferent{\emptyset}{psi(\sequenceOnes)}$
+but $\mu \not \in \psi[\EventuallyDifferent{\emptyset}{\sequenceOnes}]$.
+\end{proof}  
+\subsection{The two topologies}
 We have:
 \begin{lemma}
 Suppose that 
@@ -1266,6 +1271,58 @@ $\EventuallyDifferentInduced \not\subseteq \EventuallyDifferentNative$.
    and
    $\EventuallyDifferent{s}{x_1, \ldots, x_n, y} \cap \INFZero = \emptyset$.
 \end{proof}
+
+\section{Application to the theory of ideals}
+
+Note that in the language of the Hechler topology,
+quite a few classical properties can be expressed, for example, recall:
+
+\begin{definition} (see \cite{Mokobodzki19671968})
+A filter $\calF \subseteq P(\omega)$ is {\it rapid}
+iff for each $f \colon \omega\to\omega$
+there exists $A \in \calF$ such that
+$\forall_n f(n) < A(n)$.
+\end{definition}
+
+It is easy to compute that for any ideal $\calI$,
+$\calI^*$ is rapid if and only if
+$\calI^*$ is a dense set in the topology $\HechlerInduced$.
+Indeed, if $\calI^*$ is dense in $\HechlerInduced$ then
+for any $f \in \baire$,
+$\Hechler{\emptyset}{f} \cap \incrbaire \not= \emptyset$, hence
+$\Hechler{\emptyset}{f} \cap \calI^* \not= \emptyset$, so
+there exists $A \in \calI^*$ such that $\forall_n f(n) \leq A(n)$.
+On the other hand, suppose that $s \in \finincrbaire$
+and $\mu \in \incrbaire$, $s \subseteq \mu$.
+%%%Denote $B = \ran(\mu)$
+%%%and let $C(n) = B(n + |\ran(s)|)$.
+By assumption,
+there exists $A \in \calI^*$ such that
+$\forall_{n} \mu(n + |\ran(s)|) < A(n)$.
+Set $A^* = (A \setminus \lbrace 0,\ldots,\max(\ran(s)\rbrace) \cup \ran(s)$.
+Obviously $A^* \in \calI^*$.
+Then $A(n) \leq A^*(n + |\ran(s)|)$.
+We have $ \mu(n + |\ran(s)|) < A(n) \leq  A^*(n + |\ran(s)|)$.
+So $\forall_{m \leq |\ran(s)|} \mu(m) < A^*(m)$.
+Since $s \subseteq \mu$ and $A^* \cap  \lbrace 0,\ldots,\max(\ran(s)\rbrace = \ran(s)$,
+it follows that  $\forall_{m \in \omega} \mu(m) \leq A^*(m)$.
+
+Let us note that the following observations can be used to justify the inequality
+$A(n) \leq A^*(n + |\ran(s)|)$:
+  If $A \in \infsub$ and $a \in \omega$ then
+$A(n) \geq (A\setminus\lbrace a \rbrace)(n)$ and 
+$A(n) \leq (A \cup\lbrace a \rbrace)(n + 1)$. 
+
+Also, recall the notion of {\it increasing-invariant} ideals,
+(see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2,
+or \cite{Kwela2018}, Definition 1):
+An ideal $\cI$ is increasing-invariant if for every $B \in \cI$ and
+$C$, if $\forall_n |C \cap n| \leq |B \cap n|$, then $C \in \cI$.
+Equivalently, for any $\mu \in \incrbaire$ and $B \in \cI$,
+$\mu[B] \in \cI$.
+
+Similarly, the notion of increasing-invariant is equivalent \todo{Recalculate it!}
+to the condition that $\cI^+$ is a closed set in the topology $\HechlerInduced$.
 
 \flushleft{{\bf Question:}}
 For any reasonable ideal find the Borel class of it in the

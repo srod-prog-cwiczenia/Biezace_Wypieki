@@ -481,8 +481,22 @@ and this latter set is $F_{\sigma}$.
 Since
 $\mathit{int}(\pi_x[\phi^{-1}_\theta [W \cap P]])=\emptyset$, the set
 $\pi_x[\phi^{-1}_\theta [W \cap P]]$
-is first category.
-\todo{(...)}
+is of first category, thus
+there exist closed and nowhere dense sets $E_n \subseteq \real$
+such that 
+$\pi_x[\phi^{-1}_\theta [W \cap P]] \subseteq \bigcup_{n=0}^\infty E_n$.
+Since $\theta in \NICEDIRECTIONS(P)$,
+for all $n\in\omega$ we have
+$P cap \phi_{\theta}[E_n \times \real] \in \ND(P)$.
+But
+$W \cap P \subseteq \bigcup_{n=0}^\infty P \cap \phi_{\theta}[E_n \times \real]$,
+since
+$\pi_x[\phi^{-1}_\theta[W \cap P]] \subseteq \bigcup_{n=0}^\infty E_n$,
+so
+$\phi^{-1}_\theta[W \cap P] \subseteq \bigcup_{n=0}^\infty E_n \times \real$,
+hence
+$W \cap P \subseteq \phi_{\theta} \big[ \bigcup_{n=0}^\infty E_n \times \real \big]
+\subseteq \bigcup_{n=0}^\infty \phi_{\theta}[E_n \times \real]$.
 \end{proof}
 
 Let us note here that this notion is a generalization of a property introduced in
