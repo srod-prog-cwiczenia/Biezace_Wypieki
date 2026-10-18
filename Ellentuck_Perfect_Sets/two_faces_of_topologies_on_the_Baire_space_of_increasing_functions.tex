@@ -54,7 +54,7 @@
 \usepackage{comment}
 \usepackage{tikz}
 \usetikzlibrary{decorations.pathreplacing}
-
+\usepackage[normalem]{ulem}
 %---------------------------------------------------------------------
 % Theorems 
 %---------------------------------------------------------------------
@@ -704,7 +704,7 @@ space. Then the space $X$ cannot satisfies the $(\ND, \meager)$ condition.
 Let us define
 \begin{definition}
   We say that a bitopological space $(X, \tau_1, \tau_2)$ fulfills
-  the \underline{cross-nowhere-dense} (or \underline{cross-meager}) property
+  the \uline{cross\allowbreak-nowhere\allowbreak-dense} (or \uline{cross-meager}) property
   for the topology $\tau_j$ (where $j = 1$ or $j = 2$)
   iff for each
   $U \in \tau_{3 - j} \setminus \lbrace \emptyset \rbrace$
@@ -823,7 +823,7 @@ $$
 %$f(n) \not= 0$ for infinitely many odd $n$. 
 Thus $(\exists^\infty n)\;\inversepsi(h)(n) < f(n)$,
 and it follows that $\inversepsi(h)\notin [\emptyset,f]$.
-Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi(\Hechler{\emptyset}{f}])$.
+Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi(\Hechler{\emptyset}{f})$.
 \end{proof}
 
 \begin{theorem}\label{theorem:psiinfzero-residual}
@@ -845,22 +845,22 @@ Therefore $h \in \Hechler{g\restriction M}{g} \cap \incrbaire \setminus \psi(\He
   This means that $\psi(s)$ and $t$ are compatible finite sequences
   which means that either $\psi(s) \subseteq t$ or vice versa.
   Let $u = \psi(s) \cup t$, take any
-  $\tau \in \Hechler{\psi(s)}{\phi(s \frown \sequenceOnes}) \cap \Hechler{t}{y}$
-  and define $v \in \finincrbaire$
+  $\tau \in \Hechler{\psi(s)}{\psi(s \frown \sequenceOnes)} \cap \Hechler{t}{y}$
+  and define $v \in \finincrbaire$, $|v| = |u| + 2$,
 by 
 \[
-  v(j) = \begin{cases}
-    u(j) & \text{for } j < |u|,\\
-    \tau(|u| + 1) + 10 & \text{for } j = |u|,\\
-    \tau(|u| + 1) + 11 & \text{for } j = |u| + 1.
+  v(k) = \begin{cases}
+    u(k) & \text{for } k < |u|,\\
+    \tau(|u| + 1) + 10 & \text{for } k = |u|,\\
+    \tau(|u| + 1) + 11 & \text{for } k = |u| + 1.
     \end{cases}
 \]
 and define $\mu \in \incrbaire$ by
 \[
 \mu(k) =
 \begin{cases}
-  v(j) & \text{for } j \leq |u| + 1,\\
-  \tau(j) + 11 & \text{for } j > |u| + 1.\\
+  v(k) & \text{for } k \leq |u| + 1,\\
+  \tau(k) + 11 & \text{for } k > |u| + 1.\\
 \end{cases}
 \]
 Then:
@@ -1272,6 +1272,47 @@ $\EventuallyDifferentInduced \not\subseteq \EventuallyDifferentNative$.
    $\EventuallyDifferent{s}{x_1, \ldots, x_n, y} \cap \INFZero = \emptyset$.
 \end{proof}
 
+We have the following theorem, analogous to the corresponding theorem
+for the Hechler topology (Theorem \ref{theorem:psiinfzero-residual}):
+
+\begin{theorem}\label{theorem:psiinfzero-residual-ED}
+$\psi[\INFZero]$ is a $\EventuallyDifferentInduced$ - residual set.
+\end{theorem}
+
+\begin{proof}
+  The proof of this theorem simply mimics the proof of
+  Theorem~\ref{theorem:psiinfzero-residual}).
+As in the mention proof, we have
+$\baire\setminus\INFZero = \bigcup_{s \in \finbaire} \Hechler{s}{s \frown \sequenceOnes}$
+and as before it suffices to prove that for any ${s \in \finbaire}$,
+$\psi[\Hechler{s}{s \frown \sequenceOnes}]$ is a nowhere dense set in $\EventuallyDifferentInduced$.
+
+Take any $\EventuallyDifferent{t}{y_1, \ldots, y_L}$ such that
+$\EventuallyDifferent{t}{y_1,\ldots,y_L} \cap \incrbaire\not=\emptyset$.
+So $t \in \finincrbaire$. WLOG we can also assume that
+$\psi[\Hechler{s}{s \frown \sequenceOnes}] \cap \EventuallyDifferent{t}{y_1,\ldots,y_L} \not= \emptyset$.
+This implies that $\psi(s)$ and $t$ are compatible finite sequences
+which means that either $\psi(s) \subseteq t$ or vice versa.
+ Let $u = \psi(s) \cup t$, and take any
+ $\tau \in \psi[\Hechler{s}{s \frown \sequenceOnes}] \cap \EventuallyDifferent{t}{y_1,\ldots,y_L}$.
+ Obviously $u \subseteq \tau$.
+ Define
+  $v \in \finincrbaire$, $|v| = |u| + 2$,
+by 
+\[
+  v(k) = \begin{cases}
+    u(k) & \text{for } k < |u|,\\
+    \max \lbrace y_j(k) \colon j = 1,\ldots, L\rbrace + \max \lbrace u(l) \colon
+      l < |u| \rbrace + 1 & \text{for } k = |u|,\\
+    \max \lbrace y_j(k) \colon j = 1,\ldots, L\rbrace + \max \lbrace u(l) \colon
+      l < |u| \rbrace +
+    2 & \text{for } k = |u| + 1.
+    \end{cases}
+\]
+Then $\EventuallyDifferent{v}{y_1,\ldots,y_L} \subseteq \EventuallyDifferent{t}{y_1,\ldots,y_L}$
+and $\EventuallyDifferent{v}{y_1,\ldots,y_L} \cap \psi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$.
+\end{proof}
+
 \section{Application to the theory of ideals}
 
 Note that in the language of the Hechler topology,
@@ -1478,9 +1519,8 @@ in $\incrbaire$, the collection of functions $h
 
 Note 2: The proposition applies to a co-countable subset of $\baire$.\\
 
-{\bf Corollary.} 
-If $f\in\baire$ is not eventually zero, then
-$\psi([\emptyset, f])$ is co-dense.\\
+%%{\bf Corollary.} 
+%%If $f\in\baire$ is not eventually zero, then $\psi([\emptyset, f])$ is co-dense.\\
 
 {\bf Questions.}
 Determine the Borel class of the set $\psi([\emptyset,f])$
