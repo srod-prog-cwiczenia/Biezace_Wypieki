@@ -683,24 +683,6 @@ in $\tau_2$. We simply write $(\alpha_1, \alpha_2)$ iff there
 exists an $(\alpha_1, \alpha_2)$-partition.
 \end{definition}
 
-We now formulate a simple lemma that will be useful in what follows.
-\begin{lemma}\label{lemma:no-nd-meager-partition}
-  Suppose that $X$ is a bitopological space with topologies
-$(\tau_1, \tau_2)$ such that $\tau_1 \subseteq \tau_2$, i.e.
-the topology $\tau_2$ is stronger than the topology $\tau_1$.
-Assume also that at least $(X, \tau_2)$ is a Baire
-space. Then the space $X$ cannot satisfies the $(\ND, \meager)$ condition.
-\end{lemma}
-\begin{proof}
-  By way of contradiction, suppose that $X = A \cup B$, where
-  $A \in \ND(\tau_1)$ and $B \in \meager(\tau_2)$.
-  Then there exists a nonempty $\tau_1$-open set $V$
-  such that $V \cap A = \emptyset$. Since $\tau_1\subseteq\tau_2$,
-  we have $V \in \tau_2$. Moreover, since $X = A \cup B$,
-  we have $V \subseteq B$, so $V \in \meager(\tau_2)$ which
-  is impossible ($(X, \tau_2)$ is a Baire space).
-\end{proof}
-
 Let us define
 \begin{definition}
   We say that a bitopological space $(X, \tau_1, \tau_2)$ fulfills
@@ -730,6 +712,26 @@ and $U^* \cap A = \emptyset$. Then $U^* \subseteq B$,
 therefore $U^* \in \ND(\tau_{3 - j})$. The same argument
 works for the second part of the theorem.
 \end{proof}
+
+We now formulate a simple lemma that will be useful in what follows.
+\begin{lemma}\label{lemma:no-nd-meager-partition}
+  Suppose that $X$ is a bitopological space with topologies
+$(\tau_1, \tau_2)$ such that $\tau_1 \subseteq \tau_2$, i.e.
+the topology $\tau_2$ is stronger than the topology $\tau_1$.
+Assume also that at least $(X, \tau_2)$ is a Baire
+space. Therefore, the space $X$ does not have the $\PiqueProperty{2}{\tau_2}$
+property and hence does not satisfy the $(\ND, \meager)$-partition condition.
+\end{lemma}
+\begin{proof}
+  By way of contradiction, suppose that $X = A \cup B$, where
+  $A \in \ND(\tau_1)$ and $B \in \meager(\tau_2)$.
+  Then there exists a nonempty $\tau_1$-open set $V$
+  such that $V \cap A = \emptyset$. Since $\tau_1\subseteq\tau_2$,
+  we have $V \in \tau_2$. Moreover, since $X = A \cup B$,
+  we have $V \subseteq B$, so $V \in \meager(\tau_2)$ which
+  is impossible ($(X, \tau_2)$ is a Baire space).
+\end{proof}
+
 \subsection{The two topologies}
 
 On the set $\incrbaire$ we can define two different topologies:
@@ -882,11 +884,15 @@ The tuple $(\incrbaire\setminus\psi[\INFZero], \psi[\INFZero])$
 is a partition into $\meager(\HechlerInduced)$ and $\ND(\HechlerNative)$ sets, respectively.
 \end{corollary}
 
+\begin{claim}
 Let us note that we cannot find a partition into
-$\ND(\HechlerInduced)$ and $\meager(\HechlerNative)$ sets, respectively,
-by virtue of Lemma \ref{lemma:no-nd-meager-partition}, since
+$\ND(\HechlerInduced)$ and $\meager(\HechlerNative)$ sets, respectively.
+\end{claim}
+\begin{proof}
+This follows by virtue of Lemma \ref{lemma:no-nd-meager-partition}, since
 by Theorem \ref{theorem:native-stronger-than-induced},
 $\HechlerInduced \subseteq \HechlerNative$.
+\end{proof}
 
 \begin{comment}%%% superfluous by virtue of stronger result of Theorem \ref{theorem:psiinfzero-residual}
 \begin{proof}
