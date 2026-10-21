@@ -732,6 +732,22 @@ property and hence does not satisfy the $(\ND, \meager)$-partition condition.
   is impossible ($(X, \tau_2)$ is a Baire space).
 \end{proof}
 
+All the notions introduced and the inclusion relations between them
+can be summarised in the following diagram.
+
+\begin{figure}[h]
+\centering
+%\resizebox{\textwidth}{!}{%
+\begin{tikzcd}
+ & & (\ND,\ND)-\mathrm{partition} \arrow[ld]\arrow[rd] & & \\
+ & \PiqueProperty{0}{1}\arrow[d] & & \PiqueProperty{0}{2}\arrow[d] & \\
+ (\meager,\ND)-\mathrm{partition} \arrow[r]& \PiqueProperty{1}{1}\arrow[d] & & \PiqueProperty{1}{2}\arrow[d] & (\ND,\meager)-\mathrm{partition} \arrow[l]\\
+ &\neg(\tau_2\subseteq \tau_1)& &\neg(\tau_1\subseteq \tau_2) &\\
+\end{tikzcd}
+%}
+\caption{Diagram of relationships}
+\label{figure:diagram-1}
+\end{figure}
 \subsection{The two topologies}
 
 On the set $\incrbaire$ we can define two different topologies:
@@ -1119,7 +1135,7 @@ k + 1 & \text{for } k > 0,
 \end{cases}
 \]
 then $\mu\in\incrbaire$,
-$\mu \in \EventuallyDifferent{\emptyset}{psi(\sequenceOnes)}$
+$\mu \in \EventuallyDifferent{\emptyset}{\psi(\sequenceOnes)}$
 but $\mu \not \in \psi[\EventuallyDifferent{\emptyset}{\sequenceOnes}]$.
 \end{proof}  
 \subsection{The two topologies}
@@ -1315,8 +1331,11 @@ by
     2 & \text{for } k = |u| + 1.
     \end{cases}
 \]
-Then $\EventuallyDifferent{v}{y_1,\ldots,y_L} \subseteq \EventuallyDifferent{t}{y_1,\ldots,y_L}$
-and $\EventuallyDifferent{v}{y_1,\ldots,y_L} \cap \psi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$.
+Then $\EventuallyDifferent{v}{y_1,\ldots,y_L} \subseteq \EventuallyDifferent{t}{y_1,\ldots,y_L}$,
+$\EventuallyDifferent{v}{y_1,\ldots,y_L} \cap \psi[\Hechler{s}{s \frown \sequenceOnes}] = \emptyset$
+and
+$\EventuallyDifferent{v}{y_1,\ldots,y_L} \cap \incrbaire \not= \emptyset$
+.
 \end{proof}
 
 \section{Application to the theory of ideals}
@@ -1331,9 +1350,13 @@ there exists $A \in \calF$ such that
 $\forall_n f(n) < A(n)$.
 \end{definition}
 
-It is easy to compute that for any ideal $\calI$,
+It is easy to prove that
+\begin{claim}
+For any ideal $\calI$,
 $\calI^*$ is rapid if and only if
 $\calI^*$ is a dense set in the topology $\HechlerInduced$.
+\end{claim}
+\begin{proof}
 Indeed, if $\calI^*$ is dense in $\HechlerInduced$ then
 for any $f \in \baire$,
 $\Hechler{\emptyset}{f} \cap \incrbaire \not= \emptyset$, hence
@@ -1341,14 +1364,13 @@ $\Hechler{\emptyset}{f} \cap \calI^* \not= \emptyset$, so
 there exists $A \in \calI^*$ such that $\forall_n f(n) \leq A(n)$.
 On the other hand, suppose that $s \in \finincrbaire$
 and $\mu \in \incrbaire$, $s \subseteq \mu$.
-%%%Denote $B = \ran(\mu)$
-%%%and let $C(n) = B(n + |\ran(s)|)$.
-By assumption,
-there exists $A \in \calI^*$ such that
+
+  By assumption, there exists $A \in \calI^*$ such that
 $\forall_{n} \mu(n + |\ran(s)|) < A(n)$.
 Set $A^* = (A \setminus \lbrace 0,\ldots,\max(\ran(s)\rbrace) \cup \ran(s)$.
 Obviously $A^* \in \calI^*$.
-Then $A(n) \leq A^*(n + |\ran(s)|)$.
+
+  Then $A(n) \leq A^*(n + |\ran(s)|)$.
 We have $ \mu(n + |\ran(s)|) < A(n) \leq  A^*(n + |\ran(s)|)$.
 So $\forall_{m \leq |\ran(s)|} \mu(m) < A^*(m)$.
 Since $s \subseteq \mu$ and $A^* \cap  \lbrace 0,\ldots,\max(\ran(s)\rbrace = \ran(s)$,
@@ -1359,6 +1381,7 @@ $A(n) \leq A^*(n + |\ran(s)|)$:
   If $A \in \infsub$ and $a \in \omega$ then
 $A(n) \geq (A\setminus\lbrace a \rbrace)(n)$ and 
 $A(n) \leq (A \cup\lbrace a \rbrace)(n + 1)$. 
+\end{proof}
 
 Also, recall the notion of {\it increasing-invariant} ideals,
 (see \cite{KwelaPoplawskiSwaczynaTryba2019}, Definition 2,
