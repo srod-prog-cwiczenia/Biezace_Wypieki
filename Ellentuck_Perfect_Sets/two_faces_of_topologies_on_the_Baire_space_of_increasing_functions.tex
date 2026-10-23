@@ -737,14 +737,15 @@ can be summarised in the following diagram.
 
 \begin{figure}[h]
 \centering
-%\resizebox{\textwidth}{!}{%
-\begin{tikzcd}
- & & (\ND,\ND)-\mathrm{partition} \arrow[ld]\arrow[rd] & & \\
+%%%\resizebox{0.85\textwidth}{!}{%
+\begin{tikzcd}[column sep=tiny]
+ & & \substack{(\ND,\ND)\\ \mathrm{partition}} \arrow[ld]\arrow[rd] & & \\
  & \PiqueProperty{0}{1}\arrow[d] & & \PiqueProperty{0}{2}\arrow[d] & \\
- (\meager,\ND)-\mathrm{partition} \arrow[r]& \PiqueProperty{1}{1}\arrow[d] & & \PiqueProperty{1}{2}\arrow[d] & (\ND,\meager)-\mathrm{partition} \arrow[l]\\
+ \substack{(\meager,\ND)\\ \mathrm{partition}} \arrow[r]& \PiqueProperty{1}{1}\arrow[d] & & \PiqueProperty{1}{2}\arrow[d]
+ & \substack{(\ND,\meager)\\ \mathrm{partition}} \arrow[l]\\
  &\neg(\tau_2\subseteq \tau_1)& &\neg(\tau_1\subseteq \tau_2) &\\
 \end{tikzcd}
-%}
+%%%}
 \caption{Diagram of relationships}
 \label{figure:diagram-1}
 \end{figure}
@@ -1174,7 +1175,7 @@ ${\it int}_{\EventuallyDifferentInduced}(\psi[\EventuallyDifferent{\emptyset}{h}
 This theorem is analogous to Theorem \ref{theorem:dense-co-dense-Hechler}
 in the case of eventually different functions topology.
 
-\begin{theorem}
+\begin{theorem}\label{theorem:dense-co-dense-ED}
   For any $g_1, \ldots, g_L \in \baire$ and $s\in\finbaire$
   such that $\forall_{\substack{k < |s| \\ j < L}} g_j(k) \not= s(k)$,
   the set
@@ -1336,6 +1337,40 @@ $\EventuallyDifferent{v}{y_1,\ldots,y_L} \cap \psi[\Hechler{s}{s \frown \sequenc
 and
 $\EventuallyDifferent{v}{y_1,\ldots,y_L} \cap \incrbaire \not= \emptyset$
 .
+\end{proof}
+
+\begin{corollary}
+  The tuple $(\incrbaire\setminus \psi[\INFZero], \psi[\INFZero])$
+is a $(\meager, \ND)$ partition for the bitopological space
+$(\incrbaire, \EventuallyDifferentInduced, \EventuallyDifferentNative)$.
+\end{corollary}
+
+\begin{claim}\label{claim:not-pique-ED}
+  The bitopological space $(\incrbaire, \EventuallyDifferentInduced, \EventuallyDifferentNative)$
+does not have the $\PiqueProperty{0}{\EventuallyDifferentInduced}$.
+\end{claim}
+\begin{proof}
+  By way of contradiction, assume  $\PiqueProperty{0}{\EventuallyDifferentInduced}$
+and apply this assumption to the whole space $\incrbaire$
+obtaining $U^* \not= \emptyset$, $U^* \in \EventuallyDifferentNative$
+such that $U^* \in \ND(\EventuallyDifferentInduced$.
+We may assume that $U^* = \psi[\EventuallyDifferent{s}{g_1,\ldots,g_L}]$.
+By Theorem \ref{theorem:dense-co-dense-ED} the set
+$U^* = \psi[\EventuallyDifferent{s}{g_1,\ldots,g_L}]$
+is $\EventuallyDifferentInduced$ - dense in the set
+$C[\psi[s]]\cap\incrbaire$, which is a contradiction with
+$U^* \in \ND(\EventuallyDifferentInduced)$.
+\end{proof}
+
+\begin{corollary}
+The bitopological space
+$(\incrbaire, \EventuallyDifferentInduced, \EventuallyDifferentNative)$
+does not have the $(\ND,\ND)$ - partition property.
+\end{corollary}
+
+\begin{proof}
+  Simply follows by Claim \ref{claim:not-pique-ED} and
+Diagram \ref{figure:diagram-1}.
 \end{proof}
 
 \section{Application to the theory of ideals}
