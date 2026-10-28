@@ -282,6 +282,45 @@ Wita Stwosza 57,
 \email[A.~Nowik]{andrzej.nowik@ug.edu.pl}
 
 \addbibresource{rotacje_plik_pomocniczo_tymczasowy.bib}
+
+% nowsza skladnia filecontents
+\begin{filecontents*}[overwrite]{rotacje_plik_pomocniczo_tymczasowy.bib}
+% starszy LaTeX
+%\begin{filecontents*}{rotacje_plik_pomocniczo_tymczasowy.bib}
+
+@article {WagnerBojakowska19921993,
+    AUTHOR = {Wagner-Bojakowska, El\.zbieta},
+     TITLE = {Some remarks on density topologies on the plane},
+   JOURNAL = {Real Anal. Exchange},
+  FJOURNAL = {Real Analysis Exchange},
+    VOLUME = {18},
+      date = {1992/1993},
+    NUMBER = {2},
+     PAGES = {339--342}
+  %    ISSN = {0147-1937,1930-1219},
+  % MRCLASS = {26A03 (54A10 54A25 54C08)},
+  %MRNUMBER = {1228399},
+  %MRREVIEWER = {Aliasghar\ Alikhani-Koopaei},
+}
+@article{Laczkovich1998,
+  author  = {M. Laczkovich},
+  title   = {Analytic subgroups of the reals},
+  journal = {Proc. Amer. Math. Soc.},
+  volume  = {126},
+  year    = {1998},
+  pages   = {1783--1790}
+}
+@article{Buczolich2004,
+  author  = {Zolt{\'a}n Buczolich},
+  title   = {Category of density points of fat Cantor sets},
+  journal = {Real Analysis Exchange},
+  volume  = {29},
+  number  = {1},
+  pages   = {497--502},
+  date    = {2003/2004}
+}
+\end{filecontents*}
+
 \begin{document}
 \title[
 % a brief title
@@ -431,6 +470,14 @@ Let us define
   let $\NICEDIRECTIONS(P)$ denote the set of all directions $\theta \in [0, \pi)$
   such that $P$ is nowhere dense nice in the direction $\theta$.
 \end{definition}
+
+Let us note here that this notion is a generalization of a property introduced in
+\cite{Laczkovich1998}. Namely, in Lemma 2 of the aforementioned paper \cite{Laczkovich1998},
+for the sets $F_1$, $F_2$, we assume that whenever $A_j$ (for $j = 1,2$) is a portion
+of $F_j$, then $\operatorname{int}(A_1 + A_2) \not= \emptyset$.
+It is easy to see that this is equivalent to the
+condition $\frac{\pi}{4} \in \NICEDIRECTIONS(F_1 \times F_2)$.
+
 Let us prove the following easy characterization:
 \begin{lemma}
 Suppose that $P \subseteq \real^2$ is a perfect plane set and
@@ -485,9 +532,9 @@ is of first category, thus
 there exist closed and nowhere dense sets $E_n \subseteq \real$
 such that 
 $\pi_x[\phi^{-1}_\theta [W \cap P]] \subseteq \bigcup_{n=0}^\infty E_n$.
-Since $\theta in \NICEDIRECTIONS(P)$,
+Since $\theta \in \NICEDIRECTIONS(P)$,
 for all $n\in\omega$ we have
-$P cap \phi_{\theta}[E_n \times \real] \in \ND(P)$.
+$P \cap \phi_{\theta}[E_n \times \real] \in \ND(P)$.
 But
 $W \cap P \subseteq \bigcup_{n=0}^\infty P \cap \phi_{\theta}[E_n \times \real]$,
 since
@@ -498,13 +545,6 @@ hence
 $W \cap P \subseteq \phi_{\theta} \big[ \bigcup_{n=0}^\infty E_n \times \real \big]
 \subseteq \bigcup_{n=0}^\infty \phi_{\theta}[E_n \times \real]$.
 \end{proof}
-
-Let us note here that this notion is a generalization of a property introduced in
-\cite{Laczkovich1998}. Namely, in Lemma 2 of the aforementioned paper \cite{Laczkovich1998},
-for the sets $F_1$, $F_2$, we assume that whenever $A_j$ (for $j = 1,2$) is a portion
-of $F_j$, then $\operatorname{int}(A_1 + A_2) \not= \emptyset$.
-It is easy to see that this is equivalent to the
-condition $\frac{\pi}{4} \in \NICEDIRECTIONS(F_1 \times F_2)$.
 
 \section{Results}
 
@@ -673,7 +713,7 @@ $x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l$,
 hence
 $x_0^{(l)} = x(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l$.
 
-Let us choose $\varepsilon > 0$ such that
+Let us choose $\varepsilon \in (0, 1)$ such that
 \begin{equation}\label{equation:four-sinus}
   \frac{1}{4 \sum_{l=0}^{k-1} \frac{1}{|\sin \theta^*_l}|} > \varepsilon.
 \end{equation}
@@ -712,8 +752,8 @@ and for every $\hat{y}(\mu)$ such that $|\hat{y}(\mu) - y(\mu)| < \frac{\eta_0}{
 we have
 $
 \hat{x}(\mu) \cos \theta^*_l - \hat{y}(\mu) \sin \theta^*_l \in
-(\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | - \frac{\eta_0}{2};
-\hat{x}(\mu) \cos \theta^*_l - y(\mu) | \sin \theta^*_l | + \frac{\eta_0}{2})
+(\hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l - \frac{\eta_0}{2};
+\hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l  + \frac{\eta_0}{2})
 $.
 
 Let us compute $\mu(T_l)$, where 
@@ -732,8 +772,7 @@ We have:
 \[
   \mu\big( (\hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l - \frac{\eta_0}{2} | \sin \theta^*_l|;
   \hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l + \frac{\eta_0}{2} | \sin \theta^*_l|)
-  \cap \Phi(E) \geq
-  \big)
+  \cap \Phi(E) \big) \geq
 \]
 \[
   \eta_0 |\sin \theta^*_l| \big(1 - \varepsilon\frac{2 \eta_0}{\eta_0 |\sin \theta^*_l|}\big) =
@@ -823,40 +862,6 @@ we obtain a contradiction.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %                        The Bibliography                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{filecontents*}[overwrite]{rotacje_plik_pomocniczo_tymczasowy.bib}
-@article {WagnerBojakowska19921993,
-    AUTHOR = {Wagner-Bojakowska, El\.zbieta},
-     TITLE = {Some remarks on density topologies on the plane},
-   JOURNAL = {Real Anal. Exchange},
-  FJOURNAL = {Real Analysis Exchange},
-    VOLUME = {18},
-      date = {1992/1993},
-    NUMBER = {2},
-     PAGES = {339--342}
-  %    ISSN = {0147-1937,1930-1219},
-  % MRCLASS = {26A03 (54A10 54A25 54C08)},
-  %MRNUMBER = {1228399},
-  %MRREVIEWER = {Aliasghar\ Alikhani-Koopaei},
-}
-@article{Laczkovich1998,
-  author  = {M. Laczkovich},
-  title   = {Analytic subgroups of the reals},
-  journal = {Proc. Amer. Math. Soc.},
-  volume  = {126},
-  year    = {1998},
-  pages   = {1783--1790}
-}
-@article{Buczolich2004,
-  author  = {Zolt{\'a}n Buczolich},
-  title   = {Category of density points of fat Cantor sets},
-  journal = {Real Analysis Exchange},
-  volume  = {29},
-  number  = {1},
-  pages   = {497--502},
-  date    = {2003/2004}
-}
-\end{filecontents*}
 
 \printbibliography
 
