@@ -397,8 +397,9 @@ It is well known that:
 The latter version of the definition of the $\Phi_2$ points is invariant under rotations,
 so we have
 \[
-  (x_0, y_0) \in \Phi_2(E) \iff \phi_\theta(x_0, y_0) \in \Phi_2(\phi_\theta[E]).
+  (x_0, y_0) \in \Phi_2(E) \iff \phi_\theta(x_0, y_0) \in \Phi_2(\phi_\theta[E]),
 \]
+or equivalently, $\Phi_2(\phi_\theta[E]) = \phi_\theta[\Phi_2(E)]$.
 \end{claim}
 \begin{lemma}\label{lemma:rotation-measurable-stripe}
   Suppose that $B \subseteq \real$ is a Lebesgue measurable set.
@@ -756,17 +757,20 @@ $
 \hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l  + \frac{\eta_0}{2})
 $.
 
+Let us also define an auxiliary function $L_l \colon \real \to \real$
+by a formula:
+$L_l(x) = \hat{x}(\mu) \cos \theta^*_l - x \sin \theta^*_l$.
+
 Let us compute $\mu(T_l)$, where 
 \[
   T_l = \bigl\lbrace
   \hat{y}(\mu) \in (y(\mu) - \frac{\eta_0}{2}, y(\mu) + \frac{\eta_0}{2}) \colon
-  \hat{x}(\mu) \cos \theta^*_l - y(\mu) \sin \theta^*_l \in \Phi(E)
-  \bigl\rbrace.
+  \hat{x}(\mu) \cos \theta^*_l - \hat{y}(\mu) \sin \theta^*_l \in \Phi(E)
+  \bigl\rbrace =
 \]
-
-Let us also define a function $L_l \colon \real \to \real$
-by a formula:
-$L_l(x) = \hat{x}(\mu) \cos \theta^*_l - x \sin \theta^*_l$.
+\[
+  L_l^{-1}[\Phi(E)] \cap (y(\mu) - \frac{\eta_0}{2}, y(\mu) + \frac{\eta_0}{2}).
+\]
 
 We have:
 \[
@@ -778,7 +782,7 @@ We have:
   \eta_0 |\sin \theta^*_l| \big(1 - \varepsilon\frac{2 \eta_0}{\eta_0 |\sin \theta^*_l|}\big) =
 \]
 \[
-  \eta_0 |\sin \theta^*_l| - 2 \varepsilon \eta_0.
+  \eta_0 |\sin \theta^*_l| - 2 \varepsilon \eta_0 =  \eta_0 (|\sin \theta^*_l| - 2 \varepsilon).
 \]
 Next, we have
 \[
@@ -790,15 +794,15 @@ Next, we have
 
 Next,
 \[
-  \mu\big(y(\mu) - \frac{\eta_0}{2}; y(\mu) + \frac{\eta_0}{2} \setminus T_l\big) \leq
+  \mu\Big(\big(y(\mu) - \frac{\eta_0}{2}; y(\mu) + \frac{\eta_0}{2}\big) \setminus T_l\Big) \leq
 \]
 \[
   \frac{2 \varepsilon \eta_0}{|\sin \theta^*_l|}.
 \]
 Hence
 \[
-  \mu\big( \bigcup_{l = 0}^{k - 1} \big(y(\mu) - \frac{\eta_0}{2};
-  y(\mu) + \frac{\eta_0}{2} \setminus T_l\big) \leq
+  \mu\Big( \bigcup_{l = 0}^{k - 1} \big(y(\mu) - \frac{\eta_0}{2};
+  y(\mu) + \frac{\eta_0}{2}\big) \setminus T_l\Big) \leq
   \sum_{l = 0}^{k - 1} \frac{2 \varepsilon \eta_0}{|\sin \theta^*_l|}.
 \]
 Thus
