@@ -135,7 +135,7 @@
 \newcommand{\la}{\langle}
 
 %M
-\newcommand{\meager}{{\cal MGR}}
+\newcommand{\meager}{{\mathcal MGR}}
 \newcommand{\minideal}{${\cal F}_{\hbox{\rm \scriptsize min}}(\neg
   D)\;$}
 
@@ -319,6 +319,14 @@ Wita Stwosza 57,
   pages   = {497--502},
   date    = {2003/2004}
 }
+@article{Nowik2004,
+  author  = {Andrzej Nowik},
+  title   = {On some properties of squares of Sierpi{\'{n}}ski sets},
+  journal = {Colloquium Mathematicum},
+  volume  = {99},
+  year    = {2004},
+  pages   = {221--229}
+}
 \end{filecontents*}
 
 \begin{document}
@@ -337,6 +345,14 @@ dummy
 \end{abstract}
 
 \maketitle
+\section{Introduction}
+
+In the paper \cite{Nowik2004}, it was shown,
+among other things, that \todo{(...)}.
+To prove this theorem, the author used the following lemma, which is due to I. Recław:
+\todo{(...)}
+In the same paper, the question was raised as to whether this lemma admits
+a natural generalization, namely \todo{(...)}.
 
 \section{Notations}
 Let $\mu$ and $\mu_2$ denote the standard one-dimensional Lebesgue measure 
@@ -537,14 +553,15 @@ Since $\theta \in \NICEDIRECTIONS(P)$,
 for all $n\in\omega$ we have
 $P \cap \phi_{\theta}[E_n \times \real] \in \ND(P)$.
 But
-$W \cap P \subseteq \bigcup_{n=0}^\infty P \cap \phi_{\theta}[E_n \times \real]$,
-since
+$W \cap P \subseteq \bigcup_{n=0}^\infty P \cap \phi_{\theta}[E_n \times \real]$
+(this follows from 
 $\pi_x[\phi^{-1}_\theta[W \cap P]] \subseteq \bigcup_{n=0}^\infty E_n$,
 so
 $\phi^{-1}_\theta[W \cap P] \subseteq \bigcup_{n=0}^\infty E_n \times \real$,
 hence
 $W \cap P \subseteq \phi_{\theta} \big[ \bigcup_{n=0}^\infty E_n \times \real \big]
-\subseteq \bigcup_{n=0}^\infty \phi_{\theta}[E_n \times \real]$.
+\subseteq \bigcup_{n=0}^\infty \phi_{\theta}[E_n \times \real]$).
+So $W \cap P \in \meager(P)$ which is impossible.
 \end{proof}
 
 \section{Results}
