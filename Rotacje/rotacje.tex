@@ -225,6 +225,7 @@
 \newcommand{\yxMu}{\hat{y}(\hat{x}(\mu))}
 
 %\renewcommand\abstractname{Summary}
+\pagestyle{myheadings}
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
 \makeatletter
@@ -240,36 +241,13 @@
       \let\@oddfoot\ctimenow\let\@evenfoot\ctimenow
 \makeatother
 
-\pagestyle{myheadings}
 \markboth{{\bf Andrzej Nowik}}{\bf \today}
 
-%%%% opcjonalne dolaczanie komentarzy na marginesie (uruchomic zdejmujac komentarze z kodu ponizej):
-%\typein[\wersjaRELEASE]{Czy wygenerowac wersje RELEASE ? (t/n)}
-%\if\wersjaRELEASE t
-%\typeout{Zostanie wygenerowana wersja RELEASE}
-%\else
-%\typeout{Zostanie wygenerowana wersja ROBOCZA}
-%\fi
-%\if\wersjaRELEASE t
-%\def\uwzglednicKomentarze{n}
-%\else
-%\def\uwzglednicKomentarze{t}
-%\fi
-%\if\uwzglednicKomentarze t
-%\typeout{Do kompilacji ZOSTANA dolaczone komentarze}
-%\else
-%\typeout{Plik przekompiluje sie BEZ dolaczania komentarzy}
-%\fi
-%%%% jesli powyzej jest w komentarzu to na stale dodajemy opisy na marginesie:
-\def\uwzglednicKomentarze{t}
 \newcommand{\comentario}[1]{\if\uwzglednicKomentarze t \marginpar{\tt #1} \fi}
 % To see corrections comment next line and uncomment the second one
 \newcommand{\correction}[2]{#1}
 % \newcommand{\correction}[2]{#2}
-
-\pagestyle{myheadings}
 % To see corrections comment next line and uncomment the second one
-
 
 \author{Andrzej Nowik}
 \address[]{
@@ -337,7 +315,7 @@ On rotations of sets...
 %a full title
 On rotations of sets of measure zero and sets of first category
 }
-\keywords{topologia gestosci, topologia dyskretna, idealy}
+\keywords{Lebesgue measure, sets of first category, density topology, subsets of the plane}
 \subjclass[2010]{03E05, 54D05, 54H05, 54A05, 11A41, 11B05, 11B25}
 
 \begin{abstract}
@@ -347,12 +325,32 @@ dummy
 \maketitle
 \section{Introduction}
 
-In the paper \cite{Nowik2004}, it was shown,
-among other things, that \todo{(...)}.
-To prove this theorem, the author used the following lemma, which is due to I. Recław:
-\todo{(...)}
+In proving the main theorems in \cite{Nowik2004},
+the author used the following lemma, due to I. Recław:
+\begin{lemma}[I.Recław, Lemma 3.1 in \cite{Nowik2004}]
+Suppose that $M \subseteq \real$ is a meager set and
+$N \subseteq \real$ is a Lebesgue measure zero set.
+Then $X(N) \cup \tau[X(M)] \not \real^2$,
+where $\tau\colon\real^2\to\real^2$ is given by
+$\tau(x,y) = (x - y, x + y)$,
+and $X(A) = (\real\times A) \cup (A\times\real)$.
+\end{lemma}
 In the same paper, the question was raised as to whether this lemma admits
-a natural generalization, namely \todo{(...)}.
+a natural generalization, namely:
+\begin{Problem}[Problem 3.8 in \cite{Nowik2004}]
+  Suppose that $(\theta_j, \mu_j \colon j \in \omega)$ are
+  pairwise distinct angles from $[0, \pi)$ and
+$M \subseteq \real$ is a meager set and
+$N \subseteq \real$ is a Lebesgue measure zero set.
+It is true that
+\[
+  \bigcup_{j=0}^\infty \phi_{\theta_j}^{-1}[M \times \real]
+  \cup
+  \bigcup_{j=0}^\infty \phi_{\mu_j}^{-1}[N \times \real]
+  \not=\real^2?
+\]
+ 
+\end{Problem}
 
 \section{Notations}
 Let $\mu$ and $\mu_2$ denote the standard one-dimensional Lebesgue measure 
