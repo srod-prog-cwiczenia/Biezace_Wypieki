@@ -8,6 +8,7 @@
 % 1. odkomentowac \address i \email
 % 2. odkomentowac \keywords{} \subjclass
 \documentclass[12pt]{amsart}
+\input{rotacje_konfiguracja}
 \usepackage{amssymb} % ten pakiet jest nieodzowny m.in. po to aby zrenderowac instrukcje varsubsetneq
 \usepackage{amsmath}
 \usepackage{latexsym}
@@ -37,7 +38,9 @@
 %ten pakiet sluzy do sprawdzania m.in. czy odpowiednie pozycje bibliograficzne
 %sa faktycznie uzywane w tresci pliku. Przypuszczalnie nalezy go
 %uruchamiac tylko podczas weryfikacji pliku - w oficjalnej wersji powininen byc wylaczony.
-\usepackage{refcheck}
+\ifdraft
+  \usepackage{refcheck}
+\fi
 %pakiet dolaczony na razie po to aby moc utworzyc ,,monstrualne'' kwantyfikatory bigforall i bigexists
 \usepackage{graphicx}
 %pakiet rotating służy do obracania obiektów, takich jak tekst, tabele, obrazy, wykresy itp.
@@ -59,8 +62,9 @@
 \usepackage[backend=biber]{biblatex}
 
 %%% to pozwala kontrolować overfulle, są one zaznaczane na marginesie czarną beleczką (o zadanym rozmiarze):
+\ifdraft
 \overfullrule=5pt 
-
+\fi
 %---------------------------------------------------------------------
 % Theorems 
 %---------------------------------------------------------------------
@@ -225,9 +229,12 @@
 \newcommand{\yxMu}{\hat{y}(\hat{x}(\mu))}
 
 %\renewcommand\abstractname{Summary}
-\pagestyle{myheadings}
+\ifdraft
+  \pagestyle{myheadings}
+\fi
 %%%To print the date and time on each page
 %%% comment out if not needed (next 14 lines)
+\ifdraft
 \makeatletter
 {\newcount\@hour}
 {\newcount\@minute}
@@ -240,15 +247,8 @@
 \def\ctimenow{\hfil{\tt \jobname.tex, \today~Time: \timenow }\hfil}
       \let\@oddfoot\ctimenow\let\@evenfoot\ctimenow
 \makeatother
-
 \markboth{{\bf Andrzej Nowik}}{\bf \today}
-
-\newcommand{\comentario}[1]{\if\uwzglednicKomentarze t \marginpar{\tt #1} \fi}
-% To see corrections comment next line and uncomment the second one
-\newcommand{\correction}[2]{#1}
-% \newcommand{\correction}[2]{#2}
-% To see corrections comment next line and uncomment the second one
-
+\fi
 \author{Andrzej Nowik}
 \address[]{
 Andrzej Nowik\\
@@ -261,10 +261,13 @@ Wita Stwosza 57,
 
 \addbibresource{rotacje_plik_pomocniczo_tymczasowy.bib}
 
+\ifstarawersjatex
+% starszy LaTeX
+\begin{filecontents*}{rotacje_plik_pomocniczo_tymczasowy.bib}
+\else
 % nowsza skladnia filecontents
 \begin{filecontents*}[overwrite]{rotacje_plik_pomocniczo_tymczasowy.bib}
-% starszy LaTeX
-%\begin{filecontents*}{rotacje_plik_pomocniczo_tymczasowy.bib}
+\fi
 
 @article {WagnerBojakowska19921993,
     AUTHOR = {Wagner-Bojakowska, El\.zbieta},
@@ -315,11 +318,18 @@ On rotations of sets...
 %a full title
 On rotations of sets of measure zero and sets of first category
 }
-\keywords{Lebesgue measure, sets of first category, density topology, subsets of the plane}
-\subjclass[2010]{03E05, 54D05, 54H05, 54A05, 11A41, 11B05, 11B25}
+\keywords{Lebesgue measure, sets of first category, density topology, subsets of the plane,
+measure and category}
+\subjclass[2020]{Primary: 28A05, 54E52; Secondary: 03E15, 54H05}
 
 \begin{abstract}
-dummy
+  We investigate covering properties of the plane by countable families of rotated vertical strips
+whose bases are either meager or of Lebesgue measure zero.
+We obtain a partial answer to a problem of Nowik by proving that such a covering
+is impossible when the family of rotations associated with the meager set is countable,
+whereas the family associated with the null set is finite.
+To prove it we introduce the notion of a nowhere-dense
+nice direction for a set.
 \end{abstract}
 
 \maketitle
@@ -384,6 +394,12 @@ Let us note here that in the cited paper by Buczolich,
 the notion of ``fat'' applies to Cantor sets
 (i.e., perfect sets homeomorphic to the Cantor space),
 but there is no obstacle to defining this property for all perfect sets.
+
+Throughout the paper, $\meager(X)$ and $\ND(X)$ will denote the families
+of meager and nowhere dense sets in the topological space $X$, respectively.
+If this takes place in the standard space $\real^n$, we simply write
+$\meager$ and $\ND$.
+
 \section{Preliminaries}
 
 Recall the classical notion of a density point in the plane
@@ -508,7 +524,7 @@ equivalent:
 \item\label{enumerate:nicedir-characterization}
   For any open set $W \subseteq \real^2$ such that
   $W \cap P \not= \emptyset$ we have
-  $\pi_x[\phi_{\theta}^{-1}[W \cap P]$ has a nonempty interior.
+  $\pi_x[\phi_{\theta}^{-1}[W \cap P]]$ has a nonempty interior.
 \end{enumerate}
 
 \end{lemma}
@@ -888,9 +904,9 @@ we obtain a contradiction.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \printbibliography
-
+\ifdraft
 \begin{center}
 \ctimenow
 \end{center}
-
+\fi
 \end{document}
