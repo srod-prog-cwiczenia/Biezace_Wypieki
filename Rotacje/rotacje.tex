@@ -325,46 +325,49 @@ dummy
 \maketitle
 \section{Introduction}
 
-In proving the main theorems in \cite{Nowik2004},
-the author used the following lemma, due to I. Recław:
-\begin{lemma}[I.Recław, Lemma 3.1 in \cite{Nowik2004}]
+In the proofs of the main theorems in \cite{Nowik2004},
+the author used the following lemma, due to I. Rec\l{}aw:
+\begin{lemma}[I. Rec\l{}aw, Lemma 3.1 in \cite{Nowik2004}]
 Suppose that $M \subseteq \real$ is a meager set and
 $N \subseteq \real$ is a Lebesgue measure zero set.
-Then $X(N) \cup \tau[X(M)] \not \real^2$,
+Then $X(N) \cup \tau[X(M)] \not= \real^2$,
 where $\tau\colon\real^2\to\real^2$ is given by
 $\tau(x,y) = (x - y, x + y)$,
 and $X(A) = (\real\times A) \cup (A\times\real)$.
 \end{lemma}
-In the same paper, the question was raised as to whether this lemma admits
-a natural generalization, namely:
+The same paper also raised the question of whether this lemma admits
+the following natural generalization:
 \begin{Problem}[Problem 3.8 in \cite{Nowik2004}]
   Suppose that $(\theta_j, \mu_j \colon j \in \omega)$ are
   pairwise distinct angles from $[0, \pi)$ and
 $M \subseteq \real$ is a meager set and
 $N \subseteq \real$ is a Lebesgue measure zero set.
-It is true that
+Is is true that
 \[
   \bigcup_{j=0}^\infty \phi_{\theta_j}^{-1}[M \times \real]
   \cup
   \bigcup_{j=0}^\infty \phi_{\mu_j}^{-1}[N \times \real]
   \not=\real^2?
 \]
- 
 \end{Problem}
 
+In this paper, we provide a partial answer to this question;
+the problem remains open in its full generality.
+
 \section{Notations}
-Let $\mu$ and $\mu_2$ denote the standard one-dimensional Lebesgue measure 
-and the two-dimensional Lebesgue measure, respectively.
+Let $\mu$ and $\mu_2$ denote the one-dimensional
+and two-dimensional Lebesgue measures, respectively.
 Let $\theta \in [0, \pi)$ be any angle.
 Let $\phi_\theta \colon \real^2\to\real^2$ denote
 the rotation of the plane about the origin by an angle $\theta$.
-Suppose that $B\subseteq\real$ is
-a Lebesgue measurable set.
-Let $\Phi(B)$ denote the set of all Lebesgue density points of the set $B$.
+Let $B\subseteq\real$ be measurable.
+We denote by $\Phi(B)$ the set of all Lebesgue density points of the set $B$.
 
-It is known that for measurable sets $A, B$ we have
-$\Phi(A \cap B) = \Phi(A) \cap \Phi(B)$ and
-$\Phi(A) \triangle A$ has measure zero, and
+It is well known that, for measurable sets $A, B$ we have
+\[
+\Phi(A \cap B) = \Phi(A) \cap \Phi(B)
+\]
+and that $\Phi(A) \triangle A$ has measure zero, and
 these properties hold for other density operators
 (such as $\Phi_2$, introduced below).
 
@@ -375,7 +378,7 @@ If $Y$ is any subset of a topological space $X$ then by a portion of
 $Y$ we mean a nonempty and relative open subset of $Y$
 (see \cite{Laczkovich1998}, page 1783).
 
-Under ``fat'' perfect set we mean a perfect set such that each of
+By a ``fat'' perfect set we mean a perfect set such that each of
 its portion is of positive Lebesgue measure (see \cite{Buczolich2004}, page 497).
 Let us note here that in the cited paper by Buczolich,
 the notion of ``fat'' applies to Cantor sets
@@ -383,7 +386,7 @@ the notion of ``fat'' applies to Cantor sets
 but there is no obstacle to defining this property for all perfect sets.
 \section{Preliminaries}
 
-Let us recall the classical notion of a density point in the plane
+Recall the classical notion of a density point in the plane
 (see for example \cite{WagnerBojakowska19921993}):
 
 \begin{definition}
@@ -392,12 +395,12 @@ Define
 \[
   (x_0, y_0) \in \Phi_2(E) \iff
   \lim_{\varepsilon\to 0^+}
-  \frac{\mu_2(E \cap [x_0 - \varepsilon; x_0 + \varepsilon] \times
-   [y_0 - \varepsilon; y_0 + \varepsilon])}{4 \varepsilon^2} = 1.
+  \frac{\mu_2(E \cap [x_0 - \varepsilon, x_0 + \varepsilon] \times
+   [y_0 - \varepsilon, y_0 + \varepsilon])}{4 \varepsilon^2} = 1.
 \]
 \end{definition}
 
-It is well known that:
+The following fact is well known.
 \begin{fact}
   This definition is equivalent to the ``circular'' one, namely:
 \[
@@ -408,7 +411,7 @@ It is well known that:
 \end{fact}
 
 \begin{claim}\label{claim:density-point-rotation}
-The latter version of the definition of the $\Phi_2$ points is invariant under rotations,
+The latter definition of $\Phi_2$ is invariant under rotations,
 so we have
 \[
   (x_0, y_0) \in \Phi_2(E) \iff \phi_\theta(x_0, y_0) \in \Phi_2(\phi_\theta[E]),
@@ -423,29 +426,29 @@ or equivalently, $\Phi_2(\phi_\theta[E]) = \phi_\theta[\Phi_2(E)]$.
   Let $(x_0, y_0) \in \real^2$ and $\varepsilon > 0$.
   Then
 \[
-  \frac{\mu_2((B \times \real) \cap [x_0 - \varepsilon; x_0 + \varepsilon] \times
-   [y_0 - \varepsilon; y_0 + \varepsilon])}{4 \varepsilon^2} = 
+  \frac{\mu_2((B \times \real) \cap [x_0 - \varepsilon, x_0 + \varepsilon] \times
+   [y_0 - \varepsilon, y_0 + \varepsilon])}{4 \varepsilon^2} = 
 \]
 \[
-  = \frac{\mu(B \cap [x_0 - \varepsilon; x_0 + \varepsilon]) \cdot 2\varepsilon}{4\varepsilon^2}
+  = \frac{\mu(B \cap [x_0 - \varepsilon, x_0 + \varepsilon]) \cdot 2\varepsilon}{4\varepsilon^2}
 \]
 \[
-= \frac{\mu(B \cap [x_0 - \varepsilon; x_0 + \varepsilon])}{2\varepsilon}.
+= \frac{\mu(B \cap [x_0 - \varepsilon, x_0 + \varepsilon])}{2\varepsilon}.
 \]
 Hence
 \[
 \forall_{0 < \eta < 1} \exists_{\varepsilon_0 > 0} \forall_{0 < \varepsilon < \varepsilon_0}
-  \frac{\mu(B \cap [x_0 - \varepsilon; x_0 + \varepsilon])}{2\varepsilon} > 1 - \eta \iff
+  \frac{\mu(B \cap [x_0 - \varepsilon, x_0 + \varepsilon])}{2\varepsilon} > 1 - \eta \iff
 \]
 \[
   \forall_{0 < \eta < 1} \exists_{\varepsilon_0 > 0} \forall_{0 < \varepsilon < \varepsilon_0}
-  \frac{\mu_2((B \times \real) \cap [x_0 - \varepsilon; x_0 + \varepsilon] \times
-   [y_0 - \varepsilon; y_0 + \varepsilon])}{4 \varepsilon^2} > 1 - \eta. 
+  \frac{\mu_2((B \times \real) \cap [x_0 - \varepsilon, x_0 + \varepsilon] \times
+   [y_0 - \varepsilon, y_0 + \varepsilon])}{4 \varepsilon^2} > 1 - \eta. 
 \]
 \end{proof}
 
 \begin{lemma}
-  For $\theta \in [0, \pi)$, $B\subseteq\real$ Lebesgue measurable, then
+  Let $\theta \in [0, \pi)$ and let $B\subseteq\real$ Lebesgue measurable. Then
   $\phi_{\theta} [\Phi(B) \times \real] = \Phi_2(\phi_{\theta} [B\times\real])$.
 \end{lemma}
 
@@ -453,12 +456,12 @@ Hence
   This is a consequence of the fact that density points in the plane are
   invariant under rotations (see Claim \ref{claim:density-point-rotation}).
   By Lemma \ref{lemma:rotation-measurable-stripe} we have:
-  $\phi_{\theta} [\Phi(B) \times \real] = \phi_{\theta}[\phi_2(B\times\real)] =
+  $\phi_{\theta} [\Phi(B) \times \real] = \phi_{\theta}[\Phi_2(B\times\real)] =
   \Phi_2(\phi_\theta [B\times\real])$
 \end{proof}
 
 \begin{lemma}\label{lemma:finite-rotations-density-points}
-  For $\theta_1,\ldots,\theta_L \in [0; \pi)$
+  For $\theta_1,\ldots,\theta_L \in [0, \pi)$
   and for $B\subseteq\real$ Lebesgue measurable,
   we have
   \[
@@ -486,12 +489,12 @@ Let us define
   such that $P$ is nowhere dense nice in the direction $\theta$.
 \end{definition}
 
-Let us note here that this notion is a generalization of a property introduced in
+Note that this notion is a generalization of a property introduced in
 \cite{Laczkovich1998}. Namely, in Lemma 2 of the aforementioned paper \cite{Laczkovich1998},
 for the sets $F_1$, $F_2$, we assume that whenever $A_j$ (for $j = 1,2$) is a portion
 of $F_j$, then $\operatorname{int}(A_1 + A_2) \not= \emptyset$.
-It is easy to see that this is equivalent to the
-condition $\frac{\pi}{4} \in \NICEDIRECTIONS(F_1 \times F_2)$.
+It is easy to see that this assumption is equivalent to the
+condition that $\frac{\pi}{4} \in \NICEDIRECTIONS(F_1 \times F_2)$.
 
 Let us prove the following easy characterization:
 \begin{lemma}
@@ -512,14 +515,14 @@ equivalent:
 
 \begin{proof}
 $(\ref{enumerate:nicedir-characterization}) \implies (\ref{enumerate:nicedir})$:
-Suppose a contrario that $\theta \not\in \NICEDIRECTIONS(P)$
-and $\theta$ fulfills the condition (\ref{enumerate:nicedir-characterization}).
+Suppose, to the contrary, that $\theta \not\in \NICEDIRECTIONS(P)$
+and $\theta$ satisfies the condition (\ref{enumerate:nicedir-characterization}).
 Since $\theta \not\in \NICEDIRECTIONS(P)$ there exists a nowhere dense set
 $E \subseteq \real$ such that
 $P \cap \phi_{\theta}[E \times \real] \not\in \ND(P)$.
 We may assume that $E$ is a closed set. Hence the set
 $P \cap \phi_{\theta}[E \times \real]$ is a closed set.
-Thus there exsists an open $W \subseteq \real^2$
+Thus there exists an open $W \subseteq \real^2$
 such that $W \cap P \not= \emptyset$ and 
 $W \cap P \subseteq \phi_{\theta}[E \times \real]$.
 By (\ref{enumerate:nicedir-characterization}) we obtain
@@ -534,7 +537,7 @@ $(\ref{enumerate:nicedir}) \implies (\ref{enumerate:nicedir-characterization})$:
 Suppose that $\theta \in \NICEDIRECTIONS(P)$ and let $W \subseteq \real^2$
 be an open set such that $W \cap P \not=\emptyset$ and
 $\mathit{int} \pi_x [\phi_\theta^{-1} [W \cap P]] = \emptyset$.
-Since $W \cap P$ is an $F_{\sigma}$ set, then
+Since $W \cap P$ is an $F_{\sigma}$ set,
 there exists a sequence of compact subsets $(K_n)$ such that
 $W \cap P = \bigcup_{n=0}^\infty K_n$. Then
 $\phi^{-1}_\theta [W \cap P] = \bigcup_{n=0}^\infty \phi_\theta^{-1}[K_n]$ hence
@@ -548,7 +551,7 @@ there exist closed and nowhere dense sets $E_n \subseteq \real$
 such that 
 $\pi_x[\phi^{-1}_\theta [W \cap P]] \subseteq \bigcup_{n=0}^\infty E_n$.
 Since $\theta \in \NICEDIRECTIONS(P)$,
-for all $n\in\omega$ we have
+we have, for every $n\in\omega$, 
 $P \cap \phi_{\theta}[E_n \times \real] \in \ND(P)$.
 But
 $W \cap P \subseteq \bigcup_{n=0}^\infty P \cap \phi_{\theta}[E_n \times \real]$
@@ -568,7 +571,7 @@ So $W \cap P \in \meager(P)$ which is impossible.
   \label{theorem:main}
   Suppose that $(\mu_j)_{j=0}^\infty$ and $\theta_0,\ldots, \theta_{k-1}$
   are sequences of angles from $[0,\pi)$. Assume also that
-  $\forall_{j \in 0,1,\ldots} \forall_{l = 0,\ldots, k-1} \mu_j \not= \theta_l$.
+  $\forall_{j\in\omega} \forall_{l<k} \mu_j\neq\theta_l$.
   Suppose also that $M \subseteq \real$ is a meager set and
   $N \subseteq \real$ is a Lebesgue measure zero set.
   Then the set
@@ -591,7 +594,7 @@ So $W \cap P \in \meager(P)$ which is impossible.
   Suppose that $\theta_0,\ldots,\theta_{k-1}$
   is a finite sequence of angles from $[0,\pi)$, and suppose that 
   $N \subseteq \real$ is a Lebesgue measure zero set.
-  Then there exist a perfect set $P$ such that
+  Then there exists a perfect set $P$ such that
   \[
      P \cap \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real] = \emptyset.
   \]
@@ -601,13 +604,15 @@ So $W \cap P \in \meager(P)$ which is impossible.
   
 \begin{proof}
   Choose a closed set $E \subseteq \real\setminus N$
-  such that $\overline{\Phi(E)} = E$ (thus $E$ is a perfect set)
-  and moreover, all portions of $E$ have measure greater than zero.
+  such that $\overline{\Phi(E)} = E$ (such a set must be 
+  a fat perfect set).
+%%% and moreover, all portions of $E$ have measure greater than zero. - to
+%%% zbędne już
   We may also assume that
   \[
     \mu_2(\bigcap_{l = 0}^{k-1} \phi_{\theta_l}[E \times \real]) > 0.
   \]
-  The latter follows from the following:
+  This follows from the following observation:
   For any increasing sequence of sets: $E_n \subseteq E_{n+1}$
   we have
   \[
@@ -631,10 +636,10 @@ We have
 \tilde{E} = \Phi_2(E^*) \subseteq P^* \subseteq E^*.
 \]
 (by Lemma \ref{lemma:finite-rotations-density-points})
-Moreover, $P^*$ is a perfect ``fat'' set.  
-It suffices to check only that this set is a ``fat'' set,
+Moreover, $P^*$ is a fat perfect set.  
+It suffices to check that this set is a ``fat'' set,
 i.e. if $W$ is an open set such that $W \cap \overline{\Phi_2(E^*)} \not= \emptyset$
-then $\mu_2(W \cap \overline{\Phi_2(E^*)}) > 0$. But since
+then $\mu_2(W \cap \overline{\Phi_2(E^*)}) > 0$. Since
 $W \cap \overline{\Phi_2(E^*)} \not= \emptyset$, then
 $W \cap \Phi_2(E^*) \not= \emptyset$, hence
 $\mu_2(E^* \cap W) > 0$.
@@ -659,7 +664,7 @@ Observe that we have
 \[
   E^* \cap \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real] = \emptyset.
 \]
-Indeed, suppose that $X$ is a point from $E^*$ such that
+Indeed, suppose that $X\in E^*$ and that
 $X \in \bigcup_{l = 0}^{k-1} \phi_{\theta_l}[N \times \real]$,
 so there exists $0 \leq l_0 \leq k - 1$ and $(x(L), y(L)) \in N \times \real$
 such that $X = \phi_{\theta_{l_0}}((x(L), y(L)))$.
@@ -692,10 +697,10 @@ Denote:
 Evidently
 $x(\mu) \in F$ and $x^{(l)}_0 \in \Phi(E)$ for $l = 0, \ldots, k-1$.
 
-Let us formulate the following auxiliary lemma:
+We first establish the following auxiliary lemma:
 \begin{lemma}\label{lemma:change-in-density}
   If $B \subseteq A$, $A, B$ Lebesgue measurable sets, $\mu(B) > 0$, $\mu(A) < \infty$,
-  $E$ also Lebesgue measurable set, then if
+  $E$ is also a Lebesgue measurable set, then if
   for some $\varepsilon \in (0,1)$ we have
   \[
   \mu(E \cap A) \geq (1 - \varepsilon) \mu(A),
@@ -776,7 +781,7 @@ Let us also define an auxiliary function $L_l \colon \real \to \real$
 by a formula:
 $L_l(x) = \hat{x}(\mu) \cos \theta^*_l - x \sin \theta^*_l$.
 
-Let us compute $\mu(T_l)$, where 
+We will compute $\mu(T_l)$, where 
 \[
   T_l = \bigl\lbrace
   \hat{y}(\mu) \in (y(\mu) - \frac{\eta_0}{2}, y(\mu) + \frac{\eta_0}{2}) \colon
@@ -830,7 +835,7 @@ and by inequality (\ref{equation:four-sinus}) we obtain
   \mu\big(\bigcap_{l=0}^{k-1} T_l \big) \geq \frac{\eta_0}{2},
 \]
 hence $\bigcap_{l=0}^{k-1} T_l\not=\emptyset$.
-Thus, let us choose any 
+Choose any 
 $\yxMu \in \bigcap_{l=0}^{k-1} T_l$
 (We use this notation because $\hat{y}$ depends on $\hat{x}$).
 
@@ -849,21 +854,21 @@ Moreover, we have
 \begin{equation}\label{equation:conclusion-3}
 \hat{x}(\mu) \cos \theta^*_l - \yxMu \sin \theta^*_l \in \Phi(E).
 \end{equation}
-We will show that $\phi_\mu(X^*_0) \in \tilde{E}$.
+We now show that $\phi_\mu(X^*_0) \in \tilde{E}$.
 Since (\ref{equation:conclusion-3}) we have
 $\pi_x(\phi_{\theta^*_l}(X^*_0)) \in \Phi(E)$,
 hence
 $\pi_x(\phi_{\theta_l}^{-1}(\phi_{\mu}(X^*_0))) \in \Phi(E)$,
 so
-$\phi_{\mu}(X^*_0) \in \phi_{\theta_l}[\phi(E) \times \real]$.
+$\phi_{\mu}(X^*_0) \in \phi_{\theta_l}[\Phi(E) \times \real]$.
 Therefore
 $\phi_{\mu}(X^*_0) \in \tilde{E}$.
 \end{proof}
 
 Continuation of the proof of Theorem \ref{theorem:main}:
 
-Apply Lemma \ref{lemma:main} to the sequence $\theta_0,\ldots,\theta_{k-1}$
-and to the set $N$. So we get a suitable perfect set $P$.
+Applying Lemma \ref{lemma:main} to the sequence $\theta_0,\ldots,\theta_{k-1}$
+and to the set $N$, we obtain a suitable perfect set $P$.
 Observe that we have
 \begin{equation}\label{equation:P-is-pathological}
   P \subseteq \bigcup_{j = 0}^\infty \phi_{\mu_j}[M \times \real].
